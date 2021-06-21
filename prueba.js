@@ -1,3 +1,3 @@
 function alert(){
-	alert("Hola mundo");	
+	alert("¿Que onda wachin?");	
 }
