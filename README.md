@@ -11,3 +11,4 @@
 - https://www.elmercadodebebidas.com.ar/
 - https://www.puroescabio.com.ar/
 - https://tienda.bierful.com/
+- https://www.craftsociety.com.ar/collections/all-beers
