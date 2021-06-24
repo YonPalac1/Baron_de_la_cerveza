@@ -7,8 +7,9 @@
 ### Jonatan Palacios
 - 
 -
+##Temática de la web y audiencia objetivo
 
- 
+
 ## Sitios de Referencia
 - https://www.alafut.qc.ca/
 - https://www.borrachines.com.ar/?gclid=CjwKCAjwzruGBhBAEiwAUqMR8CJajjo85GqILjK5KwHYTym5kCBrU3ENKFtHP75tPMH456eJOuCY_RoCm2YQAvD_BwE
