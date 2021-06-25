@@ -1,7 +1,7 @@
 # Barón de la cerveza
-<hr>
+
 ## Primer Sprint
-<hr>
+
 ## Integrantes
 ### Keila Mantiñan
 -
