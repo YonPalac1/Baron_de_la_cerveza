@@ -1,12 +1,14 @@
-# Primer Sprint
-
+# Barón de la cerveza
+<hr>
+## Primer Sprint
+<hr>
 ## Integrantes
 ### Keila Mantiñan
 -
 -
 ### Jonatan Palacios
-- 
--
+- Desarrollador y estudiando de programación web
+
 ## Temática de la web y audiencia objetivo
 
 
