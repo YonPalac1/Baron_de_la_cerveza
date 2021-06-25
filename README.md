@@ -1,10 +1,14 @@
-# grupo_9_El_Barón_de_la_Cerveza
+# El_Barón_de_la_Cerveza
 
-### Integrantes
+## Integrantes
+
+### Keila Mantiñan
 -
 -
-- Keila Mantiñan
-
+-
+### Jonatan Palacios 
+- Desarrollador y estudiante de programación web
+ 
 ### Sitios de Referencia
 - https://www.alafut.qc.ca/
 - https://www.borrachines.com.ar/?gclid=CjwKCAjwzruGBhBAEiwAUqMR8CJajjo85GqILjK5KwHYTym5kCBrU3ENKFtHP75tPMH456eJOuCY_RoCm2YQAvD_BwE
