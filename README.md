@@ -8,6 +8,10 @@
 -
 ### Jonatan Palacios 
 - Desarrollador y estudiante de programación web
+
+### Juan Pablo Arguello
+-
+-
  
 ### Sitios de Referencia
 - https://www.alafut.qc.ca/
