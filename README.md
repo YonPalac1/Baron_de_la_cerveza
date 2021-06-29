@@ -3,9 +3,7 @@
 ## Integrantes
 
 ### Keila Mantiñan
--
--
--
+- Estudiante de programación web
 ### Jonatan Palacios 
 - Desarrollador y estudiante de programación web
 
