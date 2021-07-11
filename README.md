@@ -13,10 +13,10 @@
 - Desarrollador web
 
 ## Temática de la web y audiencia objetivo
-El sitio es un plataforma de venta de bebidas alcohólicas al por mayor, en la cual los potenciales clientes serán las cervezarias, almacenes, bares, restaurantes, etc. Que tengan la necesidad de abastecerse de diferentes tipos de cervezas.
+El Barón de la cerveza es un plataforma de venta de bebidas alcohólicas al por mayor, en la cual los potenciales clientes son las cervezarias, almacenes, bares, restaurantes, etc. Que tengan la necesidad de abastecerse de diferentes tipos de cervezas. El barón de la cerveza le garantiza la mejor y más rápida atención, ya que los desarrolladores de la tienda online le dedican todo el amor y el esfuerzo para que su navegación sea fluida, rápida y elegante para su comodidad. 
 
 ### Sitios de Referencia
-- https://www.alafut.qc.ca/
+<a href="https://www.alafut.qc.ca/">Alafut</a>
 - https://www.borrachines.com.ar/?gclid=CjwKCAjwzruGBhBAEiwAUqMR8CJajjo85GqILjK5KwHYTym5kCBrU3ENKFtHP75tPMH456eJOuCY_RoCm2YQAvD_BwE
 - https://www.elmercadodebebidas.com.ar/
 - https://www.puroescabio.com.ar/
