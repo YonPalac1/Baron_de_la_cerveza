@@ -20,7 +20,7 @@ El Barón de la cerveza es un plataforma de venta de bebidas alcohólicas al por
 - <a href="https://www.borrachines.com.ar/?gclid=CjwKCAjwzruGBhBAEiwAUqMR8CJajjo85GqILjK5KwHYTym5kCBrU3ENKFtHP75tPMH456eJOuCY_RoCm2YQAvD_BwE">Borrachines</a> 
 - <a href="https://www.elmercadodebebidas.com.ar/">El mercado de bebidas</a> 
 - <a href="https://www.puroescabio.com.ar/">Puro escabio</a> 
-- <a href="https://tienda.bierful.com/"></a>
+- <a href="https://tienda.bierful.com/">Bierful</a>
 - <a href="https://www.craftsociety.com.ar/collections/all-beers">Craft Society</a>
 
 ##### ¿Por qué elegimos éstas páginas?
