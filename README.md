@@ -6,7 +6,8 @@
 - Programadora web
 
 ### Jonatan Palacios 
-- Diseñador web
+- 27 años
+- Programador y desarrollador web, y experto en Sudoku.
 
 ### Juan Pablo Arguello
 - Desarrollador web
