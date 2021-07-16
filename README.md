@@ -1,5 +1,5 @@
 # El_Barón_de_la_Cerveza
-<img src="https://github.com/KeilaManti/grupo_9_El_Baron_de_la_Cerveza/blob/main/img/Sin%20t%C3%ADtulo.png">
+<center><img src="https://github.com/KeilaManti/grupo_9_El_Baron_de_la_Cerveza/blob/master/img/icon-title2.png"></center>
 
 ## Integrantes
 
