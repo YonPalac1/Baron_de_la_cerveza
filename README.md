@@ -4,6 +4,7 @@
 ## Integrantes
 
 ### Keila Mantiñan
+- 22 años
 - Programadora web
 
 ### Jonatan Palacios 
