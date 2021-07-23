@@ -1,13 +1,13 @@
-const express = require("express");
+const express = require('express');
+const path = require('path');
 const app = express();
-const port = 3000;
-const path = require("path");
 
-app.use(express.static("public"));
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, `views/home.html`));
-});
+app.use('/', express.static(__dirname + '/public'));
 
-app.listen(port,()=>{
-    console.log(`Puerto corriendo en ${port}\n htpp://localhost:3000`);
+app.get('/', (req, res)=>{
+    res.sendFile(path.join(__dirname, '/views/index.html'))
+})
+
+app.listen(3030, ()=>{
+    console.log("Servidor corriendo")
 })
