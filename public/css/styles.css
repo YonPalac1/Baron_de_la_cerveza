@@ -1,0 +1,51 @@
+/*Aca hay que importar el archivo css de cada pagina */
+@import url('home.css');
+
+
+/* Fuentes de letras */
+@import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+:root {
+	/* Colores */
+	--white: #E1EFE6;
+	--orange: #F09D45;
+	--darkorange: #B57129;
+	--violet: #5343DC;
+
+	/* Fuentes */
+	--font-rowdies: 'Rowdies', cursive;
+	--font-open: 'Open Sans', sans-serif;;
+}
+
+/* Estilos generales */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	text-decoration: none;
+	color: #000;
+	font-family: var(--font-open)
+}
+li {
+	list-style: none;
+	font-family: var(--font-open);
+}
+h2 {
+	font-family: var(--font-rowdies);
+	font-weight: lighter;	
+}
+h3 {
+	font-family: var(--font-rowdies);
+	font-weight: lighter;
+}
+h4 {
+	font-family: var(--font-rowdies);
+	font-weight: lighter;	
+}
