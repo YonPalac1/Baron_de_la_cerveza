@@ -1,0 +1,22 @@
+{
+  "name": "grupo_9_el_baron_de_la_cerveza",
+  "version": "1.0.0",
+  "description": "<center><img src=\"https://github.com/KeilaManti/grupo_9_El_Baron_de_la_Cerveza/blob/master/img/icon-title2.png\"></center>",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KeilaManti/grupo_9_El_Baron_de_la_Cerveza.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KeilaManti/grupo_9_El_Baron_de_la_Cerveza/issues"
+  },
+  "homepage": "https://github.com/KeilaManti/grupo_9_El_Baron_de_la_Cerveza#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
