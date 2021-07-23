@@ -27,3 +27,6 @@ El Barón de la cerveza es un plataforma de venta de bebidas alcohólicas al por
 
 ##### ¿Por qué elegimos éstas páginas?
 Seleccionamos estas páginas tomando en cuenta la versatilidad, navegabilidad y la funcionalidad del e-commerce. De Alafut tomamos la inspiración y lo que nos ayudó a definir la temática de la tienda por su originalidad. Las demas páginas las tomamos por lo estético  y funcionalidad, con Borrachines definimos las secciones y la simpleza de navegación, y CraftSociety nos ayudó con detalles como los filtros y categorias. En cuanto a las otras, fueron elegidas por la experiencia de navegación por el sitio.
+
+## Tablero de trabajo
+<a href="https://trello.com/b/ArcjiGMW/integrador-grupo-9-c8">Nuestro Trello</a>
