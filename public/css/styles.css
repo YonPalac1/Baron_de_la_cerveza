@@ -50,3 +50,7 @@ h4 {
 	font-family: var(--font-rowdies);
 	font-weight: lighter;	
 }
+hr {
+	max-width: 1440px;
+	margin: 0 auto;
+}

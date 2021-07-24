@@ -25,6 +25,8 @@
 	align-items: center;
 	position: sticky;
 	top: 0;
+	background-color: #fff;
+	z-index: 5000;
 	
 	border-bottom: 1px solid #ccc;
 	padding: 10px 8px;
@@ -41,6 +43,15 @@
 }
 .navbar .nav__items ul {
 	display: none;
+}
+.navbar .nav__items ul li a {
+	padding: 5px 8px;
+	transition: .5s;
+}
+
+.navbar .nav__items ul li a:hover {
+	background: var(--orange);
+	color: #fff;
 }
 .navbar .icons {
 	order: 2;
@@ -78,7 +89,7 @@ header img.bg {
 	top: 0;
 }
 header .title {
-	z-index: 5000;
+	z-index: 1;
 	text-align: center;
 	color: var(--white);
 }
@@ -86,6 +97,7 @@ header .title h2 {
 	margin-top: 30px;
 	color: var(--orange);
 }
+
 
 
 @media screen and (min-width: 520px){
