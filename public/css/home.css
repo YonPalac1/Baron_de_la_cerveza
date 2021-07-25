@@ -171,7 +171,7 @@ section .card i {
 /*             BANNERS                  */
 /****************************************/
 .banners {
-	max-width: 1300px;
+	max-width: 1440px;
 	margin: 0 auto;
 	height: 200px;
 	border: 2px solid #ccc;

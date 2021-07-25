@@ -1,33 +1,16 @@
 /******************************************/
-/*                NAV-TOP                 */
-/******************************************/
-.nav-top {
-	background: white;
-}
-.nav-top ul {
-	display: flex;
-	justify-content: flex-end;
-}
-.nav-top ul li a {
-	font-size: 12px;
-	padding: 5px 10px;
-}
-.nav-top ul li a i {
-	margin-right: 5px;
-}
-
-/******************************************/
 /*                navbar                  */
 /******************************************/
 .navbar {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	position: sticky;
+
+	position: fixed;
+	width: 100%;
 	top: 0;
 	background-color: #fff;
 	z-index: 5000;
-	
 	border-bottom: 1px solid #ccc;
 	padding: 10px 8px;
 	flex-wrap: wrap;
@@ -59,9 +42,9 @@
 .navbar .icons a {
 	padding: 5px;
 }
-.navbar .icons .fa-shopping-cart {
+.navbar .icons .shopping-cart {
 	position: fixed;
-	padding: 10px;
+	padding: 10px 12px;
 	border-radius: 50%;
 	background-color: var(--darkorange);
 	color: #fff;
@@ -69,7 +52,65 @@
 	bottom: 70px;
 	z-index: 5000;
 }
+.navbar .icons .shopping-cart span {
+	position: absolute;
+	font-size: 13px;
+	background-color: green;
+	bottom: 0;
+	height: 18px;
+	width: 18px;
+	text-align: center;
+	border-radius: 50%;
+}
 
+/******************************************/
+/*                sub-nav                 */
+/******************************************/
+.sub-nav {
+	position: fixed;
+	width: 100%;
+	top: 20px;
+	transition: all .5s ease;
+	z-index: 4000;
+}
+.sub-nav.active {
+	top: 50px;
+}
+.sub-nav ul {
+	display: flex;
+	justify-content: flex-end;
+	background: white;
+	width: 100%;
+	padding: 10px 0;
+}
+.sub-nav ul li a {
+	font-size: 12px;
+	padding: 5px 10px;
+	font-weight: 700;
+	color: var(--violet);
+}
+.sub-nav ul li a i {
+	margin-right: 5px;
+}
+.sub-nav .sub-nav__config {
+	text-align: right;
+}
+.sub-nav .sub-nav__config .config {
+	position: relative;
+	background-color: white;
+	padding: 5px 8px 10px;
+	border-bottom-left-radius: 5px;
+	border: 1px solid #ccc;
+}
+.sub-nav .sub-nav__config .config span {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	bottom: 10px;
+	left: 2px;
+	border-radius: 50%;
+	background: var(--orange);
+}
 /******************************************/
 /*                header                  */
 /******************************************/
@@ -101,16 +142,10 @@ header .title h2 {
 
 
 @media screen and (min-width: 520px){
-/*----------------- Query NAV-TOP -------------------*/
-	.nav-top {
-		background-color: transparent;
-		width: 100%;
-		position: absolute;
-	}
-
 /*----------------- Query navbar --------------------*/
 	.navbar {
 		padding: 0px 20px;
+		height: 62px;
 	} 
 	.navbar .logo {
 		order: 0;

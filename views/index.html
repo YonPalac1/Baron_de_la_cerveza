@@ -14,13 +14,6 @@
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>
-	<nav class="nav-top">
-		<ul>
-			<li><a href="#">Iniciar sesión</a></li>
-			<li><a href="#"><i class="fas fa-user"></i>Registrarse</a></li>
-		</ul>
-	</nav>
-
 	<!-- Navbar Fixed -->
 	<nav class="navbar flex">
 		<div class="logo">
@@ -32,17 +25,30 @@
 				<li><a href="#">Home</a></li>
 				<li><a href="#">Productos</a></li>
 				<li><a href="#">Acerca de</a></li>
-				<li><a href="#">Recursos</a></li>
 				<li><a href="#">Contacto</a></li>
 			</ul>
 		</div>
 		<div class="icons">
 			<a href="#"><i class="fas fa-search"></i></a>
-			<a href="#"><i class="fas fa-shopping-cart"></i></a>
+			<a class="shopping-cart" href="#"><i class="fas fa-shopping-cart"></i>
+				<span>1</span>
+			</a>
 		</div>
 	</nav>
-	<!-- /Navbar Fixed -->
+	<!-- /Navbar Fixed-->
 
+	<nav class="sub-nav" id="subNave">
+		<ul>
+			<li><a href="#">Iniciar sesión</a></li>
+			<li><a href="#"><i class="fas fa-user"></i>Registrarse</a></li>
+		</ul>
+		<div class="sub-nav__config">
+			<button class="config" href="#" onclick="showSubmenu()">
+				<span></span>
+				<i class="fas fa-user"></i>
+			</button>
+		</div>
+	</nav>
 	<!-- Header -->
 	<header class="header">
 		<img class="bg thumbnail-head" src="img/header.jpg" alt="Pedi tu cerveza y te la llevamos a tu casa">
@@ -363,5 +369,13 @@
 		
 	</footer>
 	<!-- /FOOTER -->
+
+
+<script>
+	function showSubmenu(){
+		let subNave = document.getElementById('subNave');
+		subNave.classList.toggle('active');
+	}
+</script>
 </body>
 </html>
