@@ -79,7 +79,9 @@
 	background-color: var(--violet);
 	cursor: pointer;
 }
-
+main .filter select {
+	padding: 0px 12px;
+}
 /******************************************/
 /*                PRODUCTOS               */
 /******************************************/
@@ -102,7 +104,6 @@ main .filter {
 	justify-content: flex-end;
 	width: 50%;
 }
-
 .productos__menus button.btn__cat {
 	padding: 8px 10px;
 	background-color: #000;
@@ -212,6 +213,9 @@ section .card i {
 		top: 0px;
 		width: fit-content;
 		width: -moz-fit-content;
+	}
+	main .filter select {
+		padding: 5px 12px;
 	}
 	.productos__menus button.btn__cat {
 		padding: 10px 0px;
