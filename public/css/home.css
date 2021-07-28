@@ -11,7 +11,7 @@
 	margin: 50px auto;
 	z-index: 1;
 }
-.slider .slider__articles {
+.slider .articulos {
 	display: flex;
 	overflow: hidden;
 	gap: 10px;
@@ -19,7 +19,7 @@
 .slider h2 {
 	width: 100%;
 }
-.slider article {
+.slider .articulos article {
 	min-width: 180px;
 	padding: 5px;
 	border: 1px solid #ccc;
@@ -27,51 +27,50 @@
 }
 
 /**********PRODUCTOS***************/
-.producto__img {
+.imagen-producto {
 	height: 200px;
 	background: grey;
 }
-.producto__details {
+.detalles-articulos {
 	position: relative;
 	border-top: 1px solid #ccc;
 	padding-top: 10px;
 }
-.producto__details span {
+.detalles-articulos span {
 	font-size: 20px;
 	font-family: sans-serif;
 	font-weight: bold;
 }
-.producto__details p {
+.detalles-articulos p {
 	font-size: 18px;
 	margin-top: 10px;
 	font-family: sans-serif;
 	color: var(--orange);
 }
-.producto__details b {
+.detalles-articulos b {
 	display: block;
 	font-size: 13px;
 	font-family: sans-serif;
 	color: var(--grey);
 	margin-bottom: 10px;
 }
-.producto__details button.btn-add {
+.detalles-articulos button.btn-add {
 	position: absolute;
 	right: 0;
 	top: -20px;
 	color: var(--darkorange);
 	border-radius: 50%;
 	border: 1px solid #ccc;
-	background-color: #fff;
+	backface-visibilitykground-color: #fff;
 	padding: 12px 15px;
 	cursor: pointer;
 }
-.producto__buttons {
+.boton-comprar {
 	display: flex;
 	justify-content: center;
 	position: relative;
-
 }
-.producto__buttons button.btn-buy {
+.boton-comprar button.btn-buy {
 	background-color: #fff;
 	border: none;
 	padding: 12px 15px;
@@ -96,7 +95,7 @@ main h2 {
 	width: 100%;
 	margin-bottom: 30px;
 }
-main .productos__menus {
+main .productos-menus {
 	width: 50%;
 }
 main .filter {
@@ -104,31 +103,31 @@ main .filter {
 	justify-content: flex-end;
 	width: 50%;
 }
-.productos__menus button.btn__cat {
+.productos-menus button.btn__cat {
 	padding: 8px 10px;
 	background-color: #000;
 	color: #fff;
 	border: none;
 }
-.productos__menus .collapse {
+.productos-menus .collapse {
 	display: none;
 }
-.productos__menus .collapse ul {
+.productos-menus .collapse ul {
 	margin-top: 20px;
 }
-.productos__menus .collapse ul li {
+.productos-menus .collapse ul li {
 	padding: 4px 10px;
 }
-.productos__menus .collapse ul li input[type="checkbox"] {
+.productos-menus .collapse ul li input[type="checkbox"] {
 	opacity: 0;
 }
-.productos__menus .collapse ul li input:checked ~ label {
+.productos-menus .collapse ul li input:checked ~ label {
 	background: var(--orange);
 } 
-.productos__menus .collapse ul li label {
+.productos-menus .collapse ul li label {
 	padding: 3px 10px;
 }
-.productos__menus .collapse ul b {
+.productos-menus .collapse ul b {
 	font-family: var(--font-open);
 }
 .productos-main {
@@ -185,7 +184,7 @@ section .card i {
 	main h2 {
 		margin-left: 15px;
 	}
-	main .productos__menus {
+	main .productos-menus {
 		padding: 10px 15px;
 	}
 }
@@ -201,7 +200,7 @@ section .card i {
 	main h2 {
 		margin-left: 0px;
 	}
-	main .productos__menus {
+	main .productos-menus {
 		width: 20%;
 		border: 1px #ccc solid;
 		border-radius: 5px;
@@ -217,14 +216,14 @@ section .card i {
 	main .filter select {
 		padding: 5px 12px;
 	}
-	.productos__menus button.btn__cat {
+	.productos-menus button.btn__cat {
 		padding: 10px 0px;
 		background-color: transparent;
 		color: #000;
 		border: none;
 		font-size: 20px;
 	}
-	.productos__menus .collapse {
+	.productos-menus .collapse {
 		display: inline;
 	}
 	main section {
