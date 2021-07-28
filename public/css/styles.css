@@ -1,6 +1,7 @@
 /*Aca hay que importar el archivo css de cada pagina */
 @import url('header.css');
 @import url('home.css');
+@import url('footer.css');
 
 
 /* Fuentes de letras */
