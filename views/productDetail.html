@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>El barón de la cerveza</title>
+
+	<!-- Estilos -->
+	<link rel="stylesheet" href="/css/styles.css">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+</head>
+<body>
+    <main>
+        <!-- Navbar Fixed -->
+	<nav class="navbar flex">
+		<div class="logo">
+			<img src="img/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
+		</div>
+    	<div class="nav__items collapse" id="collapse">
+			<a class="burguer" href=""><i class="fas fa-bars"></i></a>
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Productos</a></li>
+				<li><a href="#">Acerca de</a></li>
+				<li><a href="#">Contacto</a></li>
+			</ul>
+		</div>
+		<div class="icons">
+			<a href="#"><i class="fas fa-search"></i></a>
+			<a class="shopping-cart" href="#"><i class="fas fa-shopping-cart"></i>
+				<span>1</span>
+			</a>
+		</div>
+	</nav>
+	<!-- /Navbar Fixed-->
+
+	<nav class="sub-nav" id="subNave">
+		<ul>
+			<li><a href="#">Iniciar sesión</a></li>
+			<li><a href="#"><i class="fas fa-user"></i>Registrarse</a></li>
+		</ul>
+		<div class="sub-nav__config">
+			<button class="config" href="#" onclick="showSubmenu()">
+				<span></span>
+				<i class="fas fa-user"></i>
+			</button>
+		</div>
+	</nav>
+
+        <!-- Barra con direccion de navegacion -->
+        <div class="barradireccion"></div>
+
+        <!-- Dettalle Producto -->
+        <section class="detallecont">
+            <section class="detalleproducto">
+                <div class="imgpro"></div>
+                <div class="detpro">
+                    <h3>Nombre Producto</h3>
+                    <h2>$0.000</h2>
+                    <p> <b>18</b> cuotas sin interes </p>
+                    <p>CANTIDAD</p>
+                    <input type="text">
+                    <hr>
+                    <input type="submit">
+                    <div class="cajadetalle">
+                        <p> Dirección Calle Falsa 123 </p>
+                        <p> mail@mail.com </p>
+                        <p> 123-345 345 </p>
+                        <p> Advertencia de consumo y blablabla </p>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Especificaciones del Producto -->
+        <section class="especificacionproducto">
+            <h3>Especificaciones</h3>
+            <p> - Graduación Alcohólica: 14% </p>
+            <p> - Presenta un color violeta oscuro y profundo. </p>
+            <p> - Maduración en barricas de Roble Francés 40% nuevo. </p>
+            <p> - Presenta aromas a frutos negros de carozo con notas especiadas de pimienta negra y clavo de olor, frutos rojos y florales intensos como violeta y lavanda. </p>
+            <p> - Estuche de Cartón (Caja de 4 unidades). </p>
+            <p> Incluye: 1 Botella de Vino </p>
+            <p> Es un Vino de gran concentración, elegancia y gran complejidad </p>
+        </section>
+
+        <!-- Productos Relacionados -->
+        <section class="slider">
+            <h2>RELACIONADOS</h2>
+            <div class="slider__articles">	
+                <article class="br">
+                    <a href="#">
+                        <div class="producto__img"></div>
+                    </a>
+                    <div class="producto__details">
+                        <span>$316</span>
+                        <p>Cerveza Stella Artois</p>
+                        <b>Pale / Dorado / 5.2% ALC</b>
+                        <button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                    <div class="producto__buttons">
+                        <button class="btn-buy br">Comprar</button>
+                    </div>
+                </article>
+                <article class="br">
+                    <a href="#">
+                        <div class="producto__img"></div>
+                    </a>
+                    <div class="producto__details">
+                        <span>$316</span>
+                        <p>Cerveza Stella Artois</p>
+                        <b>Pale / Dorado / 5.2% ALC</b>
+                        <button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                    <div class="producto__buttons">
+                        <button class="btn-buy br">Comprar</button>
+                    </div>
+                </article>
+                <article class="br">
+                    <a href="#">
+                        <div class="producto__img"></div>
+                    </a>
+                    <div class="producto__details">
+                        <span>$316</span>
+                        <p>Cerveza Stella Artois</p>
+                        <b>Pale / Dorado / 5.2% ALC</b>
+                        <button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                    <div class="producto__buttons">
+                        <button class="btn-buy br">Comprar</button>
+                    </div>
+                </article>
+                <article class="br">
+                    <a href="#">
+                        <div class="producto__img"></div>
+                    </a>
+                    <div class="producto__details">
+                        <span>$316</span>
+                        <p>Cerveza Stella Artois</p>
+                        <b>Pale / Dorado / 5.2% ALC</b>
+                        <button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                    <div class="producto__buttons">
+                        <button class="btn-buy br">Comprar</button>
+                    </div>
+                </article>
+                <article class="br">
+                    <a href="#">
+                        <div class="producto__img"></div>
+                    </a>
+                    <div class="producto__details">
+                        <span>$316</span>
+                        <p>Cerveza Stella Artois</p>
+                        <b>Pale / Dorado / 5.2% ALC</b>
+                        <button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                    <div class="producto__buttons">
+                        <button class="btn-buy br">Comprar</button>
+                    </div>
+                </article>
+                <article class="br">
+                    <a href="#">
+                        <div class="producto__img"></div>
+                    </a>
+                    <div class="producto__details">
+                        <span>$316</span>
+                        <p>Cerveza Stella Artois</p>
+                        <b>Pale / Dorado / 5.2% ALC</b>
+                        <button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                    <div class="producto__buttons">
+                        <button class="btn-buy br">Comprar</button>
+                    </div>
+                </article>
+                <article class="br">
+                    <a href="#">
+                        <div class="producto__img"></div>
+                    </a>
+                    <div class="producto__details">
+                        <span>$316</span>
+                        <p>Cerveza Stella Artois</p>
+                        <b>Pale / Dorado / 5.2% ALC</b>
+                        <button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                    <div class="producto__buttons">
+                        <button class="btn-buy br">Comprar</button>
+                    </div>
+                </article>
+                <article class="br">
+                    <a href="#">
+                        <div class="producto__img"></div>
+                    </a>
+                    <div class="producto__details">
+                        <span>$316</span>
+                        <p>Cerveza Stella Artois</p>
+                        <b>Pale / Dorado / 5.2% ALC</b>
+                        <button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                    <div class="producto__buttons">
+                        <button class="btn-buy br">Comprar</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!-- /Slider de productos -->
+
+        <!-- Footer -->
+        <footer></footer>
+    </main>
+
+    <!-- Funcion para mostrar el menu de registro/login -->
+    <script>
+        function showSubmenu(){
+            let subNave = document.getElementById('subNave');
+            subNave.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
