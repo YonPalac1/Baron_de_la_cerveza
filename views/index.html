@@ -24,8 +24,8 @@
 			<img src="img/icons/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
 			</a>
 		</div>
-    	<div class="nav__items collapse" id="collapse">
-			<a class="burguer" href="/productDetail"><i class="fas fa-bars"></i></a>
+    	<div class="nav-items collapse" id="collapse">
+			<i class="fas fa-bars burguer"></i>
 			<ul>
 				<li><a href="/">Home</a></li>
 				<li><a href="#">Productos</a></li>
@@ -35,9 +35,35 @@
 		</div>
 		<div class="icons">
 			<a href="#"><i class="fas fa-search"></i></a>
-			<a class="shopping-cart" href="#"><i class="fas fa-shopping-cart"></i>
+
+			<button class="user-config" href="#" onclick="showSubmenu()">
+				<span></span>
+				<i class="fas fa-user"></i>
+			</button>
+
+			<div class="shopping-cart" onclick="showCart()"><i class="fas fa-shopping-cart"></i>
 				<span>1</span>
-			</a>
+			</div>
+			
+			<!-- Mini menu desplegable  -->
+			<div class="carrito-menu" id="carrito-menu">
+				<div>
+					<div class="cerrar-menu">
+						<i class="fas fa-times" onclick="showCart()"></i>
+					</div>
+					<div class="imagen-carrito">
+						<img src="" class="producto-carrito">
+					</div>
+					<div class="detalles-producto-carrito">
+						<b>$000.00</b>
+						<span>nombre de producto</span>
+					</div>
+				</div>
+				<div class="boton-carrito">
+					<a href="#">Ir a carrito</a>
+				</div>
+			</div>
+			<!-- /Mini menu desplegable -->
 		</div>
 	</nav>
 	<!-- /Navbar Fixed-->
@@ -45,15 +71,13 @@
 	<!-- Submenu -->
 	<nav class="sub-nav" id="subNave">
 		<ul>
+			<!-- En caso de que no este registrado -->
 			<li><a href="/login">Ingresar</a></li>
+
+			<!-- en caso de que ya este logeado -->
+			<li><a href="/register">Configuracion</a></li>
+			<li><a href="#">Cerrar sesión</a></li>
 		</ul>
-		<div class="sub-nav__config">
-			<button class="config" href="#" onclick="showSubmenu()">
-				<span></span>
-				<i class="fas fa-user"></i>
-				<b>nombre usuario</b>
-			</button>
-		</div>
 	</nav>
 	<!-- /Submenu -->
 
@@ -383,6 +407,10 @@
 	function showSubmenu(){
 		let subNave = document.getElementById('subNave');
 		subNave.classList.toggle('active');
+	}
+	function showCart(){
+		let carritoMenu = document.getElementById('carrito-menu');
+		carritoMenu.classList.toggle('active');	
 	}
 </script>
 </body>

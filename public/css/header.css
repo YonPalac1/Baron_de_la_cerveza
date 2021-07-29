@@ -24,15 +24,15 @@
 .navbar .logo img {
 	width: 100px;
 }
-.navbar .nav__items ul {
+.navbar .nav-items ul {
 	display: none;
 }
-.navbar .nav__items ul li a {
+.navbar .nav-items ul li a {
 	padding: 5px 8px;
 	transition: .5s;
 }
 
-.navbar .nav__items ul li a:hover {
+.navbar .nav-items ul li a:hover {
 	background: var(--orange);
 	color: #fff;
 }
@@ -42,7 +42,6 @@
 .navbar .icons a {
 	padding: 5px;
 }
-
 
 .navbar .icons .shopping-cart {
 	position: fixed;
@@ -65,6 +64,60 @@
 	border-radius: 50%;
 }
 
+.carrito-menu {
+	position: absolute;
+	top: 100px;
+	right: -100%;
+	background: #000;
+	width: 130px;
+	padding: 15px 12px 15px 10px;
+	color: #fff;
+	border-radius: 5px;
+	transition: all .5s ease;
+}
+.carrito-menu.active {
+	right: 0;
+}
+.carrito-menu .imagen-carrito {
+	width: 100px;
+	height: 140px;
+	background: grey;
+}
+.carrito-menu  .detalles-producto-carrito b {
+	display: block;
+	color: var(--orange);
+}
+.carrito-menu  .detalles-producto-carrito span {
+	font-family: var(--font-open);
+	font-size: 13px;
+}
+.carrito-menu .boton-carrito {
+	text-align: center;
+	padding: 10px 0px;
+}
+.carrito-menu .boton-carrito a {
+	background-color: var(--darkorange);
+	color: #fff;
+}
+
+.user-config {
+	padding: 5px 10px;
+	font-size: 15px;
+	border: none;
+	background: none;
+	position: relative;
+	cursor: pointer;
+	margin-left: 20px;
+}
+.user-config span {
+	width: 10px;
+	height: 10px;
+	background: var(--orange);
+	border-radius: 50%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
 /******************************************/
 /*                sub-nav                 */
 /******************************************/
@@ -94,31 +147,7 @@
 .sub-nav ul li a i {
 	margin-right: 5px;
 }
-.sub-nav .sub-nav__config {
-	text-align: right;
-}
-.sub-nav .sub-nav__config .config {
-	position: relative;
-	background-color: white;
-	padding: 5px 8px 10px;
-	border-bottom-left-radius: 5px;
-	border: 1px solid #ccc;
-}
-.sub-nav .sub-nav__config .config i.fa-user {
-	font-size: 18px;
-}
-.sub-nav .sub-nav__config .config span {
-	position: absolute;
-	width: 10px;
-	height: 10px;
-	bottom: 10px;
-	left: 2px;
-	border-radius: 50%;
-	background: var(--orange);
-}
-.sub-nav .sub-nav__config .config b {
-	display: none;
-}
+
 /******************************************/
 /*                header                  */
 /******************************************/
@@ -179,15 +208,15 @@ header .title h2 {
 		width: 100px;
 		text-align: center;
 	}
-	.navbar .nav__items .burguer {
+	.navbar .nav-items .burguer {
 		display: none;
 	}
-	.navbar .nav__items ul {
+	.navbar .nav-items ul {
 		display: flex;
 		text-align: center;
 		align-items: center;
 	}
-	.navbar .nav__items ul li a {
+	.navbar .nav-items ul li a {
 		margin-left: 10px;
 	}
 	.sub-nav .sub-nav__config .config b {
