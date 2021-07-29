@@ -1,7 +1,6 @@
 /*Aca hay que importar el archivo css de cada pagina */
 @import url('header.css');
 @import url('home.css');
-@import url('productDetail.css');
 
 /* Fuentes de letras */
 @import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
