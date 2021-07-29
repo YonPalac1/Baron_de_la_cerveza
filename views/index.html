@@ -7,6 +7,9 @@
 
 	<title>El barón de la cerveza</title>
 
+	<!-- favicon -->
+	<link rel="icon" type="/image/png" href="/img/icons/icon.png" sizes="64x64">
+
 	<!-- Estilos -->
 	<link rel="stylesheet" href="/css/styles.css">
 
@@ -17,15 +20,17 @@
 	<!-- Navbar Fixed -->
 	<nav class="navbar flex">
 		<div class="logo">
-			<img src="img/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
+			<a href="/">
+			<img src="img/icons/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
+			</a>
 		</div>
     	<div class="nav__items collapse" id="collapse">
 			<a class="burguer" href="/productDetail"><i class="fas fa-bars"></i></a>
 			<ul>
-				<li><a href="#">Home</a></li>
+				<li><a href="/">Home</a></li>
 				<li><a href="#">Productos</a></li>
 				<li><a href="#">Acerca de</a></li>
-				<li><a href="#">Contacto</a></li>
+				<li><a href="/contact">Contacto</a></li>
 			</ul>
 		</div>
 		<div class="icons">
@@ -40,8 +45,7 @@
 	<!-- Submenu -->
 	<nav class="sub-nav" id="subNave">
 		<ul>
-			<li><a href="#">Iniciar sesión</a></li>
-			<li><a href="#"><i class="fas fa-user"></i>Registrarse</a></li>
+			<li><a href="/login">Ingresar</a></li>
 		</ul>
 		<div class="sub-nav__config">
 			<button class="config" href="#" onclick="showSubmenu()">
