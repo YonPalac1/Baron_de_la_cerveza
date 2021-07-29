@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Configuracion | EBDLC</title>
+	<link rel="stylesheet" href="/css/register.css">
+</head>
+<body>
+	<!-- Navbar Fixed -->
+	<nav class="navbar flex">
+		<div class="logo">
+			<img src="img/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
+		</div>
+    	<div class="nav__items collapse" id="collapse">
+			<a class="burguer" href="/productDetail"><i class="fas fa-bars"></i></a>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="#">Productos</a></li>
+				<li><a href="#">Acerca de</a></li>
+				<li><a href="/contact">Contacto</a></li>
+			</ul>
+		</div>
+		<div class="icons">
+			<a href="#"><i class="fas fa-search"></i></a>
+			<a class="shopping-cart" href="#"><i class="fas fa-shopping-cart"></i>
+				<span>1</span>
+			</a>
+		</div>
+	</nav>
+	<!-- /Navbar Fixed-->
+
+	<!-- Submenu -->
+	<nav class="sub-nav" id="subNave">
+		<ul>
+			<li><a href="/login">Ingresar</a></li>
+		</ul>
+		<div class="sub-nav__config">
+			<button class="config" href="#" onclick="showSubmenu()">
+				<span></span>
+				<i class="fas fa-user"></i>
+				<b>nombre usuario</b>
+			</button>
+		</div>
+	</nav>
+	<!-- /Submenu -->
+
+	<!-- Header -->
+	<header class="header">
+		<img class="bg thumbnail-head" src="img/header.jpg" alt="Pedi tu cerveza y te la llevamos a tu casa">
+		<div class="title">
+			<h1>Pedi tu birra y te la llevamos a tu casa</h1>
+			<h2>El Barón de la cerveza</h2>
+		</div>
+	</header>
+	<!-- /header -->
+
+	<main>
+		<div class="title">
+		<h2>Bienvenido, Jonatan Palacios</h2>
+	</div>
+	<!-- Detalles de usuario -->
+	<section class="tabla">
+		<div class="config">
+			<h2>Usuario</h2>
+			<button class="editar">Editar<i class="fas fa-pen"></i></button>
+		</div>
+		<div class="tabla-datos">
+			<div class="column">
+				<h3>Nombre</h3>
+				<span>Jonatan</span>
+			</div>
+
+			<div class="column">
+				<h3>Email</h3>
+				<span>email@email.com</span>
+			</div>
+
+			<div class="column">
+				<h3>Contraseña</h3>
+				<span>*************</span>
+			</div>
+		</div>	
+	</section>
+	<!-- /Detalles de usuario -->
+
+	<!-- Historila de compras -->
+	<section class="tabla">
+		<div class="config">
+			<h2>Historial</h2>
+			<p>
+				<button class="imprimir editar">imprimir</button>
+				<button class="editar">limpiar<i class="fas fa-trash"></i></button>
+			</p>
+		</div>
+		<div class="tabla-datos">
+			<div class="column">
+				<h3>Producto</h3>
+				<span>Detalles del producto</span>
+			</div>
+
+			<div class="column">
+				<h3>Cantidad</h3>
+				<span>1</span>
+			</div>
+
+			<div class="column">
+				<h3>Fecha del pedido</h3>
+				<span>00/00/00</span>
+			</div>
+
+			<div class="column">
+				<h3>Direccion de envio</h3>
+				<span>nombre de la calle, 123. Localidad</span>
+			</div>
+		</div>	
+	</section>
+	<!-- /Historila de compras -->
+
+</body>
+</html>

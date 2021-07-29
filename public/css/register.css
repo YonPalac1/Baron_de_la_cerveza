@@ -1,0 +1,49 @@
+main {
+	max-width: 1040px;
+	margin: 0 auto;
+}
+.title {
+	padding: 30px 10px 10px;
+}
+.tabla {
+	padding: 0px 10px;
+	margin-top: 30px;
+}
+.tabla .config {
+	padding: 0px 10px;
+	display: flex;
+	justify-content: space-between;
+}
+.tabla .config .editar {
+	border: none;
+	background: none;
+	padding: 0px 12px;
+	color: var(--violet);
+	cursor: pointer;
+}
+.tabla-datos {
+	padding: 10px 5px;
+	border: 1px solid var(--violet);
+	border-radius: 8px;
+}
+.tabla-datos h3, span {
+	font-size: 18px;
+}
+.tabla-datos h3 {
+	border-bottom: 1px dotted var(--violet) ;
+}
+.tabla-datos .column {
+	margin-bottom: 30px;
+}
+
+@media screen and (min-width: 720px){
+.tabla-datos {
+	display: flex;
+	text-align: center;
+}
+.tabla-datos .column {
+	margin-bottom: 30px;
+	width: 33%;
+}
+
+}

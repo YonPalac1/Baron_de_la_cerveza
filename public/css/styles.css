@@ -1,6 +1,7 @@
 /*Aca hay que importar el archivo css de cada pagina */
 @import url('header.css');
 @import url('home.css');
+@import url('footer.css');
 
 /* Fuentes de letras */
 @import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
@@ -24,6 +25,9 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+body {
+	background-color: #fff;
+}
 li {
 	list-style: none;
 }
@@ -36,6 +40,10 @@ a {
 li {
 	list-style: none;
 	font-family: var(--font-open);
+}
+h1 {
+	font-family: var(--font-rowdies);
+	font-weight: lighter;	
 }
 h2 {
 	font-family: var(--font-rowdies);
@@ -52,4 +60,7 @@ h4 {
 hr {
 	max-width: 1440px;
 	margin: 0 auto;
+}
+button {
+	border-radius: 5px;
 }

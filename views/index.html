@@ -7,6 +7,9 @@
 
 	<title>El barón de la cerveza</title>
 
+	<!-- favicon -->
+	<link rel="icon" type="/image/png" href="/img/icons/icon.png" sizes="64x64">
+
 	<!-- Estilos -->
 	<link rel="stylesheet" href="/css/styles.css">
 
@@ -17,41 +20,70 @@
 	<!-- Navbar Fixed -->
 	<nav class="navbar flex">
 		<div class="logo">
-			<img src="img/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
+			<a href="/">
+			<img src="img/icons/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
+			</a>
 		</div>
-    	<div class="nav__items collapse" id="collapse">
-			<a class="burguer" href=""><i class="fas fa-bars"></i></a>
+    	<div class="nav-items collapse" id="collapse">
+			<i class="fas fa-bars burguer"></i>
 			<ul>
-				<li><a href="#">Home</a></li>
+				<li><a href="/">Home</a></li>
 				<li><a href="#">Productos</a></li>
 				<li><a href="#">Acerca de</a></li>
-				<li><a href="#">Contacto</a></li>
+				<li><a href="/contact">Contacto</a></li>
 			</ul>
 		</div>
 		<div class="icons">
 			<a href="#"><i class="fas fa-search"></i></a>
-			<a class="shopping-cart" href="#"><i class="fas fa-shopping-cart"></i>
+
+			<button class="user-config" href="#" onclick="showSubmenu()">
+				<span></span>
+				<i class="fas fa-user"></i>
+			</button>
+
+			<div class="shopping-cart" onclick="showCart()"><i class="fas fa-shopping-cart"></i>
 				<span>1</span>
-			</a>
+			</div>
+			
+			<!-- Mini menu desplegable  -->
+			<div class="carrito-menu" id="carrito-menu">
+				<div>
+					<div class="cerrar-menu">
+						<i class="fas fa-times" onclick="showCart()"></i>
+					</div>
+					<div class="imagen-carrito">
+						<img src="" class="producto-carrito">
+					</div>
+					<div class="detalles-producto-carrito">
+						<b>$000.00</b>
+						<span>nombre de producto</span>
+					</div>
+				</div>
+				<div class="boton-carrito">
+					<a href="#">Ir a carrito</a>
+				</div>
+			</div>
+			<!-- /Mini menu desplegable -->
 		</div>
 	</nav>
 	<!-- /Navbar Fixed-->
 
+	<!-- Submenu -->
 	<nav class="sub-nav" id="subNave">
 		<ul>
-			<li><a href="#">Iniciar sesión</a></li>
-			<li><a href="#"><i class="fas fa-user"></i>Registrarse</a></li>
+			<!-- En caso de que no este registrado -->
+			<li><a href="/login">Ingresar</a></li>
+
+			<!-- en caso de que ya este logeado -->
+			<li><a href="/register">Configuracion</a></li>
+			<li><a href="#">Cerrar sesión</a></li>
 		</ul>
-		<div class="sub-nav__config">
-			<button class="config" href="#" onclick="showSubmenu()">
-				<span></span>
-				<i class="fas fa-user"></i>
-			</button>
-		</div>
 	</nav>
+	<!-- /Submenu -->
+
 	<!-- Header -->
 	<header class="header">
-		<img class="bg thumbnail-head" src="img/header.jpg" alt="Pedi tu cerveza y te la llevamos a tu casa">
+		<img class="bg thumbnail-head" src="img/icons/header.jpg" alt="Pedi tu cerveza y te la llevamos a tu casa">
 		<div class="title">
 			<h1>Pedi tu birra y te la llevamos a tu casa</h1>
 			<h2>El Barón de la cerveza</h2>
@@ -62,116 +94,116 @@
 	<!-- Slider de productos -->
 	<section class="slider">
 		<h2>DESTACADOS</h2>
-		<div class="slider__articles">	
+		<div class="articulos">	
 			<article class="br">
 				<a href="#">
-					<div class="producto__img"></div>
+					<div class="imagen-producto"></div>
 				</a>
-				<div class="producto__details">
+				<div class="detalles-articulos">
 					<span>$316</span>
 					<p>Cerveza Stella Artois</p>
 					<b>Pale / Dorado / 5.2% ALC</b>
 					<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
 				</div>
-				<div class="producto__buttons">
+				<div class="boton-comprar">
 					<button class="btn-buy br">Comprar</button>
 				</div>
 			</article>
 			<article class="br">
 				<a href="#">
-					<div class="producto__img"></div>
+					<div class="imagen-producto"></div>
 				</a>
-				<div class="producto__details">
+				<div class="detalles-articulos">
 					<span>$316</span>
 					<p>Cerveza Stella Artois</p>
 					<b>Pale / Dorado / 5.2% ALC</b>
 					<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
 				</div>
-				<div class="producto__buttons">
+				<div class="boton-comprar">
 					<button class="btn-buy br">Comprar</button>
 				</div>
 			</article>
 			<article class="br">
 				<a href="#">
-					<div class="producto__img"></div>
+					<div class="imagen-producto"></div>
 				</a>
-				<div class="producto__details">
+				<div class="detalles-articulos">
 					<span>$316</span>
 					<p>Cerveza Stella Artois</p>
 					<b>Pale / Dorado / 5.2% ALC</b>
 					<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
 				</div>
-				<div class="producto__buttons">
+				<div class="boton-comprar">
 					<button class="btn-buy br">Comprar</button>
 				</div>
 			</article>
 			<article class="br">
 				<a href="#">
-					<div class="producto__img"></div>
+					<div class="imagen-producto"></div>
 				</a>
-				<div class="producto__details">
+				<div class="detalles-articulos">
 					<span>$316</span>
 					<p>Cerveza Stella Artois</p>
 					<b>Pale / Dorado / 5.2% ALC</b>
 					<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
 				</div>
-				<div class="producto__buttons">
+				<div class="boton-comprar">
 					<button class="btn-buy br">Comprar</button>
 				</div>
 			</article>
 			<article class="br">
 				<a href="#">
-					<div class="producto__img"></div>
+					<div class="imagen-producto"></div>
 				</a>
-				<div class="producto__details">
+				<div class="detalles-articulos">
 					<span>$316</span>
 					<p>Cerveza Stella Artois</p>
 					<b>Pale / Dorado / 5.2% ALC</b>
 					<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
 				</div>
-				<div class="producto__buttons">
+				<div class="boton-comprar">
 					<button class="btn-buy br">Comprar</button>
 				</div>
 			</article>
 			<article class="br">
 				<a href="#">
-					<div class="producto__img"></div>
+					<div class="imagen-producto"></div>
 				</a>
-				<div class="producto__details">
+				<div class="detalles-articulos">
 					<span>$316</span>
 					<p>Cerveza Stella Artois</p>
 					<b>Pale / Dorado / 5.2% ALC</b>
 					<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
 				</div>
-				<div class="producto__buttons">
+				<div class="boton-comprar">
 					<button class="btn-buy br">Comprar</button>
 				</div>
 			</article>
 			<article class="br">
 				<a href="#">
-					<div class="producto__img"></div>
+					<div class="imagen-producto"></div>
 				</a>
-				<div class="producto__details">
+				<div class="detalles-articulos">
 					<span>$316</span>
 					<p>Cerveza Stella Artois</p>
 					<b>Pale / Dorado / 5.2% ALC</b>
 					<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
 				</div>
-				<div class="producto__buttons">
+				<div class="boton-comprar">
 					<button class="btn-buy br">Comprar</button>
 				</div>
 			</article>
 			<article class="br">
 				<a href="#">
-					<div class="producto__img"></div>
+					<div class="imagen-producto"></div>
 				</a>
-				<div class="producto__details">
+				<div class="detalles-articulos">
 					<span>$316</span>
 					<p>Cerveza Stella Artois</p>
 					<b>Pale / Dorado / 5.2% ALC</b>
 					<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
 				</div>
-				<div class="producto__buttons">
+				<div class="boton-comprar">
 					<button class="btn-buy br">Comprar</button>
 				</div>
 			</article>
@@ -182,7 +214,7 @@
 	<!-- Productos -->
 	<main class="seccion-productos">
 		<h2>PRODUCTOS</h2>
-		<div class="productos__menus">
+		<div class="productos-menus">
 			<button class="btn__cat"><h3>Categorias</h3></button>
 			<div class="collapse">
 				<hr>
@@ -237,99 +269,99 @@
 			<div class="productos-main">	
 				<article class="br">
 					<a href="#">
-						<div class="producto__img"></div>
+						<div class="imagen-producto"></div>
 					</a>
-					<div class="producto__details">
+					<div class="detalles-articulos">
 						<span>$316</span>
 						<p>Cerveza Stella Artois</p>
 						<b>Pale / Dorado / 5.2% ALC</b>
 						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
 					</div>
-					<div class="producto__buttons">
+					<div class="boton-comprar">
 						<button class="btn-buy br">Comprar</button>
 					</div>
 				</article>
 				<article class="br">
 					<a href="#">
-						<div class="producto__img"></div>
+						<div class="imagen-producto"></div>
 					</a>
-					<div class="producto__details">
+					<div class="detalles-articulos">
 						<span>$316</span>
 						<p>Cerveza Stella Artois</p>
 						<b>Pale / Dorado / 5.2% ALC</b>
 						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
 					</div>
-					<div class="producto__buttons">
+					<div class="boton-comprar">
 						<button class="btn-buy br">Comprar</button>
 					</div>
 				</article>
 				<article class="br">
 					<a href="#">
-						<div class="producto__img"></div>
+						<div class="imagen-producto"></div>
 					</a>
-					<div class="producto__details">
+					<div class="detalles-articulos">
 						<span>$316</span>
 						<p>Cerveza Stella Artois</p>
 						<b>Pale / Dorado / 5.2% ALC</b>
 						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
 					</div>
-					<div class="producto__buttons">
+					<div class="boton-comprar">
 						<button class="btn-buy br">Comprar</button>
 					</div>
 				</article>
 				<article class="br">
 					<a href="#">
-						<div class="producto__img"></div>
+						<div class="imagen-producto"></div>
 					</a>
-					<div class="producto__details">
+					<div class="detalles-articulos">
 						<span>$316</span>
 						<p>Cerveza Stella Artois</p>
 						<b>Pale / Dorado / 5.2% ALC</b>
 						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
 					</div>
-					<div class="producto__buttons">
+					<div class="boton-comprar">
 						<button class="btn-buy br">Comprar</button>
 					</div>
 				</article>
 				<article class="br">
 					<a href="#">
-						<div class="producto__img"></div>
+						<div class="imagen-producto"></div>
 					</a>
-					<div class="producto__details">
+					<div class="detalles-articulos">
 						<span>$316</span>
 						<p>Cerveza Stella Artois</p>
 						<b>Pale / Dorado / 5.2% ALC</b>
 						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
 					</div>
-					<div class="producto__buttons">
+					<div class="boton-comprar">
 						<button class="btn-buy br">Comprar</button>
 					</div>
 				</article>
 				<article class="br">
 					<a href="#">
-						<div class="producto__img"></div>
+						<div class="imagen-producto"></div>
 					</a>
-					<div class="producto__details">
+					<div class="detalles-articulos">
 						<span>$316</span>
 						<p>Cerveza Stella Artois</p>
 						<b>Pale / Dorado / 5.2% ALC</b>
 						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
 					</div>
-					<div class="producto__buttons">
+					<div class="boton-comprar">
 						<button class="btn-buy br">Comprar</button>
 					</div>
 				</article>
 				<article class="br">
 					<a href="#">
-						<div class="producto__img"></div>
+						<div class="imagen-producto"></div>
 					</a>
-					<div class="producto__details">
+					<div class="detalles-articulos">
 						<span>$316</span>
 						<p>Cerveza Stella Artois</p>
 						<b>Pale / Dorado / 5.2% ALC</b>
 						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
 					</div>
-					<div class="producto__buttons">
+					<div class="boton-comprar">
 						<button class="btn-buy br">Comprar</button>
 					</div>
 				</article>
@@ -375,6 +407,10 @@
 	function showSubmenu(){
 		let subNave = document.getElementById('subNave');
 		subNave.classList.toggle('active');
+	}
+	function showCart(){
+		let carritoMenu = document.getElementById('carrito-menu');
+		carritoMenu.classList.toggle('active');	
 	}
 </script>
 </body>
