@@ -1,6 +1,13 @@
 /*Aca hay que importar el archivo css de cada pagina */
 @import url('header.css');
 @import url('home.css');
+@import url('register.css');
+@import url('productDetails.css');
+@import url('productCart.css');
+@import url('login.css');
+@import url('contact.css');
+@import url('finalizePurchase.css');
+@import url('product.css');
 @import url('footer.css');
 
 /* Fuentes de letras */

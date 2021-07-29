@@ -1,19 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Configuracion | EBDLC</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Configuracion | El barón de la cerveza</title>
+
+	<!-- favicon -->
+	<link rel="icon" type="/image/png" href="/img/icons/icon.png" sizes="64x64">
+
+	<!-- Estilos -->
+	<link rel="stylesheet" href="/css/styles.css">
 	<link rel="stylesheet" href="/css/register.css">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>
 	<!-- Navbar Fixed -->
 	<nav class="navbar flex">
 		<div class="logo">
-			<img src="img/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
+			<a href="/">
+			<img src="img/icons/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
+			</a>
 		</div>
-    	<div class="nav__items collapse" id="collapse">
-			<a class="burguer" href="/productDetail"><i class="fas fa-bars"></i></a>
+    	<div class="nav-items collapse" id="collapse">
+			<i class="fas fa-bars burguer"></i>
 			<ul>
 				<li><a href="/">Home</a></li>
 				<li><a href="#">Productos</a></li>
@@ -23,9 +36,35 @@
 		</div>
 		<div class="icons">
 			<a href="#"><i class="fas fa-search"></i></a>
-			<a class="shopping-cart" href="#"><i class="fas fa-shopping-cart"></i>
+
+			<button class="user-config" href="#" onclick="showSubmenu()">
+				<span></span>
+				<i class="fas fa-user"></i>
+			</button>
+
+			<div class="shopping-cart" onclick="showCart()"><i class="fas fa-shopping-cart"></i>
 				<span>1</span>
-			</a>
+			</div>
+			
+			<!-- Mini menu desplegable  -->
+			<div class="carrito-menu" id="carrito-menu">
+				<div>
+					<div class="cerrar-menu">
+						<i class="fas fa-times" onclick="showCart()"></i>
+					</div>
+					<div class="imagen-carrito">
+						<img src="" class="producto-carrito">
+					</div>
+					<div class="detalles-producto-carrito">
+						<b>$000.00</b>
+						<span>nombre de producto</span>
+					</div>
+				</div>
+				<div class="boton-carrito">
+					<a href="#">Ir a carrito</a>
+				</div>
+			</div>
+			<!-- /Mini menu desplegable -->
 		</div>
 	</nav>
 	<!-- /Navbar Fixed-->
@@ -33,21 +72,19 @@
 	<!-- Submenu -->
 	<nav class="sub-nav" id="subNave">
 		<ul>
+			<!-- En caso de que no este registrado -->
 			<li><a href="/login">Ingresar</a></li>
+
+			<!-- en caso de que ya este logeado -->
+			<li><a href="/register">Configuracion</a></li>
+			<li><a href="#">Cerrar sesión</a></li>
 		</ul>
-		<div class="sub-nav__config">
-			<button class="config" href="#" onclick="showSubmenu()">
-				<span></span>
-				<i class="fas fa-user"></i>
-				<b>nombre usuario</b>
-			</button>
-		</div>
 	</nav>
 	<!-- /Submenu -->
 
 	<!-- Header -->
 	<header class="header">
-		<img class="bg thumbnail-head" src="img/header.jpg" alt="Pedi tu cerveza y te la llevamos a tu casa">
+		<img class="bg thumbnail-head" src="img/icons/header.jpg" alt="Pedi tu cerveza y te la llevamos a tu casa">
 		<div class="title">
 			<h1>Pedi tu birra y te la llevamos a tu casa</h1>
 			<h2>El Barón de la cerveza</h2>
@@ -57,8 +94,8 @@
 
 	<main>
 		<div class="title">
-		<h2>Bienvenido, Jonatan Palacios</h2>
-	</div>
+			<h2>Bienvenido, Nombre usuario</h2>
+		</div>
 	<!-- Detalles de usuario -->
 	<section class="tabla">
 		<div class="config">

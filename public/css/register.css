@@ -2,8 +2,10 @@ main {
 	max-width: 1040px;
 	margin: 0 auto;
 }
-.title {
+main .title {
 	padding: 30px 10px 10px;
+	text-align: center;
+	width: 100%;
 }
 .tabla {
 	padding: 0px 10px;
@@ -23,14 +25,15 @@ main {
 }
 .tabla-datos {
 	padding: 10px 5px;
-	border: 1px solid var(--violet);
 	border-radius: 8px;
+	background-color: var(--violet);
+	color: #eee;
 }
 .tabla-datos h3, span {
 	font-size: 18px;
 }
 .tabla-datos h3 {
-	border-bottom: 1px dotted var(--violet) ;
+	border-bottom: 1px dotted var(--orange) ;
 }
 .tabla-datos .column {
 	margin-bottom: 30px;
