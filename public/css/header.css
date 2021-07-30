@@ -127,6 +127,7 @@
 	top: 20px;
 	transition: all .5s ease;
 	z-index: 4000;
+	display: block;
 }
 .sub-nav.active {
 	top: 53px;
@@ -178,25 +179,6 @@ header .title h2 {
 
 
 
-@media screen and (min-width: 520px){
-/*----------------- Query navbar --------------------*/
-	.navbar {
-		padding: 0px 20px;
-		height: 62px;
-	} 
-	.navbar .logo {
-		order: 0;
-		width: 100%;
-		text-align: center;
-	}
-
-
-/*----------------- Query header ---------------------*/
-	header .title h1 {
-		font-size: 40px;
-		padding: 0 8px;
-	}
-}
 
 @media screen and (min-width: 720px){
 /*---------------- Query navbar --------------------------*/

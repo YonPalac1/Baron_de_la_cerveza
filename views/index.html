@@ -7,14 +7,14 @@
 
 	<title>El barón de la cerveza</title>
 
-	<!-- favicon -->
-	<link rel="icon" type="/image/png" href="/img/icons/icon.png" sizes="64x64">
 
 	<!-- Estilos -->
 	<link rel="stylesheet" href="/css/styles.css">
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+	<script src="/js/app.js"></script>
 </head>
 <body>
 	<!-- Navbar Fixed -->
@@ -390,28 +390,77 @@
 	</section>
 	<!-- /CARDS -->
 
-	<!-- BANNERS  -->
-	<section class="banners">
-		
-	</section>
-	<!-- /BANNERS -->
+	<section class="home">
+         <!-- CAROUSEL -->
+            <section class="carousel-container">
+                    
+                <div class="slides fade">
+                    <img src="https://cdn.pixabay.com/photo/2017/03/02/16/54/iceland-2111811_960_720.jpg" alt="">
+                </div>
+                
+                <div class="slides fade">
+                    <img src="https://cdn.pixabay.com/photo/2016/10/18/21/28/seljalandsfoss-1751463_960_720.jpg" alt="">
+                </div>
+                
+                <div class="slides fade">
+                    <img src="https://cdn.pixabay.com/photo/2016/10/25/12/28/iceland-1768744_960_720.jpg" alt="">
+                </div>
+                
+                <div class="slides fade">
+                    <img src="https://cdn.pixabay.com/photo/2020/02/01/22/10/house-4811590_960_720.jpg" alt="">
+                </div>
+
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                
+                <!-- The dots/circles -->
+                <div class="dots">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                </div>
+            </section>
+        <!-- END CAROUSEL -->
+
+    </section>
 
 	<!-- FOOTER -->
 	<footer>
-		
+		<div class="footer">
+			<div class="navegacion">
+				<h5>Navegacion</h5>
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="#">Productos</a></li>
+					<li><a href="#">Acerca de</a></li>
+					<li><a href="/contact">Contacto</a></li>
+				</ul>
+			</div>
+			<div class="formas-pago">
+				<h5>Formas de pago</h5>
+				<div>
+					<img src="img/icons/mastercard.png" alt="mastercard">
+					<img src="img/icons/ml.png" alt="mercado libre">
+					<img src="img/icons/visa.png" alt="visa">
+				</div>
+			</div>
+			<div class="redes">
+				<h5>Redes</h5>
+				<div>
+					<i class="fab fa-facebook"></i>
+					<i class="fab fa-whatsapp"></i>
+					<i class="fab fa-instagram"></i>
+				</div>
+			</div>
+			<div class="logo">
+				<img src="/img/icons/icon-title2.png" alt="">
+			</div>
+		</div>
 	</footer>
 	<!-- /FOOTER -->
 
 
-<script>
-	function showSubmenu(){
-		let subNave = document.getElementById('subNave');
-		subNave.classList.toggle('active');
-	}
-	function showCart(){
-		let carritoMenu = document.getElementById('carrito-menu');
-		carritoMenu.classList.toggle('active');	
-	}
-</script>
 </body>
 </html>

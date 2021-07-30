@@ -1,45 +1,61 @@
-main {
-	max-width: 1040px;
+main.register {
+	max-width: 1440px;
+	display: flex;
+	flex-wrap: wrap;
 	margin: 0 auto;
 }
-main .title {
-	padding: 30px 10px 10px;
-	text-align: center;
+.title-register {
 	width: 100%;
-}
-.tabla {
-	padding: 0px 10px;
+	text-align: center;
 	margin-top: 30px;
 }
-.tabla .config {
-	padding: 0px 10px;
+.tabla-register {
+	min-width: 350px;
+	margin: 0 auto 30px;
+}
+.tabla-register .config {
 	display: flex;
 	justify-content: space-between;
+	margin-bottom: -10px;
 }
-.tabla .config .editar {
-	border: none;
+.tabla-register .config button {
 	background: none;
-	padding: 0px 12px;
+	border: none;
 	color: var(--violet);
-	cursor: pointer;
+	display: flex;
+	margin-top: 20px;
 }
-.tabla-datos {
-	padding: 10px 5px;
-	border-radius: 8px;
-	background-color: var(--violet);
+.tabla-register .tabla-datos {
+	background: var(--violet);
+	border-radius: 5px;
 	color: #eee;
+	padding: 13px 8px 10px;
 }
-.tabla-datos h3, span {
-	font-size: 18px;
+.tabla-register .tabla-datos .column {
+	margin-bottom: 15px;
 }
-.tabla-datos h3 {
-	border-bottom: 1px dotted var(--orange) ;
+.tabla-register .tabla-datos .column h3 {
+	border-bottom: 2px dotted var(--orange);
+	margin-bottom: 10px;
 }
-.tabla-datos .column {
+.tabla-register .config p {
+	display: flex;
+}
+.tabla-register .config p button {
+	padding: 0 12px;
+	margin-top: 20px;
+}
+
+@media screen and (min-width: 600px){
+.tabla-register {
+	min-width: 550px;
 	margin-bottom: 30px;
 }
 
 @media screen and (min-width: 720px){
+.tabla-register {
+	margin-bottom: 30px;
+}
 .tabla-datos {
 	display: flex;
 	text-align: center;
@@ -48,5 +64,16 @@ main .title {
 	margin-bottom: 30px;
 	width: 33%;
 }
+}
 
+@media screen and (min-width: 900px){
+.tabla-register .tabla-datos .column h3 {
+	font-size: 16px;
+}
+}
+
+@media screen and (min-width: 1440px){
+.tabla-register .tabla-datos .column h3 {
+	font-size: 20px;
+}
 }
