@@ -1,4 +1,41 @@
 /******************************************/
+/*                Search Barra            */
+/******************************************/
+.search {
+	background: #fff;
+	z-index: 5500;
+	top: -100px;
+	padding: 8px;
+	border-radius: 5px;
+	position: absolute;
+	width: 100%;
+	transition: all .5s;
+}
+.search.active {
+	top: 0;
+}
+.search form {
+	display: flex;
+}
+.search form input {
+	padding: 8px 12px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	width: 250px;
+}
+.search form input::placeholder {
+	color: var(--orange);
+
+}
+.search .btn-search {
+	background: none;
+	border: none;
+	font-size: 18px;
+	padding: 10px;
+}
+
+
+/******************************************/
 /*                navbar                  */
 /******************************************/
 .navbar {
@@ -10,7 +47,7 @@
 	width: 100%;
 	top: 0;
 	background-color: #fff;
-	z-index: 5000;
+	z-index: 3000;
 	border-bottom: 1px solid #ccc;
 	padding: 10px 8px;
 	flex-wrap: wrap;
@@ -38,6 +75,7 @@
 }
 .navbar .icons {
 	order: 2;
+	display: flex;
 }
 .navbar .icons a {
 	padding: 5px;
@@ -126,7 +164,7 @@
 	width: 100%;
 	top: 20px;
 	transition: all .5s ease;
-	z-index: 4000;
+	z-index: 2000;
 	display: block;
 }
 .sub-nav.active {

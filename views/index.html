@@ -22,6 +22,16 @@
 	<script src="/js/carousel.js"></script>
 </head>
 <body>
+<!-- Buscador oculto -->
+	<div class="search" id="showSearch">
+		<form>
+			<div class="btn-search" onclick="showSearch()"><i class="fas fa-times"></i></div>
+			<input type="text" placeholder="Buscar" id="showSearch">
+			<button class="btn-search"><i class="fas fa-search"></i></button>
+		</form>
+	</div>
+<!-- /buscador oculto -->
+
 	<!-- Navbar Fixed -->
 	<nav class="navbar flex">
 		<div class="logo">
@@ -39,9 +49,10 @@
 			</ul>
 		</div>
 		<div class="icons">
-			<a href="#"><i class="fas fa-search"></i></a>
 
-			<button class="user-config" href="#" onclick="showSubmenu()">
+			<button  class="user-config" onclick="showSearch()"><i class="fas fa-search"></i></button>
+
+			<button class="user-config" onclick="showSubmenu()">
 				<span></span>
 				<i class="fas fa-user"></i>
 			</button>

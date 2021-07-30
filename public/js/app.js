@@ -12,4 +12,9 @@ function showCategories(){
     categoriesCollapse.classList.toggle('active'); 
 }
 
+function showSearch(){
+    let showSearch = document.getElementById('showSearch');
+    showSearch.classList.toggle('active'); 	
+}
+
 /*************** /Menus Desplegables ***********************/
