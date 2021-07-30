@@ -16,210 +16,249 @@
 <body>
 </head>
 <body>
-    <main>
-        <!-- Navbar Fixed -->
+    <!-- Navbar Fixed -->
 	<nav class="navbar flex">
 		<div class="logo">
-			<img src="img/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
+			<a href="/">
+			<img src="img/icons/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
+			</a>
 		</div>
-    	<div class="nav__items collapse" id="collapse">
-			<a class="burguer" href=""><i class="fas fa-bars"></i></a>
+    	<div class="nav-items collapse" id="collapse">
+			<i class="fas fa-bars burguer"></i>
 			<ul>
-				<li><a href="#">Home</a></li>
+				<li><a href="/">Home</a></li>
 				<li><a href="#">Productos</a></li>
 				<li><a href="#">Acerca de</a></li>
-				<li><a href="#">Contacto</a></li>
+				<li><a href="/contact">Contacto</a></li>
 			</ul>
 		</div>
 		<div class="icons">
 			<a href="#"><i class="fas fa-search"></i></a>
-			<a class="shopping-cart" href="#"><i class="fas fa-shopping-cart"></i>
+
+			<button class="user-config" href="#" onclick="showSubmenu()">
+				<span></span>
+				<i class="fas fa-user"></i>
+			</button>
+
+			<div class="shopping-cart" onclick="showCart()"><i class="fas fa-shopping-cart"></i>
 				<span>1</span>
-			</a>
+			</div>
+			
+			<!-- Mini menu desplegable  -->
+			<div class="carrito-menu" id="carrito-menu">
+				<div>
+					<div class="cerrar-menu">
+						<i class="fas fa-times" onclick="showCart()"></i>
+					</div>
+					<div class="imagen-carrito">
+						<img src="" class="producto-carrito">
+					</div>
+					<div class="detalles-producto-carrito">
+						<b>$000.00</b>
+						<span>nombre de producto</span>
+					</div>
+				</div>
+				<div class="boton-carrito">
+					<a href="#">Ir a carrito</a>
+				</div>
+			</div>
+			<!-- /Mini menu desplegable -->
 		</div>
 	</nav>
 	<!-- /Navbar Fixed-->
 
+	<!-- Submenu -->
 	<nav class="sub-nav" id="subNave">
 		<ul>
-			<li><a href="#">Iniciar sesión</a></li>
-			<li><a href="#"><i class="fas fa-user"></i>Registrarse</a></li>
+			<!-- En caso de que no este registrado -->
+			<li><a href="/login">Ingresar</a></li>
+
+			<!-- en caso de que ya este logeado -->
+			<li><a href="/register">Configuracion</a></li>
+			<li><a href="#">Cerrar sesión</a></li>
 		</ul>
-		<div class="sub-nav__config">
-			<button class="config" href="#" onclick="showSubmenu()">
-				<span></span>
-				<i class="fas fa-user"></i>
-			</button>
-		</div>
 	</nav>
+	<!-- /Submenu -->
 
-        <!-- Barra con direccion de navegacion -->
-        <div class="barradireccion"></div>
+    <!-- cuerpo -->
+    <main>
+        <!-- Barra de Direccion -->
+        <div class="barra-direccion">
+            <a href="#">Home</a>
+            /
+            <a href="#">Producto</a>
+            /
+            <a href="#">Nombre y Marca del Producto</a>
+        </div>
 
-        <!-- Dettalle Producto -->
-        <section class="detallecont">
-            <section class="detalleproducto">
-                <div class="imgpro"></div>
-                <div class="detpro">
-                    <h3>Nombre Producto</h3>
-                    <h2>$0.000</h2>
-                    <p> <b>18</b> cuotas sin interes </p>
-                    <p>CANTIDAD</p>
-                    <input type="text">
-                    <hr>
-                    <input type="submit">
-                    <div class="cajadetalle">
-                        <p> Dirección Calle Falsa 123 </p>
-                        <p> mail@mail.com </p>
-                        <p> 123-345 345 </p>
-                        <p> Advertencia de consumo y blablabla </p>
+        <!-- Detalle del Producto-->
+        <section class="contenedor-detalleproducto">
+            <section class="detalle-producto">
+                <div class="imagen-detalleproducto"></div>
+                <div class="detalle-detalleproducto">
+                    <h4>Nombre del Producto</h4>
+                    <h3>$0.000.00</h3>
+                    <div class="cantidad-detalleproducto">
+                        CANTIDAD
+                        <input type="text">
+                    </div>
+                    <div class="boton-detalleproducto">
+                        <input  type="submit" value="Agregar al Carrito">
                     </div>
                 </div>
             </section>
         </section>
 
+        <div class="hr-separador">
+            <hr>
+        </div>
+
+		<!-- Detalles del Lugar -->
+		<section class="lugar-producto">
+			<div class="detalle-lugarproducto">
+				<p> Dirección: Calle Falsa 123 </p>
+				<p> Email: mail@mail.com </p>
+				<p> Tel/Cel: 123-345 345 </p>
+				<p> Advertencia de consumo y blablabla </p>
+			</div>
+		</section>
+
+		<div class="hr-separador">
+            <hr>
+        </div>
+
         <!-- Especificaciones del Producto -->
-        <section class="especificacionproducto">
-            <h3>Especificaciones</h3>
-            <p> - Graduación Alcohólica: 14% </p>
-            <p> - Presenta un color violeta oscuro y profundo. </p>
-            <p> - Maduración en barricas de Roble Francés 40% nuevo. </p>
-            <p> - Presenta aromas a frutos negros de carozo con notas especiadas de pimienta negra y clavo de olor, frutos rojos y florales intensos como violeta y lavanda. </p>
-            <p> - Estuche de Cartón (Caja de 4 unidades). </p>
-            <p> Incluye: 1 Botella de Vino </p>
-            <p> Es un Vino de gran concentración, elegancia y gran complejidad </p>
-        </section>
+        <section class="especificaciones-producto">
+			<div class="especificaciones">
+				<h3>Especificaciones</h3>
+				<p> - Graduación Alcohólica: 14% </p>
+				<p> - Presenta un color violeta oscuro y profundo. </p>
+				<p> - Maduración en barricas de Roble Francés 40% nuevo. </p>
+				<p> - Presenta aromas a frutos negros de carozo con notas especiadas de pimienta negra y clavo de olor, frutos rojos y florales intensos como violeta y lavanda. </p>
+				<p> - Estuche de Cartón (Caja de 4 unidades). </p>
+				<p> Incluye: 1 Botella de Vino </p>
+				<p> Es un Vino de gran concentración, elegancia y gran complejidad </p>
+			</div>
+		</section>
 
         <!-- Productos Relacionados -->
-        <section class="slider">
-            <h2>RELACIONADOS</h2>
-            <div class="slider__articles">	
-                <article class="br">
-                    <a href="#">
-                        <div class="producto__img"></div>
-                    </a>
-                    <div class="producto__details">
-                        <span>$316</span>
-                        <p>Cerveza Stella Artois</p>
-                        <b>Pale / Dorado / 5.2% ALC</b>
-                        <button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-                    </div>
-                    <div class="producto__buttons">
-                        <button class="btn-buy br">Comprar</button>
-                    </div>
-                </article>
-                <article class="br">
-                    <a href="#">
-                        <div class="producto__img"></div>
-                    </a>
-                    <div class="producto__details">
-                        <span>$316</span>
-                        <p>Cerveza Stella Artois</p>
-                        <b>Pale / Dorado / 5.2% ALC</b>
-                        <button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-                    </div>
-                    <div class="producto__buttons">
-                        <button class="btn-buy br">Comprar</button>
-                    </div>
-                </article>
-                <article class="br">
-                    <a href="#">
-                        <div class="producto__img"></div>
-                    </a>
-                    <div class="producto__details">
-                        <span>$316</span>
-                        <p>Cerveza Stella Artois</p>
-                        <b>Pale / Dorado / 5.2% ALC</b>
-                        <button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-                    </div>
-                    <div class="producto__buttons">
-                        <button class="btn-buy br">Comprar</button>
-                    </div>
-                </article>
-                <article class="br">
-                    <a href="#">
-                        <div class="producto__img"></div>
-                    </a>
-                    <div class="producto__details">
-                        <span>$316</span>
-                        <p>Cerveza Stella Artois</p>
-                        <b>Pale / Dorado / 5.2% ALC</b>
-                        <button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-                    </div>
-                    <div class="producto__buttons">
-                        <button class="btn-buy br">Comprar</button>
-                    </div>
-                </article>
-                <article class="br">
-                    <a href="#">
-                        <div class="producto__img"></div>
-                    </a>
-                    <div class="producto__details">
-                        <span>$316</span>
-                        <p>Cerveza Stella Artois</p>
-                        <b>Pale / Dorado / 5.2% ALC</b>
-                        <button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-                    </div>
-                    <div class="producto__buttons">
-                        <button class="btn-buy br">Comprar</button>
-                    </div>
-                </article>
-                <article class="br">
-                    <a href="#">
-                        <div class="producto__img"></div>
-                    </a>
-                    <div class="producto__details">
-                        <span>$316</span>
-                        <p>Cerveza Stella Artois</p>
-                        <b>Pale / Dorado / 5.2% ALC</b>
-                        <button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-                    </div>
-                    <div class="producto__buttons">
-                        <button class="btn-buy br">Comprar</button>
-                    </div>
-                </article>
-                <article class="br">
-                    <a href="#">
-                        <div class="producto__img"></div>
-                    </a>
-                    <div class="producto__details">
-                        <span>$316</span>
-                        <p>Cerveza Stella Artois</p>
-                        <b>Pale / Dorado / 5.2% ALC</b>
-                        <button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-                    </div>
-                    <div class="producto__buttons">
-                        <button class="btn-buy br">Comprar</button>
-                    </div>
-                </article>
-                <article class="br">
-                    <a href="#">
-                        <div class="producto__img"></div>
-                    </a>
-                    <div class="producto__details">
-                        <span>$316</span>
-                        <p>Cerveza Stella Artois</p>
-                        <b>Pale / Dorado / 5.2% ALC</b>
-                        <button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-                    </div>
-                    <div class="producto__buttons">
-                        <button class="btn-buy br">Comprar</button>
-                    </div>
-                </article>
-            </div>
-        </section>
-        <!-- /Slider de productos -->
-
-        <!-- Footer -->
-        <footer></footer>
+		<section class="slider">
+			<h2>RELACIONADOS</h2>
+			<div class="articulos">	
+				<article class="br">
+					<a href="#">
+						<div class="imagen-producto"></div>
+					</a>
+					<div class="detalles-articulos">
+						<span>$316</span>
+						<p>Cerveza Stella Artois</p>
+						<b>Pale / Dorado / 5.2% ALC</b>
+						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+					</div>
+					<div class="boton-comprar">
+						<button class="btn-buy br">Comprar</button>
+					</div>
+				</article>
+				<article class="br">
+					<a href="#">
+						<div class="imagen-producto"></div>
+					</a>
+					<div class="detalles-articulos">
+						<span>$316</span>
+						<p>Cerveza Stella Artois</p>
+						<b>Pale / Dorado / 5.2% ALC</b>
+						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+					</div>
+					<div class="boton-comprar">
+						<button class="btn-buy br">Comprar</button>
+					</div>
+				</article>
+				<article class="br">
+					<a href="#">
+						<div class="imagen-producto"></div>
+					</a>
+					<div class="detalles-articulos">
+						<span>$316</span>
+						<p>Cerveza Stella Artois</p>
+						<b>Pale / Dorado / 5.2% ALC</b>
+						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+					</div>
+					<div class="boton-comprar">
+						<button class="btn-buy br">Comprar</button>
+					</div>
+				</article>
+				<article class="br">
+					<a href="#">
+						<div class="imagen-producto"></div>
+					</a>
+					<div class="detalles-articulos">
+						<span>$316</span>
+						<p>Cerveza Stella Artois</p>
+						<b>Pale / Dorado / 5.2% ALC</b>
+						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+					</div>
+					<div class="boton-comprar">
+						<button class="btn-buy br">Comprar</button>
+					</div>
+				</article>
+				<article class="br">
+					<a href="#">
+						<div class="imagen-producto"></div>
+					</a>
+					<div class="detalles-articulos">
+						<span>$316</span>
+						<p>Cerveza Stella Artois</p>
+						<b>Pale / Dorado / 5.2% ALC</b>
+						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+					</div>
+					<div class="boton-comprar">
+						<button class="btn-buy br">Comprar</button>
+					</div>
+				</article>
+				<article class="br">
+					<a href="#">
+						<div class="imagen-producto"></div>
+					</a>
+					<div class="detalles-articulos">
+						<span>$316</span>
+						<p>Cerveza Stella Artois</p>
+						<b>Pale / Dorado / 5.2% ALC</b>
+						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+					</div>
+					<div class="boton-comprar">
+						<button class="btn-buy br">Comprar</button>
+					</div>
+				</article>
+				<article class="br">
+					<a href="#">
+						<div class="imagen-producto"></div>
+					</a>
+					<div class="detalles-articulos">
+						<span>$316</span>
+						<p>Cerveza Stella Artois</p>
+						<b>Pale / Dorado / 5.2% ALC</b>
+						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+					</div>
+					<div class="boton-comprar">
+						<button class="btn-buy br">Comprar</button>
+					</div>
+				</article>
+				<article class="br">
+					<a href="#">
+						<div class="imagen-producto"></div>
+					</a>
+					<div class="detalles-articulos">
+						<span>$316</span>
+						<p>Cerveza Stella Artois</p>
+						<b>Pale / Dorado / 5.2% ALC</b>
+						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+					</div>
+					<div class="boton-comprar">
+						<button class="btn-buy br">Comprar</button>
+					</div>
+				</article>
+			</div>
+		</section>
     </main>
-
-    <!-- Funcion para mostrar el menu de registro/login -->
-    <script>
-        function showSubmenu(){
-            let subNave = document.getElementById('subNave');
-            subNave.classList.toggle('active');
-        }
-    </script>
 </body>
 </html>
