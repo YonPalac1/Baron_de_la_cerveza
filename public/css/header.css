@@ -5,10 +5,11 @@
 	background: #fff;
 	z-index: 5500;
 	top: -100px;
+	right: 0;
 	padding: 8px;
 	border-radius: 5px;
 	position: absolute;
-	width: 100%;
+	
 	transition: all .5s;
 }
 .search.active {
