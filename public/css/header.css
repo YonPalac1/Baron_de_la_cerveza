@@ -161,12 +161,27 @@ header {
 	justify-content: center;
 	align-items: center;
 }
-header img.bg {
+.swiper-container {
 	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
 }
+.swiper-wrapper {
+	width: 100vw;
+}
+.swiper-slide img{
+	width: 100%;
+	height: 100vh;
+}
+header .title {
+	z-index: 1;
+	text-align: center;
+	color: var(--white);
+	position: absolute;
+}
+header .title h2 {
+	margin-top: 30px;
+	color: var(--orange);
+}
+
 header .title {
 	z-index: 1;
 	text-align: center;

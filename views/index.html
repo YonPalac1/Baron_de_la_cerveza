@@ -14,7 +14,12 @@
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
+	<!-- Swiper para el slider -->
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+	<!-- Scripts -->
 	<script src="/js/app.js"></script>
+	<script src="/js/carousel.js"></script>
 </head>
 <body>
 	<!-- Navbar Fixed -->
@@ -82,22 +87,46 @@
 	<!-- /Submenu -->
 
 	<!-- Header -->
-	<header class="header">
-		<img class="bg thumbnail-head" src="img/icons/header.jpg" alt="Pedi tu cerveza y te la llevamos a tu casa">
-		<div class="title">
-			<h1>Pedi tu birra y te la llevamos a tu casa</h1>
-			<h2>El Barón de la cerveza</h2>
+	<header>
+		<!-- Slider main container -->
+		<div class="swiper-container">
+		  <!-- Additional required wrapper -->
+		  <div class="swiper-wrapper">
+		    <!-- Slides -->
+		    <div class="swiper-slide">
+		    	<img src="/img/icons/header-1.jpg" alt="">
+		    </div>
+		    <div class="swiper-slide">
+		    	<img src="/img/icons/header-2.jpg" alt="">
+		    </div>
+		    <div class="swiper-slide">
+		    	<img src="/img/icons/header-3.jpg" alt="">
+		    </div>
+		  </div>
+		  <!-- If we need pagination -->
+		  <div class="swiper-pagination"></div>
+
+		  <!-- If we need navigation buttons -->
+		  <div class="swiper-button-prev"></div>
+		  <div class="swiper-button-next"></div>
+
+		  <!-- If we need scrollbar -->
+		  <div class="swiper-scrollbar"></div>
 		</div>
-	</header>
+		    <div class="title">
+		    	<h1>Pedi tu birra y te la llevamos a tu casa</h1>
+		    	<h2>El barón de la cerveza</h2>
+		    </div>
+		</header>
 	<!-- /header -->
 	
 	<!-- Slider de productos -->
 	<section class="slider">
 		<h2>DESTACADOS</h2>
-		<div class="articulos">	
+		<div class="articulos" id="slider-scroll">	
 			<article class="br">
 				<a href="#">
-					<div class="imagen-producto"></div>
+					<img src="/img/productos/img1.jpg" class="imagen-producto">
 				</a>
 				<div class="detalles-articulos">
 					<span>$316</span>
@@ -111,7 +140,7 @@
 			</article>
 			<article class="br">
 				<a href="#">
-					<div class="imagen-producto"></div>
+					<img src="/img/productos/img2.png" class="imagen-producto">
 				</a>
 				<div class="detalles-articulos">
 					<span>$316</span>
@@ -125,7 +154,7 @@
 			</article>
 			<article class="br">
 				<a href="#">
-					<div class="imagen-producto"></div>
+					<img src="/img/productos/img3.png" class="imagen-producto">
 				</a>
 				<div class="detalles-articulos">
 					<span>$316</span>
@@ -139,7 +168,7 @@
 			</article>
 			<article class="br">
 				<a href="#">
-					<div class="imagen-producto"></div>
+					<img src="/img/productos/img4.png" class="imagen-producto">
 				</a>
 				<div class="detalles-articulos">
 					<span>$316</span>
@@ -153,7 +182,7 @@
 			</article>
 			<article class="br">
 				<a href="#">
-					<div class="imagen-producto"></div>
+					<img src="/img/productos/img5.png" class="imagen-producto">
 				</a>
 				<div class="detalles-articulos">
 					<span>$316</span>
@@ -167,7 +196,7 @@
 			</article>
 			<article class="br">
 				<a href="#">
-					<div class="imagen-producto"></div>
+					<img src="/img/productos/img6.png" class="imagen-producto">
 				</a>
 				<div class="detalles-articulos">
 					<span>$316</span>
@@ -181,7 +210,7 @@
 			</article>
 			<article class="br">
 				<a href="#">
-					<div class="imagen-producto"></div>
+					<img src="/img/productos/img7.png" class="imagen-producto">
 				</a>
 				<div class="detalles-articulos">
 					<span>$316</span>
@@ -195,7 +224,7 @@
 			</article>
 			<article class="br">
 				<a href="#">
-					<div class="imagen-producto"></div>
+					<img src="/img/productos/img8.png" class="imagen-producto">
 				</a>
 				<div class="detalles-articulos">
 					<span>$316</span>
@@ -215,44 +244,92 @@
 	<main class="seccion-productos">
 		<h2>PRODUCTOS</h2>
 		<div class="productos-menus">
-			<button class="btn__cat"><h3>Categorias</h3></button>
-			<div class="collapse">
+			<h3 class="cat-text">Categorias</h3>
+
+			<!-- Boton desplegable -->
+			<button class="btn__cat" onclick="showCategories()"><h3>Categorias</h3></button>
+			<!-- Menu categorias desplegable -->
+			<div class="collapse" id="categoriesCollapse">
 				<hr>
 				<ul>
-					<b>Categoria 1</b>
+					<b>Color</b>
 					<li><input type="checkbox" id="cat1">
-						<label for="cat1">categoria</label>
+						<label for="cat1">Dorado</label>
 					</li>
 					<li><input type="checkbox" id="cat2">
-						<label for="cat2">categoria</label>
+						<label for="cat2">Dorado Rojizo</label>
 					</li>
 					<li><input type="checkbox" id="cat3">
-						<label for="cat3">categoria</label>
+						<label for="cat3">Negra</label>
 					</li>
 					<li><input type="checkbox" id="cat4">
-						<label for="cat4">categoria</label>
+						<label for="cat4">Oscuro</label>
 					</li>
 					<li><input type="checkbox" id="cat5">
-						<label for="cat5">categoria</label>
+						<label for="cat5">Roja</label>
 					</li>
 				</ul>
 
 				<ul>
-					<b>Categoria 2</b>
+					<b>Cervecerias</b>
 					<li><input type="checkbox" id="cat6">
-						<label for="cat6">categoria</label>
+						<label for="cat6">Budweiser</label>
 					</li>
 					<li><input type="checkbox" id="cat7">
-						<label for="cat7">categoria</label>
+						<label for="cat7">Andes Origen</label>
 					</li>
 					<li><input type="checkbox" id="cat8">
-						<label for="cat8">categoria</label>
+						<label for="cat8">Brahma</label>
 					</li>
 					<li><input type="checkbox" id="cat9">
-						<label for="cat9">categoria</label>
+						<label for="cat9">Patagonia</label>
 					</li>
 					<li><input type="checkbox" id="cat10">
-						<label for="cat10">categoria</label>
+						<label for="cat10">Quilmes</label>
+					</li>
+				</ul>
+				<button  onclick="showCategories()">
+					<i class="fas fa-chevron-up"></i>
+				</button>
+			</div>
+			<!-- Menu-categorias -->
+			<div class="menu-categorias">
+				<hr>
+				<ul>
+					<b>Color</b>
+					<li><input type="checkbox" id="cat1">
+						<label for="cat1">Dorado</label>
+					</li>
+					<li><input type="checkbox" id="cat2">
+						<label for="cat2">Dorado Rojizo</label>
+					</li>
+					<li><input type="checkbox" id="cat3">
+						<label for="cat3">Negra</label>
+					</li>
+					<li><input type="checkbox" id="cat4">
+						<label for="cat4">Oscuro</label>
+					</li>
+					<li><input type="checkbox" id="cat5">
+						<label for="cat5">Roja</label>
+					</li>
+				</ul>
+
+				<ul>
+					<b>Cervecerias</b>
+					<li><input type="checkbox" id="cat6">
+						<label for="cat6">Budweiser</label>
+					</li>
+					<li><input type="checkbox" id="cat7">
+						<label for="cat7">Andes Origen</label>
+					</li>
+					<li><input type="checkbox" id="cat8">
+						<label for="cat8">Brahma</label>
+					</li>
+					<li><input type="checkbox" id="cat9">
+						<label for="cat9">Patagonia</label>
+					</li>
+					<li><input type="checkbox" id="cat10">
+						<label for="cat10">Quilmes</label>
 					</li>
 				</ul>
 			</div>
@@ -262,6 +339,8 @@
 		   		<option value="" hidden selected>Filtrar por</option>
 		   		<option value="precio">Mayor precio</option>
 		   		<option value="br">Menor precio</option>
+		   		<option value="br">Destacado</option>
+		   		<option value="br">Agregados recientemente</option>
 		   	</select>
 		</div>
 
@@ -269,7 +348,7 @@
 			<div class="productos-main">	
 				<article class="br">
 					<a href="#">
-						<div class="imagen-producto"></div>
+						<img src="/img/productos/img1.jpg" class="imagen-producto">
 					</a>
 					<div class="detalles-articulos">
 						<span>$316</span>
@@ -283,7 +362,7 @@
 				</article>
 				<article class="br">
 					<a href="#">
-						<div class="imagen-producto"></div>
+						<img src="/img/productos/img2.png" class="imagen-producto">
 					</a>
 					<div class="detalles-articulos">
 						<span>$316</span>
@@ -297,7 +376,7 @@
 				</article>
 				<article class="br">
 					<a href="#">
-						<div class="imagen-producto"></div>
+						<img src="/img/productos/img3.png" class="imagen-producto">
 					</a>
 					<div class="detalles-articulos">
 						<span>$316</span>
@@ -311,7 +390,7 @@
 				</article>
 				<article class="br">
 					<a href="#">
-						<div class="imagen-producto"></div>
+						<img src="/img/productos/img4.png" class="imagen-producto">
 					</a>
 					<div class="detalles-articulos">
 						<span>$316</span>
@@ -325,7 +404,7 @@
 				</article>
 				<article class="br">
 					<a href="#">
-						<div class="imagen-producto"></div>
+						<img src="/img/productos/img5.png" class="imagen-producto">
 					</a>
 					<div class="detalles-articulos">
 						<span>$316</span>
@@ -339,7 +418,7 @@
 				</article>
 				<article class="br">
 					<a href="#">
-						<div class="imagen-producto"></div>
+						<img src="/img/productos/img6.png" class="imagen-producto">
 					</a>
 					<div class="detalles-articulos">
 						<span>$316</span>
@@ -353,7 +432,35 @@
 				</article>
 				<article class="br">
 					<a href="#">
-						<div class="imagen-producto"></div>
+						<img src="/img/productos/img7.png" class="imagen-producto">
+					</a>
+					<div class="detalles-articulos">
+						<span>$316</span>
+						<p>Cerveza Stella Artois</p>
+						<b>Pale / Dorado / 5.2% ALC</b>
+						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+					</div>
+					<div class="boton-comprar">
+						<button class="btn-buy br">Comprar</button>
+					</div>
+				</article>
+				<article class="br">
+					<a href="#">
+						<img src="/img/productos/img8.png" class="imagen-producto">
+					</a>
+					<div class="detalles-articulos">
+						<span>$316</span>
+						<p>Cerveza Stella Artois</p>
+						<b>Pale / Dorado / 5.2% ALC</b>
+						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+					</div>
+					<div class="boton-comprar">
+						<button class="btn-buy br">Comprar</button>
+					</div>
+				</article>
+				<article class="br">
+					<a href="#">
+						<img src="/img/productos/img9.jpg" class="imagen-producto">
 					</a>
 					<div class="detalles-articulos">
 						<span>$316</span>
@@ -461,6 +568,7 @@
 	</footer>
 	<!-- /FOOTER -->
 
-
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="/js/swiper.js"></script>
 </body>
 </html>

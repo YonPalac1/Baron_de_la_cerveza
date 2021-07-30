@@ -5,7 +5,6 @@
 	display: flex;
 	flex-wrap: wrap;
 	padding: 20px 5px;
-	overflow: hidden;
 	gap: 10px;
 	max-width: 1440px;
 	margin: 50px auto;
@@ -13,8 +12,24 @@
 }
 .slider .articulos {
 	display: flex;
-	overflow: hidden;
+	overflow-y: auto;
 	gap: 10px;
+}
+#slider-scroll::-webkit-scrollbar-track
+{
+	background-color: #F5F5F5;
+}
+
+#slider-scroll::-webkit-scrollbar
+{
+	height: 10px;
+	background-color: #F5F5F5;
+}
+
+#slider-scroll::-webkit-scrollbar-thumb
+{
+	background-color: var(--orange);
+	border-radius: 10px;
 }
 .slider h2 {
 	width: 100%;
@@ -27,9 +42,12 @@
 }
 
 /**********PRODUCTOS***************/
+article a {
+	display: flex;
+}
 .imagen-producto {
 	height: 200px;
-	background: grey;
+	margin: 0 auto;
 }
 .detalles-articulos {
 	position: relative;
@@ -103,32 +121,38 @@ main .filter {
 	justify-content: flex-end;
 	width: 50%;
 }
+.productos-menus h3.cat-text {
+	display: none;
+}
 .productos-menus button.btn__cat {
 	padding: 8px 10px;
 	background-color: #000;
 	color: #fff;
 	border: none;
 }
-.productos-menus .collapse {
+.productos-menus .menu-categorias {
 	display: none;
 }
-.productos-menus .collapse ul {
+.productos-menus .menu-categorias ul {
 	margin-top: 20px;
 }
-.productos-menus .collapse ul li {
+.productos-menus .menu-categorias ul li {
 	padding: 4px 10px;
 }
-.productos-menus .collapse ul li input[type="checkbox"] {
-	opacity: 0;
+.productos-menus .menu-categorias ul li input[type="checkbox"] {
+	display: none;
 }
-.productos-menus .collapse ul li input:checked ~ label {
+.productos-menus .menu-categorias ul li input:checked ~ label {
 	background: var(--orange);
 } 
-.productos-menus .collapse ul li label {
-	padding: 3px 10px;
+.productos-menus .menu-categorias ul li label {
+	padding: 3px;
 }
-.productos-menus .collapse ul b {
+.productos-menus .menu-categorias ul b {
 	font-family: var(--font-open);
+	font-weight: bolder;
+	text-decoration: underline;
+	color: #000;
 }
 .productos-main {
 	display: flex;
@@ -145,6 +169,54 @@ main .filter {
 	border-radius: 5px;
 }
 
+/**********Desplegable***********************/
+.productos-menus .collapse {
+	position: absolute;
+	width: 100%;
+	height: 0;
+	overflow: hidden;
+	background: #000;
+	color: #fff;
+	text-align: center;
+	z-index: 6000;
+	transition: .5s;
+}
+.productos-menus .collapse.active {
+	height: 430px;
+}
+.productos-menus .collapse ul {
+	margin-top: 20px;
+}
+.productos-menus .collapse ul li {
+	padding: 4px 10px;
+}
+.productos-menus .collapse ul li input[type="checkbox"] {
+	display: none;
+}
+.productos-menus .collapse ul li input:checked ~ label {
+	background: var(--orange);
+} 
+.productos-menus .collapse ul li label {
+	padding: 3px;
+}
+.productos-menus .collapse b {
+	font-family: var(--font-open);
+	font-weight: bolder;
+	text-decoration: underline;
+	color: #fff;
+}
+.productos-menus .collapse button {
+	display: block;
+	width: 100%;
+	color: #fff;
+	padding: 10px;
+	border: none;
+	background: none;
+}
+
+.productos-menus .collapse button:hover {
+	background: #999;	
+}
 /******************************************/
 /*                CARDS                   */
 /******************************************/
@@ -206,13 +278,17 @@ section .card i {
 		padding: 5px 12px;
 	}
 	.productos-menus button.btn__cat {
+		display: none;
+	}
+	.productos-menus h3.cat-text {
+		display: block;
 		padding: 10px 0px;
 		background-color: transparent;
 		color: #000;
 		border: none;
-		font-size: 20px;
+		font-size: 20px;	
 	}
-	.productos-menus .collapse {
+	.productos-menus .menu-categorias {
 		display: inline;
 	}
 	main section {
