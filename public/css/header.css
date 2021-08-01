@@ -33,6 +33,7 @@
 	border: none;
 	font-size: 18px;
 	padding: 10px;
+	cursor: pointer
 }
 
 
@@ -103,12 +104,13 @@
 	border-radius: 50%;
 }
 
+/* Mini menu desplegable de carrito */
 .carrito-menu {
 	position: absolute;
 	top: 100px;
 	right: -100%;
 	background: #000;
-	width: 130px;
+	width: 160px;
 	padding: 15px 12px 15px 10px;
 	color: #fff;
 	border-radius: 5px;
@@ -117,7 +119,33 @@
 .carrito-menu.active {
 	right: 0;
 }
+.en-carrito {
+	max-height: 50vh;
+	overflow-y: auto;
+}
+.carrito-menu .cerrar-menu i {
+	cursor: pointer;
+}
+.en-carrito::-webkit-scrollbar-track
+{
+	background-color: #F5F5F5;
+}
+.en-carrito::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #F5F5F5;
+}
+.en-carrito::-webkit-scrollbar-thumb
+{
+	background-color: var(--orange);
+	border-radius: 10px;
+}
 .carrito-menu .imagen-carrito {
+	width: 100px;
+	height: 140px;
+	background: grey;
+}
+.carrito-menu .imagen-carrito img {
 	width: 100px;
 	height: 140px;
 	background: grey;
@@ -133,12 +161,16 @@
 .carrito-menu .boton-carrito {
 	text-align: center;
 	padding: 10px 0px;
+	cursor: pointer;
 }
 .carrito-menu .boton-carrito a {
 	background-color: var(--darkorange);
 	color: #fff;
+	border-radius: 5px;
 }
+/* /Mini menu desplegable de carrito */
 
+/* Icono de Usuario */
 .user-config {
 	padding: 5px 10px;
 	font-size: 15px;

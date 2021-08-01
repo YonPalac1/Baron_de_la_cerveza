@@ -4,7 +4,7 @@
 /****************************************/
 .banners {
     max-width: 1440px;
-    margin: 0 auto;
+    margin: 30px auto 100px;
     height: 300px;
     border: 2px solid #ccc;
     overflow: hidden;
@@ -14,7 +14,7 @@
 /* Carousel container */
 .carousel-container {
     position: relative;
-    margin: 20px auto 30px;
+    margin: 20px auto 130px;
     max-width: 1440px;
 }
 
