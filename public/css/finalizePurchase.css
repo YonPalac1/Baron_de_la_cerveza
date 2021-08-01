@@ -1,0 +1,123 @@
+.registrarse {
+	display: flex;
+	justify-content: space-between;
+	font-family: var(--font-open);
+}
+.registrarse i {
+	font-size: 23px;
+}
+.finalizar-compra label {
+	font-family: var(--font-open);
+}
+.finalizar-compra hr {
+	margin: 20px 0;
+}
+/************************************/
+/************************************/
+.datos-de-compra {
+	margin-top: 50px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 13px;
+}
+.datos-de-compra a {
+	background: var(--darkorange);
+	padding: 5px 8px;
+	border-radius: 5px;
+}
+.datos-de-compra input {
+	padding: 3px 5px;
+	border: none;
+	border-bottom: 1px dotted var(--orange);
+	margin-top: 20px;
+	width: 100%;
+}
+.datos-de-compra strong {
+	font-family: var(--font-open);
+}
+.datos-de-compra p {
+	display: flex;
+	gap: 10px;
+}
+.datos-de-compra .btn-continuar {
+	display: flex;
+	justify-content: center;
+}
+.datos-de-compra .btn-continuar button {
+	padding: 10px 12px;
+	border: none;
+	background: var(--violet);
+	color: #fff;
+	margin-top: 20px;
+	display: block;
+}
+
+/************************************************/
+/* 				Metodos de envio 				*/
+/************************************************/
+.metodos-de-envio {
+	margin-top: 50px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 13px;
+}
+.metodos-de-envio span {
+	font-family: var(--font-open);
+	margin-bottom: 30px;
+}
+.metodos-de-envio form div {
+	margin-bottom: 5px;
+}
+.metodos-de-envio form div:hover {
+	background: #b0a8f0;
+	cursor: pointer;
+}
+/************************************************/
+/* 				Producto a comprar 				*/
+/************************************************/
+.a-comprar .producto-comprado {
+	margin-top: 40px;
+	display: flex;
+	flex-wrap: wrap;
+	font-family: var(--font-open);
+}
+.a-comprar .producto-comprado img {
+	width:70px;
+	height: 100px;
+	background: #ccc;
+}
+.a-comprar .producto-comprado span {
+	padding: 0px 10px;
+	width: 33.3%;
+}
+.a-comprar .producto-comprado p {
+	width: 33.3%;
+	text-align: right;
+}
+.a-comprar .producto-comprado button {
+	padding: 8px 12px;
+	border: none;
+	background: var(--violet);
+	width: 100%;
+	color:#fff;
+	margin-top: 20px;
+}
+
+
+@media screen and (min-width:720px){
+	.finalizar-compra .columnas-de-compras {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.finalizar-compra .columnas-de-compras .title {
+		width: 100%;
+		margin-top: 20px;
+	}
+	.datos-de-compra {
+		width: 50%;
+	}
+	.metodos-de-envio {
+		width: 50%;
+	}
+	.metodos-de-envio
+}
