@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>El barón de la cerveza</title>
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" sizes="32x32" href="/img/icons/icon.png">
+
+	<!-- Estilos -->
+	<link rel="stylesheet" href="/css/styles.css">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+	<!-- Scripts -->
+	<script src="/js/app.js"></script>
+</head>
+<body>
+	<!-- Navbar Fixed -->
+	<nav class="navbar flex">
+<!-- Buscador oculto -->
+	<div class="search" id="showSearch">
+		<form>
+			<div class="btn-search" onclick="showSearch()"><i class="fas fa-times"></i></div>
+			<input type="text" placeholder="Buscar" id="showSearch">
+			<button class="btn-search"><i class="fas fa-search"></i></button>
+		</form>
+	</div>
+<!-- /buscador oculto -->
+		<div class="logo">
+			<a href="/">
+			<img src="img/icons/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
+			</a>
+		</div>
+    	<div class="nav-items collapse" id="collapse">
+			<i class="fas fa-bars burguer"></i>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="#">Productos</a></li>
+				<li><a href="#">Acerca de</a></li>
+				<li><a href="/contact">Contacto</a></li>
+			</ul>
+		</div>
+		<div class="icons">
+
+			<button  class="user-config" onclick="showSearch()"><i class="fas fa-search"></i></button>
+
+			<button class="user-config" onclick="showSubmenu()">
+				<span></span>
+				<i class="fas fa-user"></i>
+			</button>
+
+			<div class="shopping-cart" onclick="showCart()"><i class="fas fa-shopping-cart"></i>
+				<span>1</span>
+			</div>
+			
+			<!-- Mini menu desplegable  -->
+			<div class="carrito-menu" id="carrito-menu">
+				<div class="cerrar-menu">
+					<i class="fas fa-times" onclick="showCart()"></i>
+				</div>
+				<div class="en-carrito">
+					<div>
+						<div class="imagen-carrito">
+							<img src="/img/productos/img1.jpg" class="producto-carrito">
+						</div>
+						<div class="detalles-producto-carrito">
+							<b>$000.00</b>
+							<span>nombre de producto</span>
+						</div>
+					</div>
+					<div>
+						<div class="imagen-carrito">
+							<img src="/img/productos/img2.png" class="producto-carrito">
+						</div>
+						<div class="detalles-producto-carrito">
+							<b>$000.00</b>
+							<span>nombre de producto</span>
+						</div>
+					</div>
+					<div>
+						<div class="imagen-carrito">
+							<img src="/img/productos/img3.png" class="producto-carrito">
+						</div>
+						<div class="detalles-producto-carrito">
+							<b>$000.00</b>
+							<span>nombre de producto</span>
+						</div>
+					</div>
+				</div>
+				<div class="boton-carrito">
+					<a href="#">Ir a carrito</a>
+				</div>
+			</div>
+			<!-- /Mini menu desplegable -->
+		</div>
+	</nav>
+	<!-- /Navbar Fixed-->
+
+	<!-- Submenu -->
+	<nav class="sub-nav" id="subNave">
+		<ul>
+			<!-- En caso de que no este registrado -->
+			<li><a href="/login">Ingresar</a></li>
+
+			<!-- en caso de que ya este logeado -->
+			<li><a href="/register">Configuracion</a></li>
+			<li><a href="#">Cerrar sesión</a></li>
+		</ul>
+	</nav>
+	<!-- /Submenu -->
+
+	<!--  Acerca de nosotros -->
+	<main class="about">
+		<h2>Acerca de nosotros</h2>
+		<div class="about-us">
+			<img src="/img/icons/icon-title.png" alt="El baron de la cerveza">
+			<p>El Barón de la cerveza es un plataforma de venta de bebidas alcohólicas al por mayor, dirigida los potenciales clientes son las cervezarias, almacenes, bares, restaurantes, etc. Que tengan la necesidad de abastecerse de diferentes tipos de cervezas. El barón de la cerveza le garantiza la mejor y más rápida atención, ya que los desarrolladores de la tienda online le dedican todo el amor y el esfuerzo para que su navegación sea fluida, rápida y elegante para su comodidad.</p>
+		</div>
+		<div class="nosotros">
+		</div>
+	</main>
+
+	<!-- /Acerca de nosotros  -->
+
+	<!-- FOOTER -->
+	<footer>
+		<div class="footer">
+			<div class="navegacion">
+				<h5>Navegacion</h5>
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="#">Productos</a></li>
+					<li><a href="#">Acerca de</a></li>
+					<li><a href="/contact">Contacto</a></li>
+				</ul>
+			</div>
+			<div class="formas-pago">
+				<h5>Formas de pago</h5>
+				<div>
+					<img src="img/icons/mastercard.png" alt="mastercard">
+					<img src="img/icons/ml.png" alt="mercado libre">
+					<img src="img/icons/visa.png" alt="visa">
+				</div>
+			</div>
+			<div class="redes">
+				<h5>Redes</h5>
+				<div>
+					<i class="fab fa-facebook"></i>
+					<i class="fab fa-whatsapp"></i>
+					<i class="fab fa-instagram"></i>
+				</div>
+			</div>
+			<div class="logo">
+				<img src="/img/icons/icon-title2.png" alt="">
+			</div>
+		</div>
+	</footer>
+	<!-- /FOOTER -->
+</body>
+</html>

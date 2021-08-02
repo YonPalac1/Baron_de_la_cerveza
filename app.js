@@ -38,6 +38,10 @@ app.get('/contact', (req, res)=>{
 app.get('/finalizePurchase', (req, res)=>{
     res.sendFile(path.join(__dirname, '/views/finalizePurchase.html'))
 })
+// Pagina donde se finalizaria la compra - Yonatan  
+app.get('/about', (req, res)=>{
+    res.sendFile(path.join(__dirname, '/views/about.html'))
+})
 
 
 app.listen(3030, ()=>{
