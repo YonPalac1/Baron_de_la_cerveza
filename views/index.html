@@ -50,7 +50,7 @@
 				<li><a href="/contact">Contacto</a></li>
 
 				<!-- Switch de modo oscuro -->
-				<button class="switch" id="switch">
+				<button class="switch" id="switch" onclick="modoNocturno()">
 					<span><i class="fas fa-sun"></i></span>
 					<span><i class="fas fa-moon"></i></span>
 				</button>
@@ -611,14 +611,6 @@
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="/js/swiper.js"></script>
-<script>
-	const btnSwitch = document.querySelector('#switch');
-	
 
-btnSwitch.addEventListener('click',() => {
-	document.body.classList.toggle('dark');
-	btnSwitch.classList.toggle('onoff');
-});
-</script>
 </body>
 </html>

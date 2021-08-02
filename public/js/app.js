@@ -1,3 +1,10 @@
+/*************** Switch de Modo nocturno ********/
+	
+function modoNocturno(){
+	const btnSwitch = document.getElementById('switch');
+    document.body.classList.toggle('dark');
+    btnSwitch.classList.toggle('onoff');
+}
 /***************Menus Desplegables ***********************/
 function showMenu(){
 	let menu = document.getElementById('menu');
@@ -23,3 +30,4 @@ function showSearch(){
 }
 
 /*************** /Menus Desplegables ***********************/
+
