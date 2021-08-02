@@ -9,7 +9,6 @@
 	padding: 8px;
 	border-radius: 5px;
 	position: absolute;
-	
 	transition: all .5s;
 }
 .search.active {
@@ -57,6 +56,9 @@
 	-webkit-box-shadow: 0px 2px 5px 0px rgba(113,113,113,1);
 	-moz-box-shadow: 0px 2px 5px 0px rgba(113,113,113,1);
 }
+body.dark .navbar {
+	background-color: #111;
+}
 .navbar .logo {
 	order: 1;
 }
@@ -70,7 +72,9 @@
 	padding: 5px 8px;
 	transition: .5s;
 }
-
+body.dark .navbar .nav-items ul li a {
+	color: #fff;
+}
 .navbar .nav-items ul li a:hover {
 	background: var(--orange);
 	color: #fff;
@@ -171,6 +175,9 @@
 /* /Mini menu desplegable de carrito */
 
 /* Icono de Usuario */
+body.dark .user-config i {
+	color: #fff;
+}
 .user-config {
 	padding: 5px 10px;
 	font-size: 15px;
