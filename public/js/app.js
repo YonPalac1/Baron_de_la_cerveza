@@ -1,4 +1,9 @@
 /***************Menus Desplegables ***********************/
+function showMenu(){
+	let menu = document.getElementById('menu');
+		menu.classList.toggle('active');
+}
+
 function showSubmenu(){
 		let subNave = document.getElementById('subNave');
 		subNave.classList.toggle('active');
