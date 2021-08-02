@@ -107,6 +107,9 @@ body.dark .navbar .nav-items ul li a {
 	background: var(--orange);
 	color: #fff;
 }
+body.dark .navbar .nav-items .burguer {
+	color: #fff;
+}
 .navbar .icons {
 	order: 2;
 	display: flex;
@@ -333,6 +336,9 @@ header .title h2 {
 	.navbar .nav-items ul li a {
 		margin-left: 10px;
 		color: #000;
+	}
+	.navbar .nav-items button.close {
+		display: none;
 	}
 	.sub-nav .sub-nav__config .config b {
 		display: inline;
