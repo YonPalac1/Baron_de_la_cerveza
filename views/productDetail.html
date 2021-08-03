@@ -1,90 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<title>El barón de la cerveza</title>
-
-	<!-- Estilos -->
-	<link rel="stylesheet" href="/css/styles.css">
-
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-</head>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+		<title>El barón de la cerveza</title>
+	
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" sizes="32x32" href="/img/icons/icon.png">
+	
+		<!-- Estilos -->
+		<link rel="stylesheet" href="/css/styles.css">
+	
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	
+		<!-- Swiper para el slider -->
+		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+	
+		<!-- Scripts -->
+		<script src="/js/app.js"></script>
+		<script src="/js/carousel.js"></script>
+	</head>
 <body>
-</head>
 <body>
     <!-- Navbar Fixed -->
 	<nav class="navbar flex">
-		<div class="logo">
-			<a href="/">
-			<img src="img/icons/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
-			</a>
-		</div>
-    	<div class="nav-items collapse" id="collapse">
-			<i class="fas fa-bars burguer"></i>
-			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="#">Productos</a></li>
-				<li><a href="#">Acerca de</a></li>
-				<li><a href="/contact">Contacto</a></li>
-			</ul>
-		</div>
-		<div class="icons">
-			<a href="#"><i class="fas fa-search"></i></a>
-
-			<button class="user-config" href="#" onclick="showSubmenu()">
-				<span></span>
-				<i class="fas fa-user"></i>
-			</button>
-
-			<div class="shopping-cart" onclick="showCart()"><i class="fas fa-shopping-cart"></i>
-				<span>1</span>
+		<!-- Buscador oculto -->
+			<div class="search" id="showSearch">
+				<form>
+					<div class="btn-search" onclick="showSearch()"><i class="fas fa-times"></i></div>
+					<input type="text" placeholder="Buscar" id="showSearch">
+					<button class="btn-search"><i class="fas fa-search"></i></button>
+				</form>
 			</div>
-			
-			<!-- Mini menu desplegable  -->
-			<div class="carrito-menu" id="carrito-menu">
-				<div>
-					<div class="cerrar-menu">
-						<i class="fas fa-times" onclick="showCart()"></i>
-					</div>
-					<div class="imagen-carrito">
-						<img src="" class="producto-carrito">
-					</div>
-					<div class="detalles-producto-carrito">
-						<b>$000.00</b>
-						<span>nombre de producto</span>
-					</div>
+		<!-- /buscador oculto -->
+				<div class="logo">
+					<a href="/">
+					<img src="img/icons/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
+					</a>
 				</div>
-				<div class="boton-carrito">
-					<a href="#">Ir a carrito</a>
+		
+				<div class="nav-items">
+					<i class="fas fa-bars burguer" onclick="showMenu()"></i>
+					<ul id="menu">
+						<button class="close" onclick="showMenu()"><i class="fas fa-times"></i></button>
+						<li><a href="/">Home</a></li>
+						<li><a href="/about">Acerca de</a></li>
+						<li><a href="/contact">Contacto</a></li>
+		
+						<!-- Switch de modo oscuro -->
+						<button class="switch" id="switch" onclick="modoNocturno()">
+							<span><i class="fas fa-sun"></i></span>
+							<span><i class="fas fa-moon"></i></span>
+						</button>
+		
+					</ul>
 				</div>
-			</div>
-			<!-- /Mini menu desplegable -->
-		</div>
-	</nav>
-	<!-- /Navbar Fixed-->
-
-	<!-- Submenu -->
-	<nav class="sub-nav" id="subNave">
-		<ul>
-			<!-- En caso de que no este registrado -->
-			<li><a href="/login">Ingresar</a></li>
-
-			<!-- en caso de que ya este logeado -->
-			<li><a href="/register">Configuracion</a></li>
-			<li><a href="#">Cerrar sesión</a></li>
-		</ul>
-	</nav>
-	<!-- /Submenu -->
+				<div class="icons">
+		
+					<button  class="user-config" onclick="showSearch()"><i class="fas fa-search"></i></button>
+		
+					<button class="user-config" onclick="showSubmenu()">
+						<span></span>
+						<i class="fas fa-user"></i>
+					</button>
+		
+					<div class="shopping-cart" onclick="showCart()"><i class="fas fa-shopping-cart"></i>
+						<span>1</span>
+					</div>
+					
+					<!-- Mini menu desplegable  -->
+					<div class="carrito-menu" id="carrito-menu">
+						<div class="cerrar-menu">
+							<i class="fas fa-times" onclick="showCart()"></i>
+						</div>
+						<div class="en-carrito">
+							<div>
+								<div class="imagen-carrito">
+									<img src="/img/productos/img1.jpg" class="producto-carrito">
+								</div>
+								<div class="detalles-producto-carrito">
+									<b>$000.00</b>
+									<span>nombre de producto</span>
+								</div>
+							</div>
+							<div>
+								<div class="imagen-carrito">
+									<img src="/img/productos/img2.png" class="producto-carrito">
+								</div>
+								<div class="detalles-producto-carrito">
+									<b>$000.00</b>
+									<span>nombre de producto</span>
+								</div>
+							</div>
+							<div>
+								<div class="imagen-carrito">
+									<img src="/img/productos/img3.png" class="producto-carrito">
+								</div>
+								<div class="detalles-producto-carrito">
+									<b>$000.00</b>
+									<span>nombre de producto</span>
+								</div>
+							</div>
+						</div>
+						<div class="boton-carrito">
+							<a href="#">Ir a carrito</a>
+						</div>
+					</div>
+					<!-- /Mini menu desplegable -->
+				</div>
+			</nav>
+			<!-- /Navbar Fixed-->
+		
+			<!-- Submenu -->
+			<nav class="sub-nav" id="subNave">
+				<ul>
+					<!-- En caso de que no este registrado -->
+					<li><a href="/login">Ingresar</a></li>
+		
+					<!-- en caso de que ya este logeado -->
+					<li><a href="/register">Configuracion</a></li>
+					<li><a href="#">Cerrar sesión</a></li>
+				</ul>
+			</nav>
+			<!-- /Submenu -->
 
     <!-- cuerpo -->
     <main>
         <!-- Barra de Direccion -->
         <div class="barra-direccion">
-            <a href="#">Home</a>
+            <a href="/">Home</a>
             /
             <a href="#">Producto</a>
             /
@@ -94,7 +141,9 @@
         <!-- Detalle del Producto-->
         <section class="contenedor-detalleproducto">
             <section class="detalle-producto">
-                <div class="imagen-detalleproducto"></div>
+                <div class="imagen-detalleproducto">
+					<img src="/img/productos/img1.jpg" class="imagen-detalleproducto">
+				</div>
                 <div class="detalle-detalleproducto">
                     <h4>Nombre del Producto</h4>
                     <h3>$0.000.00</h3>
@@ -109,10 +158,6 @@
             </section>
         </section>
 
-        <div class="hr-separador">
-            <hr>
-        </div>
-
 		<!-- Detalles del Lugar -->
 		<section class="lugar-producto">
 			<div class="detalle-lugarproducto">
@@ -122,10 +167,6 @@
 				<p> Advertencia de consumo y blablabla </p>
 			</div>
 		</section>
-
-		<div class="hr-separador">
-            <hr>
-        </div>
 
         <!-- Especificaciones del Producto -->
         <section class="especificaciones-producto">
@@ -142,123 +183,164 @@
 		</section>
 
         <!-- Productos Relacionados -->
-		<section class="slider">
-			<h2>RELACIONADOS</h2>
-			<div class="articulos">	
-				<article class="br">
-					<a href="#">
-						<div class="imagen-producto"></div>
-					</a>
-					<div class="detalles-articulos">
-						<span>$316</span>
-						<p>Cerveza Stella Artois</p>
-						<b>Pale / Dorado / 5.2% ALC</b>
-						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-					</div>
-					<div class="boton-comprar">
-						<button class="btn-buy br">Comprar</button>
-					</div>
-				</article>
-				<article class="br">
-					<a href="#">
-						<div class="imagen-producto"></div>
-					</a>
-					<div class="detalles-articulos">
-						<span>$316</span>
-						<p>Cerveza Stella Artois</p>
-						<b>Pale / Dorado / 5.2% ALC</b>
-						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-					</div>
-					<div class="boton-comprar">
-						<button class="btn-buy br">Comprar</button>
-					</div>
-				</article>
-				<article class="br">
-					<a href="#">
-						<div class="imagen-producto"></div>
-					</a>
-					<div class="detalles-articulos">
-						<span>$316</span>
-						<p>Cerveza Stella Artois</p>
-						<b>Pale / Dorado / 5.2% ALC</b>
-						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-					</div>
-					<div class="boton-comprar">
-						<button class="btn-buy br">Comprar</button>
-					</div>
-				</article>
-				<article class="br">
-					<a href="#">
-						<div class="imagen-producto"></div>
-					</a>
-					<div class="detalles-articulos">
-						<span>$316</span>
-						<p>Cerveza Stella Artois</p>
-						<b>Pale / Dorado / 5.2% ALC</b>
-						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-					</div>
-					<div class="boton-comprar">
-						<button class="btn-buy br">Comprar</button>
-					</div>
-				</article>
-				<article class="br">
-					<a href="#">
-						<div class="imagen-producto"></div>
-					</a>
-					<div class="detalles-articulos">
-						<span>$316</span>
-						<p>Cerveza Stella Artois</p>
-						<b>Pale / Dorado / 5.2% ALC</b>
-						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-					</div>
-					<div class="boton-comprar">
-						<button class="btn-buy br">Comprar</button>
-					</div>
-				</article>
-				<article class="br">
-					<a href="#">
-						<div class="imagen-producto"></div>
-					</a>
-					<div class="detalles-articulos">
-						<span>$316</span>
-						<p>Cerveza Stella Artois</p>
-						<b>Pale / Dorado / 5.2% ALC</b>
-						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-					</div>
-					<div class="boton-comprar">
-						<button class="btn-buy br">Comprar</button>
-					</div>
-				</article>
-				<article class="br">
-					<a href="#">
-						<div class="imagen-producto"></div>
-					</a>
-					<div class="detalles-articulos">
-						<span>$316</span>
-						<p>Cerveza Stella Artois</p>
-						<b>Pale / Dorado / 5.2% ALC</b>
-						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-					</div>
-					<div class="boton-comprar">
-						<button class="btn-buy br">Comprar</button>
-					</div>
-				</article>
-				<article class="br">
-					<a href="#">
-						<div class="imagen-producto"></div>
-					</a>
-					<div class="detalles-articulos">
-						<span>$316</span>
-						<p>Cerveza Stella Artois</p>
-						<b>Pale / Dorado / 5.2% ALC</b>
-						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-					</div>
-					<div class="boton-comprar">
-						<button class="btn-buy br">Comprar</button>
-					</div>
-				</article>
-			</div>
-		</section>
+		<!-- Slider de productos -->
+	<section class="slider">
+		<h2>Productos Relacionados</h2>
+		<div class="articulos" id="slider-scroll">	
+			<article class="br">
+				<a href="#">
+					<img src="/img/productos/img1.jpg" class="imagen-producto">
+				</a>
+				<div class="detalles-articulos">
+					<span>$316</span>
+					<p>Cerveza Stella Artois</p>
+					<b>Pale / Dorado / 5.2% ALC</b>
+					<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+				</div>
+				<div class="boton-comprar">
+					<button class="btn-buy br">Comprar</button>
+				</div>
+			</article>
+			<article class="br">
+				<a href="#">
+					<img src="/img/productos/img2.png" class="imagen-producto">
+				</a>
+				<div class="detalles-articulos">
+					<span>$316</span>
+					<p>Cerveza Stella Artois</p>
+					<b>Pale / Dorado / 5.2% ALC</b>
+					<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+				</div>
+				<div class="boton-comprar">
+					<button class="btn-buy br">Comprar</button>
+				</div>
+			</article>
+			<article class="br">
+				<a href="#">
+					<img src="/img/productos/img3.png" class="imagen-producto">
+				</a>
+				<div class="detalles-articulos">
+					<span>$316</span>
+					<p>Cerveza Stella Artois</p>
+					<b>Pale / Dorado / 5.2% ALC</b>
+					<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+				</div>
+				<div class="boton-comprar">
+					<button class="btn-buy br">Comprar</button>
+				</div>
+			</article>
+			<article class="br">
+				<a href="#">
+					<img src="/img/productos/img4.png" class="imagen-producto">
+				</a>
+				<div class="detalles-articulos">
+					<span>$316</span>
+					<p>Cerveza Stella Artois</p>
+					<b>Pale / Dorado / 5.2% ALC</b>
+					<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+				</div>
+				<div class="boton-comprar">
+					<button class="btn-buy br">Comprar</button>
+				</div>
+			</article>
+			<article class="br">
+				<a href="#">
+					<img src="/img/productos/img5.png" class="imagen-producto">
+				</a>
+				<div class="detalles-articulos">
+					<span>$316</span>
+					<p>Cerveza Stella Artois</p>
+					<b>Pale / Dorado / 5.2% ALC</b>
+					<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+				</div>
+				<div class="boton-comprar">
+					<button class="btn-buy br">Comprar</button>
+				</div>
+			</article>
+			<article class="br">
+				<a href="#">
+					<img src="/img/productos/img6.png" class="imagen-producto">
+				</a>
+				<div class="detalles-articulos">
+					<span>$316</span>
+					<p>Cerveza Stella Artois</p>
+					<b>Pale / Dorado / 5.2% ALC</b>
+					<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+				</div>
+				<div class="boton-comprar">
+					<button class="btn-buy br">Comprar</button>
+				</div>
+			</article>
+			<article class="br">
+				<a href="#">
+					<img src="/img/productos/img7.png" class="imagen-producto">
+				</a>
+				<div class="detalles-articulos">
+					<span>$316</span>
+					<p>Cerveza Stella Artois</p>
+					<b>Pale / Dorado / 5.2% ALC</b>
+					<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+				</div>
+				<div class="boton-comprar">
+					<button class="btn-buy br">Comprar</button>
+				</div>
+			</article>
+			<article class="br">
+				<a href="#">
+					<img src="/img/productos/img8.png" class="imagen-producto">
+				</a>
+				<div class="detalles-articulos">
+					<span>$316</span>
+					<p>Cerveza Stella Artois</p>
+					<b>Pale / Dorado / 5.2% ALC</b>
+					<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+				</div>
+				<div class="boton-comprar">
+					<button class="btn-buy br">Comprar</button>
+				</div>
+			</article>
+		</div>
+	</section>
+	<!-- /Slider de productos -->
+		
     </main>
+
+	<!-- FOOTER -->
+	<footer>
+		<div class="footer">
+			<div class="navegacion">
+				<h5>Navegacion</h5>
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="#">Productos</a></li>
+					<li><a href="#">Acerca de</a></li>
+					<li><a href="/contact">Contacto</a></li>
+				</ul>
+			</div>
+			<div class="formas-pago">
+				<h5>Formas de pago</h5>
+				<div>
+					<img src="img/icons/mastercard.png" alt="mastercard">
+					<img src="img/icons/ml.png" alt="mercado libre">
+					<img src="img/icons/visa.png" alt="visa">
+				</div>
+			</div>
+			<div class="redes">
+				<h5>Redes</h5>
+				<div>
+					<i class="fab fa-facebook"></i>
+					<i class="fab fa-whatsapp"></i>
+					<i class="fab fa-instagram"></i>
+				</div>
+			</div>
+			<div class="logo">
+				<img src="/img/icons/icon-title2.png" alt="">
+			</div>
+		</div>
+	</footer>
+	<!-- /FOOTER -->
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="/js/swiper.js"></script>
 </body>
 </html>

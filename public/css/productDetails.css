@@ -34,8 +34,12 @@ main {
 .detalle-producto .imagen-detalleproducto {
     width: 200px;
     height: 210px;
-    background-color: gray;
-    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+.detalle-producto .imagen-detalleproducto img {
+    height: 208px;
+    width: 130px;
 }
 .detalle-producto .detalle-detalleproducto {
     width: 100%;
@@ -73,23 +77,13 @@ main {
     font-size: 18px;
 }
 
-/**/
-.hr-separador {
-    width: 100%;
-    margin: 15px 0 15px;
-    display: flex;
-    justify-content: center;
-}
-.hr-separador hr {
-    width: 75%;
-    background-color: gray;
-}
-
 /* Detalles del  Lugar */
 .lugar-producto {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 15px;
+    font-family: sans-serif;
 }
 .lugar-producto .detalle-lugarproducto {
     border: 1px solid #ccc;
@@ -104,6 +98,8 @@ main {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 15px;
+    font-family: sans-serif;
 }
 .especificaciones-producto .especificaciones {
     border: 1px solid #ccc;
@@ -191,11 +187,6 @@ main {
 /* Escritorio 2 */
 @media screen and (min-width: 1440px) {
 
-    /* Main */
-    main {
-        width: 1440px;
-    }
-
     /* Barra de Direccion */
     .barra-direccion {
         height: 50px;
@@ -211,42 +202,40 @@ main {
         flex-direction: row;
         justify-content: space-between;
     }
+    .detalle-producto .imagen-detalleproducto {
+        width: 260px;
+        height: 280px;
+    }
     .detalle-producto .detalle-detalleproducto {
-        width: 68%;
+        width: 78%;
     }
     .detalle-producto .detalle-detalleproducto h4 {
-        font-size: 25px;
-        margin-top: 0;
+        font-size: 33px;
     }
     .detalle-producto .detalle-detalleproducto h3 {
-        font-size: 22px;
+        font-size: 26px;
     }
     .detalle-detalleproducto .cantidad-detalleproducto{
-        display: flex;
         flex-direction: column;
         justify-content: left;
-        margin-top: 20px;
+        margin-top: 40px;
     }
     .detalle-detalleproducto .cantidad-detalleproducto input {
-        margin-top: 5px;
-        width: 80px;
+        margin-top: 15px;
+        width: 100px;
+        height: 30px;
     }
     .detalle-detalleproducto .boton-detalleproducto {
-        margin-top: 20px;
-    }
-    .detalle-detalleproducto .boton-detalleproducto input {
-        width: 50%;
+        margin-top: 50px;
     }
 
     /* Detalles del  Lugar */
     .lugar-producto .detalle-lugarproducto {
-        width: 90%;
-        font-size: 17px;
+        font-size: 22px;
     }
 
     /* Especificaciones del Producto */
     .especificaciones-producto .especificaciones {
-        width: 90%;
-        font-size: 17px;
+        font-size: 22px;
     }
 }
