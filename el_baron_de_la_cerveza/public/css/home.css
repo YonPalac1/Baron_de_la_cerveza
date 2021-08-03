@@ -42,6 +42,9 @@
 }
 
 /**********PRODUCTOS***************/
+article {
+	margin: 0 auto;
+}
 article a {
 	display: flex;
 }
@@ -249,7 +252,7 @@ section .card i {
 		padding: 10px 15px;
 	}
 }
-@media screen and (min-width: 800px){
+@media screen and (min-width: 820px){
 	main {
 		display: flex;
 		flex-wrap: wrap;
@@ -302,6 +305,9 @@ section .card i {
 		gap: 10px;
 		margin-left: 0px;
 	
+	}
+	article {
+		margin:0 0;
 	}
 	.productos-main article {
 		width: 200px;
