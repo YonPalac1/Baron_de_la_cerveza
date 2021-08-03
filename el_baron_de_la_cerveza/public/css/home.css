@@ -105,21 +105,21 @@ main .filter select {
 /******************************************/
 /*                PRODUCTOS               */
 /******************************************/
-main {
+main.seccion-productos {
 	display: flex;
 	flex-wrap: wrap;
 	padding: 5px;
 	max-width: 1440px;
 	margin: 30px auto;
 }
-main h2 {
+main.seccion-productos h2 {
 	width: 100%;
 	margin-bottom: 30px;
 }
-main .productos-menus {
+main.seccion-productos .productos-menus {
 	width: 50%;
 }
-main .filter {
+main.seccion-productos .filter {
 	display: flex;
 	justify-content: flex-end;
 	width: 50%;
@@ -245,15 +245,15 @@ section .card i {
 /*             QUERYS                   */
 /****************************************/
 @media screen and (min-width: 520px){
-	main h2 {
+	main.seccion-productos h2 {
 		margin-left: 15px;
 	}
-	main .productos-menus {
+	main.seccion-productos .productos-menus {
 		padding: 10px 15px;
 	}
 }
 @media screen and (min-width: 820px){
-	main {
+	main.seccion-productos {
 		display: flex;
 		flex-wrap: wrap;
 		padding: 5px;
@@ -261,23 +261,23 @@ section .card i {
 		margin: 30px auto;
 		position: relative;
 	}
-	main h2 {
+	main.seccion-productos h2 {
 		margin-left: 0px;
 	}
-	main .productos-menus {
+	main.seccion-productos .productos-menus {
 		width: 20%;
 		border: 1px #ccc solid;
 		border-radius: 5px;
 		text-align: center;
 	}
-	main .filter {
+	main.seccion-productos .filter {
 		position: absolute;
 		right: 0;
 		top: 0px;
 		width: fit-content;
 		width: -moz-fit-content;
 	}
-	main .filter select {
+	main.seccion-productos .filter select {
 		padding: 5px 12px;
 	}
 	.productos-menus button.btn__cat {
@@ -294,7 +294,7 @@ section .card i {
 	.productos-menus .menu-categorias {
 		display: inline;
 	}
-	main section {
+	main.seccion-productos section {
 		width: 75%;
 		margin: 0 auto;
 	}
