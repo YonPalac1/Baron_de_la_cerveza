@@ -1,8 +1,17 @@
+main.about {
+	max-width: 1440px;
+	margin: 60px auto;
+}
 .about-us {
 	display: flex;
 	justify-content: center;
 	align-items: center; 
 	flex-wrap: wrap;
+	min-width: 310px;
+	text-align: justify;
+}
+.about-us img {
+	width: 310px;
 }
 .about-us p {
 	padding: 13px;
@@ -15,4 +24,15 @@
 	.about-us p {
 		width: 70%;
 	}	
+}
+@media screen and (min-width: 1024px){
+	main.about h2 {
+		margin-top: 60px;
+		display: block;
+	}
+	main.about .about-us {
+		display: flex;
+		justify-content: center;	
+		height: 70vh;
+	}
 }

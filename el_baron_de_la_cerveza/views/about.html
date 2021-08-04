@@ -36,13 +36,21 @@
 			<img src="img/icons/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
 			</a>
 		</div>
-    	<div class="nav-items collapse" id="collapse">
-			<i class="fas fa-bars burguer"></i>
-			<ul>
+
+    	<div class="nav-items">
+			<i class="fas fa-bars burguer" onclick="showMenu()"></i>
+			<ul id="menu">
+				<button class="close" onclick="showMenu()"><i class="fas fa-times"></i></button>
 				<li><a href="/">Home</a></li>
-				<li><a href="#">Productos</a></li>
-				<li><a href="#">Acerca de</a></li>
+				<li><a href="/about">Acerca de</a></li>
 				<li><a href="/contact">Contacto</a></li>
+
+				<!-- Switch de modo oscuro -->
+				<button class="switch" id="switch" onclick="modoNocturno()">
+					<span><i class="fas fa-sun"></i></span>
+					<span><i class="fas fa-moon"></i></span>
+				</button>
+
 			</ul>
 		</div>
 		<div class="icons">
@@ -108,7 +116,7 @@
 			<li><a href="/login">Ingresar</a></li>
 
 			<!-- en caso de que ya este logeado -->
-			<li><a href="/register">Configuracion</a></li>
+			<li><a href="/config">Configuracion</a></li>
 			<li><a href="#">Cerrar sesión</a></li>
 		</ul>
 	</nav>
@@ -121,14 +129,12 @@
 			<img src="/img/icons/icon-title.png" alt="El baron de la cerveza">
 			<p>El Barón de la cerveza es un plataforma de venta de bebidas alcohólicas al por mayor, dirigida los potenciales clientes que tengan la necesidad de abastecerse de diferentes tipos de cervezas. El barón de la cerveza le garantiza la mejor y más rápida atención, ya que los desarrolladores de la tienda online le dedican todo el amor y el esfuerzo para que su navegación sea fluida, rápida y elegante para su comodidad.</p>
 		</div>
-		<div class="nosotros">
-		</div>
 	</main>
 
 	<!-- /Acerca de nosotros  -->
 
 	<!-- FOOTER -->
-	<footer>
+	<footer class="about">
 		<div class="footer">
 			<div class="navegacion">
 				<h5>Navegacion</h5>

@@ -1,0 +1,79 @@
+main.config {
+	max-width: 1440px;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 70px auto;
+	flex-direction: column;
+}
+.title-config {
+	width: 100%;
+	text-align: center;
+	margin-top: 30px;
+}
+.tabla-config {
+	min-width: 310px;
+	margin: 0 auto 30px;
+}
+.tabla-config .config {
+	display: flex;
+	justify-content: space-between;
+}
+.tabla-config .config button {
+	background: none;
+	border: none;
+	color: var(--violet);
+	display: flex;
+	margin-top: 20px;
+}
+.tabla-config .tabla-datos {
+	background: var(--violet);
+	border-radius: 5px;
+	color: #eee;
+	padding: 13px 8px 10px;
+}
+.tabla-config .tabla-datos .column {
+	margin-bottom: 15px;
+}
+.tabla-config .tabla-datos .column h3 {
+	border-bottom: 2px dotted var(--orange);
+	margin-bottom: 10px;
+}
+.tabla-config .config p {
+	display: flex;
+}
+.tabla-config .config p button {
+	padding: 0 12px;
+}
+
+@media screen and (min-width: 600px){
+.tabla-config {
+	min-width: 550px;
+	margin-bottom: 30px;
+}
+
+@media screen and (min-width: 720px){
+.tabla-config {
+	margin-bottom: 30px;
+	width: 1024px;
+}
+.tabla-datos {
+	display: flex;
+	text-align: center;
+}
+.tabla-datos .column {
+	margin-bottom: 30px;
+	width: 33%;
+}
+}
+
+@media screen and (min-width: 900px){
+.tabla-config .tabla-datos .column h3 {
+	font-size: 16px;
+}
+}
+
+@media screen and (min-width: 1440px){
+.tabla-config .tabla-datos .column h3 {
+	font-size: 20px;
+}
+}
