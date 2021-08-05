@@ -66,6 +66,7 @@ main.login .forms section#register {
 	width: 99%;
 	background: white;
 	top: 0;
+	left: 1px;
 	display: none;
 }
 main.login .forms section#register.active {
