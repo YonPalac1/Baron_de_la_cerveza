@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>El barón de la cerveza</title>
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" sizes="32x32" href="/img/icons/icon.png">
+
+	<!-- Estilos -->
+	<link rel="stylesheet" href="/css/styles.css">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+	<!-- Swiper para el slider -->
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+	<!-- Scripts -->
+	<script src="/js/app.js"></script>
+</head>
+<body>
+
+	<main class="login">
+		<div class="img-login">
+			<img src="/img/icons/icon-title.png" alt="">
+		</div>
+		<div class="toggle-buttons">
+			<button class="btn active" id="log" onclick="showRegister()">Iniciar sesion</button>
+			<button class="btn" id="reg" onclick="showRegister()">Registrarse</button>
+		</div>
+		<div class="forms">
+			<section>
+				<form action="">
+					<p>
+						<input type="text" placeholder="Email">
+						<input type="text" placeholder="Contraseña">
+					</p>
+					<div class="check">
+						<input type="checkbox" name="checkbox">
+						<label for="checkbox">Mantener la sesion abierta</label>
+					</div>
+					<div class="btn-ingresar">
+						<button>Ingresar</button>
+					</div>
+				</form>
+			</section>
+			<section id="register">
+				<form action="">
+					<p>
+						<input type="text" placeholder="Nombre">
+						<input type="text" placeholder="Apellido">
+					</p>
+					<p>
+						<input type="text" placeholder="Email">
+					</p>
+					<p>
+						<input type="text" placeholder="Contraseña">
+						<input type="text" placeholder="Repetir contraseña">
+					</p>
+					<div class="btn-ingresar">
+						<button>Registrarse</button>
+					</div>
+				</form>
+			</section>
+		</div>
+	</main>
+	<!-- /Cuerpo de Login -->
+
+
+	
+
+<script>
+	function showRegister() {
+		let register = document.getElementById('register');
+		let log = document.getElementById('log');
+		let reg = document.getElementById('reg');
+
+		register.classList.toggle('active');
+
+		reg.classList.toggle('active');
+
+		log.classList.toggle('active');
+	}
+</script>
+
+</body>
+</html>

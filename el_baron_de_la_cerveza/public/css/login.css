@@ -1,0 +1,90 @@
+main.login {
+	max-width: 1024px;
+	margin: 50px auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 20px 20px;
+}
+main.login .img-login img {
+	width: 310px;
+}
+main.login .toggle-buttons {
+	width: 100%;
+	display: flex;
+	gap: 10px;
+}
+main.login .toggle-buttons button.btn {
+	border: none;
+	background: none;
+	border-bottom: 2px solid var(--violet);
+	border-radius: 0px;
+	padding: 8px 12px;
+	width: 50%;
+}
+main.login .forms {
+	width: 100%;
+	text-align: center;
+	padding: 20px;
+	position: relative;
+}
+
+main.login .forms section form p input {
+	width: 100%;
+	border: 1px solid var(--orange);
+	padding: 8px 12px;
+	border-radius: 5px;
+	margin-top: 20px;
+}
+main.login .forms section form p input::placeholder {
+	color: var(--darkorange);
+}
+main.login .forms section form p input:focus {
+    outline: none !important;
+    border:1px solid red;
+    box-shadow: 0 0 10px #719ECE;
+  }
+main.login .forms .check {
+	margin-top: 20px;
+}
+main.login .forms .btn-ingresar button {
+	width: 100%;
+	margin-top: 20px;
+	padding: 12px;
+	border: none;
+	background: var(--violet);
+	color: #fff;
+}
+
+main.login .toggle-buttons button.btn.active {
+	background: var(--orange);
+	color: #fff;
+}
+main.login .forms section#register {
+	position: absolute;
+	width: 99%;
+	background: white;
+	top: 0;
+	display: none;
+}
+main.login .forms section#register.active {
+	display: block;
+}
+
+@media screen  and (min-width:1024px){
+	main.login .forms .check {
+		font-size: 18px;
+		font-family: var(--font-open);
+		text-align: left;
+		margin-top: 20px;
+	}
+	main.login .forms section form p {
+		display: flex;
+		gap: 20px;
+	}
+	main.login .forms section form p input {
+		width: 50%;
+
+	}
+}
