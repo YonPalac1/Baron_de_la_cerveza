@@ -373,3 +373,39 @@ main.main-contacto {
         justify-content: center;
     }
 }
+
+.modal{
+    border-radius: 5px;
+    background: rgba(0,0,0,.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0 ;
+    left: 0;
+}
+.modal.active {
+    display: flex;
+} 
+.modal .fa-times {
+    position: absolute;
+    right: 60px;
+    top: 70px;
+    color: #fff;
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+}
+.modal div {
+    display: flex;
+    padding: 20px;
+    background: white;
+    max-width: 1024px;
+    width: 100%;
+    min-height: 300px;
+}
+.modal div iframe {
+    width:100%;
+}
