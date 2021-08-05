@@ -16,7 +16,7 @@ main.main-detalleproducto {
 }
 
 /* Detalle del Producto */
-.contenedor-detalleproducto{
+.contenedor-detalleproducto {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -55,15 +55,24 @@ main.main-detalleproducto {
 .detalle-producto .detalle-detalleproducto .detalle-nombreproducto h3 {
     font-size: 17px;
 }
-.detalle-detalleproducto .cantidad-detalleproducto{
+.detalle-detalleproducto .cantidad-detalleproducto {
     display: flex;
     justify-content: space-between;
     margin-top: 5px;
     font-family: sans-serif;
+    font-size: 14px;
 }
-.detalle-detalleproducto .cantidad-detalleproducto input {
-    width: 60px;
+.detalle-detalleproducto .cantidad-detalleproducto .detalles-cantbotones input {
+    width: 20px;
+    background-color: var(--violet);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+.detalle-detalleproducto .cantidad-detalleproducto input:nth-child(2n) {
+    width: 50px;
     border: 1px solid #ccc;
+    background-color: white;
 }
 .detalle-detalleproducto .boton-detalleproducto {
     width: 100%;
@@ -226,15 +235,14 @@ main.main-detalleproducto {
     .detalle-producto .detalle-detalleproducto .detalle-nombreproducto h3 {
         font-size: 18px;
     }
-    .detalle-detalleproducto .cantidad-detalleproducto{
-        margin-top: 5px;
+    .detalle-detalleproducto .cantidad-detalleproducto {
         width: 52%;
-        display: flex;
         justify-content: space-around;
         align-items: center;
+        font-size: 16px;
     }
-    .detalle-detalleproducto .cantidad-detalleproducto input {
-        height: 18px;
+    .detalle-detalleproducto .cantidad-detalleproducto input:nth-child(2n) {
+        width: 60px;
     }
     .detalle-detalleproducto .boton-detalleproducto {
         margin-top: 20px;
@@ -319,9 +327,21 @@ main.main-detalleproducto {
     .detalle-producto .detalle-detalleproducto .detalle-nombreproducto h3 {
         font-size: 20px;
     }
+    .detalle-detalleproducto .cantidad-detalleproducto {
+        justify-content: space-around;
+        align-items: center;
+        font-size: 16px;
+    }
+    .detalle-detalleproducto .cantidad-detalleproducto .detalles-cantbotones input {
+        width: 30px;
+        height: 30px;
+    }
+    .detalle-detalleproducto .cantidad-detalleproducto input:nth-child(2n) {
+        width: 70px;
+        height: 30px;
+    }
     .detalle-detalleproducto .boton-detalleproducto input {
         width: 40%;
-        height: 35px;
     }
     .detalle-detalleproducto .detalle-datosenvio .detalle-mediospagos {
         width: 33%;
