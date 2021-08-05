@@ -1,0 +1,262 @@
+.container-product {
+    padding: 0 15px;
+    padding-top: 142px;
+    max-width: 630px;
+    margin: 0 auto;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.product {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Bloque info */
+
+.product-info {
+    width: 100%;
+}
+
+.item {
+    padding: 15px 0;
+}
+
+.product-info__item {
+    border-bottom: 1px solid #ccc;
+}
+
+.product-img {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid #ccc;
+}
+
+.product-img__img {
+    height: 200px;
+    width: 150px;
+    object-fit: contain;
+}
+
+.product-img__name {
+    text-align: center;
+    font-size: 18px;
+    color: #F09D45;
+    font-weight: bold;
+}
+
+/* Bloque cantidad */
+
+.product-cantidad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-cantidad__number {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80px;
+    padding: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.product-cantidad__number button {
+    color: #F09D45;
+    border: none;
+    background-color: inherit;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Bloque precio */
+
+.product-price {
+    display: flex;
+    align-items: center;
+}
+
+.product-price__item {
+    display: none;
+}
+
+.product-price__price {
+    display: flex;
+    align-items: center;
+}
+
+.product-price__number {
+    font-size: 18px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.product-price__price i{
+    color: #B57129;
+    cursor: pointer;
+}
+
+/* Bloque precio total*/
+
+.price-total {
+    text-align: center;
+}
+
+.price-total__title {
+    padding: 15px 0;
+}
+
+.price-total__total p{
+    display: none;
+}
+
+.price-total span {
+    font-family: 'Rowdies', cursive;
+    font-size: 22px;
+}
+
+/* Bloque botones */
+
+.product-button {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px 0;
+    
+}
+
+.product-button button {
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-button__btn-comprando {
+    background-color: #5343DC;
+    color: white;
+    
+}
+
+.product-button__btn-pagar {
+    background-color: #F09D45;
+    color: white;
+}
+
+@media(min-width: 768px){
+    .container-product {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .product {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .item {
+        padding: 15px 0;
+        border-bottom: 1px solid #ccc;
+        text-align: center;
+    }
+
+    .product-img {
+        border-bottom: unset;
+    }
+
+    .product-cantidad {
+        align-self: flex-start;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        justify-content: center;
+        grid-row-gap: 75px;
+    }
+
+    .product-cantidad__item {
+        text-align: center;
+    }
+
+    .product-cantidad__number {
+        margin: 0 auto;
+    }
+
+    .product-price {
+        align-self: flex-start;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        justify-content: center;
+        grid-row-gap: 75px;
+    }
+
+    .product-price__item {
+        display: block;
+        text-align: center;
+    }
+    
+    .product-price__price {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+    }
+    
+    .product-price__number {
+        font-size: 18px;
+        margin-right: 10px;
+        font-weight: bold;
+    }
+    
+    .product-price__price i{
+        color: #B57129;
+        cursor: pointer;
+    }
+}
+
+@media(min-width: 1024px) {
+    .container-product {
+        padding: 0 50px;
+        padding-top: 142px;
+        display: grid;
+        grid-template-columns: 75% 25%;
+        grid-column-gap: 20px;
+    }
+
+    .price-total {
+        align-self: flex-start;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        justify-content: center;
+        grid-row-gap: 75px;
+    }   
+
+    .price-total__title {
+        border-bottom: 1px solid #ccc;
+    }
+
+    .price-total__total {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .price-total__total p {
+        display: block;
+    }
+
+    .price-total__total span {
+        margin-left: 15px;
+    }
+
+    .product-button {
+        justify-content: space-between;
+    }
+}

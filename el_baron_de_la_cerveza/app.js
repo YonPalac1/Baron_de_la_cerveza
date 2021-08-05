@@ -15,7 +15,7 @@ app.get('/productDetail', (req, res)=>{
     res.sendFile(path.join(__dirname, '/views/productDetail.html'))
 })
 
-// Pagina de carrito de compras - Juan
+// Pagina de carrito de compras - Kevin
 app.get('/productCart', (req, res)=>{
     res.sendFile(path.join(__dirname, '/views/productCart.html'))
 })
