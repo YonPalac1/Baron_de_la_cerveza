@@ -1,4 +1,9 @@
-/* celu: 320 - tablet: 760 - escritorio: 1040 */
+/* celu: 320 - tablet: 760 - escritorio: 1024 */
+/* Main Contacto */
+main.main-contacto {
+    max-width: 1440px;
+    margin: 65px auto auto;
+}
 
 .titulo {
     display: flex;
@@ -37,6 +42,7 @@
 .datos-personales .nombre-cv .datos-nombre {
     width: 85%;
     height: 20px;
+    color: var(--orange);
 }
 .datos-personales .nombre-cv .datos-nombre h3 {
     font-size: 16px;
@@ -50,6 +56,7 @@
 }
 .datos-personales .nombre-cv .datos-cv a {
     font-weight: bold;
+    color: var(--violet);
 }
 .datos-personales p{
     font-size: 12px;
@@ -75,6 +82,9 @@
     justify-content: space-between;
     margin-bottom: 10px;
     border-bottom: 1px solid #ccc;
+}
+.contenedor-contactar .datos-contactar i {
+    color: var(--orange);
 }
 .contenedor-contactar .datos-contactar .datos-redes {
     width: 40%;
@@ -134,11 +144,13 @@
     justify-content: center;
 }
 .contenedor-contactar .formulario-boton input {
-    background-color: grey;
+    background-color: var(--violet);
     border: none;
     color: white;
     width: 60px;
-    height: 25px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 /* Medias Queries */
@@ -239,17 +251,10 @@
         display: flex;
         justify-content: center;
     }
-    .contenedor-contactar .formulario-boton input {
-        background-color: grey;
-        border: none;
-        color: white;
-        width: 60px;
-        height: 25px;
-    }
 }
 
 /* Escritorio */
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1024px) {
 
     /* Titulo */
     .titulo h1{
@@ -298,7 +303,8 @@
     }
     .datos-redesnombre {
         display:flex;
-        width: 70%;
+        width: 65%;
+        font-family: sans-serif;
     }
     .redesnombre-inner {
         position: relative;
@@ -326,6 +332,9 @@
         height: 20px;
         padding-left: 15px;
         justify-content: left;
+    }
+    .contenedor-contactar .datos-contactar .datos-ubicacion .datos-redesnombre {
+        padding-left: 5px;
     }
     .contenedor-contactar .datos-contactar .datos-ubicacion i {
         width: 20%;
@@ -362,12 +371,5 @@
         width: 85%;
         display: flex;
         justify-content: center;
-    }
-    .contenedor-contactar .formulario-boton input {
-        background-color: grey;
-        border: none;
-        color: white;
-        width: 60px;
-        height: 25px;
     }
 }
