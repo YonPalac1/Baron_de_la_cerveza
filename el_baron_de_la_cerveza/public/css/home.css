@@ -114,7 +114,7 @@ main.seccion-productos {
 	display: flex;
 	flex-wrap: wrap;
 	padding: 5px;
-	max-width: 1024px;
+	max-width: 1440px;
 	margin: 30px auto;
 }
 main.seccion-productos h2 {
