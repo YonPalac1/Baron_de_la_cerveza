@@ -20,10 +20,6 @@ app.get('/productCart', (req, res)=>{
     res.sendFile(path.join(__dirname, '/views/productCart.html'))
 })
 
-// Pagina de configuracion de usuario - Yonatan
-app.get('/register', (req, res)=>{
-    res.sendFile(path.join(__dirname, '/views/register.html'))
-})
 
 // Pagina de login - Juan
 app.get('/login', (req, res)=>{
