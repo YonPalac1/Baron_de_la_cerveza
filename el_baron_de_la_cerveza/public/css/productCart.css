@@ -227,6 +227,7 @@
         display: grid;
         grid-template-columns: 75% 25%;
         grid-column-gap: 20px;
+        max-width: 1440px;
     }
 
     .price-total {

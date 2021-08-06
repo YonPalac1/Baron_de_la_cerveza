@@ -1,3 +1,7 @@
+main.finalizar-compra {
+	max-width: 1440px;
+	margin: 60px auto;
+}
 .registrarse {
 	display: flex;
 	justify-content: space-between;
@@ -119,5 +123,9 @@
 	.metodos-de-envio {
 		width: 50%;
 	}
-	.metodos-de-envio
+	section.a-comprar {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
 }
