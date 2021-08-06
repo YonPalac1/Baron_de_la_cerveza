@@ -87,7 +87,7 @@ article a {
 	color: var(--darkorange);
 	border-radius: 50%;
 	border: 1px solid #ccc;
-	backface-visibilitykground-color: #fff;
+	background-color: #fff;
 	padding: 12px 15px;
 	cursor: pointer;
 }
