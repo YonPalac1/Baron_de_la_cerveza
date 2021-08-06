@@ -5,11 +5,11 @@
 
 ### Keila Mantiñan
 - 22 años
-- Programadora web
+- Programadora web y cursando desarrollo web Fullstack en digital house.
 
 ### Jonatan Palacios 
 - 27 años
-- Programador y desarrollador web, y experto en Sudoku.
+- Programador y desarrollador web, actualmente cursando FullStack Node Js en Digital House.... y experto en Sudoku.
 
 ### Juan Pablo Arguello
 - Desarrollador web
