@@ -1,7 +1,7 @@
 /* celu: 320 - tablet: 760 - escritorio: 1024 */
 /* Main Detalle Producto */
 main.main-detalleproducto {
-    max-width: 1440px;
+    max-width: 1024px;
     margin: 65px auto auto;
 }
 

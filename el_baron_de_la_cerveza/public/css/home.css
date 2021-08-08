@@ -1,6 +1,6 @@
 
 .slider-products {
-	max-width: 1440px;
+	max-width: 1024px;
 	margin: 40px auto;
 
 }
@@ -82,7 +82,7 @@ main.seccion-productos {
 	display: flex;
 	flex-wrap: wrap;
 	padding: 5px;
-	max-width: 1440px;
+	max-width: 1024px;
 	margin: 30px auto;
 }
 main.seccion-productos h2 {
@@ -230,7 +230,6 @@ section .card i {
 		display: flex;
 		flex-wrap: wrap;
 		padding: 5px;
-		max-width: 1440px;
 		margin: 30px auto;
 		position: relative;
 	}
@@ -283,7 +282,7 @@ section .card i {
 		margin:0 0;
 	}
 	.productos-main article {
-		width: 200px;
+		width: 180px;
 		max-width: 200px;
 		min-width: 160px;
 		padding: 5px;
@@ -293,7 +292,7 @@ section .card i {
 	/* CARDS */
 	section.cards {
 		display: flex;
-		max-width: 1300px;
+		max-width: 1024px;
 		margin: 50px auto;
 		gap: 20px;
 	}
