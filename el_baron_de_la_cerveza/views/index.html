@@ -19,6 +19,8 @@
 	<!-- Swiper para el slider -->
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
+	<!-- Flickity slider -->
+	<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 	<!-- Scripts -->
 	<script src="/js/app.js"></script>
 	<script src="/js/carousel.js"></script>
@@ -161,11 +163,13 @@
 		</header>
 	<!-- /header -->
 	
-	<!-- Slider de productos -->
-	<section class="slider">
-		<h2>DESTACADOS</h2>
-		<div class="articulos" id="slider-scroll">	
-			<article class="br">
+	<!-- Section Destacados -->
+	<section class="slider-products">
+		<h2>Productos Destacados</h2>
+		
+		<div class="carousel main-carousel" data-flickity='{ "groupCells": true }'>
+		  <div class="carousel-cell">
+		    <article class="br">
 				<a href="/productDetail">
 					<img src="/img/productos/img1.jpg" class="imagen-producto">
 				</a>
@@ -179,9 +183,11 @@
 					<button class="btn-buy br">Comprar</button>
 				</div>
 			</article>
-			<article class="br">
+		  </div>
+		  <div class="carousel-cell">
+		    <article class="br">
 				<a href="/productDetail">
-					<img src="/img/productos/img2.png" class="imagen-producto">
+					<img src="/img/productos/img1.jpg" class="imagen-producto">
 				</a>
 				<div class="detalles-articulos">
 					<span>$316</span>
@@ -193,23 +199,11 @@
 					<button class="btn-buy br">Comprar</button>
 				</div>
 			</article>
-			<article class="br">
-				<a href="#">
-					<img src="/img/productos/img3.png" class="imagen-producto">
-				</a>
-				<div class="detalles-articulos">
-					<span>$316</span>
-					<p>Cerveza Stella Artois</p>
-					<b>Pale / Dorado / 5.2% ALC</b>
-					<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-				</div>
-				<div class="boton-comprar">
-					<button class="btn-buy br">Comprar</button>
-				</div>
-			</article>
-			<article class="br">
+		  </div>
+		  <div class="carousel-cell">
+		    <article class="br">
 				<a href="/productDetail">
-					<img src="/img/productos/img4.png" class="imagen-producto">
+					<img src="/img/productos/img1.jpg" class="imagen-producto">
 				</a>
 				<div class="detalles-articulos">
 					<span>$316</span>
@@ -221,9 +215,11 @@
 					<button class="btn-buy br">Comprar</button>
 				</div>
 			</article>
-			<article class="br">
+		  </div>
+		  <div class="carousel-cell">
+		    <article class="br">
 				<a href="/productDetail">
-					<img src="/img/productos/img5.png" class="imagen-producto">
+					<img src="/img/productos/img1.jpg" class="imagen-producto">
 				</a>
 				<div class="detalles-articulos">
 					<span>$316</span>
@@ -235,9 +231,11 @@
 					<button class="btn-buy br">Comprar</button>
 				</div>
 			</article>
-			<article class="br">
+		  </div>
+		  <div class="carousel-cell">
+		    <article class="br">
 				<a href="/productDetail">
-					<img src="/img/productos/img6.png" class="imagen-producto">
+					<img src="/img/productos/img1.jpg" class="imagen-producto">
 				</a>
 				<div class="detalles-articulos">
 					<span>$316</span>
@@ -249,9 +247,11 @@
 					<button class="btn-buy br">Comprar</button>
 				</div>
 			</article>
-			<article class="br">
+		  </div>
+		  <div class="carousel-cell">
+		    <article class="br">
 				<a href="/productDetail">
-					<img src="/img/productos/img7.png" class="imagen-producto">
+					<img src="/img/productos/img1.jpg" class="imagen-producto">
 				</a>
 				<div class="detalles-articulos">
 					<span>$316</span>
@@ -263,9 +263,11 @@
 					<button class="btn-buy br">Comprar</button>
 				</div>
 			</article>
-			<article class="br">
+		  </div>
+		  <div class="carousel-cell">
+		    <article class="br">
 				<a href="/productDetail">
-					<img src="/img/productos/img8.png" class="imagen-producto">
+					<img src="/img/productos/img1.jpg" class="imagen-producto">
 				</a>
 				<div class="detalles-articulos">
 					<span>$316</span>
@@ -277,10 +279,44 @@
 					<button class="btn-buy br">Comprar</button>
 				</div>
 			</article>
+		  </div>
+		  <div class="carousel-cell">
+		    <article class="br">
+				<a href="/productDetail">
+					<img src="/img/productos/img1.jpg" class="imagen-producto">
+				</a>
+				<div class="detalles-articulos">
+					<span>$316</span>
+					<p>Cerveza Stella Artois</p>
+					<b>Pale / Dorado / 5.2% ALC</b>
+					<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+				</div>
+				<div class="boton-comprar">
+					<button class="btn-buy br">Comprar</button>
+				</div>
+			</article>
+		  </div>
+		  <div class="carousel-cell">
+		    <article class="br">
+				<a href="/productDetail">
+					<img src="/img/productos/img1.jpg" class="imagen-producto">
+				</a>
+				<div class="detalles-articulos">
+					<span>$316</span>
+					<p>Cerveza Stella Artois</p>
+					<b>Pale / Dorado / 5.2% ALC</b>
+					<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+				</div>
+				<div class="boton-comprar">
+					<button class="btn-buy br">Comprar</button>
+				</div>
+			</article>
+		  </div>
+
 		</div>
 	</section>
-	<!-- /Slider de productos -->
-	<hr>
+	<!-- /SLider Destacados -->
+	
 	<!-- Productos -->
 	<main class="seccion-productos">
 		<h2>PRODUCTOS</h2>
@@ -607,8 +643,13 @@
 	</footer>
 	<!-- /FOOTER -->
 
+<!-- Swiper -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="/js/swiper.js"></script>
+
+<!-- Flickity -->
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script src="/js/product-slider.js"></script>
 
 </body>
 </html>
