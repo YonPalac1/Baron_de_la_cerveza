@@ -88,4 +88,9 @@ main.login .forms section#register.active {
 		width: 50%;
 
 	}
+	.footer-login {
+		position: absolute;
+		width: 100%;
+		bottom: 1px;
+	}
 }

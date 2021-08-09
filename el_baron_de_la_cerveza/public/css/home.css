@@ -2,7 +2,10 @@
 .slider-products {
 	max-width: 1024px;
 	margin: 40px auto;
-
+}
+.slider-products h2 {
+	margin-bottom: 30px;
+	text-transform: uppercase;
 }
 .carousel-cell {
   margin-right: 10px;
@@ -138,11 +141,12 @@ main.seccion-productos .filter {
 	margin-left: 10px;
 }
 .productos-main article {
-	width: 160px;
-	min-width: 160px;
+	width: 140px;
+	min-width: 140px;
 	padding: 5px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
+	margin: 0 auto;
 }
 
 /**********Desplegable***********************/
@@ -193,6 +197,18 @@ main.seccion-productos .filter {
 .productos-menus .collapse button:hover {
 	background: #999;	
 }
+
+/******************************************/
+/*                VER TODOS               */
+/******************************************/
+section.bannerVerMas {
+	max-width: 1024px;
+	margin: 30px auto;
+}
+section.bannerVerMas img {
+	width: 300px;
+}
+
 /******************************************/
 /*                CARDS                   */
 /******************************************/
@@ -223,6 +239,14 @@ section .card i {
 	}
 	main.seccion-productos .productos-menus {
 		padding: 10px 15px;
+	}
+	.productos-main article {
+		width: 180px;
+		max-width: 200px;
+		min-width: 160px;
+		padding: 5px;
+		border: 1px solid #ccc;
+		margin:0 0;
 	}
 }
 @media screen and (min-width: 820px){
@@ -278,15 +302,13 @@ section .card i {
 		margin-left: 0px;
 	
 	}
-	article {
-		margin:0 0;
-	}
 	.productos-main article {
 		width: 180px;
 		max-width: 200px;
 		min-width: 160px;
 		padding: 5px;
 		border: 1px solid #ccc;
+		margin:0 0;
 	}
 
 	/* CARDS */

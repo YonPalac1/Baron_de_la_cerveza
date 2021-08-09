@@ -42,6 +42,10 @@ app.get('/about', (req, res)=>{
 app.get('/config', (req, res)=>{
     res.sendFile(path.join(__dirname, '/views/config.html'))
 })
+// Pagina donde se finalizaria la compra - Yonatan  
+app.get('/products', (req, res)=>{
+    res.sendFile(path.join(__dirname, '/views/products.html'))
+})
 
 
 app.listen(3030, ()=>{

@@ -23,7 +23,109 @@
 	<script src="/js/app.js"></script>
 </head>
 <body>
+<!-- Navbar Fixed -->
+	<nav class="navbar flex">
+<!-- Buscador oculto -->
+	<div class="search" id="showSearch">
+		<form>
+			<div class="btn-search" onclick="showSearch()"><i class="fas fa-times"></i></div>
+			<input type="text" placeholder="Buscar" id="showSearch">
+			<button class="btn-search"><i class="fas fa-search"></i></button>
+		</form>
+	</div>
+<!-- /buscador oculto -->
+		<div class="logo">
+			<a href="/">
+			<img src="img/icons/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
+			</a>
+		</div>
 
+    	<div class="nav-items">
+			<i class="fas fa-bars burguer" onclick="showMenu()"></i>
+			<ul id="menu">
+				<button class="close" onclick="showMenu()"><i class="fas fa-times"></i></button>
+				<li><a href="/">Home</a></li>
+				<li><a href="/about">Acerca de</a></li>
+				<li><a href="/contact">Contacto</a></li>
+
+				<!-- Switch de modo oscuro -->
+				<button class="switch" id="switch" onclick="modoNocturno()">
+					<span><i class="fas fa-sun"></i></span>
+					<span><i class="fas fa-moon"></i></span>
+				</button>
+
+			</ul>
+		</div>
+		<div class="icons">
+
+			<button  class="user-config" onclick="showSearch()"><i class="fas fa-search"></i></button>
+
+			<button class="user-config" onclick="showSubmenu()">
+				<span></span>
+				<i class="fas fa-user"></i>
+			</button>
+
+			<div class="shopping-cart" onclick="showCart()"><i class="fas fa-shopping-cart"></i>
+				<span>1</span>
+			</div>
+			
+			<!-- Mini menu desplegable  -->
+			<div class="carrito-menu" id="carrito-menu">
+				<div class="cerrar-menu">
+					<i class="fas fa-times" onclick="showCart()"></i>
+				</div>
+				<div class="en-carrito">
+					<div>
+						<div class="imagen-carrito">
+							<img src="/img/productos/img1.jpg" class="producto-carrito">
+						</div>
+						<div class="detalles-producto-carrito">
+							<b>$000.00</b>
+							<span>nombre de producto</span>
+						</div>
+					</div>
+					<div>
+						<div class="imagen-carrito">
+							<img src="/img/productos/img2.png" class="producto-carrito">
+						</div>
+						<div class="detalles-producto-carrito">
+							<b>$000.00</b>
+							<span>nombre de producto</span>
+						</div>
+					</div>
+					<div>
+						<div class="imagen-carrito">
+							<img src="/img/productos/img3.png" class="producto-carrito">
+						</div>
+						<div class="detalles-producto-carrito">
+							<b>$000.00</b>
+							<span>nombre de producto</span>
+						</div>
+					</div>
+				</div>
+				<div class="boton-carrito">
+					<a href="/productCart">Ir a carrito</a>
+				</div>
+			</div>
+			<!-- /Mini menu desplegable -->
+		</div>
+	</nav>
+	<!-- /Navbar Fixed-->
+
+	<!-- Submenu -->
+	<nav class="sub-nav" id="subNave">
+		<ul>
+			<!-- En caso de que no este registrado -->
+			<li><a href="/login">Ingresar</a></li>
+
+			<!-- en caso de que ya este logeado -->
+			<li><a href="/config">Configuracion</a></li>
+			<li><a href="#">Cerrar sesión</a></li>
+		</ul>
+	</nav>
+	<!-- /Submenu -->
+
+	
 	<main class="login">
 		<div class="img-login">
 			<img src="/img/icons/icon-title.png" alt="">
@@ -69,7 +171,39 @@
 		</div>
 	</main>
 	<!-- /Cuerpo de Login -->
-
+<!-- FOOTER -->
+	<footer class="footer-login">
+		<div class="footer">
+			<div class="navegacion">
+				<h5>Navegacion</h5>
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/about">Acerca de</a></li>
+					<li><a href="/contact">Contacto</a></li>
+				</ul>
+			</div>
+			<div class="formas-pago">
+				<h5>Formas de pago</h5>
+				<div>
+					<img src="img/icons/mastercard.png" alt="mastercard">
+					<img src="img/icons/ml.png" alt="mercado libre">
+					<img src="img/icons/visa.png" alt="visa">
+				</div>
+			</div>
+			<div class="redes">
+				<h5>Redes</h5>
+				<div>
+					<i class="fab fa-facebook"></i>
+					<i class="fab fa-whatsapp"></i>
+					<i class="fab fa-instagram"></i>
+				</div>
+			</div>
+			<div class="logo">
+				<img src="/img/icons/icon-title2.png" alt="">
+			</div>
+		</div>
+	</footer>
+	<!-- /FOOTER -->
 
 	
 
