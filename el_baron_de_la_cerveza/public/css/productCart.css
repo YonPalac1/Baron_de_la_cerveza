@@ -1,12 +1,37 @@
 .container-product {
     padding: 0 15px;
-    padding-top: 142px;
     max-width: 630px;
     margin: 0 auto;
     font-family: 'Open Sans', sans-serif;
+    margin-top: 110px;
 }
 
-.product {
+/* Seccion titulos */
+
+.product-title {
+    width: 100%;
+}
+
+.item {
+    padding: 15px 0;
+}
+
+.product-title__product {
+    border-bottom: 1px solid #ccc;
+}
+
+.product-title__cantidad {
+    display: none;
+}
+
+.product-title__price {
+    display: none;
+}
+
+
+/* Card de productos */
+
+.card-product {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -20,14 +45,6 @@
     width: 100%;
 }
 
-.item {
-    padding: 15px 0;
-}
-
-.product-info__item {
-    border-bottom: 1px solid #ccc;
-}
-
 .product-img {
     display: flex;
     align-items: center;
@@ -37,7 +54,8 @@
 
 .product-img__img {
     height: 200px;
-    width: 150px;
+    width: 160px;
+    width: 152.5px;
     object-fit: contain;
 }
 
@@ -152,54 +170,47 @@
     .container-product {
         max-width: 100%;
         margin: 0 auto;
+        margin-top: 110px;
     }
 
-    .product {
+    .product-title {
+        border-bottom: 1px solid #ccc;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 100%;
+    }
+    
+    .item {
+        padding: 15px 0;
+        border-bottom: unset;
+        text-align: center;
+    }
+    
+    .product-title__product {
+        border-bottom: unset;
+    }
+    
+    .product-title__cantidad {
+        display: block;
+    }
+    
+    .product-title__price {
+        display: block;
+    }
+
+    .card-product {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         padding-bottom: 15px;
         border-bottom: 1px solid #ccc;
     }
 
-    .item {
-        padding: 15px 0;
-        border-bottom: 1px solid #ccc;
-        text-align: center;
-    }
-
     .product-img {
         border-bottom: unset;
     }
 
-    .product-cantidad {
-        align-self: flex-start;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
-        justify-content: center;
-        grid-row-gap: 75px;
-    }
-
-    .product-cantidad__item {
-        text-align: center;
-    }
-
-    .product-cantidad__number {
-        margin: 0 auto;
-    }
-
-    .product-price {
-        align-self: flex-start;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
-        justify-content: center;
-        grid-row-gap: 75px;
-    }
-
-    .product-price__item {
-        display: block;
-        text-align: center;
+    .product-cantidad__cantidad {
+        display: none;
     }
     
     .product-price__price {
@@ -223,11 +234,10 @@
 @media(min-width: 1024px) {
     .container-product {
         padding: 0 50px;
-        padding-top: 142px;
+        margin-top: 110px;
         display: grid;
         grid-template-columns: 75% 25%;
         grid-column-gap: 20px;
-        max-width: 1024px;
     }
 
     .price-total {
