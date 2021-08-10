@@ -2,13 +2,22 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
+/*  Middleware  */
 app.use('/', express.static(__dirname + '/public'));
 
 
-// Pagina Home - Yonatan
-app.get('/', (req, res)=>{
-    res.sendFile(path.join(__dirname, '/views/index.html'))
-})
+/*  Enrutadores  */
+let indexRouter = require('./routes/index.js');
+let loginRouter = require('./routes/login.js');
+
+/*  Views  */
+app.set('view engine', 'ejs');
+
+/*  Rutas  */
+app.use('/', indexRouter);
+app.use('/login', loginRouter);
+
+
 
 // Pagina de detalles de producto - Keila
 app.get('/productDetail', (req, res)=>{
@@ -18,12 +27,6 @@ app.get('/productDetail', (req, res)=>{
 // Pagina de carrito de compras - Kevin
 app.get('/productCart', (req, res)=>{
     res.sendFile(path.join(__dirname, '/views/productCart.html'))
-})
-
-
-// Pagina de login - Juan
-app.get('/login', (req, res)=>{
-    res.sendFile(path.join(__dirname, '/views/login.html'))
 })
 
 // Pagina con datos de contacto - Keila

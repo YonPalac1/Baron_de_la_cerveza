@@ -1,30 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<title>El barón de la cerveza</title>
-
-	<!-- Favicon -->
-	<link rel="icon" type="image/png" sizes="32x32" href="/img/icons/icon.png">
-
-	<!-- Estilos -->
-	<link rel="stylesheet" href="/css/styles.css">
-
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
-	<!-- Swiper para el slider -->
-	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
-	<!-- Flickity slider -->
-	<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-	<!-- Scripts -->
-	<script src="/js/app.js"></script>
-	<script src="/js/carousel.js"></script>
-</head>
+<%- include('partials/head.ejs') %>
 <body>
 	<!-- Navbar Fixed -->
 	<nav class="navbar flex">
@@ -470,20 +446,6 @@
 		</div>
 	</section>
 	<!-- /recomendados -->
-
-	<!-- Ver mas -->
-	<section class="banner-ver-mas">
-		<div class="img-banner">
-		</div>
-		<a href="/products">
-			<div class="ver-mas">
-				<h2>Ver todos los productos</h2>
-			</div>
-		</a>
-	</section>
-
-	<!-- /Ver mas -->
-
 	<!-- CARDS -->
 	<section class="cards">
 		<div class="card br flex">
@@ -504,40 +466,21 @@
 	</section>
 	<!-- /CARDS -->
 
-	<section class="home">
-         <!-- CAROUSEL -->
-            <section class="carousel-container">
-                    
-                <div class="slides fade">
-                    <img src="/img/banners/banner1.png" alt="">
-                </div>
-                
-                <div class="slides fade">
-                    <img src="/img/banners/banner2.png" alt="">
-                </div>
-                
-                <div class="slides fade">
-                    <img src="/img/banners/banner3.png" alt="">
-                </div>
-                
-                <div class="slides fade">
-                    <img src="/img/banners/banner4.png" alt="">
-                </div>
+	<!-- Ver mas -->
+	<section class="banner-ver-mas">
+		<div class="img-banner">
+		</div>
+		<a href="/products">
+			<div class="ver-mas">
+				<h2>Ver todos los productos</h2>
+			</div>
+		</a>
+	</section>
 
-                <!-- Next and previous buttons -->
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                
-                <!-- The dots/circles -->
-                <div class="dots">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                    <span class="dot" onclick="currentSlide(4)"></span>
-                </div>
-            </section>
-        <!-- END CAROUSEL -->
-    </section>
+	<!-- /Ver mas -->
+
+
+	
 
 	<!-- FOOTER -->
 	<footer>

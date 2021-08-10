@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/KeilaManti/grupo_9_#readme",
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.1"
   }
 }
