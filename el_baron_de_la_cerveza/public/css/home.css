@@ -197,18 +197,32 @@ main.seccion-productos .filter {
 .productos-menus .collapse button:hover {
 	background: #999;	
 }
-
 /******************************************/
-/*                VER TODOS               */
+/*                banner-ver-mas          */
 /******************************************/
-section.bannerVerMas {
-	max-width: 1024px;
-	margin: 30px auto;
+.banner-ver-mas {
+	display: flex;
+	margin: 0 auto;
 }
-section.bannerVerMas img {
-	width: 300px;
+.banner-ver-mas .img-banner {
+	display: none;
 }
-
+.banner-ver-mas a {
+	height: 200px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: 30px 0;
+	background: var(--darkorange);
+	color: #fff;
+	transition: .5s;
+}
+.banner-ver-mas a:hover {
+	background: var(--orange);
+	color: #000;
+}
 /******************************************/
 /*                CARDS                   */
 /******************************************/
@@ -249,7 +263,7 @@ section .card i {
 		margin:0 0;
 	}
 }
-@media screen and (min-width: 820px){
+@media screen and (min-width: 720px){
 	main.seccion-productos {
 		display: flex;
 		flex-wrap: wrap;
@@ -310,6 +324,26 @@ section .card i {
 		border: 1px solid #ccc;
 		margin:0 0;
 	}
+	/******************************************/
+	/*                banner-ver-mas          */
+	/******************************************/
+	.banner-ver-mas {
+		display: flex;
+	}
+	.banner-ver-mas .img-banner {
+		display: block;
+		width: 50%;
+		width: 100%;
+		height: 300px;
+		margin: 30px 0;
+		background: url('../img/icons/header-1.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.banner-ver-mas a {
+		height: 300px;
+		width: 50%;
+	}
 
 	/* CARDS */
 	section.cards {
@@ -322,4 +356,17 @@ section .card i {
 		width: 33%;
 	}
 
+}
+@media screen and (min-width: 1024px){
+	/******************************************/
+	/*                banner-ver-mas          */
+	/******************************************/
+	.banner-ver-mas .img-banner {
+		width: 50%;
+		height: 400px;
+	}
+	.banner-ver-mas a {
+		height: 400px;
+		width: 50%;
+	}
 }

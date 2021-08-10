@@ -2,6 +2,11 @@ main.about {
 	max-width: 1024px;
 	margin: 60px auto;
 }
+main.about h2 {
+	font-size: 30px;
+	text-transform: uppercase;
+	padding-top: 10px;
+}
 .about-us {
 	display: flex;
 	justify-content: center;
