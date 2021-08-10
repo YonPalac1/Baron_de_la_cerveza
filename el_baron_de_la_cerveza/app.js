@@ -9,6 +9,7 @@ app.use('/', express.static(__dirname + '/public'));
 /*  Enrutadores  */
 let indexRouter = require('./routes/index.js');
 let loginRouter = require('./routes/login.js');
+let purchaseRouter = require('./routes/finalizePurchase.js');
 
 /*  Views  */
 app.set('view engine', 'ejs');
@@ -16,6 +17,7 @@ app.set('view engine', 'ejs');
 /*  Rutas  */
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
+app.use('/finalizePurchase', purchaseRouter);
 
 
 
@@ -32,10 +34,6 @@ app.get('/productCart', (req, res)=>{
 // Pagina con datos de contacto - Keila
 app.get('/contact', (req, res)=>{
     res.sendFile(path.join(__dirname, '/views/contact.html'))
-})
-// Pagina donde se finalizaria la compra - Yonatan  
-app.get('/finalizePurchase', (req, res)=>{
-    res.sendFile(path.join(__dirname, '/views/finalizePurchase.html'))
 })
 // Pagina donde se finalizaria la compra - Yonatan  
 app.get('/about', (req, res)=>{

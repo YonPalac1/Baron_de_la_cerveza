@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <%- include('partials/head.ejs') %>
-<body>
+<body class="login">
 <!-- Navbar Fixed -->
 	<nav class="navbar flex">
 <!-- Buscador oculto -->
@@ -106,47 +106,28 @@
 
 	
 	<main class="login">
-		<div class="img-login">
+		<div class="banner-img">
 			<img src="/img/icons/icon-title.png" alt="">
 		</div>
-		<div class="toggle-buttons">
-			<button class="btn active" id="log" onclick="showRegister()">Iniciar sesion</button>
-			<button class="btn" id="reg" onclick="showRegister()">Registrarse</button>
-		</div>
-		<div class="forms">
-			<section>
-				<form action="">
-					<p>
-						<input type="text" placeholder="Email">
-						<input type="text" placeholder="Contraseña">
-					</p>
-					<div class="check">
-						<input type="checkbox" name="checkbox">
-						<label for="checkbox">Mantener la sesion abierta</label>
-					</div>
-					<div class="btn-ingresar">
-						<button>Ingresar</button>
-					</div>
-				</form>
-			</section>
-			<section id="register">
-				<form action="">
-					<p>
-						<input type="text" placeholder="Nombre">
-						<input type="text" placeholder="Apellido">
-					</p>
-					<p>
-						<input type="text" placeholder="Email">
-					</p>
-					<p>
-						<input type="text" placeholder="Contraseña">
-						<input type="text" placeholder="Repetir contraseña">
-					</p>
-					<div class="btn-ingresar">
-						<button>Registrarse</button>
-					</div>
-				</form>
-			</section>
+		<div class="login-form">
+			<form action="">
+				
+			<p>
+				<input type="text" placeholder="Nombre">
+			</p>
+			<p>
+				<input type="text" placeholder="Contraseña">
+			</p>
+			<div>
+				<input type="checkbox" id="check">
+				<label for="check">Mantener la sesion abierta</label>
+			</div>
+			<button>Ingresar</button>
+			</form>
+
+			<div class="register">
+				<button>Todavia no tengo una cuenta</button>
+			</div>
 		</div>
 	</main>
 	<!-- /Cuerpo de Login -->

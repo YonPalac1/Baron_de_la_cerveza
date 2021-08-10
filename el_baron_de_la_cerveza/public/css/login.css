@@ -1,96 +1,71 @@
+body.login {
+	background-image: url('../img/icons/header-3.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 main.login {
 	max-width: 1024px;
-	margin: 50px auto;
+	margin: 70px auto;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	padding: 20px 20px;
 }
-main.login .img-login img {
-	width: 310px;
-}
-main.login .toggle-buttons {
-	width: 100%;
+main.login .banner-img {
+	width: 90%;
+	height: 100px;
 	display: flex;
-	gap: 10px;
+	justify-content: center;
+	align-items: center;
+	background: #fff;
+	border-radius: 5px 5px 0 0;
 }
-main.login .toggle-buttons button.btn {
-	border: none;
-	background: none;
-	border-bottom: 2px solid var(--violet);
-	border-radius: 0px;
-	padding: 8px 12px;
-	width: 50%;
+main.login .banner-img img {
+	width: 100px;
 }
-main.login .forms {
+main.login .login-form {
+	width: 90%;
+	padding: 10px;
+	background: rgba(0,0,0,.5);
+	border-radius: 0 0px 5px 5px;
+}
+main.login .login-form input {
 	width: 100%;
-	text-align: center;
-	padding: 20px;
-	position: relative;
-}
-
-main.login .forms section form p input {
-	width: 100%;
-	border: 1px solid var(--orange);
-	padding: 8px 12px;
+	padding: 8px 10px;
+	margin: 20px 0;
 	border-radius: 5px;
-	margin-top: 20px;
+	border: 2px solid var(--orange);
 }
-main.login .forms section form p input::placeholder {
-	color: var(--darkorange);
+main.login .login-form input::placeholder {
+	color: var(--orange);
 }
-main.login .forms section form p input:focus {
-    outline: none !important;
-    border:1px solid red;
-    box-shadow: 0 0 10px #719ECE;
-  }
-main.login .forms .check {
-	margin-top: 20px;
+main.login .login-form form {
+	text-align: center;
 }
-main.login .forms .btn-ingresar button {
-	width: 100%;
-	margin-top: 20px;
-	padding: 12px;
+main.login .login-form form div {
+	display: flex;
+	align-items: center;
+	font-family: var(--font-open);
+	color: white;
+}
+main.login .login-form form div input {
+	width: 10%;
+}
+main.login .login-form form button {
+	padding: 10px 12px;
 	border: none;
 	background: var(--violet);
 	color: #fff;
+	cursor: pointer;
 }
 
-main.login .toggle-buttons button.btn.active {
-	background: var(--orange);
-	color: #fff;
+main.login .login-form .register {
+	padding: 10px 0;
 }
-main.login .forms section#register {
-	position: absolute;
-	width: 99%;
-	background: white;
-	top: 0;
-	left: 1px;
-	display: none;
-}
-main.login .forms section#register.active {
-	display: block;
-}
-
-@media screen  and (min-width:1024px){
-	main.login .forms .check {
-		font-size: 18px;
-		font-family: var(--font-open);
-		text-align: left;
-		margin-top: 20px;
-	}
-	main.login .forms section form p {
-		display: flex;
-		gap: 20px;
-	}
-	main.login .forms section form p input {
-		width: 50%;
-
-	}
-	.footer-login {
-		position: absolute;
-		width: 100%;
-		bottom: 1px;
-	}
+main.login .login-form .register button {
+	background: none;
+	border: none;
+	color: white;
+	font-family: var(--font-open);	
+	font-size: 18px;
 }
