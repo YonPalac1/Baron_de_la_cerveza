@@ -5,7 +5,7 @@ body.login {
 }
 main.login {
 	max-width: 1024px;
-	margin: 70px auto;
+	margin: 80px auto;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -68,4 +68,94 @@ main.login .login-form .register button {
 	color: white;
 	font-family: var(--font-open);	
 	font-size: 18px;
+}
+
+
+/* REgister */
+main.login .register-form {
+	width: 90%;
+	padding: 10px;
+	background: rgba(0, 0, 0, .5);
+	height: 100%;
+	display: none;
+}
+main.login .register-form.active {
+	display: block; 
+	border-radius: 0 0 5px 5px;
+}
+main.login .register-form input {
+	width: 100%;
+	padding: 8px 10px;
+	margin: 20px 0;
+	border-radius: 5px;
+	border: 2px solid var(--orange);
+}
+main.login .register-form input::placeholder {
+	color: var(--orange);
+}
+main.login .register-form form {
+	text-align: center;
+}
+main.login .register-form form div {
+	display: flex;
+	align-items: center;
+	font-family: var(--font-open);
+	color: white;
+}
+main.login .register-form form div input {
+	width: 10%;
+}
+main.login .register-form form button {
+	padding: 10px 12px;
+	border: none;
+	background: var(--violet);
+	color: #fff;
+	cursor: pointer;
+}
+
+main.login .register-form .register {
+	padding: 10px 0;
+}
+main.login .register-form .register button {
+	background: none;
+	border: none;
+	color: white;
+	font-family: var(--font-open);	
+	font-size: 18px;
+}
+
+main.login .register-form.active ~ .login-form {
+	display: none;
+}
+.footer-login {
+	margin-bottom: 0px;
+	width: 100%;
+}
+@media screen and (min-width:768px){
+main.login {
+	height: 450px;
+	display: flex;
+	flex-direction: row;
+}
+main.login .banner-img {
+	width: 20%;
+	height: 300px;
+	border-radius: 5px 0px 0 5px;
+}
+main.login .login-form {
+	width: 80%;
+	padding: 10px;
+	background: rgba(0,0,0,.5);
+	border-radius: 0 5px 5px 0px;
+}
+main.login .register-form {
+	width: 90%;
+	height: 450px;
+	padding: 10px;
+	height: 100%;
+	border-radius:  0 5px 5px 0px;
+}
+main.login .register-form.active ~ .banner-img {
+	height: 450px;
+}
 }

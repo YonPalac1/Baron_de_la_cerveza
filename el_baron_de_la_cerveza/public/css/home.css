@@ -198,30 +198,86 @@ main.seccion-productos .filter {
 	background: #999;	
 }
 /******************************************/
-/*                banner-ver-mas          */
+/*                Intro                   */
 /******************************************/
-.banner-ver-mas {
+.intro {
 	display: flex;
-	margin: 0 auto;
-}
-.banner-ver-mas .img-banner {
-	display: none;
-}
-.banner-ver-mas a {
-	height: 200px;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	flex-direction: column;
+	max-width: 1024px;
+	margin: 60px auto;
 	text-align: center;
-	margin: 30px 0;
-	background: var(--darkorange);
-	color: #fff;
-	transition: .5s;
+	padding: 10px;
 }
-.banner-ver-mas a:hover {
+.intro .welcome {
+	width: 100%;
+}
+.intro .welcome h2 {
+	text-transform: uppercase;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+.intro .welcome p {
+	font-family: var(--font-open);
+	margin-bottom: 40px;
+	color: #222;
+	font-size: 22px;
+	text-align: center;
+}
+.intro .welcome a {
+	background: var(--violet);
+	padding: 10px 12px;
+	border-radius: 5px;
+	color: #fff;
+	width: 100%;
+}
+
+/******************************************/
+/*                description             */
+/******************************************/
+.description {
 	background: var(--orange);
-	color: #000;
+	margin: 270px 0 30px;
+}
+.description-size {
+	max-width: 1024px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+.description-size div:nth-child(1){
+	width: 100%;
+}
+.description-size div:nth-child(1) img {
+	margin: 0 auto;
+	margin-top: -240px;
+	display: flex;
+	left: 0;
+	right: 0;
+	width: 300px;
+}
+.description-size div:nth-child(2){
+	width: 100%;
+	padding: 40px 20px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+}
+.description-size h4 {
+	font-size: 25px;
+}
+.description-size p {
+	font-family: var(--font-open);
+	font-size: 20px;
+	margin-top: 20px;
+}
+.description-size a {
+	background: var(--violet);
+	padding: 10px 12px;
+	border-radius: 5px;
+	color: #fff;
+	width: 180px;
+	margin-top: 30px;
 }
 /******************************************/
 /*                CARDS                   */
@@ -336,25 +392,28 @@ section .card i {
 		margin:0 0;
 	}
 	/******************************************/
-	/*                banner-ver-mas          */
+	/*                Intro                   */
 	/******************************************/
-	.banner-ver-mas {
-		display: flex;
+	
+	/******************************************/
+	/*                description             */
+	/******************************************/
+	.description {
+		background: var(--orange);
+		margin: 100px 0 30px;
 	}
-	.banner-ver-mas .img-banner {
-		display: block;
-		width: 50%;
-		height: 300px;
-		margin: 30px 0;
-		background: url('../img/icons/header-1.jpg');
-		background-repeat: no-repeat;
-		background-size: cover;
+	.description-size {
+		flex-direction: row;
 	}
-	.banner-ver-mas a {
-		height: 300px;
+	.description-size div:nth-child(1){
 		width: 50%;
 	}
-
+	.description-size div:nth-child(1) img {
+		margin-top: -50px;
+	}
+	.description-size div:nth-child(2){
+		width: 50%;
+	}
 	/* CARDS */
 	section.cards {
 		display: flex;
