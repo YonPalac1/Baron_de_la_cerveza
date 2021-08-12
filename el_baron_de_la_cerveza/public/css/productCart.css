@@ -168,7 +168,7 @@
 
 @media(min-width: 768px){
     .container-product {
-        max-width: 100%;
+        max-width: 1024px;
         margin: 0 auto;
         margin-top: 110px;
     }
