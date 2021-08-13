@@ -252,9 +252,10 @@
 
 		<section>
 			<div class="productos-main">
+				
 				<% products.forEach(element => { %>
 					<article class="br">
-						<a href="/productDetail/<%= element._id %> ">
+						<a href="/productDetail/detail/<%= element._id %> ">
 							<img src="/img/productos/<%= element.imagen %> " class="imagen-producto">
 						</a>
 						<div class="detalles-articulos">
@@ -268,119 +269,7 @@
 						</div>
 					</article>
 				<% }) %>	
-				
-				<!-- <article class="br">
-					<a href="/productDetail">
-						<img src="/img/productos/img2.png" class="imagen-producto">
-					</a>
-					<div class="detalles-articulos">
-						<span>$316</span>
-						<p>Cerveza Stella Artois</p>
-						<b>Pale / Dorado / 5.2% ALC</b>
-						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-					</div>
-					<div class="boton-comprar">
-						<button class="btn-buy br">Comprar</button>
-					</div>
-				</article>
-				<article class="br">
-					<a href="/productDetail">
-						<img src="/img/productos/img3.png" class="imagen-producto">
-					</a>
-					<div class="detalles-articulos">
-						<span>$316</span>
-						<p>Cerveza Stella Artois</p>
-						<b>Pale / Dorado / 5.2% ALC</b>
-						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-					</div>
-					<div class="boton-comprar">
-						<button class="btn-buy br">Comprar</button>
-					</div>
-				</article>
-				<article class="br">
-					<a href="/productDetail">
-						<img src="/img/productos/img4.png" class="imagen-producto">
-					</a>
-					<div class="detalles-articulos">
-						<span>$316</span>
-						<p>Cerveza Stella Artois</p>
-						<b>Pale / Dorado / 5.2% ALC</b>
-						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-					</div>
-					<div class="boton-comprar">
-						<button class="btn-buy br">Comprar</button>
-					</div>
-				</article>
-				<article class="br">
-					<a href="/productDetail">
-						<img src="/img/productos/img5.png" class="imagen-producto">
-					</a>
-					<div class="detalles-articulos">
-						<span>$316</span>
-						<p>Cerveza Stella Artois</p>
-						<b>Pale / Dorado / 5.2% ALC</b>
-						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-					</div>
-					<div class="boton-comprar">
-						<button class="btn-buy br">Comprar</button>
-					</div>
-				</article>
-				<article class="br">
-					<a href="/productDetail">
-						<img src="/img/productos/img6.png" class="imagen-producto">
-					</a>
-					<div class="detalles-articulos">
-						<span>$316</span>
-						<p>Cerveza Stella Artois</p>
-						<b>Pale / Dorado / 5.2% ALC</b>
-						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-					</div>
-					<div class="boton-comprar">
-						<button class="btn-buy br">Comprar</button>
-					</div>
-				</article>
-				<article class="br">
-					<a href="/productDetail">
-						<img src="/img/productos/img7.png" class="imagen-producto">
-					</a>
-					<div class="detalles-articulos">
-						<span>$316</span>
-						<p>Cerveza Stella Artois</p>
-						<b>Pale / Dorado / 5.2% ALC</b>
-						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-					</div>
-					<div class="boton-comprar">
-						<button class="btn-buy br">Comprar</button>
-					</div>
-				</article>
-				<article class="br">
-					<a href="/productDetail">
-						<img src="/img/productos/img8.png" class="imagen-producto">
-					</a>
-					<div class="detalles-articulos">
-						<span>$316</span>
-						<p>Cerveza Stella Artois</p>
-						<b>Pale / Dorado / 5.2% ALC</b>
-						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-					</div>
-					<div class="boton-comprar">
-						<button class="btn-buy br">Comprar</button>
-					</div>
-				</article>
-				<article class="br">
-					<a href="/productDetail">
-						<img src="/img/productos/img9.jpg" class="imagen-producto">
-					</a>
-					<div class="detalles-articulos">
-						<span>$316</span>
-						<p>Cerveza Stella Artois</p>
-						<b>Pale / Dorado / 5.2% ALC</b>
-						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-					</div>
-					<div class="boton-comprar">
-						<button class="btn-buy br">Comprar</button>
-					</div>
-				</article> -->
+	
 			</div>
 		</section>
 	</main>
