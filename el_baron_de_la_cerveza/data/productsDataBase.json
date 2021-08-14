@@ -8,7 +8,8 @@
     "category": "Dorado Rojizo",
     "marca": "Andes Origen",
     "destacado": true,
-    "imagen": "img3.png"
+    "imagen": "img3.png",
+    "cart": true
   },
   {
     "_id": 1,
@@ -19,7 +20,8 @@
     "category": "Oscuro",
     "marca": "Budweiser",
     "destacado": true,
-    "imagen": "img2.png"
+    "imagen": "img2.png",
+    "cart": false
   },
   {
     "_id": 2,
@@ -30,7 +32,8 @@
     "category": "Roja",
     "marca": "Patagonia",
     "destacado": true,
-    "imagen": "img3.png"
+    "imagen": "img3.png",
+    "cart": false
   },
   {
     "_id": 3,
@@ -41,7 +44,8 @@
     "category": "Dorado Rojizo",
     "marca": "Andes Origen",
     "destacado": true,
-    "imagen": "img4.png"
+    "imagen": "img4.png",
+    "cart": true
   },
   {
     "_id": 4,
@@ -52,7 +56,8 @@
     "category": "Dorado Rojizo",
     "marca": "Brahma",
     "destacado": true,
-    "imagen": "img5.png"
+    "imagen": "img5.png",
+    "cart": true
   },
   {
     "_id": 5,
@@ -63,7 +68,8 @@
     "category": "Dorado",
     "marca": "Patagonia",
     "destacado": false,
-    "imagen": "img6.png"
+    "imagen": "img6.png",
+    "cart": false
   },
   {
     "_id": 6,
@@ -74,7 +80,8 @@
     "category": "Negra",
     "marca": "Quilmes",
     "destacado": true,
-    "imagen": "img7.png"
+    "imagen": "img7.png",
+    "cart": true
   },
   {
     "_id": 7,
@@ -85,7 +92,8 @@
     "category": "Oscuro",
     "marca": "Brahma",
     "destacado": true,
-    "imagen": "img8.png"
+    "imagen": "img8.png",
+    "cart": false
   },
   {
     "_id": 8,
@@ -96,6 +104,7 @@
     "category": "Negra",
     "marca": "Brahma",
     "destacado": false,
-    "imagen": "img9.jpg"
+    "imagen": "img9.jpg",
+    "cart": true
   }
 ]

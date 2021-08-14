@@ -4,6 +4,7 @@ module.exports = {
     products: (req, res) => {
         let destacadosSlider = products.filter(product => product.destacado === true)
         res.render("products", {
+            titleBanner: "Pedi tu birra y te la llevamos a tu casa",
             products,
             destacadosSlider,
         })
