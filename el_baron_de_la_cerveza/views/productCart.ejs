@@ -23,13 +23,14 @@
 				</p>
 			</div>
 			
+			<% productCart.forEach(element => { %>
 				<div class="card-product">
 					<div class="product-info">
 						<div class="product-img">
-							<a href="#">
-								<img class="product-img__img" src="/img/productos/img5.png " alt="">
+							<a href="/productDetail/detail/<%= element._id %> ">
+								<img class="product-img__img" src="/img/productos/<%= element.imagen %>" alt="">
 							</a>
-							<span class="product-img__name">Nombre del producto</span>
+							<span class="product-img__name"><%= element.name %></span>
 						</div>
 					</div>
 					<div class="product-cantidad">
@@ -46,11 +47,11 @@
 					</div>
 					<div class="product-price">
 						<div class="product-price__price">
-							<p class="product-price__number">$5252</p><i class="fas fa-trash"></i>
+							<p class="product-price__number">$<%= element.precio %></p><i class="fas fa-trash"></i>
 						</div>
 					</div>
 				</div>
-			
+			<% }) %>
 
 		</div> 
 		<div class="price-total">
