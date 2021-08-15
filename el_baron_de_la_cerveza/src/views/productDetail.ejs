@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<%- include ("partials/head") %>
+<body>
+    <!-- Navbar Fixed -->
+	<nav class="navbar flex">
+		<!-- Buscador oculto -->
+			<div class="search" id="showSearch">
+				<form>
+					<div class="btn-search" onclick="showSearch()"><i class="fas fa-times"></i></div>
+					<input type="text" placeholder="Buscar" id="showSearch">
+					<button class="btn-search"><i class="fas fa-search"></i></button>
+				</form>
+			</div>
+		<!-- /buscador oculto -->
+				<div class="logo">
+					<a href="/">
+					<img src="img/icons/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
+					</a>
+				</div>
+		
+				<div class="nav-items">
+					<i class="fas fa-bars burguer" onclick="showMenu()"></i>
+					<ul id="menu">
+						<button class="close" onclick="showMenu()"><i class="fas fa-times"></i></button>
+						<li><a href="/">Home</a></li>
+						<li><a href="/about">Acerca de</a></li>
+						<li><a href="/contact">Contacto</a></li>
+		
+						<!-- Switch de modo oscuro -->
+						<button class="switch" id="switch" onclick="modoNocturno()">
+							<span><i class="fas fa-sun"></i></span>
+							<span><i class="fas fa-moon"></i></span>
+						</button>
+		
+					</ul>
+				</div>
+				<div class="icons">
+		
+					<button  class="user-config" onclick="showSearch()"><i class="fas fa-search"></i></button>
+		
+					<button class="user-config" onclick="showSubmenu()">
+						<span></span>
+						<i class="fas fa-user"></i>
+					</button>
+		
+					<div class="shopping-cart" onclick="showCart()"><i class="fas fa-shopping-cart"></i>
+						<span>1</span>
+					</div>
+					
+					<!-- Mini menu desplegable  -->
+					<div class="carrito-menu" id="carrito-menu">
+						<div class="cerrar-menu">
+							<i class="fas fa-times" onclick="showCart()"></i>
+						</div>
+						<div class="en-carrito">
+							<div>
+								<div class="imagen-carrito">
+									<img src="/img/productos/img1.jpg" class="producto-carrito">
+								</div>
+								<div class="detalles-producto-carrito">
+									<b>$000.00</b>
+									<span>nombre de producto</span>
+								</div>
+							</div>
+							<div>
+								<div class="imagen-carrito">
+									<img src="/img/productos/img2.png" class="producto-carrito">
+								</div>
+								<div class="detalles-producto-carrito">
+									<b>$000.00</b>
+									<span>nombre de producto</span>
+								</div>
+							</div>
+							<div>
+								<div class="imagen-carrito">
+									<img src="/img/productos/img3.png" class="producto-carrito">
+								</div>
+								<div class="detalles-producto-carrito">
+									<b>$000.00</b>
+									<span>nombre de producto</span>
+								</div>
+							</div>
+						</div>
+						<div class="boton-carrito">
+							<a href="#">Ir a carrito</a>
+						</div>
+					</div>
+					<!-- /Mini menu desplegable -->
+				</div>
+			</nav>
+			<!-- /Navbar Fixed-->
+		
+			<!-- Submenu -->
+			<nav class="sub-nav" id="subNave">
+				<ul>
+					<!-- En caso de que no este registrado -->
+					<li><a href="/login">Ingresar</a></li>
+		
+					<!-- en caso de que ya este logeado -->
+					<li><a href="/config">Configuracion</a></li>
+					<li><a href="#">Cerrar sesión</a></li>
+				</ul>
+			</nav>
+			<!-- /Submenu -->
+
+    <!-- cuerpo -->
+    <main class="main-detalleproducto">
+        <!-- Barra de Direccion -->
+        <div class="barra-direccion">
+            <a href="/">Home</a>
+            /
+            <a href="#">Producto</a>
+            /
+            <a href="#">Nombre y Marca del Producto</a>
+        </div>
+
+        <!-- Detalle del Producto-->
+        <section class="contenedor-detalleproducto">
+            <section class="detalle-producto">
+                <div class="imagen-detalleproducto">
+					<img src="/img/productos/<%= product.imagen %>" class="imagen-detalleproducto">
+				</div>
+                <div class="detalle-detalleproducto">
+                    <div class="detalle-nombreproducto">
+						<h4><%= product.name %></h4>
+                    	<h3>$<%= product.precio %></h3>
+					</div>
+                    <div class="cantidad-detalleproducto">
+                        CANTIDAD
+						<div class="detalles-cantbotones">
+							<input  type="submit" value="-">
+                        	<input type="text">
+							<input  type="submit" value="+">
+						</div>
+                    </div>
+					<div class="detalle-datosenvio">
+						<div class="detalle-mediospagos">
+							<div class="mediospagos-inner">
+								<div class="mediospagos-front">
+									<p>Medios de Pago</p>
+								</div>
+								<div class="mediospagos-back">
+									<img src="img/icons/mastercard.png" alt="mastercard">
+									<img src="img/icons/ml.png" alt="mercado libre">
+									<img src="img/icons/visa.png" alt="visa">
+								</div>
+							</div>
+						</div>
+						<div class="detalle-enviospais">
+							<i class="fas fa-truck"></i>
+							<p>Envios a todo el Pais</p>
+						</div>
+						<div class="detalle-calculoenvio">
+							<p>Calcula el precio de envio</p>
+						</div>
+					</div>
+                    <div class="boton-detalleproducto">
+                        <input  type="submit" value="Agregar al Carrito">
+                    </div>
+					<!-- Detalles del Lugar -->
+					<section class="lugar-producto">
+						<div class="detalle-lugarproducto">
+							<p> Dirección: Calle Falsa 123 </p>
+							<p> Email: mail@mail.com </p>
+							<p> Tel/Cel: 123-345 345 </p>
+							<p> Advertencia de consumo y blablabla </p>
+						</div>
+					</section>
+                </div>
+            </section>
+        </section>
+
+        <!-- Especificaciones del Producto -->
+        <section class="especificaciones-producto">
+			<div class="especificaciones">
+				<h3>Especificaciones</h3>
+				<p> - Marca: <%= product.marca %> </p>
+				<p> - <%= product.category %> </p>
+				<p> - Graduación Alcohólica: 5.2% </p>
+			</div>
+		</section>
+
+        <!-- Productos Relacionados -->
+		
+		
+    </main>
+
+	<!-- FOOTER -->
+	<footer>
+		<div class="footer">
+			<div class="navegacion">
+				<h5>Navegacion</h5>
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/about">Acerca de</a></li>
+					<li><a href="/contact">Contacto</a></li>
+				</ul>
+			</div>
+			<div class="formas-pago">
+				<h5>Formas de pago</h5>
+				<div>
+					<img src="img/icons/mastercard.png" alt="mastercard">
+					<img src="img/icons/ml.png" alt="mercado libre">
+					<img src="img/icons/visa.png" alt="visa">
+				</div>
+			</div>
+			<div class="redes">
+				<h5>Redes</h5>
+				<div>
+					<i class="fab fa-facebook"></i>
+					<i class="fab fa-whatsapp"></i>
+					<i class="fab fa-instagram"></i>
+				</div>
+			</div>
+			<div class="logo">
+				<img src="/img/icons/icon-title2.png" alt="">
+			</div>
+		</div>
+	</footer>
+	<!-- /FOOTER -->
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="/js/swiper.js"></script>
+</body>
+</html>

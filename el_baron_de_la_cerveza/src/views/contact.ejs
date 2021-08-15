@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+
+	<%- include ("partials/head") %>
+<body>
+	<!-- Navbar Fixed -->
+	<nav class="navbar flex">
+<!-- Buscador oculto -->
+	<div class="search" id="showSearch">
+		<form>
+			<div class="btn-search" onclick="showSearch()"><i class="fas fa-times"></i></div>
+			<input type="text" placeholder="Buscar" id="showSearch">
+			<button class="btn-search"><i class="fas fa-search"></i></button>
+		</form>
+	</div>
+<!-- /buscador oculto -->
+		<div class="logo">
+			<a href="/">
+			<img src="img/icons/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
+			</a>
+		</div>
+
+    	<div class="nav-items">
+			<i class="fas fa-bars burguer" onclick="showMenu()"></i>
+			<ul id="menu">
+				<button class="close" onclick="showMenu()"><i class="fas fa-times"></i></button>
+				<li><a href="/">Home</a></li>
+				<li><a href="/about">Acerca de</a></li>
+				<li><a href="/contact">Contacto</a></li>
+
+				<!-- Switch de modo oscuro -->
+				<button class="switch" id="switch" onclick="modoNocturno()">
+					<span><i class="fas fa-sun"></i></span>
+					<span><i class="fas fa-moon"></i></span>
+				</button>
+
+			</ul>
+		</div>
+		<div class="icons">
+
+			<button  class="user-config" onclick="showSearch()"><i class="fas fa-search"></i></button>
+
+			<button class="user-config" onclick="showSubmenu()">
+				<span></span>
+				<i class="fas fa-user"></i>
+			</button>
+
+			<div class="shopping-cart" onclick="showCart()"><i class="fas fa-shopping-cart"></i>
+				<span>1</span>
+			</div>
+			
+			<!-- Mini menu desplegable  -->
+			<div class="carrito-menu" id="carrito-menu">
+				<div class="cerrar-menu">
+					<i class="fas fa-times" onclick="showCart()"></i>
+				</div>
+				<div class="en-carrito">
+					<div>
+						<div class="imagen-carrito">
+							<img src="/img/productos/img1.jpg" class="producto-carrito">
+						</div>
+						<div class="detalles-producto-carrito">
+							<b>$000.00</b>
+							<span>nombre de producto</span>
+						</div>
+					</div>
+					<div>
+						<div class="imagen-carrito">
+							<img src="/img/productos/img2.png" class="producto-carrito">
+						</div>
+						<div class="detalles-producto-carrito">
+							<b>$000.00</b>
+							<span>nombre de producto</span>
+						</div>
+					</div>
+					<div>
+						<div class="imagen-carrito">
+							<img src="/img/productos/img3.png" class="producto-carrito">
+						</div>
+						<div class="detalles-producto-carrito">
+							<b>$000.00</b>
+							<span>nombre de producto</span>
+						</div>
+					</div>
+				</div>
+				<div class="boton-carrito">
+					<a href="#">Ir a carrito</a>
+				</div>
+			</div>
+			<!-- /Mini menu desplegable -->
+		</div>
+	</nav>
+	<!-- /Navbar Fixed-->
+
+	<!-- Submenu -->
+	<nav class="sub-nav" id="subNave">
+		<ul>
+			<!-- En caso de que no este registrado -->
+			<li><a href="/login">Ingresar</a></li>
+
+			<!-- en caso de que ya este logeado -->
+			<li><a href="/config">Configuracion</a></li>
+			<li><a href="#">Cerrar sesión</a></li>
+		</ul>
+	</nav>
+	<!-- /Submenu -->
+
+    <!-- Cuerpo -->
+    <main class="main-contacto">
+        <!-- Titulo Contactenos -->
+        <div class="titulo">
+            <h1>Contáctenos</h1>
+        </div>
+
+        <!-- Datos Nuestros -->
+        <section class="contenedor-datos">
+            <!-- Datos personales -->
+            <div class="datos-personales">
+                <div class="nombre-cv">
+                    <div class="datos-nombre"><h3>Jonatan Palacios</h3></div>
+                    <div class="datos-cv">
+                        <a href="#">CV</a>
+                    </div>
+                </div>
+                <p>Fecha Nacimiento: XX/XX/XXXX</p>
+                <p>Email: bsdajsk@gmail.com</p>
+                <p>sdsad: sadasd</p>
+                <p>sdsad: sadasd</p>
+                <p>sdsad: sadasd</p>
+                <p>Horarios de atención: XX a XX</p>
+            </div>
+
+            <!-- Datos para contactarnos -->
+            <section class="contenedor-contactar">
+                <div class="datos-contactar">
+                    <!-- Datos Redes -->
+                    <div class="datos-redes">
+                        <i class="fab fa-whatsapp"></i>
+						<div class="datos-redesnombre">
+							<div class="redesnombre-inner">
+								<div class="redesnombre-front">
+									<p>WHATSAPP</p>
+								</div>
+								<div class="redesnombre-back">
+									<p>23648324682</p>
+								</div>
+							</div>
+						</div>
+
+						<i class="fab fa-facebook"></i>
+						<div class="datos-redesnombre">
+							<div class="redesnombre-inner">
+								<div class="redesnombre-front">
+									<p>FACEBOOK</p>
+								</div>
+								<div class="redesnombre-back">
+									<p>23648324682</p>
+								</div>
+							</div>
+						</div>
+						
+						<i class="fab fa-twitter"></i>
+						<div class="datos-redesnombre">
+							<div class="redesnombre-inner">
+								<div class="redesnombre-front">
+									<p>TWITTER</p>
+								</div>
+								<div class="redesnombre-back">
+									<p>23648324682</p>
+								</div>
+							</div>
+						</div>
+                    </div>
+
+                    <!-- Datos Ubicación -->
+                    <div class="datos-ubicacion" onclick="showMap()">
+                        <i class="fas fa-map-marked-alt"></i>
+						<div class="datos-redesnombre">
+							<p>UBICAIÓN</p>
+						</div>
+                    </div>
+                </div>
+
+                <!-- Formulario de Consultas -->
+                <form action="#" method="">
+                    <div class="formulario-ingresodato">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" name="nombre" id="nombre" placeholder="Ingrese Nombre">
+                    </div>
+
+                    <div class="formulario-ingresodato">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" placeholder="Ingrese Email">
+                    </div>
+
+                    <div class="formulario-ingresoconsulta">
+                        <input type="textarea" name="email" id="email" placeholder="Ingrese Consulta">
+                    </div>
+
+                    <div class="formulario-boton">
+                        <input type="submit" value="Enviar">
+                    </div>
+                </form>
+            </section>
+
+			<section class="contenedor-datos">
+				<!-- Datos personales -->
+				<div class="datos-personales">
+					<div class="nombre-cv">
+						<div class="datos-nombre"><h3>Kevin Ibáñez</h3></div>
+						<div class="datos-cv">
+							<a href="#">CV</a>
+						</div>
+					</div>
+					<p>Fecha Nacimiento: XX/XX/XXXX</p>
+					<p>Email: bsdajsk@gmail.com</p>
+					<p>sdsad: sadasd</p>
+					<p>sdsad: sadasd</p>
+					<p>sdsad: sadasd</p>
+					<p>Horarios de atención: XX a XX</p>
+				</div>
+	
+				<!-- Datos para contactarnos -->
+				<section class="contenedor-contactar">
+					<div class="datos-contactar">
+						<!-- Datos Redes -->
+						<div class="datos-redes">
+							<i class="fab fa-whatsapp"></i>
+							<div class="datos-redesnombre">
+								<div class="redesnombre-inner">
+									<div class="redesnombre-front">
+										<p>WHATSAPP</p>
+									</div>
+									<div class="redesnombre-back">
+										<p>23648324682</p>
+									</div>
+								</div>
+							</div>
+
+							<i class="fab fa-facebook"></i>
+							<div class="datos-redesnombre">
+								<div class="redesnombre-inner">
+									<div class="redesnombre-front">
+										<p>FACEBOOK</p>
+									</div>
+									<div class="redesnombre-back">
+										<p>23648324682</p>
+									</div>
+								</div>
+							</div>
+							
+							<i class="fab fa-twitter"></i>
+							<div class="datos-redesnombre">
+								<div class="redesnombre-inner">
+									<div class="redesnombre-front">
+										<p>TWITTER</p>
+									</div>
+									<div class="redesnombre-back">
+										<p>23648324682</p>
+									</div>
+								</div>
+							</div>
+						</div>
+	
+						<!-- Datos Ubicación -->
+						<div class="datos-ubicacion" onclick="showMap()">
+							<i class="fas fa-map-marked-alt"></i>
+							<div class="datos-redesnombre">
+								<p>UBICACIÓN</p>
+							</div>
+						</div>
+					</div>
+	
+					<!-- Formulario de Consultas -->
+					<form action="#" method="">
+						<div class="formulario-ingresodato">
+							<label for="nombre">Nombre:</label>
+							<input type="text" name="nombre" id="nombre" placeholder="Ingrese Nombre">
+						</div>
+	
+						<div class="formulario-ingresodato">
+							<label for="email">Email:</label>
+							<input type="email" name="email" id="email" placeholder="Ingrese Email">
+						</div>
+	
+						<div class="formulario-ingresoconsulta">
+							<input type="textarea" name="email" id="email" placeholder="Ingrese Consulta">
+						</div>
+	
+						<div class="formulario-boton">
+							<input type="submit" value="Enviar">
+						</div>
+					</form>
+				</section>
+
+				<section class="contenedor-datos">
+            <!-- Datos personales -->
+            <div class="datos-personales">
+                <div class="nombre-cv">
+                    <div class="datos-nombre"><h3>Keila Mantiñan</h3></div>
+                    <div class="datos-cv">
+                        <a href="#">CV</a>
+                    </div>
+                </div>
+                <p>Fecha Nacimiento: XX/XX/XXXX</p>
+                <p>Email: bsdajsk@gmail.com</p>
+                <p>sdsad: sadasd</p>
+                <p>sdsad: sadasd</p>
+                <p>sdsad: sadasd</p>
+                <p>Horarios de atención: XX a XX</p>
+            </div>
+
+            <!-- Datos para contactarnos -->
+            <section class="contenedor-contactar">
+                <div class="datos-contactar">
+                    <!-- Datos Redes -->
+                    <div class="datos-redes">
+						<i class="fab fa-whatsapp"></i>
+						<div class="datos-redesnombre">
+							<div class="redesnombre-inner">
+								<div class="redesnombre-front">
+									<p>WHATSAPP</p>
+								</div>
+								<div class="redesnombre-back">
+									<p>23648324682</p>
+								</div>
+							</div>
+						</div>
+
+						<i class="fab fa-facebook"></i>
+						<div class="datos-redesnombre">
+							<div class="redesnombre-inner">
+								<div class="redesnombre-front">
+									<p>FACEBOOK</p>
+								</div>
+								<div class="redesnombre-back">
+									<p>23648324682</p>
+								</div>
+							</div>
+						</div>
+						
+						<i class="fab fa-twitter"></i>
+						<div class="datos-redesnombre">
+							<div class="redesnombre-inner">
+								<div class="redesnombre-front">
+									<p>TWITTER</p>
+								</div>
+								<div class="redesnombre-back">
+									<p>23648324682</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+                    <!-- Datos Ubicación -->
+                    <div class="datos-ubicacion" onclick="showMap()">
+                        <i class="fas fa-map-marked-alt"></i>
+						<div class="datos-redesnombre">
+							<p>UBICACIÓN</p>
+						</div>
+                    </div>
+                </div>
+
+                <!-- Formulario de Consultas -->
+                <form action="#" method="">
+                    <div class="formulario-ingresodato">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" name="nombre" id="nombre" placeholder="Ingrese Nombre">
+                    </div>
+
+                    <div class="formulario-ingresodato">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" placeholder="Ingrese Email">
+                    </div>
+
+                    <div class="formulario-ingresoconsulta">
+                        <input type="textarea" name="email" id="email" placeholder="Ingrese Consulta">
+                    </div>
+
+                    <div class="formulario-boton">
+                        <input type="submit" value="Enviar">
+                    </div>
+                </form>
+            </section>
+        </section>
+    </main>
+
+    <section class="modal" id="modal">
+    	<i class="fas fa-times" onclick="showMap()"></i>
+    	<div>
+    		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d210146.68168877432!2d-58.573383207134555!3d-34.615743688997895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e88e88e87!2sBuenos%20Aires%2C%20CABA!5e0!3m2!1ses!2sar!4v1628134511687!5m2!1ses!2sar" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    		
+    	</div>
+    </section>
+
+	<%- include ("partials/footer") %>
+
+<script>
+	function showMap() {
+		let modal = document.getElementById('modal');
+		modal.classList.toggle('active')
+	}
+</script>
+</body>

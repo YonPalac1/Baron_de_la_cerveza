@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<%- include('partials/head') %>
+<body>
+	<!-- HEADER -->
+	<%- include('partials/header') %>
+	<!-- /HEADER  -->
+
+	<main class="finalizar-compra">
+		<section class="columnas-de-compras">
+			<div class="title">
+				<p>Completa los siguientes campos para realizar tu compra</p>
+			</div>
+			<div class="datos-de-compra">
+				<div class="registrarse">
+					<i class="fas fa-user"></i>
+					<a href="/login">¿Ya estás registrado?</a>
+				</div>
+				<p><strong>Diganos su dirección de envio</strong></p>
+				<form>
+					<p>
+						<input type="text" placeholder="Empresa">
+					</p>
+					<p>
+						<input type="text" placeholder="Nombre">
+						<input type="text" placeholder="Apellido">
+					</p>
+					<p>
+						<input type="text" placeholder="Dirección">
+					</p>
+					<p>
+						<input type="text" placeholder="Provincia">
+						<input type="text" placeholder="Localidad">
+					</p>
+					<p>
+						<input type="text" placeholder="Pais">
+						<input type="number" placeholder="Código Postal">
+					</p>
+					<p>
+						<input type="tel" placeholder="Teléfono">
+					</p>
+					<div class="btn-continuar">
+						<button>Continuar</button>
+					</div>
+				</form>
+			</div>
+			<div class="metodos-de-envio">
+				<div class="registrarse">
+					<i class="fas fa-truck"></i>
+					<span>Métodos de Envío</span>
+				</div>
+				<form>
+					<div>
+						<input type="checkbox" id="transporte">
+						<label for="transporte">
+							<b>Transporte Seleccionado</b>
+							<p>Ingrese empresa de transporte</p>
+						</label>
+					</div>
+					<div>
+						<input type="checkbox" id="local">
+						<label for="local">
+							<b>Retirar por local</b>
+							<p>Únicamente en efectivo</p>
+						</label>
+					</div>
+				</form>
+				<hr>
+				<div class="registrarse">
+					<i class="fas fa-credit-card"></i>
+					<span>Métodos de Pago</span>
+				</div>
+				<form>
+					<div>
+						<input type="checkbox" id="transferencia">
+						<label for="transferencia">
+							<b>Pago por transferencia bancaria o depósito</b>
+							<p>Deberás abonar un 7% mas al monto total de compra</p>
+						</label>
+					</div>
+					<div>
+						<input type="checkbox" id="mercado">
+						<label for="mercado">
+							<b>Mercado Pago</b>
+							<p>Deberás abonar un 7% mas al monto total de compra</p>
+						</label>
+					</div>
+				</form>
+			</div>
+		</section>
+
+		<section class="a-comprar">
+			<div id="a-comprar">
+				<div class="producto-comprado">
+					<img src="/img/productos/img2.png" alt="">
+				</div>
+				<div class="detalles">
+					<p>Nombre de producto</p>
+					<span>$00.00</span>
+					<i class="fas fa-trash"></i>
+				</div>
+			</div>
+			<div id="a-comprar">
+				<div class="producto-comprado">
+					<img src="/img/productos/img2.png" alt="">
+				</div>
+				<div class="detalles">
+					<p>Nombre de producto</p>
+					<span>$00.00</span>
+					<i class="fas fa-trash"></i>
+				</div>
+			</div>
+			<div class="total">
+				<strong>Total</strong>
+				<span>$00000</span>
+			</div>
+		</section>
+	</main>
+
+
+	<!-- FOOTER -->
+	<%- include('partials/footer') %>
+	<!-- /FOOTER -->
+</body>
+</html>
