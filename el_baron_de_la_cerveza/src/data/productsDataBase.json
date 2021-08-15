@@ -1,7 +1,7 @@
 [
   {
     "_id": 0,
-    "name": "CERVEZA QUILMES BOCK LATA 473ML",
+    "name": "QUILMES BOCK LATA 473ML",
     "description": " CHICAGO CREAM ALE 473ML",
     "precio": 113,
     "discount": 7,
@@ -13,7 +13,7 @@
   },
   {
     "_id": 1,
-    "name": "CERVEZA ANDES ORIGEN CRIOLLA",
+    "name": "ANDES ORIGEN CRIOLLA",
     "description": " SESSION IPA CON SAUCO LATA 473M",
     "precio": 121,
     "discount": 13,
@@ -25,7 +25,7 @@
   },
   {
     "_id": 2,
-    "name": "CERVEZA STELLA ARTOIS",
+    "name": "STELLA ARTOIS",
     "description": "ANGELA MERKEN LATA 473ML",
     "precio": 80,
     "discount": 10,
@@ -37,7 +37,7 @@
   },
   {
     "_id": 3,
-    "name": "CERVEZA ANDES ORIGEN CRIOLLA",
+    "name": "ANDES ORIGEN CRIOLLA",
     "description": " CHICAGO CREAM ALE 473ML",
     "precio": 37,
     "discount": 11,
@@ -49,7 +49,7 @@
   },
   {
     "_id": 4,
-    "name": "CERVEZA OCASO",
+    "name": "OCASO",
     "description": " SESSION IPA CON SAUCO LATA 473M",
     "precio": 69,
     "discount": 12,
@@ -61,7 +61,7 @@
   },
   {
     "_id": 5,
-    "name": "CERVEZA QUILMES BOCK LATA 473ML",
+    "name": "QUILMES BOCK LATA 473ML",
     "description": " IPA LATA 473ML",
     "precio": 73,
     "discount": 7,
@@ -73,7 +73,7 @@
   },
   {
     "_id": 6,
-    "name": "CERVEZA PATAGONIA 24.7",
+    "name": "PATAGONIA 24.7",
     "description": " CHICAGO CREAM ALE 473ML",
     "precio": 42,
     "discount": 15,
@@ -85,7 +85,7 @@
   },
   {
     "_id": 7,
-    "name": "CERVEZA STELLA ARTOIS",
+    "name": "STELLA ARTOIS",
     "description": "ANGELA MERKEN LATA 473ML",
     "precio": 90,
     "discount": 20,
@@ -97,7 +97,7 @@
   },
   {
     "_id": 8,
-    "name": "CERVEZA PATAGONIA 24.7",
+    "name": "PATAGONIA 24.7",
     "description": "SIN ALCOHOL 330ML",
     "precio": 54,
     "discount": 11,
