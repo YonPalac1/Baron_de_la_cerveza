@@ -1,24 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>Acerca de nosotros | EBDLC</title>
-
-	<!-- Favicon -->
-	<link rel="icon" type="image/png" sizes="32x32" href="/img/icons/icon.png">
-
-	<!-- Estilos -->
-	<link rel="stylesheet" href="/css/styles.css">
-
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
-	<!-- Scripts -->
-	<script src="/js/app.js"></script>
-</head>
+	<%- include ("partials/head") %>
 <body>
 	<!-- Navbar Fixed -->
 	<nav class="navbar flex">
@@ -130,41 +113,8 @@
 			<p>El Barón de la cerveza es un plataforma de venta de bebidas alcohólicas al por mayor, dirigida los potenciales clientes que tengan la necesidad de abastecerse de diferentes tipos de cervezas. El barón de la cerveza le garantiza la mejor y más rápida atención, ya que los desarrolladores de la tienda online le dedican todo el amor y el esfuerzo para que su navegación sea fluida, rápida y elegante para su comodidad.</p>
 		</div>
 	</main>
-
 	<!-- /Acerca de nosotros  -->
 
-	<!-- FOOTER -->
-	<footer class="about">
-		<div class="footer">
-			<div class="navegacion">
-				<h5>Navegacion</h5>
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="#">Acerca de</a></li>
-					<li><a href="/contact">Contacto</a></li>
-				</ul>
-			</div>
-			<div class="formas-pago">
-				<h5>Formas de pago</h5>
-				<div>
-					<img src="img/icons/mastercard.png" alt="mastercard">
-					<img src="img/icons/ml.png" alt="mercado libre">
-					<img src="img/icons/visa.png" alt="visa">
-				</div>
-			</div>
-			<div class="redes">
-				<h5>Redes</h5>
-				<div>
-					<i class="fab fa-facebook"></i>
-					<i class="fab fa-whatsapp"></i>
-					<i class="fab fa-instagram"></i>
-				</div>
-			</div>
-			<div class="logo">
-				<img src="/img/icons/icon-title2.png" alt="">
-			</div>
-		</div>
-	</footer>
-	<!-- /FOOTER -->
+	<%- include ("partials/footer") %>
 </body>
 </html>

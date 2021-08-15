@@ -1,29 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-		<title>El barón de la cerveza</title>
-	
-		<!-- Favicon -->
-		<link rel="icon" type="image/png" sizes="32x32" href="/img/icons/icon.png">
-	
-		<!-- Estilos -->
-		<link rel="stylesheet" href="/css/styles.css">
-	
-		<!-- Font Awesome -->
-		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-	
-		<!-- Swiper para el slider -->
-		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-	
-		<!-- Scripts -->
-		<script src="/js/app.js"></script>
-		<script src="/js/carousel.js"></script>
-	</head>
-<body>
+
+	<%- include ("partials/head") %>
 <body>
     <!-- Navbar Fixed -->
 	<nav class="navbar flex">
@@ -142,12 +120,12 @@
         <section class="contenedor-detalleproducto">
             <section class="detalle-producto">
                 <div class="imagen-detalleproducto">
-					<img src="/img/productos/img1.jpg" class="imagen-detalleproducto">
+					<img src="/img/productos/<%= product.imagen %>" class="imagen-detalleproducto">
 				</div>
                 <div class="detalle-detalleproducto">
                     <div class="detalle-nombreproducto">
-						<h4>Nombre del Producto</h4>
-                    	<h3>$0.000.00</h3>
+						<h4><%= product.name %></h4>
+                    	<h3>$<%= product.precio %></h3>
 					</div>
                     <div class="cantidad-detalleproducto">
                         CANTIDAD
@@ -198,13 +176,9 @@
         <section class="especificaciones-producto">
 			<div class="especificaciones">
 				<h3>Especificaciones</h3>
-				<p> - Graduación Alcohólica: 14% </p>
-				<p> - Presenta un color violeta oscuro y profundo. </p>
-				<p> - Maduración en barricas de Roble Francés 40% nuevo. </p>
-				<p> - Presenta aromas a frutos negros de carozo con notas especiadas de pimienta negra y clavo de olor, frutos rojos y florales intensos como violeta y lavanda. </p>
-				<p> - Estuche de Cartón (Caja de 4 unidades). </p>
-				<p> Incluye: 1 Botella de Vino </p>
-				<p> Es un Vino de gran concentración, elegancia y gran complejidad </p>
+				<p> - Marca: <%= product.marca %> </p>
+				<p> - <%= product.category %> </p>
+				<p> - Graduación Alcohólica: 5.2% </p>
 			</div>
 		</section>
 
