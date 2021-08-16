@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/headAdmin") %> 
+</head>
+<body style="overflow: hidden;">
+
+    <%- include("../partials/headerAdmin") %>
+
+    <%- include("../partials/sidebarAdmin") %>
+    
+    <main class="admin container">
+        <h2>Usuarios registrados</h2>
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <table class="table caption-top">
+                    <thead>
+                    <tr>
+                            <th>Email</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <th>email@email.com</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-sm-12 col-md-4">
+                <table class="table caption-top">
+                    <thead>
+                    <tr>
+                            <th>Contraseña</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <th>************</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-sm-12 col-md-4">
+                <table class="table caption-top">
+                    <thead>
+                    <tr>
+                            <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-">
+                        <th>
+                            <button class="btn btn-primary">Editar</button>
+                            <button class="btn btn-danger">Eliminar</button>
+                        </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+    
+</body>
+</html>

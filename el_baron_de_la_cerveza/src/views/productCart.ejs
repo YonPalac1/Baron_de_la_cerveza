@@ -5,7 +5,9 @@
 
 <body>
 	
-	<%- include("partials/header")  %> 
+	<%- include("partials/header")  %>
+	
+	<%- include("partials/banner")  %>
 
     <!-- CARRITO -->
 	<main class="container-product">
@@ -72,37 +74,7 @@
     <!-- /CARRITO -->
 
 	<!-- FOOTER -->
-	<footer>
-		<div class="footer">
-			<div class="navegacion">
-				<h5>Navegacion</h5>
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/about">Acerca de</a></li>
-					<li><a href="/contact">Contacto</a></li>
-				</ul>
-			</div>
-			<div class="formas-pago">
-				<h5>Formas de pago</h5>
-				<div>
-					<img src="img/icons/mastercard.png" alt="mastercard">
-					<img src="img/icons/ml.png" alt="mercado libre">
-					<img src="img/icons/visa.png" alt="visa">
-				</div>
-			</div>
-			<div class="redes">
-				<h5>Redes</h5>
-				<div>
-					<i class="fab fa-facebook"></i>
-					<i class="fab fa-whatsapp"></i>
-					<i class="fab fa-instagram"></i>
-				</div>
-			</div>
-			<div class="logo">
-				<img src="/img/icons/icon-title2.png" alt="">
-			</div>
-		</div>
-	</footer>
+	<%- include("partials/footer")  %>
 	<!-- /FOOTER -->
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
