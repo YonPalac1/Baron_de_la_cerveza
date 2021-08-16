@@ -13,7 +13,10 @@ let configRouter = require("./routes/config.js");
 let detailRouter = require("./routes/productDetail.js");
 let contactoRouter = require("./routes/contacto.js");
 let aboutRouter = require("./routes/about.js");
-let adminRouter = require("./routes/admin.js");
+
+/*  Admin  */
+let adminRouter = require("./routes/admin/admin.js");
+let addRouter = require("./routes/admin/addProduct.js");
 
 /*  Middleware  */
 app.use(express.static(path.join(__dirname, '../public')));
@@ -31,7 +34,10 @@ app.use("/config", configRouter);
 app.use("/productDetail", detailRouter);
 app.use("/contact", contactoRouter);
 app.use("/about", aboutRouter);
+
+/*  Admin  */
 app.use("/admin", adminRouter);
+app.use("/addProduct", addRouter);
 
 app.listen(3030, ()=>{
     console.log("Servidor corriendo")

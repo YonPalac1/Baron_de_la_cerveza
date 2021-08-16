@@ -1,0 +1,60 @@
+<!-- Navbar Fixed -->
+<nav class="navbar flex">
+    <!-- Buscador oculto -->
+        <div class="search" id="showSearch">
+            <form>
+                <div class="btn-search" onclick="showSearch()"><i class="fas fa-times"></i></div>
+                <input type="text" placeholder="Buscar" id="showSearch">
+                <button class="btn-search"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    <!-- /buscador oculto -->
+        <div class="logo">
+                <a href="/">
+                <img src="img/icons/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
+                </a>
+        </div>
+    
+        <div class="nav-items">
+                <i class="fas fa-bars burguer" onclick="showMenu()"></i>
+                <ul id="menu">
+                    <button class="close" onclick="showMenu()"><i class="fas fa-times"></i></button>
+                    <li><a class="text-decoration-none" href="/">Home</a></li>
+                    <li><a class="text-decoration-none" href="/products">Productos</a></li>
+                    <li><a class="text-decoration-none" href="/about">Acerca de</a></li>
+                    <li><a class="text-decoration-none" href="/contact">Contacto</a></li>
+    
+                    <!-- Switch de modo oscuro -->
+                    <button class="switch" id="switch" onclick="modoNocturno()">
+                        <span><i class="fas fa-sun"></i></span>
+                        <span><i class="fas fa-moon"></i></span>
+                    </button>
+    
+                </ul>
+        </div>
+        <div class="icons">
+    
+                <button  class="user-config" onclick="showSearch()"><i class="fas fa-search"></i></button>
+    
+                <button class="user-config" onclick="showSubmenu()">
+                    <span></span>
+                    <i class="fas fa-user"></i>
+                </button>                
+        </div>
+</nav>
+<!-- /Navbar Fixed-->
+    
+<!-- Submenu -->
+<nav class="sub-nav" id="subNave">
+    <ul>
+        <!-- En caso de que no este registrado -->
+        <li><a href="/login">Ingresar</a></li>
+    
+        <!-- en caso de que ya este logeado -->
+        <li><a href="/config">Configuracion</a></li>
+        <li><a href="#">Cerrar sesión</a></li>
+    </ul>
+</nav>
+<!-- /Submenu -->
+    
+       

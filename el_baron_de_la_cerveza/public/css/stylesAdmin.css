@@ -1,0 +1,140 @@
+/*Aca hay que importar el archivo css de cada pagina */
+@import url('admin/admin.css');
+@import url('admin/addProducts.css');
+
+
+/* Fuentes de letras */
+@import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+:root {
+	/* Colores */
+	--white: #E1EFE6;
+	--orange: #F09D45;
+	--darkorange: #B57129;
+	--violet: #5343DC;
+
+	/* Fuentes */
+	--font-rowdies: 'Rowdies', cursive;
+	--font-open: 'Open Sans', sans-serif;;
+}
+
+/* Estilos generales */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	background-color: #fff;
+}
+body::-webkit-scrollbar-track
+{
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb
+{
+	background-color: var(--orange);
+	border-radius: 10px;
+}
+li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	text-decoration: none;
+	color: #000;
+	font-family: var(--font-open)
+}
+li {
+	list-style: none;
+	font-family: var(--font-open);
+}
+h1 {
+	font-family: var(--font-rowdies);
+	font-weight: lighter;	
+}
+h2 {
+	font-family: var(--font-rowdies);
+	font-weight: lighter;	
+}
+h3 {
+	font-family: var(--font-rowdies);
+	font-weight: lighter;
+}
+h4 {
+	font-family: var(--font-rowdies);
+	font-weight: lighter;	
+}
+hr {
+	max-width: 1024px;
+	margin: 0 auto;
+}
+button {
+	border-radius: 5px;
+}
+
+
+/* Modo oscuro */
+.switch {
+  background:#343d5b;
+  border-radius:1000px;
+  border:none;
+  position:relative;
+  cursor:pointer;
+  display:flex;
+  outline:none;
+}
+body.dark .switch {
+  background: var(--orange);
+} 
+ .switch:after{
+    content:"";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background: #f1f1f1;
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 100px;
+    transition: .3s ease all;
+    box-shadow: 0px 0px 2px 2px rgba(0,0,0, .2);
+  }
+  .onoff{
+    border:none;
+    position:relative;
+    cursor:pointer;
+    display:flex;
+    outline:none;
+  }
+  .onoff:after{
+    content:"";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background: #f1f1f1;
+    top: 0;
+    left: unset;
+    right: 0;
+    border-radius: 100px;
+    transition: .3s ease all;
+    box-shadow: 0px 0px 2px 2px rgba(0,0,0, .2);
+}
+.switch span{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    background:none;
+    color: #fff;
+  }

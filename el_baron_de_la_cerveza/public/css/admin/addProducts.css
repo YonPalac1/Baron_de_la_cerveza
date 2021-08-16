@@ -1,0 +1,40 @@
+
+main.add form div .img {
+	width: 150px;
+	height: 200px;
+	background: var(--orange);
+	margin: 20px 0;
+	cursor: pointer;
+}
+main.add form div input[type=file] {
+	display: none;
+}
+
+.detalles .nombre  {
+	display: flex;
+	width: 100%;
+	gap: 10px;
+}
+.detalles .nombre div {
+	display: flex;
+	flex-direction: column;
+}
+.detalles .nombre div input {
+	border: 2px solid var(--darkorange);
+	border-radius: 5px;
+	padding: 8px;
+}
+.detalles .nombre div select {
+	border: 2px solid var(--darkorange);
+	border-radius: 5px;
+	padding: 8px;
+}
+.detalles .nombre div textarea {
+	border: 2px solid var(--darkorange);
+	border-radius: 5px;
+	padding: 8px;
+	max-height: 200px;
+}
+.detalles .nombre div:nth-child(1) {
+	width: 50%;
+}

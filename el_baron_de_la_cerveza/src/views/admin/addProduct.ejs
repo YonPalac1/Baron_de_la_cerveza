@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<%- include("../partials/headAdmin") %>
+<body>
+	
+	<%- include("../partials/headerAdmin")%>
+
+	<%- include("../partials/sidebarAdmin") %>
+	<main class="add container">
+		<h2>Subir productos</h2>
+		<form action="">
+			<div class="row">
+				<!-- subir imagen -->
+				<div class="col-sm-3 col-md-3">
+					<input type="file" id="add">
+					<label for="add">
+					<p>Subir Foto</p>
+						<div class="img">
+						</div>
+					</label>
+				</div>
+				<!-- /subir imagen -->
+				<!-- Detalles -->
+				<div class="col-sm-9 col-md-9 detalles">
+					<div class="nombre">
+						<div>
+							<label for="nombre">Nombre</label>
+							<input type="text" id="nombre">
+						</div>
+						<div>
+							<label for="precio">Precio</label>
+							<input type="text" id="precio">
+						</div>
+					</div>
+					<div class="nombre">
+						<div>
+							<label for="select">categoria</label>
+							<select value="">
+						   		<option value="" hidden selected>Categorias</option>
+						   		<option value="precio">Dorado</option>
+						   		<option value="br">Negra</option>
+						   		<option value="br">Roja</option>
+						   	</select>
+						</div>
+						<div>
+							<label for="cat">Agregar categoria</label>
+							<input type="text" id="cat">
+						</div>
+					</div>
+					<div class="nombre">
+						<div>
+							<label for="descripcion">Descripcion</label>
+							<textarea name="" id="descripcion" cols="30" rows="10"></textarea>
+						</div>
+					</div>
+					<button class="btn btn-primary w-100 mt-4">Agregar Producto</button>
+				</div>
+			</div>
+		</form>
+	</main>
+</body>
+</html>

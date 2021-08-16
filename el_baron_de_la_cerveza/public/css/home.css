@@ -147,6 +147,7 @@ main.seccion-productos .filter {
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	margin: 0 auto;
+	overflow: hidden;
 }
 
 /**********Desplegable***********************/
