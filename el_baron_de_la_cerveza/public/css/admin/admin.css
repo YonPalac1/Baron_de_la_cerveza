@@ -50,15 +50,3 @@ main.admin {
 	padding: 10px;
 	border-radius: 3px;
 }
-
-@media screen and (min-width: 1024px){
-	.sidebar-items {
-		width: fit-content;
-		width: -moz-fit-content;
-		padding: 20px;
-	}
-	.sidebar-items.active {
-		width: 0px;
-		overflow: hidden;
-	}
-}
