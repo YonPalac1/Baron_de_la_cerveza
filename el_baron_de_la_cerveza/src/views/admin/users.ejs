@@ -1,17 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <%- include("../partials/headAdmin") %> 
 </head>
-<body style="overflow: hidden;">
+<body>
 
     <%- include("../partials/headerAdmin") %>
 
     <%- include("../partials/sidebarAdmin") %>
     
     <main class="admin container">
+
         <h2>Usuarios registrados</h2>
         <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <table class="table caption-top">
+                    <thead>
+                    <tr>
+                            <th>Fecha de registro</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <th>17/8/2021</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
             <div class="col-sm-12 col-md-4">
                 <table class="table caption-top">
                     <thead>
@@ -31,28 +47,13 @@
                 <table class="table caption-top">
                     <thead>
                     <tr>
-                            <th>Contraseña</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <th>************</th>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="col-sm-12 col-md-4">
-                <table class="table caption-top">
-                    <thead>
-                    <tr>
                             <th>Acciones</th>
                     </tr>
                     </thead>
                     <tbody>
                         <tr class="border-">
                         <th>
-                            <button class="btn btn-primary">Editar</button>
+                            <button class="btn btn-primary">Detalles</button>
                             <button class="btn btn-danger">Eliminar</button>
                         </th>
                         </tr>
@@ -61,6 +62,8 @@
             </div>
 
         </div>
+
+
     </main>
     
 </body>
