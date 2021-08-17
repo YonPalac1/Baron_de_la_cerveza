@@ -9,7 +9,7 @@
     "marca": "Andes Origen",
     "destacado": true,
     "imagen": "img3.png",
-    "cart": true
+    "cart": false
   },
   {
     "_id": 1,
@@ -21,7 +21,7 @@
     "marca": "Budweiser",
     "destacado": true,
     "imagen": "img2.png",
-    "cart": false
+    "cart": true
   },
   {
     "_id": 2,
@@ -33,7 +33,7 @@
     "marca": "Patagonia",
     "destacado": true,
     "imagen": "img3.png",
-    "cart": false
+    "cart": true
   },
   {
     "_id": 3,
@@ -45,7 +45,7 @@
     "marca": "Andes Origen",
     "destacado": true,
     "imagen": "img4.png",
-    "cart": true
+    "cart": false
   },
   {
     "_id": 4,
@@ -57,7 +57,7 @@
     "marca": "Brahma",
     "destacado": true,
     "imagen": "img5.png",
-    "cart": true
+    "cart": false
   },
   {
     "_id": 5,
@@ -81,7 +81,7 @@
     "marca": "Quilmes",
     "destacado": true,
     "imagen": "img7.png",
-    "cart": true
+    "cart": false
   },
   {
     "_id": 7,
@@ -105,6 +105,6 @@
     "marca": "Brahma",
     "destacado": false,
     "imagen": "img9.jpg",
-    "cart": true
+    "cart": false
   }
 ]
