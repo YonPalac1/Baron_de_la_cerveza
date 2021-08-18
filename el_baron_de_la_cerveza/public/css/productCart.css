@@ -1,3 +1,18 @@
+.carrito--carrito{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px;
+    place-content: center center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.carrito--carro {
+    align-self: center;
+    justify-self: center;
+    color: var(--darkorange);
+}
+
 .container-product {
     padding: 0 15px;
     max-width: 630px;
@@ -181,14 +196,6 @@
         margin-top: 110px;
     }
 
-    .card-product {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        padding-bottom: 15px;
-        border-bottom: 1px solid #ccc;
-    }
-
     .product-title {
         border-bottom: 1px solid #ccc;
         display: grid;
@@ -266,9 +273,10 @@
         align-self: flex-start;
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 1fr 200px;
         justify-content: center;
-        grid-row-gap: 75px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #ccc;
     }   
 
     .price-total__title {

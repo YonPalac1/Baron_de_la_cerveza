@@ -25,41 +25,49 @@
 				</p>
 			</div>
 			
-			<% productCart.forEach(element => { %>
-				<div class="card-product">
-					<div class="product-info">
-						<div class="product-img">
-							<a href="/productDetail/detail/<%= element._id %> ">
-								<img class="product-img__img" src="/img/productos/<%= element.imagen %>" alt="">
-							</a>
-							<span class="product-img__name"><%= element.name %></span>
+			<% if (productCart.length > 0) { %>
+				<% productCart.forEach(element => { %>
+					<div class="card-product">
+						<div class="product-info">
+							<div class="product-img">
+								<a href="/productDetail/detail/<%= element._id %> ">
+									<img class="product-img__img" src="/img/productos/<%= element.imagen %>" alt="">
+								</a>
+								<span class="product-img__name"><%= element.name %></span>
+							</div>
+						</div>
+						<div class="product-cantidad">
+							<p class="product-cantidad__cantidad item">Cantidad</p>
+							<div class="product-cantidad__number">
+								<button>
+									-
+								</button>
+								<div>1</div> 
+								<button>
+									+
+								</button>
+							</div>
+						</div>
+						<div class="product-price">
+							<div class="product-price__price">
+								<p class="product-price__number">$<%= element.precio %></p><i class="fas fa-trash"></i>
+							</div>
 						</div>
 					</div>
-					<div class="product-cantidad">
-						<p class="product-cantidad__cantidad item">Cantidad</p>
-						<div class="product-cantidad__number">
-							<button>
-								-
-							</button>
-							<div>1</div> 
-							<button>
-								+
-							</button>
-						</div>
-					</div>
-					<div class="product-price">
-						<div class="product-price__price">
-							<p class="product-price__number">$<%= element.precio %></p><i class="fas fa-trash"></i>
-						</div>
+				<% }) %>
+			<% } else { %>
+				<div>
+					<div class="detalles-producto-carrito carrito--carrito">
+						<span class="carrito--carro">No hay productos en el carrito</span>
 					</div>
 				</div>
-			<% }) %>
-
+			<% } %> 
+			 
 		</div> 
 		<div class="price-total">
 			<p class="price-total__title">Total del pedido</p>
 			<div class="price-total__total">
-			<p>Total:</p><span>$00.00</span>
+				<p>Total:</p><span>$00.00</span>
 			</div>
 		</div>
 		<div class="product-button">
