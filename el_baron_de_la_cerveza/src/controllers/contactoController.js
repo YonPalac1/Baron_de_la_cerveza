@@ -1,5 +1,7 @@
 module.exports = {
     contacto: (req, res) => {
-        res.render("contact")
+        res.render("contact", {
+            titleBanner: "Contáctenos"
+        })
     }
 }

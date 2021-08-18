@@ -3,111 +3,11 @@
 
 	<%- include ("partials/head") %>
 <body>
-	<!-- Navbar Fixed -->
-	<nav class="navbar flex">
-<!-- Buscador oculto -->
-	<div class="search" id="showSearch">
-		<form>
-			<div class="btn-search" onclick="showSearch()"><i class="fas fa-times"></i></div>
-			<input type="text" placeholder="Buscar" id="showSearch">
-			<button class="btn-search"><i class="fas fa-search"></i></button>
-		</form>
-	</div>
-<!-- /buscador oculto -->
-		<div class="logo">
-			<a href="/">
-			<img src="img/icons/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
-			</a>
-		</div>
-
-    	<div class="nav-items">
-			<i class="fas fa-bars burguer" onclick="showMenu()"></i>
-			<ul id="menu">
-				<button class="close" onclick="showMenu()"><i class="fas fa-times"></i></button>
-				<li><a href="/">Home</a></li>
-				<li><a href="/about">Acerca de</a></li>
-				<li><a href="/contact">Contacto</a></li>
-
-				<!-- Switch de modo oscuro -->
-				<button class="switch" id="switch" onclick="modoNocturno()">
-					<span><i class="fas fa-sun"></i></span>
-					<span><i class="fas fa-moon"></i></span>
-				</button>
-
-			</ul>
-		</div>
-		<div class="icons">
-
-			<button  class="user-config" onclick="showSearch()"><i class="fas fa-search"></i></button>
-
-			<button class="user-config" onclick="showSubmenu()">
-				<span></span>
-				<i class="fas fa-user"></i>
-			</button>
-
-			<div class="shopping-cart" onclick="showCart()"><i class="fas fa-shopping-cart"></i>
-				<span>1</span>
-			</div>
-			
-			<!-- Mini menu desplegable  -->
-			<div class="carrito-menu" id="carrito-menu">
-				<div class="cerrar-menu">
-					<i class="fas fa-times" onclick="showCart()"></i>
-				</div>
-				<div class="en-carrito">
-					<div>
-						<div class="imagen-carrito">
-							<img src="/img/productos/img1.jpg" class="producto-carrito">
-						</div>
-						<div class="detalles-producto-carrito">
-							<b>$000.00</b>
-							<span>nombre de producto</span>
-						</div>
-					</div>
-					<div>
-						<div class="imagen-carrito">
-							<img src="/img/productos/img2.png" class="producto-carrito">
-						</div>
-						<div class="detalles-producto-carrito">
-							<b>$000.00</b>
-							<span>nombre de producto</span>
-						</div>
-					</div>
-					<div>
-						<div class="imagen-carrito">
-							<img src="/img/productos/img3.png" class="producto-carrito">
-						</div>
-						<div class="detalles-producto-carrito">
-							<b>$000.00</b>
-							<span>nombre de producto</span>
-						</div>
-					</div>
-				</div>
-				<div class="boton-carrito">
-					<a href="#">Ir a carrito</a>
-				</div>
-			</div>
-			<!-- /Mini menu desplegable -->
-		</div>
-	</nav>
-	<!-- /Navbar Fixed-->
-
-	<!-- Submenu -->
-	<nav class="sub-nav" id="subNave">
-		<ul>
-			<!-- En caso de que no este registrado -->
-			<li><a href="/login">Ingresar</a></li>
-
-			<!-- en caso de que ya este logeado -->
-			<li><a href="/config">Configuracion</a></li>
-			<li><a href="#">Cerrar sesión</a></li>
-		</ul>
-	</nav>
-	<!-- /Submenu -->
+	<%- include ("partials/header") %>
+	<%- include("partials/banner") %>
 
 	<!--  Acerca de nosotros -->
 	<main class="about">
-		<h2>Acerca de nosotros</h2>
 		<div class="about-us">
 			<img src="/img/icons/icon-title.png" alt="El baron de la cerveza">
 			<p>El Barón de la cerveza es un plataforma de venta de bebidas alcohólicas al por mayor, dirigida los potenciales clientes que tengan la necesidad de abastecerse de diferentes tipos de cervezas. El barón de la cerveza le garantiza la mejor y más rápida atención, ya que los desarrolladores de la tienda online le dedican todo el amor y el esfuerzo para que su navegación sea fluida, rápida y elegante para su comodidad.</p>

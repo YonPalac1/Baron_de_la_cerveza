@@ -5,15 +5,6 @@ main.main-contacto {
     margin: 65px auto auto;
 }
 
-.titulo {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-.titulo h1{
-    font-size: 30px;
-}
-
 /* Datos Personales */
 .contenedor-datos {
     width: 100%;
@@ -156,11 +147,6 @@ main.main-contacto {
 /* Medias Queries */
 /* Tablet */
 @media screen and (min-width: 760px) {
-
-    /* Titulo */
-    .titulo h1{
-        font-size: 37px;
-    }
     
     /* Datos Personales */
     .datos-personales .nombre-cv {
@@ -255,11 +241,6 @@ main.main-contacto {
 
 /* Escritorio */
 @media screen and (min-width: 1024px) {
-
-    /* Titulo */
-    .titulo h1{
-        font-size: 40px;
-    }
     
     /* Datos Personales */
     .contenedor-datos {

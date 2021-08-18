@@ -1,6 +1,7 @@
 /*Aca hay que importar el archivo css de cada pagina */
 @import url('admin/admin.css');
 @import url('admin/addProducts.css');
+@import url('admin/adminProducts.css');
 
 
 /* Fuentes de letras */
