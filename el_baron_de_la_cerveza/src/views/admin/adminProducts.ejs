@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<%- include("../partials/headAdmin") %>
+<body>
+	
+	<%- include("../partials/headerAdmin")%>
+
+	<%- include("../partials/sidebarAdmin") %>
+
+	<!-- Copiar este main para las demas listas de Admin -->
+	<main class="admin container">
+		<h2>Administrar Productos</h2>
+		<div class="row">
+			<div class="col-sm-12 col-md-3">
+				<table class="table caption-top">
+  				    <thead>
+					   <tr>
+						    <th>Imagen</th>
+					   </tr>
+					</thead>
+					<tbody>
+					    <tr>
+					      <th>
+                              <div class="adproducimagen"></div>
+                          </th>
+					    </tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="col-sm-12 col-md-3">
+				<table class="table caption-top">
+  				    <thead>
+					   <tr>
+						    <th>Nombre</th>
+					   </tr>
+					</thead>
+					<tbody>
+					    <tr>
+					      <th>nombre</th>
+					    </tr>
+					</tbody>
+				</table>
+			</div>
+
+            <div class="col-sm-12 col-md-3">
+				<table class="table caption-top">
+  				    <thead>
+					   <tr>
+						    <th>Precio</th>
+					   </tr>
+					</thead>
+					<tbody>
+					    <tr>
+					      <th>precio</th>
+					    </tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="col-sm-12 col-md-3">
+				<table class="table caption-top">
+  				    <thead>
+					   <tr>
+						    <th>Acciones</th>
+					   </tr>
+					</thead>
+					<tbody>
+					    <tr class="border-">
+					      <th>
+					      	<button class="btn btn-primary">Editar</button>
+					      	<button class="btn btn-danger">Eliminar</button>
+					      </th>
+					    </tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

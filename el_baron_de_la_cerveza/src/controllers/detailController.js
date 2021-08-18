@@ -7,6 +7,7 @@ module.exports = {
         let product = products.find(product => product._id === productID)
 
         res.render('productDetail', {
+            titleBanner: "Detalle del Producto",
             titleSlider: "Productos relacionados",
             product
         });
