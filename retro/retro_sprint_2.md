@@ -24,3 +24,23 @@
 
 **Hacer menos:**
 
+
+**************************************************
+
+# Sprint 3: Retro
+
+**Empezar a hacer:**
+
+
+
+**Hacer mas:**
+
+
+**Seguir haciendo:**
+
+
+**Dejar de hacer:**
+
+
+**Hacer menos:**
+

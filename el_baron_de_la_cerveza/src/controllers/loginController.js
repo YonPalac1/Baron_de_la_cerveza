@@ -1,5 +1,10 @@
+let { products } = require('../data/dataBase')
+
 module.exports = {
 	login: (req, res) => { 
-		res.render('login');
+        let productCart = products.filter(element => element.cart === true)
+		res.render('login', {
+			productCart
+		});
 	}
 }

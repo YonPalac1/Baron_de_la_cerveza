@@ -121,7 +121,7 @@ body.dark .navbar .nav-items .burguer {
 .navbar .icons .shopping-cart {
 	position: fixed;
 	right: 20px;
-	bottom: 70px;
+	bottom: 30px;
 	padding: 10px 12px;
 	border-radius: 50%;
 	background-color: var(--darkorange);
@@ -232,27 +232,38 @@ body.dark .user-config i {
 /******************************************/
 .sub-nav {
 	position: fixed;
-	width: 100%;
-	top: 20px;
+	top: 60px;
 	transition: all .5s ease;
 	z-index: 2000;
-	display: block;
+	display: none;
+	right: 0;
 }
 .sub-nav.active {
-	top: 53px;
+	display: block;
 }
 .sub-nav ul {
 	display: flex;
 	justify-content: flex-end;
+	flex-direction: column;
 	background: white;
 	width: 100%;
-	padding: 10px 0;
+	padding: 20px 10px;
+	border-radius: 5px;
+	text-align: center;
+	z-index: 70000;
+}
+.sub-nav ul li {
+	margin-top: 10px;
 }
 .sub-nav ul li a {
 	font-size: 13px;
 	padding: 5px 10px;
 	font-weight: 700;
 	color: var(--violet);
+}
+.sub-nav ul li a:hover {
+	background: var(--orange);
+	color: #fff;
 }
 .sub-nav ul li a i {
 	margin-right: 5px;
@@ -344,6 +355,8 @@ header .title h2 {
 		display: inline;
 	}
 
+
+
 /*------------------ HEADER ------------------------*/
 	header img.bg {
 		position: absolute;
@@ -353,7 +366,7 @@ header .title h2 {
 		left: 0;
 	}
 	header .title h1 {
-		font-size: 60px;
+		font-size: 40px;
 		padding: 0 8px;
 	}
 }

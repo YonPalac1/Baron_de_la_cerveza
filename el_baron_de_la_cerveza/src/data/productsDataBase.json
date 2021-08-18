@@ -21,7 +21,7 @@
     "marca": "Budweiser",
     "destacado": true,
     "imagen": "img2.png",
-    "cart": true
+    "cart": false
   },
   {
     "_id": 2,
@@ -33,7 +33,7 @@
     "marca": "Patagonia",
     "destacado": true,
     "imagen": "img3.png",
-    "cart": true
+    "cart": false
   },
   {
     "_id": 3,
