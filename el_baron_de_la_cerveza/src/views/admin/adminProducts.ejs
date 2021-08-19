@@ -11,72 +11,39 @@
 	<!-- Copiar este main para las demas listas de Admin -->
 	<main class="admin container">
 		<h2>Administrar Productos</h2>
-		<div class="row">
-			<div class="col-sm-12 col-md-3">
-				<table class="table caption-top">
-  				    <thead>
-					   <tr>
-						    <th>Imagen</th>
-					   </tr>
-					</thead>
-					<tbody>
-					    <tr>
-					      <th class="tablacuerpo">
-                              <div class="adproducimagen"></div>
-                          </th>
-					    </tr>
-					</tbody>
-				</table>
+		<div class="row titulos">
+			<div class="col-sm-3">
+				<span>Imágen</span>
 			</div>
-
-			<div class="col-sm-12 col-md-3">
-				<table class="table caption-top">
-  				    <thead>
-					   <tr>
-						    <th>Nombre</th>
-					   </tr>
-					</thead>
-					<tbody>
-					    <tr>
-					      <th class="tablacuerpo">nombre</th>
-					    </tr>
-					</tbody>
-				</table>
+			<div class="col-sm-3">
+				<span>Nombre</span>
 			</div>
-
-            <div class="col-sm-12 col-md-3">
-				<table class="table caption-top">
-  				    <thead>
-					   <tr >
-						    <th >Precio</th>
-					   </tr>
-					</thead>
-					<tbody>
-					    <tr>
-					      <th class="tablacuerpo">precio</th>
-					    </tr>
-					</tbody>
-				</table>
+			<div class="col-sm-3">
+				<span>Precio</span>
 			</div>
-
-			<div class="col-sm-12 col-md-3">
-				<table class="table caption-top">
-  				    <thead>
-					   <tr>
-						    <th>Acciones</th>
-					   </tr>
-					</thead>
-					<tbody>
-					    <tr class="border-">
-					      <th class="tablacuerpo">
-					      	<button class="btn btn-primary">Editar</button>
-					      	<button class="btn btn-danger">Eliminar</button>
-					      </th>
-					    </tr>
-					</tbody>
-				</table>
+			<div class="col-sm-3">
+				<span>Acciones</span>
 			</div>
 		</div>
+
+		<!-- ForEach -->
+		<% products.forEach(adminproducts => { %>
+			<div class="row titulos">
+				<div class="col-sm-3 info producto-imagen">
+					<img src="/img/productos/<%= adminproducts.imagen %>">
+				</div>
+				<div class="col-sm-3 info">
+					<span><%= adminproducts.name %></span>
+				</div>
+				<div class="col-sm-3 info">
+					<span><%= adminproducts.precio %></span>
+				</div>
+				<div class="col-sm-3 info">
+					<button class="btn btn-primary">Editar</button>
+					<button class="btn btn-danger">Eliminar</button>
+				</div>
+			</div>
+		<% }) %>
 	</main>
 </body>
 </html>
