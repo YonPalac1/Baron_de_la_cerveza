@@ -9,11 +9,11 @@
 	<%- include("../partials/sidebarAdmin") %>
 
 	<!-- Copiar este main para las demas listas de Admin -->
-	<main class="admin container">
+	<main class="admin">
 		<h2>Administrar Productos</h2>
 		<div class="row titulos">
 			<div class="col-sm-3">
-				<span>Imagen</span>
+				<span>Imágen</span>
 			</div>
 			<div class="col-sm-3">
 				<span>Nombre</span>
@@ -26,23 +26,24 @@
 			</div>
 		</div>
 
-		<!-- Cierra el forEach -->
-		<div class="row">
-			<div class="col-sm-3 info producto-imagen">
-				<img src="/img/productos/img1.jpg" class="img-fluid" alt="">
+		<!-- ForEach -->
+		<% products.forEach(adminproducts => { %>
+			<div class="row titulos">
+				<div class="col-sm-3 info producto-imagen">
+					<img src="/img/productos/<%= adminproducts.imagen %>">
+				</div>
+				<div class="col-sm-3 info">
+					<span><%= adminproducts.name %></span>
+				</div>
+				<div class="col-sm-3 info">
+					<span><%= adminproducts.precio %></span>
+				</div>
+				<div class="col-sm-3 info">
+					<button class="btn btn-primary">Editar</button>
+					<button class="btn btn-danger">Eliminar</button>
+				</div>
 			</div>
-			<div class="col-sm-3 info">
-				<span>Nombre</span>
-			</div>
-			<div class="col-sm-3 info">
-				<span>Precio</span>
-			</div>
-			<div class="col-sm-3 info">
-				<button class="btn btn-primary">Editar</button>
-				<button class="btn btn-danger">Eliminar</button>
-			</div>
-		</div>
-		<!-- Cierra el forEach -->
+		<% }) %>
 	</main>
 </body>
 </html>

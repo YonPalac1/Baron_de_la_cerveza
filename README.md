@@ -29,7 +29,8 @@ Seleccionamos estas páginas tomando en cuenta la versatilidad, navegabilidad y 
 - Programador y desarrollador web, actualmente cursando FullStack Node Js en Digital House.... y experto en Sudoku.
 
 ### Kevin Ibañez
-- 
+- 27 años
+- Programador web, cursando actualmente desarrollo FullStack Node Js en Digital House y me encanta el asado.
 
 ## Los lenguajes que nos rompieron la cabeza
 - Express 

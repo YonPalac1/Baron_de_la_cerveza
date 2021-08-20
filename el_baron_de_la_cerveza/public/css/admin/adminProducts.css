@@ -3,6 +3,7 @@
 }
 .admin .info {
     padding: 10px;
+<<<<<<< HEAD
     display: flex;
     align-items: center;
     border-bottom: 1px solid #ccc;
@@ -10,3 +11,32 @@
 .admin .producto-imagen img {
     height: 100px;
 }
+=======
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+.admin .producto-imagen img {
+    height: 100px;
+}
+
+/*.adproducimagen {
+    width: 70%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+}
+.adproducimagen img {
+    height: 60px;
+    width: 40px;
+    object-fit: contain;
+}
+
+.tablacuerpo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    flex-wrap: wrap;
+}*/
+>>>>>>> 15614f3d563971ebdafd95daf8153822b1508c23
