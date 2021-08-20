@@ -297,6 +297,10 @@ header .title {
 	color: var(--white);
 	position: absolute;
 }
+header .title h1 {
+	font-size: 40px;
+	padding: 0 8px;
+}
 header .title h2 {
 	margin-top: 30px;
 	color: var(--orange);
@@ -366,7 +370,7 @@ header .title h2 {
 		left: 0;
 	}
 	header .title h1 {
-		font-size: 40px;
+		font-size: 68px;
 		padding: 0 8px;
 	}
 }
