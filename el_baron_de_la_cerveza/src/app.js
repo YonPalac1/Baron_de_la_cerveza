@@ -17,7 +17,6 @@ let aboutRouter = require("./routes/about.js");
 /*  Admin  */
 let adminRouter = require("./routes/admin/admin.js");
 let addRouter = require("./routes/admin/addProduct.js");
-let usersRouter = require("./routes/admin/users");
 let adminProductsRouter = require("./routes/admin/adminProducts.js");
 
 /*  Middleware  */
@@ -40,7 +39,6 @@ app.use("/about", aboutRouter);
 /*  Admin  */
 app.use("/admin", adminRouter);
 app.use("/addProduct", addRouter);
-app.use("/users", usersRouter);
 app.use("/adminProducts", adminProductsRouter);
 
 app.listen(3030, ()=>{

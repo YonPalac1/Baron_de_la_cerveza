@@ -3,5 +3,8 @@ module.exports = {
         res.render("admin/admin", {
         	
         })
+    },
+    users:(req, res) => {
+        res.render("admin/users")
     }
 }
