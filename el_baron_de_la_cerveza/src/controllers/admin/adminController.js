@@ -14,5 +14,8 @@ module.exports = {
         res.render('admin/adminProducts', {
             products
         });
+    },
+    addProducts: (req, res) => {
+        res.render('admin/addProduct');
     }
 }

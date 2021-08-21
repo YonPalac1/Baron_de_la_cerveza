@@ -8,10 +8,9 @@
 
 	<%- include("../partials/sidebarAdmin") %>
 
-	<!-- Copiar este main para las demas listas de Admin -->
 	<main class="admin">
 		<h2>Administrar Productos</h2>
-		<div class="row titulos">
+		<div class="row titulos column">
 			<div class="col-sm-3">
 				<span>Imágen</span>
 			</div>
@@ -28,7 +27,7 @@
 
 		<!-- ForEach -->
 		<% products.forEach(adminproducts => { %>
-			<div class="row titulos">
+			<div class="row titulos detalles">
 				<div class="col-sm-3 info producto-imagen">
 					<img src="/img/productos/<%= adminproducts.imagen %>">
 				</div>
