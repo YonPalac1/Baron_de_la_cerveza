@@ -1,0 +1,45 @@
+.header-banner {
+    margin-top: 43px;
+    height: 162px;
+    width: 100%;
+    background-image: url("/img/icons/header-2.jpg");
+    background-position: 1px 1px;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.header-banner__conenedor {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 81px 81px;
+    align-items: center;
+}
+
+.header-banner__titulo {
+    text-align: center;
+    color: var(--white);
+    /* font-size: 36px; */
+}
+
+.header-banner__p {
+    text-align: center;
+    color: var(--orange);
+}
+
+@media(min-width:768px){
+    .header-banner__titulo {
+        font-size: 36px;
+    }
+}
+
+@media(min-width:1024px){
+    .header-banner__titulo {
+        font-size: 40px;
+    }
+}
+
+@media(min-width:1120px){
+    .header-banner__titulo {
+        font-size: 60px;
+    }
+}
