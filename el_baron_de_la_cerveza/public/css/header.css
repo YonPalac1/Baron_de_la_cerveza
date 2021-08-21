@@ -237,6 +237,9 @@ body.dark .user-config i {
 	z-index: 2000;
 	display: none;
 	right: 0;
+	box-shadow: -3px 3px 5px -1px rgba(0,0,0,0.75);
+-webkit-box-shadow: -3px 3px 5px -1px rgba(0,0,0,0.75);
+-moz-box-shadow: -3px 3px 5px -1px rgba(0,0,0,0.75);
 }
 .sub-nav.active {
 	display: block;
