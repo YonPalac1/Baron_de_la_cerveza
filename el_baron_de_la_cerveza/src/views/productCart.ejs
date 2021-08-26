@@ -30,7 +30,7 @@
 					<div class="card-product">
 						<div class="product-info">
 							<div class="product-img">
-								<a href="/productDetail/detail/<%= element._id %> ">
+								<a href="/products/productDetail/<%= element._id %> ">
 									<img class="product-img__img" src="/img/productos/<%= element.imagen %>" alt="">
 								</a>
 								<span class="product-img__name"><%= element.name %></span>
@@ -71,12 +71,12 @@
 			</div>
 		</div>
 		<div class="product-button">
-			<button class="product-button__btn-comprando">
+			<a href="/products"><button class="product-button__btn-comprando">
 				Seguir comprando
-			</button>
-			<button class="product-button__btn-pagar">
+			</button></a>
+			<a href=""><button class="product-button__btn-pagar">
 				Pagar ahora
-			</button>
+			</button></a>
 		</div>
 	</main>
     <!-- /CARRITO -->
