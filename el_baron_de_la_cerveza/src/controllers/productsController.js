@@ -15,7 +15,7 @@ module.exports = {
     detail: (req, res) => {
         let productID = +req.params.id;
 
-        let product = products.find(product => product._id === productID)
+        let product = products.find(product => product.id === productID)
         let productCart = products.filter(element => element.cart === true)
         
         res.render('productDetail', {

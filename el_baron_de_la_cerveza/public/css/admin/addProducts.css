@@ -6,10 +6,6 @@ main.add form div .img {
 	margin: 20px 0;
 	cursor: pointer;
 }
-main.add form div input[type=file] {
-	display: none;
-}
-
 .detalles .nombre  {
 	display: flex;
 	width: 100%;

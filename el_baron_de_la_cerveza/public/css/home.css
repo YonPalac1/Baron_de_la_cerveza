@@ -149,8 +149,16 @@ main.seccion-productos .filter {
 	border-radius: 5px;
 	margin: 0 auto;
 	overflow: hidden;
+	position: relative;
 }
-
+.productos-main article span.off {
+	background: var(--orange);
+	height: fit-content;
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 5px 8px;
+}
 /**********Desplegable***********************/
 .productos-menus .collapse {
 	position: absolute;
@@ -307,6 +315,8 @@ section .card i {
 .carrusel-banners {
 	max-width: 1024px;
 	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
 }
 .carrusel-banners img {
 	max-width: 1024px;

@@ -39,7 +39,9 @@
 				</div>
 				<div class="col-sm-3 info">
 					<button class="btn btn-primary">Editar</button>
-					<button class="btn btn-danger">Eliminar</button>
+				<form action="/admin/products/delete/<%- adminproducts.id %>?_method=DELETE" method="POST">
+					<button type="submit" class="btn btn-danger">Eliminar</button>
+				</form>
 				</div>
 			</div>
 		<% }) %>
