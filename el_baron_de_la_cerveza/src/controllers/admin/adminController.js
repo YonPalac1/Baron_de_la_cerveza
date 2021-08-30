@@ -51,14 +51,49 @@ module.exports = {
             description,
             discount,
             category,
-            imagen: req.file ? [req.file.filename] : "default-image.png"
+            imagen: req.file ? req.file.filename : "default-image.png"
         };
 
         products.push(newProduct);
 
-        writeProductsJSON(products)
+        writeProductsJSON(products);
 
         res.redirect('/admin/products')
+    },
+    editProducts: (req, res) => {
+        let product = products.find(product => product.id === +req.params.id);
+        res.render("admin/editProduct",{
+            product,
+            category,
+        })
+    },
+    updateProducts: (req, res) => {
+        let {
+            name, 
+            precio, 
+            discount,
+            marca, 
+            category,  
+            description,
+        } = req.body;
+        
+        products.forEach(product => {
+			if(product.id === +req.params.id) {
+				product.id = product.id,
+				product.name = name,
+				product.precio = precio,
+				product.discount = discount,
+				product.marca = marca,
+                product.category = category,
+				product.description = description,
+				product.imagen = req.file ? req.file.filename : product.imagen;
+			}
+		})
+
+        writeProductsJSON(products)
+
+        res.redirect("/admin/products")
+
     },
     productDestroy: (req, res) => {
         products.forEach( product => {
