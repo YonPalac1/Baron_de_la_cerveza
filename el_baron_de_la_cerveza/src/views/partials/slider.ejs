@@ -6,6 +6,11 @@
 			  <div class="carousel-cell">
 			    <article class="br">
 					<a href="/products/productDetail/<%= product.id %>">
+						<% if(product.discount){ %>
+							<span class="off">
+								<%= product.discount %>%Off 
+							</span>
+						<% } %>
 						<img src="/img/productos/<%= product.imagen %>" class="imagen-producto">
 					</a>
 					<div class="detalles-articulos">

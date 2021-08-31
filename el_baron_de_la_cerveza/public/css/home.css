@@ -17,15 +17,26 @@
   padding: 5px;
   overflow: hidden;
 }
+.carousel-cell article span.off {
+	background: var(--orange);
+	height: fit-content;
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 5px 8px;
+	z-index: 5;
+}
 
 /**********PRODUCTOS***************/
 article a {
 	display: flex;
+	overflow: hidden;
 }
 .imagen-producto {
 	height: 200px;
 	margin: 0 auto;
 	transition: .5s;
+	z-index: 1;
 }
 .imagen-producto:hover {
 	transform: scale(1.2);
@@ -34,8 +45,6 @@ article a {
 	position: relative;
 	border-top: 1px solid #ccc;
 	padding-top: 10px;
-	
-  overflow: hidden;
 }
 .detalles-articulos span {
 	font-size: 20px;
@@ -65,6 +74,7 @@ article a {
 	background-color: #fff;
 	padding: 12px 15px;
 	cursor: pointer;
+	z-index: 7;
 }
 .boton-comprar {
 	display: flex;
@@ -137,6 +147,7 @@ main.seccion-productos .filter {
 	right: 0;
 	top: 0;
 	padding: 5px 8px;
+	z-index: 5;
 }
 /**********Desplegable***********************/
 .productos-menus .collapse {
@@ -147,7 +158,7 @@ main.seccion-productos .filter {
 	background: #000;
 	color: #fff;
 	text-align: center;
-	z-index: 6000;
+	z-index: 1000;
 	transition: .5s;
 }
 .productos-menus .collapse.active {

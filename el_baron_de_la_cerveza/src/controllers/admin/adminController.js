@@ -55,6 +55,7 @@ module.exports = {
             category,  
             description,
             destacado,
+            marca,
             } = req.body;
 
         let newProduct = {
@@ -65,6 +66,7 @@ module.exports = {
             discount,
             category,
             destacado,
+            marca,
            imagen: req.file ? req.file.filename : "default-image.png"
         };
 
