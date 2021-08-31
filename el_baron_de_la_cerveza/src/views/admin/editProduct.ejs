@@ -45,6 +45,10 @@
                 <label for="validationTextarea" class="form-label">Descripción</label>
                 <textarea class="form-control" id="validationTextarea" name="description" placeholder="Descripción"><%= product.description %>  </textarea>
             </div>
+            <div class="col-sm-12 col-md-6">
+                <label for="check" class="form-label">Destacar</label>
+                <input type="checkbox" id="check" class="form-control form-check-input" name="destacado" aria-label="file example" <%= product.destacado == "on" ? "checked" : null %>>
+            </div>
             <button type="submit" class="btn btn-primary">
                 EDITAR
             </button>

@@ -5,7 +5,7 @@ let productCart = products.filter(element => element.cart === true)
 
 module.exports = {
 	index: (req, res) => {
-		let destacadosSlider = products.filter(product => product.destacado === true)
+		let destacadosSlider = products.filter(product => product.destacado === "on")
 		
 		res.render('index', {
 			titleSlider: "Destacados",

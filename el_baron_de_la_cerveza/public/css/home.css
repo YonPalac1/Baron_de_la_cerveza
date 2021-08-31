@@ -15,6 +15,7 @@
   width: 180px;
   border: 1px solid #ccc;
   padding: 5px;
+  overflow: hidden;
 }
 
 /**********PRODUCTOS***************/
@@ -33,6 +34,8 @@ article a {
 	position: relative;
 	border-top: 1px solid #ccc;
 	padding-top: 10px;
+	
+  overflow: hidden;
 }
 .detalles-articulos span {
 	font-size: 20px;
@@ -110,30 +113,6 @@ main.seccion-productos .filter {
 	color: #fff;
 	border: none;
 }
-.productos-menus .menu-categorias {
-	display: none;
-}
-.productos-menus .menu-categorias ul {
-	margin-top: 20px;
-}
-.productos-menus .menu-categorias ul li {
-	padding: 4px 10px;
-}
-.productos-menus .menu-categorias ul li input[type="checkbox"] {
-	display: none;
-}
-.productos-menus .menu-categorias ul li input:checked ~ label {
-	background: var(--orange);
-} 
-.productos-menus .menu-categorias ul li label {
-	padding: 3px;
-}
-.productos-menus .menu-categorias ul b {
-	font-family: var(--font-open);
-	font-weight: bolder;
-	text-decoration: underline;
-	color: #000;
-}
 .productos-main {
 	display: flex;
 	margin: 30px auto;
@@ -209,7 +188,7 @@ main.seccion-productos .filter {
 }
 /******************************************/
 /*                Intro                   */
-/******************************************/
+/******************************************/ 
 .intro {
 	display: flex;
 	flex-direction: column;
@@ -380,9 +359,7 @@ section .card i {
 		border: none;
 		font-size: 20px;	
 	}
-	.productos-menus .menu-categorias {
-		display: inline;
-	}
+	
 	main.seccion-productos section {
 		width: 75%;
 		margin: 0 auto;
@@ -403,10 +380,23 @@ section .card i {
 		border: 1px solid #ccc;
 		margin:0 0;
 	}
-	/******************************************/
-	/*                Intro                   */
-	/******************************************/
-	
+	.productos-menus .collapse {
+		position: relative;
+		width: 100%;
+		height: fit-content;
+		overflow: hidden;
+		background: #fff;
+		color: #000;
+		text-align: center;
+		z-index: 6000;
+		transition: .5s;
+	}
+	.productos-menus .collapse b {
+		font-family: var(--font-open);
+		font-weight: bolder;
+		text-decoration: underline;
+		color: #000;
+	}
 	/******************************************/
 	/*                description             */
 	/******************************************/
