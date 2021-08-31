@@ -37,7 +37,7 @@
                 <select class="form-select" id="specificSizeSelect" name="category">
                   <option selected hidden value="<%  %> ">Categorias</option>
                  <% category.forEach(category => { %>
-                    <option value="<%- category %>"><%- category.name %></option>
+                    <option value= "<%- category %>" <%= product.category === category ? "selected" : null %> ><%- category %></option>
                  <% }) %>
                 </select>
             </div>
