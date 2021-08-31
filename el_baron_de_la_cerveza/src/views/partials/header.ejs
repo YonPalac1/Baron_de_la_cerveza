@@ -2,10 +2,10 @@
 <nav class="navbar flex">
     <!-- Buscador oculto -->
         <div class="search" id="showSearch">
-            <form>
+            <form action="/search" method="GET" class="search-form">
                 <div class="btn-search" onclick="showSearch()"><i class="fas fa-times"></i></div>
-                <input type="text" placeholder="Buscar" id="showSearch">
-                <button class="btn-search"><i class="fas fa-search"></i></button>
+                <input type="text" name="keywords" placeholder="Buscar" id="showSearch">
+                <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
             </form>
         </div>
     <!-- /buscador oculto -->

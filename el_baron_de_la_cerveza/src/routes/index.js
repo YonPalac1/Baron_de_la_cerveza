@@ -7,4 +7,6 @@ router.get('/about', controller.about);
 router.get('/contact', controller.contact);
 router.get('/finalizePurchase', controller.finalizePurchase);
 
+router.get('/search', controller.search); 
+
 module.exports = router;

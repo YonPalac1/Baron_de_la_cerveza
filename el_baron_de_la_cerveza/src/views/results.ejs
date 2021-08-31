@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head') %>
+<body>
+	<!-- Header -->
+	<%- include('partials/header') %>
+	<!-- /Header -->
+	
+	<!-- Banner -->
+	<div class="banner"></div>
+	<!-- /Banner -->
+
+	<!-- todos los productos -->
+	<div class="search-products">
+		<div class="col-12">
+			<h2 class="products-title">Resultados de la búsqueda: <%= search %></h2>
+		</div>
+		<% if(result.length > 0) { %>
+			<div class="productos-main">
+			<% result.forEach(element => { %>
+					<article class="br">
+						<a href="/products/productDetail/<%= element.id %> ">
+							<span class="off">
+								<%= element.discount %>%Off 
+							</span>
+							<img src="/img/productos/<%= element.imagen %> " class="imagen-producto">
+						</a>
+						<div class="detalles-articulos">
+							<span>$<%= element.precio %> </span>
+							<p><%= element.name %> </p>
+							<b><%= element.marca %>  / <%= element.category %>  / 5.2% ALC</b>
+							<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+						</div>
+						<div class="boton-comprar">
+							<button class="btn-buy br">Comprar</button>
+						</div>
+					</article>
+			<% }) %>
+			</div>
+		<% } else { %>
+			<div class="col-12">
+				<h2 class="products-title" style="color:tomato;">No se encontraron productos con ese nombre</h2>
+			</div>
+		<% }%>
+	</div>
+	<!-- /todos los productos -->
+
+	<!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>	
+</html>
