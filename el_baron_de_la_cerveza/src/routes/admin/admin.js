@@ -7,6 +7,9 @@ router.get("/", controller.admin);
 
 router.get("/users", controller.users);
 
+/* Eliminar un usuario */
+router.delete('/users/delete/:id', controller.usersDestroy);
+
 router.get("/products", controller.products);
 
 /* Crear un producto */

@@ -1,4 +1,5 @@
 const { products } = require("../data/dataBase")
+const { users } = require("../data/dataBase")
 
 module.exports = {
     products: (req, res) => {

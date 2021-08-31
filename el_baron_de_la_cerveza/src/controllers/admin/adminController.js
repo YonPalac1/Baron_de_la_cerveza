@@ -1,4 +1,4 @@
-let { products, writeProductsJSON } = require('../../data/dataBase')
+let { products, writeProductsJSON, users, writeUsersJSON } = require('../../data/dataBase')
 
 let category = [];
 products.forEach(product => {
@@ -14,7 +14,19 @@ module.exports = {
         })
     },
     users:(req, res) => {
-        res.render("admin/users")
+        res.render("admin/users", {
+            users
+        });
+    },
+    usersDestroy: (req, res) => {
+        users.forEach( usuarios => {
+            if(usuarios.id === +req.params.id){
+               let usersToDestroy = users.indexOf(usuarios);
+               users.splice(usersToDestroy, 1)
+            }
+        })
+        writeUsersJSON(users)
+        res.redirect('/admin/users')
     },
 
     products: (req, res) => {
