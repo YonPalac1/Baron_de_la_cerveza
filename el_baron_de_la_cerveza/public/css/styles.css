@@ -14,6 +14,7 @@
 @import url('products.css');
 @import url("banner.css");
 @import url("search.css");
+@import url("error.css");
 
 /* Fuentes de letras */
 @import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');

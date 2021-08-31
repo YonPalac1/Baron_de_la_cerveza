@@ -14,7 +14,8 @@ let adminRouter = require("./routes/admin/admin.js");
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
+
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -24,6 +25,9 @@ app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/products', productsRouter);
 app.use("/admin", adminRouter);
+app.use((req, res, next) => {
+    res.status(404).render("error");
+})
 
 app.listen(3030, ()=>{
     console.log("Servidor corriendo")
