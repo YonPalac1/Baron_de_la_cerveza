@@ -25,9 +25,13 @@
                 <label for="inputDiscount" class="form-label">Descuento</label>
                 <input type="number" class="form-control" id="inputDiscount" name="discount" value="<%= product.discount %>">
             </div>
-            <div class="col-12">
-                <label for="inputImage" class="form-label">Marca</label>
-                <input type="text" class="form-control" name="marca" aria-label="file example" multiple value="<%= product.marca %>">
+            <div class="col-sm-12 col-md-6">
+                <label for="marca" class="form-label">Marca</label>
+                <input type="text" class="form-control" name="marca" aria-label="file example" value="<%= product.marca %>">
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <label for="graduacion" class="form-label">Graduación alcohólica</label>
+                <input type="text" class="form-control" name="graduacion" aria-label="file example" value="<%= product.graduacion %>">
             </div>
             <div class="col-12 d-none">
                 <label for="inputImage" class="form-label">Agregar categoria</label>

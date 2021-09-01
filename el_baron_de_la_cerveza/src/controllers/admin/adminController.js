@@ -56,6 +56,7 @@ module.exports = {
             description,
             destacado,
             marca,
+            graduacion,
             } = req.body;
 
         let newProduct = {
@@ -67,6 +68,7 @@ module.exports = {
             category,
             destacado,
             marca,
+            graduacion,
            imagen: req.file ? req.file.filename : "default-image.png"
         };
 
@@ -92,6 +94,7 @@ module.exports = {
             category,  
             description,
             destacado,
+            graduacion,
         } = req.body;
         
         products.forEach(product => {
@@ -104,6 +107,7 @@ module.exports = {
                 product.category = category,
 				product.description = description,
                 product.destacado = destacado,
+                product.graduacion = graduacion,
 				product.imagen = req.file ? req.file.filename : product.imagen;
 			}
 		})
