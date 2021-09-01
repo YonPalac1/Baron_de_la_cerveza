@@ -51,7 +51,7 @@
 
 **************************************************
 
-# Sprint 3: Retro
+# Sprint 4: Retro
 
 **Empezar a hacer:**
 
