@@ -39,10 +39,14 @@
 				</div>
 				<div class="col-sm-3 info">
 					<a href="/admin/products/edit/<%- adminproducts.id %>">
-						<i class="fas fa-pen"></i>
+						<button class="btn btn-primary">
+							<i class="fas fa-edit"></i>
+						</button>
 					</a>
 					<form action="/admin/products/delete/<%- adminproducts.id %>?_method=DELETE" method="POST">
-						<i class="fas fa-trash"></i>
+						<button type="submit" class="btn btn-danger">
+							<i class="fas fa-trash-alt"></i>
+						</button>
 					</form>
 				</div>
 			</div>
