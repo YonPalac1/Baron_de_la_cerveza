@@ -162,7 +162,8 @@ main.seccion-productos .filter {
 	transition: .5s;
 }
 .productos-menus .collapse.active {
-	height: 430px;
+	height: fit-content;
+	padding-bottom: 20px;
 }
 .productos-menus .collapse ul {
 	margin-top: 20px;
@@ -437,7 +438,9 @@ section .card i {
 	section .card {
 		width: 33%;
 	}
-
+	.productos-menus .collapse button {
+		display: none;
+	}
 }
 @media screen and (min-width: 1000px){
 	.productos-main article {

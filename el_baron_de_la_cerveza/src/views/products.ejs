@@ -24,17 +24,17 @@
 				<hr>
 				<ul>
 				<b>Color</b>
-				<% products.forEach(product => { %>
-					<li><input type="checkbox" id="<%= product.id %>">
-						<label for="<%= product.id %>"><%= product.category %></label>
+				<% category.forEach(cat => { %>
+					<li><input type="checkbox" id="<%= cat.id %>">
+						<label for="<%= cat.id %>"><%= cat %></label>
 					</li>
 				<% }) %>
 				</ul>
 				<ul>
 					<b>Cervecerias</b>
-				<% products.forEach(product => { %>
-					<li><input type="checkbox" id="<%= product.id %>">
-						<label for="<%= product.id %>"><%= product.marca %></label>
+				<% marcas.forEach(marca => { %>
+					<li><input type="checkbox" id="<%= marca.id %>">
+						<label for="<%= marca.id %>"><%= marca %></label>
 					</li>
 				<% }) %>
 

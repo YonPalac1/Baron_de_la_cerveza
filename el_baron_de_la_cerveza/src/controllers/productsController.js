@@ -1,6 +1,21 @@
 const { products } = require("../data/dataBase")
 const { users } = require("../data/dataBase")
 
+let category = [];
+products.forEach(product => {
+    if(!category.includes(product.category)){
+        category.push(product.category)
+    }  
+});
+
+let marcas = [];
+products.forEach(product => {
+    if(!marcas.includes(product.marca)){
+        marcas.push(product.marca)
+    }  
+});
+
+
 module.exports = {
     products: (req, res) => {
         let destacadosSlider = products.filter(product => product.destacado === "on")
@@ -10,7 +25,9 @@ module.exports = {
             titleSlider: "Destacados",
             products,
             destacadosSlider,
-            productCart
+            productCart,
+            category,
+            marcas
         })
     },
     detail: (req, res) => {
