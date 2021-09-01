@@ -13,6 +13,11 @@
         <section class="contenedor-detalleproducto">
             <section class="detalle-producto">
                 <div class="imagen-detalleproducto">
+					<% if(product.discount){ %>
+						<span class="off">
+							<%= product.discount %>%Off 
+						</span>
+					<% } %>
 					<img src="/img/productos/<%= product.imagen %>" class="imagen-detalleproducto">
 				</div>
                 <div class="detalle-detalleproducto">
@@ -70,14 +75,14 @@
 			<div class="especificaciones">
 				<h3>Especificaciones</h3>
 				<p> - Marca: <%= product.marca %> </p>
-				<p> - <%= product.category %> </p>
-				<p> - Graduación Alcohólica: 5.2% </p>
+				<p> - Categoria: <%= product.category %> </p>
+				<p> - Graduación Alcohólica: <%= product.graduacion %>% </p>
+				<p> - Descripción: <%= product.description %> </p>
 			</div>
 		</section>
 
         <!-- Productos Relacionados -->
-		
-		
+		<%- include ("partials/slider") %>		
     </main>
 
 	<%- include ("partials/footer") %>

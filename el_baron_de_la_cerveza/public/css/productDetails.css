@@ -29,11 +29,21 @@ main.main-detalleproducto {
     justify-content: center;
     object-position: center;
     border-bottom: 1px solid #ccc;
+    position: relative;
 }
 .detalle-producto .imagen-detalleproducto img {
     height: 210px;
     width: 130px;
     object-fit: contain;
+}
+.detalle-producto .imagen-detalleproducto span.off {
+	background: var(--orange);
+	height: fit-content;
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 5px 8px;
+	z-index: 5;
 }
 .detalle-producto .detalle-detalleproducto {
     width: 100%;

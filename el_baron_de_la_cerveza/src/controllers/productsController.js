@@ -32,7 +32,7 @@ module.exports = {
     },
     detail: (req, res) => {
         let productID = +req.params.id;
-
+        let destacadosSlider = products.filter(product => product.destacado === "on")
         let product = products.find(product => product.id === productID)
         let productCart = products.filter(element => element.cart === true)
         
@@ -40,6 +40,7 @@ module.exports = {
             titleBanner: "Detalle del Producto",
             titleSlider: "Productos relacionados",
             product,
+            destacadosSlider,
             productCart
         });
     },
