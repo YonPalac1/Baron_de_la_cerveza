@@ -128,5 +128,11 @@ module.exports = {
         writeProductsJSON(products)
 
         res.redirect('/admin/products')
+    },
+
+    signin: (req, res)=> {
+        res.render('admin/adminLogin')
     }
+
+
 }

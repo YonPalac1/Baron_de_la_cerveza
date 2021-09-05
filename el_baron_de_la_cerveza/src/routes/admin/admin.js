@@ -3,7 +3,8 @@ const router = express.Router();
 const controller = require("../../controllers/admin/adminController");
 let uploadProductFile = require('../../middlewares/uploadProductsFiles')
 
-router.get("/", controller.admin);
+router.get("/", controller.signin);
+router.get("/index", controller.admin);
 
 router.get("/users", controller.users);
 
