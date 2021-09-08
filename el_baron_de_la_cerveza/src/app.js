@@ -6,7 +6,7 @@ let methodOverride = require('method-override')
 
 /*  Enrutadores  */
 let indexRouter = require('./routes/index.js');
-let userRouter = require('./routes/user.js');
+let userRouter = require('./routes/users.js');
 let productsRouter = require("./routes/products.js");
 let adminRouter = require("./routes/admin/admin.js");
 
@@ -22,7 +22,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 /*  Rutas  */
 app.use('/', indexRouter);
-app.use('/user', userRouter);
+app.use('/users', userRouter);
 app.use('/products', productsRouter);
 app.use("/admin", adminRouter);
 app.use((req, res, next) => {
