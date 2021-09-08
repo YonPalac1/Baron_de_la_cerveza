@@ -9,32 +9,34 @@
 		<div class="banner-img">
 			<img src="/img/icons/icon-title.png" alt="">
 		</div>
-		<div class="login-form">
+		<div class="register-form" id="registerForm">
 			<form action="">
-				<h2>Ingresar</h2>
+				<h2>Registrarse</h2>
 				<p>
 					<input type="text" placeholder="Nombre">
 				</p>
 				<p>
+					<input type="email" placeholder="email">
+				</p>
+				<p>
 					<input type="text" placeholder="Contraseña">
+				</p>
+				<p>
+					<input type="text" placeholder="Repetir contraseña">
 				</p>
 				<div>
 					<input type="checkbox" id="check">
 					<label for="check">Mantener la sesion abierta</label>
 				</div>
-				<button>Ingresar</button>
+				<button>Registrarse</button>
 			</form>
-
 			<div class="register">
-				<a href="/users/register">Todavia no tengo una cuenta</a >
+				<a href="/users/login">Ya tengo una cuenta</a>
 			</div>
 		</div>
-	</main>
-	<!-- /Cuerpo de Login -->
+	</main>		
 
-	<!-- FOOTER -->
-		<%- include('partials/footer') %>
-	<!-- /FOOTER -->
+<%- include('partials/footer') %>
 
 	
 

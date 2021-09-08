@@ -15,4 +15,10 @@ module.exports = {
 			productCart
 		});
 	},
+	register: (req, res) => {
+		let productCart = products.filter(element => element.cart === true)
+		res.render('register', {
+			productCart
+		});
+	},
 }

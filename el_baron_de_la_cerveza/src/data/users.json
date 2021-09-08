@@ -1,1 +1,2 @@
-[{"id":1,"name":"el boliche de pepito","email":"bolichepepito@gmail.com","fecregistro":"10/03/2020"},{"id":2,"name":"el boliche de pepito","email":"bolichepepito@gmail.com","fecregistro":"10/03/2020"}]
+[{"id":1,"name":"Admin","email":"admin@admin.com","fecha_registro":"10/03/2020","rol":"ADMIN"},
+{"id":2,"name":"el boliche de pepito","email":"bolichepepito@gmail.com","fecha_registro":"10/03/2020","rol":"ROL_USER"}]
