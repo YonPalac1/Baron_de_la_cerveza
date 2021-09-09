@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 let methodOverride = require('method-override')
-
+let session = require('express-session');
 
 /*  Enrutadores  */
 let indexRouter = require('./routes/index.js');
@@ -15,7 +15,12 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
 app.use(methodOverride('_method'));
-
+app.use(session({
+    secret: "elBaronDeLaCerveza",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 }
+}))
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));

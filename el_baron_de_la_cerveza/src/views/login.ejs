@@ -10,19 +10,28 @@
 			<img src="/img/icons/icon-title.png" alt="">
 		</div>
 		<div class="login-form">
-			<form action="">
+			<form action="/users/login" method="POST">
 				<h2>Ingresar</h2>
 				<p>
-					<input type="text" placeholder="Nombre">
+					<input type="text" name="email" placeholder="Ingresa tu email">
+					<% if (locals.errors && errors.email) { %>
+	                    <small style="color: red"><%= errors.email.msg %> </small>
+	                <% } %>
 				</p>
 				<p>
-					<input type="text" placeholder="Contraseña">
+					<input type="text" name="pass" placeholder="Contraseña">
+					<% if (locals.errors && errors.pass) { %>
+	                    <small style="color: red"><%= errors.pass.msg %> </small>
+	                <% } %>
 				</p>
 				<div>
-					<input type="checkbox" id="check">
-					<label for="check">Mantener la sesion abierta</label>
+					<input type="checkbox" name="remember" id="check">
+					<label for="check">Recordarme</label>
 				</div>
-				<button>Ingresar</button>
+				<% if (locals.errorMsg ) { %>
+	                    <small style="color: red"><%= errorMsg %> </small>
+	            <% } %>
+				<button type="submit">Ingresar</button>
 			</form>
 
 			<div class="register">
