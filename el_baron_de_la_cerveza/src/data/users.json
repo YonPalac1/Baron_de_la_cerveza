@@ -1,2 +1,2 @@
-[{"id":1,"name":"Admin","email":"admin@admin.com","pass":"123456","fecha_registro":"10/03/2020","rol":"ADMIN"},
-{"id":2,"name":"el boliche de pepito","email":"bolichepepito@gmail.com","pass":"123456", "fecha_registro":"10/03/2020","rol":"ROL_USER"}]
+[{"id":1,"name":"Admin","email":"admin@admin.com","pass":"$2a$12$MQlJaxtut1qiBwrzmN4ktuK1F0nnks5BkpPnCzoTYqv4pcxTgwJ7a","fecha_registro":"10/03/2020","rol":"ADMIN"},
+{"id":2,"name":"el boliche de pepito","email":"bolichepepito@gmail.com","pass":"$2a$12$MQlJaxtut1qiBwrzmN4ktuK1F0nnks5BkpPnCzoTYqv4pcxTgwJ7a", "fecha_registro":"10/03/2020","rol":"ROL_USER"}]
