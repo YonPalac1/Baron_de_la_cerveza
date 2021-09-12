@@ -10,19 +10,35 @@
 			<img src="/img/icons/icon-title.png" alt="">
 		</div>
 		<div class="register-form" id="registerForm">
-			<form action="">
-				<h2>Registrarse</h2>
+			<h2>Registrarse</h2>
+			<form action="/users/register" method="POST" enctype="multipart/form-data">
 				<p>
-					<input type="text" placeholder="Nombre">
+					<input type="text" name="name" placeholder="Nombre" value="<%= locals.old && old.name %>">
+					<% if (locals.errors && errors.name) { %>
+						<small><%= errors.name.msg %> </small>
+					<% } %>
 				</p>
 				<p>
-					<input type="email" placeholder="email">
+					<input type="email" name="email" placeholder="Ingresá tu email" >
+					<% if (locals.errors && errors.email) { %>
+						<small><%= errors.email.msg %> </small>
+					<% } %>
 				</p>
 				<p>
-					<input type="text" placeholder="Contraseña">
+					<input type="password" name="pass1" placeholder="Contraseña">
+					<% if (locals.errors && errors.pass1) { %>
+						<small><%= errors.pass1.msg %> </small>
+					<% } %>
 				</p>
 				<p>
-					<input type="text" placeholder="Repetir contraseña">
+					<input type="password" name="pass2" placeholder="Repetir contraseña">
+					<% if (locals.errors && errors.pass2) { %>
+						<small¿><%= errors.pass2.msg %> </small>
+					<% } %>
+				</p>
+				<p>
+					<p>Agregar foto</p>
+                	<input type="file" name="avatar">
 				</p>
 				<div>
 					<input type="checkbox" id="check">
