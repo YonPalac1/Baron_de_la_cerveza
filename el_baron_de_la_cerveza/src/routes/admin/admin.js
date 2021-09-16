@@ -2,24 +2,26 @@ const express = require("express");
 const router = express.Router();
 const controller = require("../../controllers/admin/adminController");
 let uploadProductFile = require('../../middlewares/uploadProductsFiles')
+let productValidator = require('../../middlewares/productCreateValidator')
+let userAdminCheck = require('../../middlewares/userAdminCheck')
 
 router.get("/", controller.signin);
-router.get("/index", controller.admin);
+router.get("/index", userAdminCheck, controller.admin);
 
-router.get("/users", controller.users);
+router.get("/users", userAdminCheck, controller.users);
 
 /* Eliminar un usuario */
 router.delete('/users/delete/:id', controller.usersDestroy);
 
-router.get("/products", controller.products);
+router.get("/products", userAdminCheck, controller.products);
 
 /* Crear un producto */
-router.get("/products/create", controller.addProducts);
-router.post('/products/create', uploadProductFile.single("imagen"), controller.createProduct);
+router.get("/products/create", userAdminCheck, controller.addProducts);
+router.post('/products/create', uploadProductFile.single("imagen"), productValidator, controller.createProduct);
 
 /* Editar un producto */
-router.get("/products/edit/:id", controller.editProducts);
-router.put("/products/edit/:id",uploadProductFile.single("imagen"),controller.updateProducts);
+router.get("/products/edit/:id", userAdminCheck, controller.editProducts);
+router.put("/products/edit/:id",uploadProductFile.single("imagen"), productValidator, controller.updateProducts);
 
 /* Eliminar un producto */
 router.delete('/products/delete/:id', controller.productDestroy);

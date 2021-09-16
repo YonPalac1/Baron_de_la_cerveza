@@ -6,7 +6,7 @@
 	<%- include("../partials/headerAdmin")%>
 
 	<%- include("../partials/sidebarAdmin") %>
-	<main class="add container">
+	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 		<h2>Subir productos</h2>
         <form class="row g-3" action="/admin/products/edit/<%- product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="col-12">
@@ -58,5 +58,7 @@
             </button>
         </form>
 	</main>
+</div>
+</div>
 </body>
 </html>

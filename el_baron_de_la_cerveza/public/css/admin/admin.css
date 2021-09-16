@@ -1,53 +1,26 @@
-li {
-	list-style: none;
-}
-a {
-	text-decoration: none;
-}
 .sidebar {
-	position: relative;
-	top: 0;
-	bottom: 0;
-	height: 100;
-}
-.sidebar ul li {
-	padding: 10px;
-}
-.button-toggle {
-	position: relative;
-	display: block;
-	background: #fff;
-	z-index: 5000;
-	margin-top: 20px;
-	margin-right: 20px;
-	z-index: 1;
-}
-.button-toggle button {
-	position: absolute;
-	background: var(--violet);
-	color: #fff;
-	right: 0;
-}
-.sidebar-items {
-	background: #222;
-	position: fixed;
+	background: var(--orange);
 	height: 100vh;
-	top: 0;
-	bottom: 0;
-	width: 0;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
-	transition: .5s;
-	padding:0px;
+	position: sticky;
+	top:0;
 }
-.sidebar-items.active {
-	width: fit-content;
-	width: -moz-fit-content;
-	padding: 20px;
-	overflow: hidden;
+.position-sticky {
+	position: sticky;
+	top:0;
+
 }
-main.admin {
-	padding: 10px;
-	border-radius: 3px;
+
+.admin {
+	animation: appear 2.5s;
+}
+@keyframes appear {
+	0% {
+		opacity: 0;
+	}
+	90% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }

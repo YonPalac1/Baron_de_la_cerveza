@@ -1,5 +1,6 @@
 <!-- Navbar Fixed -->
-<nav class="navbar flex">
+<nav class="navbar">
+    <div class="flex">
     <!-- Buscador oculto -->
         <div class="search" id="showSearch">
             <form action="/search" method="GET" class="search-form">
@@ -25,7 +26,7 @@
                     <li><a href="/contact">Contacto</a></li>
     
                     <!-- Switch de modo oscuro -->
-                    <button class="switch" id="switch" onclick="modoNocturno()">
+                    <button class="switch" id="switch" onclick="modoNocturno()"style="display:none;">
                         <span><i class="fas fa-sun"></i></span>
                         <span><i class="fas fa-moon"></i></span>
                     </button>
@@ -37,7 +38,9 @@
                 <button  class="user-config" onclick="showSearch()"><i class="fas fa-search"></i></button>
     
                 <button class="user-config" onclick="showSubmenu()">
+                    <% if (typeof session.user != "undefined") { %>
                     <span></span>
+                    <% } %>
                     <i class="fas fa-user"></i>
                 </button>
     
@@ -79,6 +82,7 @@
                 </div>
                 <!-- /Mini menu desplegable -->
         </div>
+    </div>
 </nav>
 <!-- /Navbar Fixed-->
 
@@ -86,12 +90,15 @@
 <!-- Submenu -->
 <nav class="sub-nav" id="subNave">
     <ul>
-        <!-- En caso de que no este registrado -->
-        <li><a href="/users/register">Ingresar</a></li>
-    
-        <!-- en caso de que ya este logeado -->
-        <li><a href="/users">Settings</a></li>
-        <li><a href="/admin">Administrador</a></li>
+        <% if (typeof session.user != "undefined") { %>
+            <li><a href="/users">Configuracion</a></li>
+                <% if (session.user.rol === "ADMIN") { %>
+                <li><a href="/admin">Administrador</a></li>
+                <% } %>
+        <% } else { %>
+            <li><a href="/users/login">Ingresar</a></li>
+            <li><a href="/users/register">Registrarse</a></li>
+        <% } %>    
     </ul>
 </nav>
 <!-- /Submenu -->

@@ -10,26 +10,30 @@ module.exports = {
 		res.render('index', {
 			titleSlider: "Destacados",
 			destacadosSlider,
-			productCart
+			productCart,
+			session: req.session
 		})
 	},
 	about: (req, res) => {
         res.render("about", {
             titleBanner: "Acerca de Nosotros",
-        	productCart
+        	productCart,
+			session: req.session
         })
     },
     contact: (req, res) => {
         
         res.render("contact", {
             titleBanner: "Contáctenos",
-            productCart
+            productCart,
+			session: req.session
         })
     },
     finalizePurchase: (req, res) => {
 		res.render('finalizePurchase', {
 			titleBanner: "Finalizar Compra",
-			productCart
+			productCart,
+			session: req.session
 		});
     },
     search: (req, res) => {
@@ -44,7 +48,8 @@ module.exports = {
 			result,
 			toThousand,
 			productCart,
-			search: req.query.keywords
+			search: req.query.keywords,
+			session: req.session
 		})
 	},
 }

@@ -8,45 +8,41 @@
     <%- include("../partials/headerAdmin") %>
 
     <%- include("../partials/sidebarAdmin") %>
-    
-    <main class="admin container">
 
-        <h2>Usuarios registrados</h2>
-        <div class="row titulos column">
-			<div class="col-sm-3">
-				<span>Nombre Negocio</span>
-			</div>
-            <div class="col-sm-3">
-				<span>Email</span>
-			</div>
-			<div class="col-sm-3">
-				<span>Fecha de Registro</span>
-			</div>
-			<div class="col-sm-3">
-				<span>Acciones</span>
-			</div>
+	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+		  <h1 class="h2">Administrador</h1>
 		</div>
-        <!-- ForEach -->
-        <% users.forEach(usuarios => { %>
-            <div class="row titulos detalles">
-				<div class="col-sm-3 info producto-imagen">
-					<span><%= usuarios.name %></span>
-				</div>
-				<div class="col-sm-3 info">
-					<span><%= usuarios.email %></span>
-				</div>
-				<div class="col-sm-3 info">
-					<span><%= usuarios.fecha_registro %></span>
-				</div>
-				<div class="col-sm-3 info">
-					<button class="btn btn-primary"><i class="fas fa-edit"></i></button>
-                    <form action="/admin/users/delete/<%- usuarios.id %>?_method=DELETE" method="POST" onsubmit="return confirm('¿Esta seguro de querer eliminar a <%= usuarios.name %>?')">
-                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-					</form>
-				</div>
-			</div>
-        <% }) %>
-    </main>
+		<div class="table-responsive">
+		<table class="table table-striped table-sm">
+		  <thead>
+			<tr>
+			  <th scope="col">Nombre</th>
+			  <th scope="col">Email</th>
+			  <th scope="col">Fecha registro</th>
+			  <th scope="col">Acciones</th>
+			</tr>
+		  </thead>
+		  <tbody>
+                  <% users.forEach(usuarios => { %>
+                    <tr>
+                        <td><%- usuarios.name%></td>
+                        <td><%= usuarios.email %></td>
+						<td><%= usuarios.fecha_registro %></td>
+                        <td>
+                            <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                            <form action="/admin/users/delete/<%- usuarios.id %>?_method=DELETE" method="POST" onsubmit="return confirm('¿Esta seguro de querer eliminar a <%= usuarios.name %>?')">
+								<button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+							</form>
+                        </td>
+                      </tr>
+                  <% }) %>
+              </tbody>
+		</table>
+	  </div>
+	  </main>
+	</div>
+  </div>
     
 </body>
 </html>

@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-let methodOverride = require('method-override')
+let cookieParser = require('cookie-parser');
+let methodOverride = require('method-override');
 let session = require('express-session');
 
 /*  Enrutadores  */
@@ -15,6 +16,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
 app.use(methodOverride('_method'));
+app.use(cookieParser())
 app.use(session({
     secret: "elBaronDeLaCerveza",
     resave: false,

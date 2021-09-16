@@ -9,7 +9,8 @@ module.exports = {
 	user: (req, res) => {
 		res.render('user', {
 			titleBanner: "Configuración de frescura",
-			productCart
+			productCart,
+			session: req.session
 		})
 	},
 	login: (req, res) => {

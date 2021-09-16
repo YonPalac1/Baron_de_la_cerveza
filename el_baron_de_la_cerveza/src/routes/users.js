@@ -9,12 +9,12 @@ const {
     updateProfile
      } = require('../controllers/usersController');
 let userLog = require('../middlewares/userLog');
+let userSessionCheck = require('../middlewares/userSessionCheck');
 let loginValidator = require('../middlewares/loginValidator')
 const registerValidator = require('../middlewares/registerValidator')
 const uploadUserAvatar = require('../middlewares/uploadUserAvatar')
 
-router.get('/', user);
-
+router.get('/', userSessionCheck, user);
 
 router.get('/login', userLog, login);
 router.post('/login', loginValidator, processLogin);

@@ -29,6 +29,9 @@ footer {
 	font-size: 20px;
 	padding: 10px;
 }
+.footer .navegacion ul li a {
+	color: #fff;
+}
 
 @media screen and (min-width: 720px){
 	.footer {
@@ -39,9 +42,7 @@ footer {
 		width: 33.3%;
 		padding: 13px 10px;
 	}
-	.footer .navegacion ul li a {
-		color: #fff;
-	}
+	
 	.footer .formas-pago {
 		width: 33.3%;
 		padding: 13px 10px;

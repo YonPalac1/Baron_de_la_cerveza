@@ -1,4 +1,5 @@
 let { products, writeProductsJSON, users, writeUsersJSON } = require('../../data/dataBase')
+const { validationResult } = require('express-validator')
 
 let category = [];
 products.forEach(product => {
@@ -40,43 +41,55 @@ module.exports = {
         });
     },
     createProduct: (req, res)=>{
-        let lastId = 1;
+        let errors = validationResult(req)
 
-        products.forEach(product => {
-            if(product.id > lastId){
-                lastId = product.id
-            }
-        })
+        if(errors.isEmpty()){
+            let lastId = 1;
 
-        let {
-            name, 
-            precio, 
-            discount, 
-            category,  
-            description,
-            destacado,
-            marca,
-            graduacion,
-            } = req.body;
+            products.forEach(product => {
+                if(product.id > lastId){
+                    lastId = product.id
+                }
+            })
 
-        let newProduct = {
-            id: lastId + 1,
-            name,
-            precio,
-            description,
-            discount,
-            category,
-            destacado,
-            marca,
-            graduacion,
-           imagen: req.file ? req.file.filename : "default-image.png"
-        };
+            let {
+                name, 
+                precio, 
+                discount, 
+                category,  
+                description,
+                destacado,
+                marca,
+                graduacion,
+                } = req.body;
 
-        products.push(newProduct);
+            let newProduct = {
+                id: lastId + 1,
+                name,
+                precio,
+                description,
+                discount,
+                category,
+                destacado,
+                marca,
+                graduacion,
+            imagen: req.file ? req.file.filename : "default-image.png"
+            };
 
-        writeProductsJSON(products);
+            products.push(newProduct);
 
-        res.redirect('/admin/products')
+            writeProductsJSON(products);
+
+            res.redirect('/admin/products')
+        }else{
+            res.render("/admin/addProduct", {
+                subcategories,
+                categories,
+                errors: errors.mapped(),
+                old: req.body,
+                session: req.session
+            })
+        }
     },
     editProducts: (req, res) => {
         let product = products.find(product => product.id === +req.params.id);
@@ -86,35 +99,50 @@ module.exports = {
         })
     },
     updateProducts: (req, res) => {
-        let {
-            name, 
-            precio, 
-            discount,
-            marca, 
-            category,  
-            description,
-            destacado,
-            graduacion,
-        } = req.body;
+        let errors = validationResult(req)
         
-        products.forEach(product => {
-			if(product.id === +req.params.id) {
-				product.id = product.id,
-				product.name = name,
-				product.precio = precio,
-				product.discount = discount,
-				product.marca = marca,
-                product.category = category,
-				product.description = description,
-                product.destacado = destacado,
-                product.graduacion = graduacion,
-				product.imagen = req.file ? req.file.filename : product.imagen;
-			}
-		})
+        if(errors.isEmpty()){
+            let {
+                name, 
+                precio, 
+                discount,
+                marca, 
+                category,  
+                description,
+                destacado,
+                graduacion,
+            } = req.body;
+            
+            products.forEach(product => {
+                if(product.id === +req.params.id) {
+                    product.id = product.id,
+                    product.name = name,
+                    product.precio = precio,
+                    product.discount = discount,
+                    product.marca = marca,
+                    product.category = category,
+                    product.description = description,
+                    product.destacado = destacado,
+                    product.graduacion = graduacion,
+                    product.imagen = req.file ? req.file.filename : product.imagen;
+                }
+            })
 
-        writeProductsJSON(products)
+            writeProductsJSON(products)
 
-        res.redirect("/admin/products")
+            res.redirect("/admin/products")
+        } else {
+            let product = products.find(product => product.id === +req.params.id)
+
+            res.render("adminProductEditForm", {
+                subcategories,
+                categories,
+                product,
+                errors: errors.mapped(),
+                old: req.body,
+                session: req.session
+            })
+        }
 
     },
     productDestroy: (req, res) => {

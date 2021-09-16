@@ -27,7 +27,8 @@ module.exports = {
             destacadosSlider,
             productCart,
             category,
-            marcas
+            marcas,
+			session: req.session
         })
     },
     detail: (req, res) => {
@@ -41,7 +42,8 @@ module.exports = {
             titleSlider: "Productos relacionados",
             product,
             destacadosSlider,
-            productCart
+            productCart,
+			session: req.session
         });
     },
     productCart: (req, res) => {
@@ -49,7 +51,8 @@ module.exports = {
 
         res.render("productCart", {
             titleBanner: "Comprala antes de que se caliente",
-            productCart
+            productCart,
+			session: req.session
         })
     }
 }
