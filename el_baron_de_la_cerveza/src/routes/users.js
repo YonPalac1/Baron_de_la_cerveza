@@ -20,7 +20,7 @@ router.get('/login', userLog, login);
 router.post('/login', loginValidator, processLogin);
 
 /* GET - Register form */
-router.get('/register', userLog,register);
-router.post('/register', uploadUserAvatar.single('avatar'), registerValidator, processRegister);
+router.get('/register', userLog, register);
+router.post('/register', registerValidator, processRegister);
 
 module.exports = router;

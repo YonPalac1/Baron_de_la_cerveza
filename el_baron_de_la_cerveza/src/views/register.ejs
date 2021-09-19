@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <%- include('partials/head.ejs') %>
+<style>
+	small.errorred {
+		color: red;
+	}
+</style>
 <body class="login">
 
 <%- include('partials/header') %>
@@ -15,30 +20,26 @@
 				<p>
 					<input type="text" name="name" placeholder="Nombre" value="<%= locals.old && old.name %>">
 					<% if (locals.errors && errors.name) { %>
-						<small><%= errors.name.msg %> </small>
+						<small class="errorred"><%= errors.name.msg %> </small>
 					<% } %>
 				</p>
 				<p>
-					<input type="email" name="email" placeholder="Ingresá tu email" >
+					<input type="email" name="email" placeholder="Ingresá tu email" value="<%= locals.old && old.email %>">
 					<% if (locals.errors && errors.email) { %>
-						<small><%= errors.email.msg %> </small>
+						<small class="errorred"><%= errors.email.msg %> </small>
 					<% } %>
 				</p>
 				<p>
 					<input type="password" name="pass1" placeholder="Contraseña">
 					<% if (locals.errors && errors.pass1) { %>
-						<small><%= errors.pass1.msg %> </small>
+						<small class="errorred"><%= errors.pass1.msg %> </small>
 					<% } %>
 				</p>
 				<p>
 					<input type="password" name="pass2" placeholder="Repetir contraseña">
 					<% if (locals.errors && errors.pass2) { %>
-						<small¿><%= errors.pass2.msg %> </small>
+						<small class="errorred"><%= errors.pass2.msg %> </small>
 					<% } %>
-				</p>
-				<p>
-					<p>Agregar foto</p>
-                	<input type="file" name="avatar">
 				</p>
 				<div>
 					<input type="checkbox" id="check">
