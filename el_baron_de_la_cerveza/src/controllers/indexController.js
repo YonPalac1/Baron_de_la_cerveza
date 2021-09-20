@@ -31,7 +31,7 @@ module.exports = {
     },
     finalizePurchase: (req, res) => {
 		res.render('finalizePurchase', {
-			titleBanner: "Finalizar Compra",
+			titleBanner: "Último paso",
 			productCart,
 			session: req.session
 		});
@@ -45,6 +45,7 @@ module.exports = {
 			}
 		})
 		res.render('results', {
+			titleBanner: "Resultados de la busqueda",
 			result,
 			toThousand,
 			productCart,

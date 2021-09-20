@@ -91,9 +91,13 @@
 <nav class="sub-nav" id="subNave">
     <ul>
         <% if (typeof session.user != "undefined") { %>
-            <li><a href="/users">Configuracion</a></li>
                 <% if (session.user.rol === "ADMIN") { %>
-                <li><a href="/admin">Administrador</a></li>
+                    <li><a href="/admin/index">Administrador</a></li>
+                    <li><a href="/users/logout">Cerrar sesión</a></li>
+                <% } %>
+                <% if(session.user.rol === "USER"){ %>
+                    <li><a href="/users">Configuracion</a></li>
+                    <li><a href="/users/logout">Cerrar sesión</a></li>
                 <% } %>
         <% } else { %>
             <li><a href="/users/login">Ingresar</a></li>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include ("partials/head") %>
+
+<body>
+
+	<%- include ("partials/header") %>
+
+	<%- include("partials/banner")  %>
+
+	<div class="title-config">
+		<div class="avatar">
+			<img src="/img/avatars/<%- user.avatar %>">
+		</div>
+	</div>
+	<main class="config" id="config">
+		<form action="/users/edit/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="form-ad" >
+			<p>
+				<label for="name">Nombre</label>
+				<input id="name" type="text" name="name" placeholder="Nombre" value="<%= locals.old ? old.name : user.name %>">
+				<% if (locals.errors && errors.name) { %>
+					<small class="text-danger"><%= errors.name.msg %> </small>
+				<% } %>
+			</p>
+			<p>
+				<label for="email">Email</label>
+				<input type="email" name="email" placeholder="Ingresá tu email" readonly value="<%= user.email %>">
+			</p>
+			<p>
+				<label for="tel">Teléfono</label>
+				<input id="tel" type="text" name="tel" placeholder="Ingresá tu teléfono" value="<%= user.tel ? user.tel : "" %>">
+			</p>
+			<p>
+				<label for="adress">Direccion</label>
+				<input id="adress" type="text" name="address" placeholder="Domicilio" value="<%= user.address ? user.address : "" %>">
+			</p>
+			<p>
+				<label for="city">Ciudad</label>
+				<input id="city" type="text" name="city" placeholder="Ciudad" value="<%= user.city ? user.city : "" %>">
+			</p>
+			<p>
+				<label>Cambiar foto de perfil</label>
+				<input type="file" name="avatar">
+			</p>
+			<p>
+				<button type="submit" class="btn-submit">
+					GUARDAR
+				</button>
+				<a href="/users" class="btn-submit">CANCELAR</a>
+
+			</p>
+		</form>
+	</main>
+    
+<!-- FOOTER -->
+<%- include("partials/footer")  %> 
+<!-- /FOOTER -->
+</body>
+</html>

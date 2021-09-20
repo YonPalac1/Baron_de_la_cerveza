@@ -7,10 +7,13 @@ const productCart = products.filter(element => element.cart === true)
 
 module.exports = {
 	user: (req, res) => {
+        let user = users.find(user => user.id === req.session.user.id)
+        
 		res.render('user', {
-			titleBanner: "Configuración de frescura",
+			titleBanner: "Perfil de frescura",
 			productCart,
-			session: req.session
+			session: req.session,
+            user
 		})
 	},
 	login: (req, res) => {
@@ -81,6 +84,9 @@ module.exports = {
                 pass : bcrypt.hashSync(pass1, 12),
                 fecha_registro:"10/03/2020",
                 rol: "ROL_USER",
+                tel: "",
+                address: "",
+                city: "",
             }
 
             users.push(newUser)
@@ -97,5 +103,67 @@ module.exports = {
                 session: req.session
             })
         }
+    },
+    userEdit: (req, res) => {
+        let user = users.find(user => user.id === +req.params.id)
+
+        res.render('userProfileEdit', {
+            titleBanner: "Editar perfil",
+            productCart,
+            user,
+            session: req.session
+        })
+
+    },
+    updateUser: (req, res) => {
+        let errors = validationResult(req)
+
+        if (errors.isEmpty()) {
+            let user = users.find(user => user.id === +req.params.id)
+
+            let {
+                name,
+                last_name,
+                tel,
+                address,
+                pc,
+                province,
+                city
+            } = req.body
+
+            user.name = name
+            user.last_name = last_name
+            user.tel = tel
+            user.address = address
+            user.pc = pc
+            user.province = province
+            user.city = city
+            user.avatar = req.file ? req.file.filename : user.avatar
+
+            writeUsersJSON(users)
+
+            delete user.pass
+
+            req.session.user = user
+
+            res.redirect('/users')
+
+        }else{
+            res.render('userProfileEdit', {
+                titleBanner: "Editar perfil",
+                productCart,
+                errors: errors.mapped(),
+                old:req.body,
+                session: req.session
+            })
+        }
+    },
+    logout: (req, res) => {
+        req.session.destroy()
+        if(req.cookies.elBaronDeLaCerveza){
+            res.cookie('elBaronDeLaCerveza', '', {maxAge: -1})
+        }
+
+        res.redirect('/')
     }
 }

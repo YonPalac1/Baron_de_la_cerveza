@@ -1,1 +1,77 @@
-[{"id":1,"name":"Admin","email":"admin@admin.com","pass":"$2a$12$MQlJaxtut1qiBwrzmN4ktuK1F0nnks5BkpPnCzoTYqv4pcxTgwJ7a","fecha_registro":"10/03/2020","rol":"ADMIN"},{"id":2,"name":"el boliche de pepito","email":"bolichepepito@gmail.com","pass":"$2a$12$MQlJaxtut1qiBwrzmN4ktuK1F0nnks5BkpPnCzoTYqv4pcxTgwJ7a","fecha_registro":"10/03/2020","rol":"ROL_USER"},{"id":3,"name":"Keila Mantiñan","email":"keila_manti@hotmail.com.ar","pass":"$2a$12$VvkA51eDO/bKk2ZNXX/wE.kaKJiFJJ7Rq3Mm6f3/CWsA8hpPbEuKa","fecha_registro":"10/03/2020","rol":"ROL_USER"},{"id":4,"name":"El Patito Salvaje","email":"elpatitosalvaje@gmail.com","pass":"$2a$12$5D5JA.vX9WDt/ouBQUYkjOnFKIXxgPs10qeZjBa6Sa9Hq9tRHZxuO","fecha_registro":"10/03/2020","rol":"ROL_USER"},{"id":5,"name":"Jonatan","email":"email@email.com","pass":"$2a$12$X0HNENpcjEpz5nrvwlQVJ.MX09HwWqteCit9G1aIr9g5Pw/gZawNu","fecha_registro":"10/03/2020","rol":"ROL_USER"},{"id":6,"name":"Jonatan","email":"jon@email.com","pass":"$2a$12$D1mrrOMnEOEIhAn4.n49te.s00IelWsqhOwyvJAQBRdE5CBKa27Ey","fecha_registro":"10/03/2020","rol":"ROL_USER"}]
+[
+    {
+        "id": 1,
+        "name": "Admin",
+        "email": "admin@admin.com",
+        "pass": "$2a$12$MQlJaxtut1qiBwrzmN4ktuK1F0nnks5BkpPnCzoTYqv4pcxTgwJ7a",
+        "fecha_registro": "10/03/2020",
+        "tel": 12324565,
+        "address": "Calle falsa 123",
+        "province": "",
+        "city": "",
+        "rol": "ADMIN"
+    },
+    {
+        "id": 2,
+        "name": "el boliche de pepito",
+        "email": "bolichepepito@gmail.com",
+        "pass": "$2a$12$MQlJaxtut1qiBwrzmN4ktuK1F0nnks5BkpPnCzoTYqv4pcxTgwJ7a",
+        "fecha_registro": "10/03/2020",
+        "rol": "ROL_USER",
+        "tel": 12324565,
+        "address": "Calle falsa 123",
+        "province": "",
+        "city": "",
+        "avatar": ""
+    },
+    {
+        "id": 3,
+        "name": "Keila Mantiñan",
+        "email": "keila_manti@hotmail.com.ar",
+        "pass": "$2a$12$VvkA51eDO/bKk2ZNXX/wE.kaKJiFJJ7Rq3Mm6f3/CWsA8hpPbEuKa",
+        "fecha_registro": "10/03/2020",
+        "rol": "ROL_USER",
+        "tel": 12324565,
+        "address": "Calle falsa 123",
+        "province": "",
+        "city": "",
+        "avatar": ""
+    },
+    {
+        "id": 4,
+        "name": "El Patito Salvaje",
+        "email": "elpatitosalvaje@gmail.com",
+        "pass": "$2a$12$5D5JA.vX9WDt/ouBQUYkjOnFKIXxgPs10qeZjBa6Sa9Hq9tRHZxuO",
+        "fecha_registro": "10/03/2020",
+        "rol": "ROL_USER",
+        "tel": 12324565,
+        "address": "Calle falsa 123",
+        "province": "",
+        "city": "",
+        "avatar": ""
+    },
+    {
+        "id": 5,
+        "name": "Jon",
+        "email": "email@email.com",
+        "fecha_registro": "10/03/2020",
+        "pass": "$2a$12$MQlJaxtut1qiBwrzmN4ktuK1F0nnks5BkpPnCzoTYqv4pcxTgwJ7a",
+        "rol": "ROL_USER",
+        "tel": "456456",
+        "address": "Calle falsa 12",
+        "avatar": "1632158359090_img_.webp",
+        "city": "buenos aires"
+    },
+    {
+        "id": 6,
+        "name": "Jonatan",
+        "email": "jon@email.com",
+        "pass": "$2a$12$MQlJaxtut1qiBwrzmN4ktuK1F0nnks5BkpPnCzoTYqv4pcxTgwJ7a",
+        "fecha_registro": "10/03/2020",
+        "rol": "ROL_USER",
+        "tel": "12324565",
+        "address": "Calle falsa 7489",
+        "city": "buenos aires",
+        "avatar": "1632154009797_img_.webp"
+    }
+]

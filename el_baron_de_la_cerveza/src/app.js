@@ -20,8 +20,7 @@ app.use(cookieParser())
 app.use(session({
     secret: "elBaronDeLaCerveza",
     resave: false,
-    saveUninitialized: true,
-    cookie: { maxAge: 60000 }
+    saveUninitialized: true
 }))
 
 app.set('view engine', 'ejs');

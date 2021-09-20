@@ -14,41 +14,56 @@
 	<!-- Barra de Direccion -->
 		<div class="title-config">
 			<div class="avatar">
-				<img src="/img/icons/icon-title.png">
+				<img src="/img/avatars/<%- user.avatar %>">
 			</div>
 
-			<h2>Bienvenido, Nombre usuario</h2>
+			<h2><%- user.name %></h2>
 		</div>
 	<!-- Detalles de usuario -->
 		<section class="tabla-config">
-			<div class="config">
-				<h2>Usuario</h2>
-				
-				<button class="editar">Editar<i class="fas fa-pen"></i></button>
+			<div class="config">		
+				<a href="/users/edit/<%- user.id %>" class="editar">Editar<i class="fas fa-pen"></i></a>
 			</div>
 			<div class="tabla-datos">
 				<div class="column">
-					<h3>Nombre</h3>
-					<span>Jonatan</span>
+					<h3>Perfil</h3>
+					<p>
+						<strong>Nombre:</strong>
+						<span><%- user.name %></span>
+					</p>
+					<p>
+						<strong>Email:</strong>
+						<span><%- user.email %></span>
+					</p>
+					<p>
+						<strong>Contraseña:</strong>
+						<span>**********</span>
+					</p>
 				</div>
 
 				<div class="column">
-					<h3>Email</h3>
-					<span>email@email.com</span>
-				</div>
-
-				<div class="column">
-					<h3>Contraseña</h3>
-					<span>*************</span>
+					<h3>Contacto</h3>
+					<p>
+						<strong>Telefono:</strong>
+						<span><%- user.tel %></span>
+					</p>
+					<p>
+						<strong>Ciudad:</strong>
+						<span><%- user.city %></span>
+					</p>
+					<p>
+						<strong>Direccion:</strong>
+						<span><%- user.address %></span>
+					</p>
 				</div>
 			</div>	
 		</section>
-		<!-- /Detalles de usuario -->
-
-		 <!-- Historila de compras
+		 
+		<div class="title-config">
+			<h2>Historial de compras</h2>
+		</div>
 		 <section class="tabla-config">
 		 	<div class="config">
-		 		<h2>Historial</h2>
 		 		<p>
 		 			<button class="imprimir editar">imprimir</button>
 		 			<button class="editar">limpiar<i class="fas fa-trash"></i></button>
@@ -76,7 +91,6 @@
 		 		</div>
 		 	</div>	
 		 </section>
-		 /Historila de compras -->
 	</main>
 	<!-- FOOTER -->
 	<%- include("partials/footer")  %> 

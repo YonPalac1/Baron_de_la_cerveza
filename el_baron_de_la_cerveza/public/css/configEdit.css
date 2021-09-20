@@ -1,0 +1,44 @@
+main#config {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	color: #000;
+	padding: 13px 8px 10px;
+    display: flex;
+    max-width: 600px;
+}
+main#config form p {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-top: 15px;
+}
+main#config form p input {
+    border: 1px solid var(--orange);
+    padding: 8px 10px;
+    margin-top: 10px;
+}
+main#config form p input[value] {
+    color: #333;
+}
+main#config form .btn-submit {
+    padding: 10px 12px;
+    color: #fff;
+    background: var(--violet);
+    border: none;
+    margin: 12px auto;
+    display: inline;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+main#config form .btn-submit:hover {
+    background-color: #1f0e6e;
+}
+
+main#config form .btn-submit:nth-child(2) {
+    background-color: var(--orange);
+}
+main#config form .btn-submit:nth-child(2):hover {
+    background-color: var(--darkorange);
+}
