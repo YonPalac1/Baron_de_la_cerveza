@@ -75,6 +75,10 @@ article a {
 	padding: 12px 15px;
 	cursor: pointer;
 	z-index: 7;
+	font-size: 14px;
+}
+.detalles-articulos button.btn-add:hover {
+	color: var(--violet);
 }
 .boton-comprar {
 	display: flex;

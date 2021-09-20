@@ -8,13 +8,13 @@
 	<!-- /Header -->
 	
 	<!-- Banner -->
-	<div class="banner"></div>
+	<%- include('partials/banner') %>
 	<!-- /Banner -->
 
 	<!-- todos los productos -->
 	<div class="search-products">
 		<div class="col-12">
-			<h2 class="products-title">Resultados de la búsqueda: <%= search %></h2>
+			<h2 class="products-title">Buscado: <%= search %></h2>
 		</div>
 		<% if(result.length > 0) { %>
 			<div class="productos-main">

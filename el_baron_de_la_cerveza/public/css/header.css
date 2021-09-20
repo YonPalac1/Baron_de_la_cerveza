@@ -54,7 +54,6 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	max-width: 1024px;
 	margin: 0 auto;
 	flex-wrap: wrap;
 }
@@ -363,10 +362,6 @@ header .title h2 {
 	}
 	.sub-nav .sub-nav__config .config b {
 		display: inline;
-	}
-
-	.sub-nav {
-		right: 100px;
 	}
 
 /*------------------ HEADER ------------------------*/

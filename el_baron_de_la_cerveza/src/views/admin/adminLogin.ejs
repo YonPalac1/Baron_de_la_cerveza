@@ -4,24 +4,28 @@
 	<%- include("../partials/headAdmin") %>
 <body class="text-center signin row">
     <main class="form-signin col-sm-6 m-auto">
-        <form>
+        <form action="/users/login" method="POST">
             <img class="mb-4" src="/img/icons/icon-title.png" alt="Dalí logo" style="width: 200px">
             <h1 class="h3 mb-3 fw-normal">Hola administrador</h1>
         
-            <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email</label>
-            </div>
             <div class="form-floating mt-3">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
+                <input type="email" class="form-control" id="floatingEmail" placeholder="Email">
+                <label for="email">Email</label>
+            </div>
+
+            <div class="form-floating mt-3">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
             </div>
             <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me"> Recordarme
-            </label>
+                <label>
+                    <input type="checkbox" value="remember-me"> Recordarme
+                </label>
             </div>
-            <a class="w-100 btn btn-lg btn-primary" href="/admin/index">Ingresar</a>
+            
+            <button type="submit" class="btn btn-primary">
+                INGRESAR
+            </button>
         </form>
     </main>
 </body>
