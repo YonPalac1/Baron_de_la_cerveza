@@ -21,6 +21,6 @@ router.post('/login', loginValidator, processLogin);
 
 /* GET - Register form */
 router.get('/register', userLog, register);
-router.post('/register', registerValidator, processRegister);
+router.post('/register', uploadUserAvatar.single('avatar'), registerValidator, processRegister);
 
 module.exports = router;

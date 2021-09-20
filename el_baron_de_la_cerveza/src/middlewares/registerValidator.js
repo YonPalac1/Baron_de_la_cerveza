@@ -4,7 +4,7 @@ const { users } = require('../data/dataBase')
 module.exports = [
     check('name')
     .notEmpty()
-    .withMessage('Debes escribir un email'),
+    .withMessage('Debes escribir un nombre'),
 
     check('email')
     .notEmpty()

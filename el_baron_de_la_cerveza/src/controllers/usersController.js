@@ -80,7 +80,7 @@ module.exports = {
                 email,
                 pass : bcrypt.hashSync(pass1, 12),
                 fecha_registro:"10/03/2020",
-                rol: "ROL_USER",
+                rol: "ROL_USER"
             }
 
             users.push(newUser)

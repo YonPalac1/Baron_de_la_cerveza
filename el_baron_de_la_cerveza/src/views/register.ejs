@@ -20,13 +20,13 @@
 				<p>
 					<input type="text" name="name" placeholder="Nombre" value="<%= locals.old && old.name %>">
 					<% if (locals.errors && errors.name) { %>
-						<small class="errorred"><%= errors.name.msg %> </small>
+						<small class="errorred"><%= errors.name.msg %></small>
 					<% } %>
 				</p>
 				<p>
 					<input type="email" name="email" placeholder="Ingresá tu email" value="<%= locals.old && old.email %>">
 					<% if (locals.errors && errors.email) { %>
-						<small class="errorred"><%= errors.email.msg %> </small>
+						<small class="errorred"><%= errors.email.msg %></small>
 					<% } %>
 				</p>
 				<p>
@@ -38,7 +38,7 @@
 				<p>
 					<input type="password" name="pass2" placeholder="Repetir contraseña">
 					<% if (locals.errors && errors.pass2) { %>
-						<small class="errorred"><%= errors.pass2.msg %> </small>
+						<small class="errorred"><%= errors.pass2.msg %></small>
 					<% } %>
 				</p>
 				<div>
