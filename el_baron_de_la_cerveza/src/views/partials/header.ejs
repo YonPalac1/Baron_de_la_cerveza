@@ -95,7 +95,7 @@
                     <li><a href="/admin/index">Administrador</a></li>
                     <li><a href="/users/logout">Cerrar sesión</a></li>
                 <% } %>
-                <% if(session.user.rol === "USER"){ %>
+                <% if(session.user.rol === "ROL_USER"){ %>
                     <li><a href="/users">Configuracion</a></li>
                     <li><a href="/users/logout">Cerrar sesión</a></li>
                 <% } %>
