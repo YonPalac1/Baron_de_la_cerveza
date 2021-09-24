@@ -10,9 +10,7 @@ products.forEach(product => {
 
 module.exports = {
     admin: (req, res) => {
-        res.render("admin/admin", {
-        	
-        })
+        res.render("admin/admin")
     },
     users:(req, res) => {
         res.render("admin/users", {
@@ -83,8 +81,7 @@ module.exports = {
             res.redirect('/admin/products')
         }else{
             res.render("/admin/addProduct", {
-                subcategories,
-                categories,
+                category, 
                 errors: errors.mapped(),
                 old: req.body,
                 session: req.session
@@ -135,8 +132,7 @@ module.exports = {
             let product = products.find(product => product.id === +req.params.id)
 
             res.render("adminProductEditForm", {
-                subcategories,
-                categories,
+                category,
                 product,
                 errors: errors.mapped(),
                 old: req.body,

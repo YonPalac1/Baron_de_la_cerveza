@@ -2,8 +2,9 @@ let express = require('express');
 let router = express.Router();
 let controller = require('../controllers/indexController.js');
 let userSessionCheck = require('../middlewares/userSessionCheck');
+let cookieCheck = require('../middlewares/cookieCheck');
 
-router.get('/', controller.index);
+router.get('/', cookieCheck, controller.index);
 router.get('/about', controller.about);
 router.get('/contact', controller.contact);
 router.get('/finalizePurchase', userSessionCheck, controller.finalizePurchase);
