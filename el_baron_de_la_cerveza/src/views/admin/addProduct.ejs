@@ -13,14 +13,21 @@
             <div class="col-12">
                 <label for="inputImage" class="form-label">Imagen</label>
                 <input type="file" class="form-control" name="imagen" aria-label="file example" id="inputImage" multiple>
+                
             </div>
             <div class="col-12">
                 <label for="inputName" class="form-label">Nombre</label>
                 <input type="text" class="form-control" id="inputName" name="name">
+                <% if (locals.errors && errors.name) { %>
+					<small class="text-danger"><%= errors.name.msg %> </small>
+				<% } %>
             </div>
             <div class="col-sm-12 col-md-6">
                 <label for="inputPrice" class="form-label">Precio</label>
-                <input type="number" class="form-control" id="inputPrice" name="price">
+                <input type="number" class="form-control" id="inputPrice" name="precio">
+                <% if (locals.errors && errors.precio) { %>
+					<small class="text-danger"><%= errors.precio.msg %> </small>
+				<% } %>
             </div>
             <div class="col-sm-12 col-md-6">
                 <label for="inputDiscount" class="form-label">Descuento</label>
@@ -29,6 +36,10 @@
             <div class="col-sm-12 col-md-6">
                 <label for="marca" class="form-label">Marca</label>
                 <input type="text" class="form-control" name="marca" aria-label="file example" multiple>
+                <% if (locals.errors && errors.marca) { %>
+					<small class="text-danger"><%= errors.marca.msg %> </small>
+				<% } %>
+                
             </div>
             <div class="col-sm-12 col-md-6">
                 <label for="graduacion" class="form-label">Graduación alcohólica</label>
@@ -45,6 +56,9 @@
                     <option value="<%- category %>"><%- category %></option>
                  <% }) %>
                 </select>
+                <% if (locals.errors && errors.category) { %>
+					<small class="text-danger"><%= errors.category.msg %> </small>
+				<% } %>
             </div>
             <div class="col-12">
                 <label for="validationTextarea" class="form-label">Descripción</label>

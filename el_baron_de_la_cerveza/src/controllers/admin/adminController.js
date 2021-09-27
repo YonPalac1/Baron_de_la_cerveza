@@ -80,7 +80,7 @@ module.exports = {
 
             res.redirect('/admin/products')
         }else{
-            res.render("/admin/addProduct", {
+            res.render("admin/addProduct", {
                 category, 
                 errors: errors.mapped(),
                 old: req.body,
@@ -131,7 +131,7 @@ module.exports = {
         } else {
             let product = products.find(product => product.id === +req.params.id)
 
-            res.render("adminProductEditForm", {
+            res.render("admin/editProduct", {
                 category,
                 product,
                 errors: errors.mapped(),

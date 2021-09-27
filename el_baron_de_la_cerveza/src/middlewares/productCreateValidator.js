@@ -11,8 +11,11 @@ module.exports = [
     .notEmpty()
     .withMessage("Debes elegir una categoría"),
 
+    check("marca")
+    .notEmpty()
+    .withMessage("Debes agregar una marca"),
 
-    check('price')
+    check('precio')
     .notEmpty()
     .withMessage('Coloca un precio')
     .isNumeric()

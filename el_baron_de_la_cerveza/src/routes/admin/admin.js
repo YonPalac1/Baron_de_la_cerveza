@@ -4,20 +4,21 @@ const controller = require("../../controllers/admin/adminController");
 let uploadProductFile = require('../../middlewares/uploadProductsFiles')
 let productValidator = require('../../middlewares/productCreateValidator')
 let userAdminCheck = require('../../middlewares/userAdminCheck')
+let cookieCheck = require('../../middlewares/cookieCheck');
 
 router.get("/", controller.signin);
-router.get("/index", userAdminCheck, controller.admin);
+router.get("/index", cookieCheck, userAdminCheck, controller.admin);
 
 router.get("/users", userAdminCheck, controller.users);
 
 /* Eliminar un usuario */
 router.delete('/users/delete/:id', controller.usersDestroy);
 
-router.get("/products", userAdminCheck, controller.products);
+router.get("/products", userAdminCheck,cookieCheck, controller.products);
 
 /* Crear un producto */
 router.get("/products/create", userAdminCheck, controller.addProducts);
-router.post('/products/create', uploadProductFile.single("imagen"), productValidator, controller.createProduct);
+router.post('/products/create', uploadProductFile.single("imagen"), productValidator,  controller.createProduct);
 
 /* Editar un producto */
 router.get("/products/edit/:id", userAdminCheck, controller.editProducts);
