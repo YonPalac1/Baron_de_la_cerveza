@@ -33,8 +33,9 @@ Seleccionamos estas páginas tomando en cuenta la versatilidad, navegabilidad y 
 - Programador web, cursando actualmente desarrollo FullStack Node Js en Digital House y me encanta el asado.
 
 ## Los lenguajes que nos rompieron la cabeza
+- MySql
 - Express 
-- Npm
+- GIT - GitHub- Npm
 - Javascript
 - Css
 - Html
