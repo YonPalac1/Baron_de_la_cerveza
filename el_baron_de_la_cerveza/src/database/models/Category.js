@@ -1,4 +1,4 @@
-module.exports = () {
+module.exports = (sequelize, dataTypes) =>{
     let alias = "Category";
     let cols = {
 
@@ -7,4 +7,7 @@ module.exports = () {
         tableName: "categories",
         timestamps: true
     }
+    const Category = sequelize.define(alias, cols, config)
+
+    return Category
 }
