@@ -24,19 +24,9 @@
 				<hr>
 				<ul>
 				<b>Color</b>
-				<% category.forEach(cat => { %>
-					<li><input type="checkbox" id="<%= cat.id %>">
-						<label for="<%= cat.id %>"><%= cat %></label>
-					</li>
-				<% }) %>
 				</ul>
 				<ul>
 					<b>Cervecerias</b>
-				<% marcas.forEach(marca => { %>
-					<li><input type="checkbox" id="<%= marca.id %>">
-						<label for="<%= marca.id %>"><%= marca %></label>
-					</li>
-				<% }) %>
 
 				</ul>
 				<button  onclick="showCategories()">
@@ -57,7 +47,7 @@
 		<section>
 			<div class="productos-main">
 
-				<% products.forEach(element => { %>
+				<% product.forEach(element => { %>
 					<article class="br">
 						<a href="/products/productDetail/<%= element.id %> ">
 						<% if(element.discount){ %>
@@ -65,12 +55,12 @@
 								<%= element.discount %>%Off 
 							</span>
 						<% } %>
-							<img src="/img/productos/<%= element.imagen %> " class="imagen-producto">
+							<img src="/img/productos/<%= element.image %> " class="imagen-producto">
 						</a>
 						<div class="detalles-articulos">
-							<span>$<%= element.precio %> </span>
+							<span>$<%= element.price %> </span>
 							<p><%= element.name %> </p>
-							<b><%= element.marca %>  / <%= element.category %>  / 5.2% ALC</b>
+							<b><%= element.trademark.name %>  / <%= element.trademark.name %>  / <%= element.alcoholContent %>% ALC</b>
 							<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
 						</div>
 						<div class="boton-comprar">

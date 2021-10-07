@@ -5,7 +5,7 @@ module.exports = (sequelize, dataTypes) =>{
     }
     let config = {
         tableName: "contact",
-        timestamps: true
+        timestamps: false
     }
 
     const Contact = sequelize.define(alias, cols, config)

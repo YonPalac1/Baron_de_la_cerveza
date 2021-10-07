@@ -40,9 +40,16 @@ module.exports = function(sequelize, dataTypes) {
     }
     let config = {
         tableName: "products",
-        timestamps: true
+        timestamps: false
     }
     const Product = sequelize.define(alias, cols, config)
+
+    Product.associate = models => {
+        Product.belongsTo(models.Trademark, {
+            as: "trademark",
+            foreignKey: "trademarkId"
+        })
+    }
 
     return Product
 }

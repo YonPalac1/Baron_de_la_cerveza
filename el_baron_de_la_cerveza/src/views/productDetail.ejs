@@ -18,12 +18,12 @@
 							<%= product.discount %>%Off 
 						</span>
 					<% } %>
-					<img src="/img/productos/<%= product.imagen %>" class="imagen-detalleproducto">
+					<img src="/img/productos/<%= product.image %>" class="imagen-detalleproducto">
 				</div>
                 <div class="detalle-detalleproducto">
                     <div class="detalle-nombreproducto">
 						<h4><%= product.name %></h4>
-                    	<h3>$<%= product.precio %></h3>
+                    	<h3>$<%= product.price %></h3>
 					</div>
                     <div class="cantidad-detalleproducto">
                         CANTIDAD
@@ -74,9 +74,9 @@
         <section class="especificaciones-producto">
 			<div class="especificaciones">
 				<h3>Especificaciones</h3>
-				<p> - Marca: <%= product.marca %> </p>
+				<p> - Marca: <%= product.trademark.name %> </p>
 				<p> - Categoria: <%= product.category %> </p>
-				<p> - Graduación Alcohólica: <%= product.graduacion %>% </p>
+				<p> - Graduación Alcohólica: <%= product.alcoholContent %>% </p>
 				<p> - Descripción: <%= product.description %> </p>
 			</div>
 		</section>

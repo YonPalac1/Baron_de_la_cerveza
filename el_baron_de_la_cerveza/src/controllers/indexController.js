@@ -1,5 +1,4 @@
 let { products } = require('../data/dataBase.js');
-let db = require('../database/models')
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 let productCart = products.filter(element => element.cart === true)
