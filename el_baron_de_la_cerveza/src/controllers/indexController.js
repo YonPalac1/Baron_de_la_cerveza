@@ -1,4 +1,6 @@
 let { products } = require('../data/dataBase.js');
+const db = require('../database/models');
+const { Op } = require('sequelize');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 let productCart = products.filter(element => element.cart === true)
@@ -36,21 +38,23 @@ module.exports = {
 			session: req.session
 		});
     },
-    search: (req, res) => {
-
-		let result = []
-		products.forEach(product => {
-			if(product.name.toLowerCase().includes(req.query.keywords.toLowerCase())){
-				result.push(product)
+	search: (req, res) => {
+		db.Product.findAll({
+			where: {
+				name: {
+					[Op.like] : `%${req.query.keywords}%`
+				}
 			}
 		})
-		res.render('results', {
-			titleBanner: "Resultados de la busqueda",
-			result,
-			toThousand,
-			productCart,
-			search: req.query.keywords,
-			session: req.session
+		.then(result => {
+			res.render('results', {
+				titleBanner: "Resultados de la busqueda",
+				result: result,
+				toThousand,
+				productCart,
+				search: req.query.keywords,
+				session: req.session
+			})
 		})
-	},
+	}
 }
