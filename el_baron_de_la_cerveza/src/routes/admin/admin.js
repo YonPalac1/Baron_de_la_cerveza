@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const controller = require("../../controllers/admin/adminController");
-let uploadProductFile = require('../../middlewares/uploadProductsFiles')
-let productValidator = require('../../middlewares/productCreateValidator')
+let uploadProductFile = require('../../middlewares/validations/uploadProductsFiles')
+let productValidator = require('../../middlewares/validations/productCreateValidator')
 let userAdminCheck = require('../../middlewares/userAdminCheck')
 let cookieCheck = require('../../middlewares/cookieCheck');
 
@@ -18,11 +18,11 @@ router.get("/products", userAdminCheck,cookieCheck, controller.products);
 
 /* Crear un producto */
 router.get("/products/create", userAdminCheck, controller.addProducts);
-router.post('/products/create', uploadProductFile.array("images"),  controller.createProduct);
+router.post('/products/create', uploadProductFile.single("image"),  controller.createProduct);
 
 /* Editar un producto */
 router.get("/products/edit/:id", userAdminCheck, controller.editProducts);
-router.put("/products/edit/:id",uploadProductFile.array("images"), productValidator, controller.updateProducts);
+router.put("/products/edit/:id",uploadProductFile.single("image"), productValidator, controller.updateProducts);
 
 /* Eliminar un producto */
 router.delete('/products/delete/:id', controller.productDestroy);

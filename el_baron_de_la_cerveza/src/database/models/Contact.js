@@ -1,14 +1,43 @@
-module.exports = (sequelize, dataTypes) =>{
+module.exports = (sequelize, dataTypes) => {
     let alias = "Contact";
     let cols = {
-
+        id: {
+            type: dataTypes.INTEGER(11).UNSIGNED,
+            primaryKey: true,
+            autoIncrement: true,
+            allowNull: false 
+        },
+        street: {
+            type: dataTypes.STRING(100)
+        },
+        city: {
+            type: dataTypes.STRING(100)
+        },
+        province: {
+            type: dataTypes.STRING(100)
+        },
+        phone: {
+            type: dataTypes.STRING(100)
+        },
+        userId: {
+            type: dataTypes.INTEGER,
+            allowNull: false
+        },
     }
+    
     let config = {
-        tableName: "contact",
+        tableName: "contacts",
         timestamps: false
     }
 
     const Contact = sequelize.define(alias, cols, config)
 
-    return Contact
+    Contact.associate = models => {
+        Contact.belongsTo(models.User, {
+            as: "user",
+            foreignKey: "userId"
+        })
+    }
+
+    return Contact;
 }

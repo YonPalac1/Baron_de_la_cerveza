@@ -1,6 +1,15 @@
-const db = require("../../database/models");
-const { validationResult } = require("express-validator");
+let { products, writeProductsJSON, users, writeUsersJSON } = require('../../data/dataBase')
+const { validationResult } = require('express-validator')
 
+const db = require("../../database/models");
+
+
+let category = [];
+products.forEach(product => {
+    if(!category.includes(product.category)){
+        category.push(product.category)
+    }  
+});
 
 module.exports = {
     admin: (req, res) => {
@@ -28,70 +37,51 @@ module.exports = {
         });
     },
     addProducts: (req, res) => {
-        let categoriesPromise = db.Category.findAll();
-        let subcategoriesPromise = db.Trademark.findAll();
-    
-        Promise.all([categoriesPromise, subcategoriesPromise])
-          .then(([categories, trademarks]) => {
-            res.render("admin/addProduct", {
-              categories,
-              trademarks,
-              session: req.session,
-            });
-          })
-          .catch((err) => console.log(err));
+        res.render('admin/addProduct', {
+            category
+        });
     },
     createProduct: (req, res)=>{
         let errors = validationResult(req)
-        if (req.fileValidatorError) {
-            let image = {
-              param: "image",
-              msg: req.fileValidatorError,
-            };
-            errors.push(image);
-        }
-        
+
         if(errors.isEmpty()){
+            let lastId = 1;
 
-            let arrayImages = [];
-            if (req.files) {
-                req.files.forEach((image) => {
-                arrayImages.push(image.filename);
-                });
-            }
-
-            let { 
-                name, 
-                price, 
-                discount, 
-                category, 
-                outstanding,
-                trademark, 
-                description 
-            } = req.body;
-
-            db.Product.create({
-                name, 
-                price, 
-                discount, 
-                category, 
-                outstanding,
-                trademarkId: trademark, 
-                description 
-            })
-            .then(product => {
-                if(arrayImages.length > 0){
-                    let images = arrayImages.map(image => {
-                        return {
-                            image: image,
-                            productId: product.id
-                        }
-                    })
-                    db.ProductImage.bulkCreate(images)
-                        .then(() => res.redirect('/admin/products'))
-                        .catch(err => console.log(err))
+            products.forEach(product => {
+                if(product.id > lastId){
+                    lastId = product.id
                 }
             })
+
+            let {
+                name, 
+                precio, 
+                discount, 
+                category,  
+                description,
+                destacado,
+                marca,
+                graduacion,
+                } = req.body;
+
+            let newProduct = {
+                id: lastId + 1,
+                name,
+                precio,
+                description,
+                discount,
+                category,
+                destacado,
+                marca,
+                graduacion,
+            imagen: req.file ? req.file.filename : "default-image.png"
+            };
+
+            products.push(newProduct);
+
+            writeProductsJSON(products);
+
+            res.redirect('/admin/products')
         }else{
             res.render("admin/addProduct", {
                 category, 

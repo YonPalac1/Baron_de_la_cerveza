@@ -12,8 +12,8 @@ const {
      } = require('../controllers/usersController');
 let userLog = require('../middlewares/userLog');
 let userSessionCheck = require('../middlewares/userSessionCheck');
-let loginValidator = require('../middlewares/loginValidator')
-const registerValidator = require('../middlewares/registerValidator')
+let loginValidator = require('../middlewares/validations/loginValidator')
+const registerValidator = require('../middlewares/validations/registerValidator')
 const uploadUserAvatar = require('../middlewares/uploadUserAvatar')
 
 router.get('/', userSessionCheck, user);

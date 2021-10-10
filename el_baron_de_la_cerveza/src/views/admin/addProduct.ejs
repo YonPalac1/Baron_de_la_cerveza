@@ -12,7 +12,7 @@
 		<form class="row g-3" action="/admin/products/create" method="POST" enctype="multipart/form-data">
             <div class="col-12">
                 <label for="inputImage" class="form-label">Imagen</label>
-                <input type="file" class="form-control" name="images" aria-label="file example" id="inputImage" multiple>
+                <input type="file" class="form-control" name="images" aria-label="file example" id="inputImage">
                 
             </div>
             <div class="col-12">
@@ -33,14 +33,13 @@
                 <label for="inputDiscount" class="form-label">Descuento</label>
                 <input type="number" class="form-control" id="inputDiscount" name="discount" >
             </div>
-            <div class="col-sm-12 col-md-6">
+            <!-- <div class="col-sm-12 col-md-6">
                 <label for="marca" class="form-label">Marca</label>
                 <input type="text" class="form-control" name="trademark" aria-label="file example" multiple>
                 <% if (locals.errors && errors.marca) { %>
 					<small class="text-danger"><%= errors.marca.msg %> </small>
 				<% } %>
-                
-            </div>
+            </div> -->
             <div class="col-sm-12 col-md-6">
                 <label for="graduacion" class="form-label">Graduación alcohólica</label>
                 <input type="text" class="form-control" name="alcoholContent" aria-label="file example">
@@ -49,7 +48,7 @@
                 <label for="inputImage" class="form-label">Agregar categoria</label>
                 <input type="text" class="form-control" name="newCategory" aria-label="file example">
             </div>
-            <div class="col-12">
+            <!-- <div class="col-12">
                 <select class="form-select" id="specificSizeSelect" name="category">
                   <option selected hidden value="">Categorias</option>
                  <% categories.forEach(category => { %>
@@ -59,7 +58,7 @@
                 <% if (locals.errors && errors.category) { %>
 					<small class="text-danger"><%= errors.category.msg %> </small>
 				<% } %>
-            </div>
+            </div> -->
             <div class="col-12">
                 <label for="validationTextarea" class="form-label">Descripción</label>
                 <textarea class="form-control" id="validationTextarea" name="description" placeholder="Descripción"> </textarea>

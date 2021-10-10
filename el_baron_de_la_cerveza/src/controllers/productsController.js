@@ -2,10 +2,12 @@ const db = require('../database/models');
 
 module.exports = {
     products: (req, res) => {
-        db.Product.findAll({
+         db.Product.findAll({
             include: [
-                {association: "images"},
-                {association: "trademark"},
+                {association: "trademark",
+                include: [{
+                    association: "category"
+                }]}
             ]
         })
         .then(product => {
@@ -21,7 +23,6 @@ module.exports = {
                     product,
                     destacadosSlider: products,
                     session: req.session
-                    
                 })
             })
         })

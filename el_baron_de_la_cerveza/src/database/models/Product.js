@@ -1,4 +1,4 @@
-module.exports = function(sequelize, dataTypes) {
+module.exports = function(sequelize, dataTypes){
     let alias = "Product";
     let cols = {
         id: {
@@ -8,7 +8,7 @@ module.exports = function(sequelize, dataTypes) {
             allowNull: false
         },
         name: {
-            type: dataTypes.STRING(350),
+            type: dataTypes.STRING(45),
             allowNull: false
         },
         price:{
@@ -21,21 +21,16 @@ module.exports = function(sequelize, dataTypes) {
         description: {
             type: dataTypes.STRING(800),
         },
-        alcoholContent: {
-            type: dataTypes.INTEGER(11),
-        },
         trademarkId: {
             type: dataTypes.INTEGER(11),
             allowNull: false
-        },
-        outstanding: {
-            type: dataTypes.TINYINT(1),
         }
     }
     let config = {
         tableName: "products",
         timestamps: false
     }
+
     const Product = sequelize.define(alias, cols, config)
 
     Product.associate = models => {
