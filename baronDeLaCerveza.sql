@@ -40,13 +40,13 @@ INSERT INTO `categories` VALUES (1,'negra'),(2,'Roja'),(3,'Rubia');
 UNLOCK TABLES;
 
 --
--- Table structure for table `contact`
+-- Table structure for table `contacts`
 --
 
-DROP TABLE IF EXISTS `contact`;
+DROP TABLE IF EXISTS `contacts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `contact` (
+CREATE TABLE `contacts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `street` varchar(350) DEFAULT NULL,
   `province` varchar(350) DEFAULT NULL,
@@ -56,16 +56,17 @@ CREATE TABLE `contact` (
   PRIMARY KEY (`id`),
   KEY `FK_084a0226-bc93-402d-aaf0-111dee0e013e` (`userId`),
   CONSTRAINT `FK_084a0226-bc93-402d-aaf0-111dee0e013e` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `contact`
+-- Dumping data for table `contacts`
 --
 
-LOCK TABLES `contact` WRITE;
-/*!40000 ALTER TABLE `contact` DISABLE KEYS */;
-/*!40000 ALTER TABLE `contact` ENABLE KEYS */;
+LOCK TABLES `contacts` WRITE;
+/*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
+INSERT INTO `contacts` VALUES (1,'calle falsa 123','Malos Aires','123456789','La falsa',1);
+/*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -169,4 +170,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-07 22:37:11
+-- Dump completed on 2021-10-10 12:49:32
