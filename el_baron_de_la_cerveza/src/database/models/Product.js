@@ -23,19 +23,13 @@ module.exports = function(sequelize, dataTypes) {
         },
         alcoholContent: {
             type: dataTypes.INTEGER(11),
-            allowNull: false
         },
         trademarkId: {
             type: dataTypes.INTEGER(11),
             allowNull: false
         },
-        image: {
-            type: dataTypes.STRING(100),
-            allowNull: false
-        },
         outstanding: {
             type: dataTypes.TINYINT(1),
-            allowNull: false
         }
     }
     let config = {
@@ -48,6 +42,10 @@ module.exports = function(sequelize, dataTypes) {
         Product.belongsTo(models.Trademark, {
             as: "trademark",
             foreignKey: "trademarkId"
+        })
+        Product.hasMany(models.ProductImage, {
+            as: "images", 
+            foreignKey: "productId"
         })
     }
 

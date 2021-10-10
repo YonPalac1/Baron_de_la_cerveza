@@ -12,7 +12,7 @@
 		<form class="row g-3" action="/admin/products/create" method="POST" enctype="multipart/form-data">
             <div class="col-12">
                 <label for="inputImage" class="form-label">Imagen</label>
-                <input type="file" class="form-control" name="imagen" aria-label="file example" id="inputImage" multiple>
+                <input type="file" class="form-control" name="images" aria-label="file example" id="inputImage" multiple>
                 
             </div>
             <div class="col-12">
@@ -24,7 +24,7 @@
             </div>
             <div class="col-sm-12 col-md-6">
                 <label for="inputPrice" class="form-label">Precio</label>
-                <input type="number" class="form-control" id="inputPrice" name="precio">
+                <input type="number" class="form-control" id="inputPrice" name="price">
                 <% if (locals.errors && errors.precio) { %>
 					<small class="text-danger"><%= errors.precio.msg %> </small>
 				<% } %>
@@ -35,7 +35,7 @@
             </div>
             <div class="col-sm-12 col-md-6">
                 <label for="marca" class="form-label">Marca</label>
-                <input type="text" class="form-control" name="marca" aria-label="file example" multiple>
+                <input type="text" class="form-control" name="trademark" aria-label="file example" multiple>
                 <% if (locals.errors && errors.marca) { %>
 					<small class="text-danger"><%= errors.marca.msg %> </small>
 				<% } %>
@@ -43,7 +43,7 @@
             </div>
             <div class="col-sm-12 col-md-6">
                 <label for="graduacion" class="form-label">Graduación alcohólica</label>
-                <input type="text" class="form-control" name="graduacion" aria-label="file example">
+                <input type="text" class="form-control" name="alcoholContent" aria-label="file example">
             </div>
             <div class="col-12 d-none">
                 <label for="inputImage" class="form-label">Agregar categoria</label>
@@ -52,8 +52,8 @@
             <div class="col-12">
                 <select class="form-select" id="specificSizeSelect" name="category">
                   <option selected hidden value="">Categorias</option>
-                 <% category.forEach(category => { %>
-                    <option value="<%- category %>"><%- category %></option>
+                 <% categories.forEach(category => { %>
+                    <option value="<%- category.id %>"><%- category.name %></option>
                  <% }) %>
                 </select>
                 <% if (locals.errors && errors.category) { %>
@@ -66,7 +66,7 @@
             </div>
             <div class="col-sm-12 col-md-6">
                 <label for="check" class="form-label">Destacar</label>
-                <input type="checkbox" id="check" class="form-control form-check-input" name="destacado" aria-label="file example" multiple>
+                <input type="checkbox" id="check" class="form-control form-check-input" name="outstanding" aria-label="file example" multiple>
             </div>
             <button type="submit" class="btn btn-primary">
                 CREAR
