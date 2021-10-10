@@ -4,7 +4,10 @@ module.exports = {
     products: (req, res) => {
         db.Product.findAll({
             include: [
-                {association: "trademark"}
+                {association: "trademark",
+                include: [{
+                    association: "category"
+                }]}
             ]
         })
         .then(product => {
