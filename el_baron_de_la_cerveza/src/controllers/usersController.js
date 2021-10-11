@@ -1,6 +1,7 @@
 let { products, users, writeUsersJSON } = require('../data/dataBase.js');
 let { validationResult } = require('express-validator')
 let bcrypt = require('bcryptjs')
+const db = require('../database/models')
 
 const productCart = products.filter(element => element.cart === true)
 		
@@ -26,29 +27,37 @@ module.exports = {
         let errors = validationResult(req)
 
         if (errors.isEmpty()) {
-            let user = users.find(user => user.email === req.body.email)
-
-            req.session.user = {
+            db.User.findOne({
+                where: {
+                    email: req.body.email,
+                },
+            }).then((user) => {
+                req.session.user = {
                 id: user.id,
                 name: user.name,
                 email: user.email,
-                rol: user.rol
-            }  
+                pass: user.pass,
+                phone: user.phone,
+                rol: user.rol,
+                createdAt: user.createdAt,
+                updatedAt: user.updatedAt,
+                avatar: user.avatar
+            };
+                if (req.body.remember) {
+                    res.cookie("elBaronDeLaCerveza", req.session.user, {
+                        expires: new Date(Date.now() + 900000),
+                        httpOnly: true,
+                    });
+                }    
+                res.locals.user = req.session.user;
+                res.redirect("/");
+            });
 
-
-            if(req.body.remember){
-                res.cookie('elBaronDeLaCerveza', req.session.user, {expires: new Date(Date.now() + 900000), httpOnly : true})
-            }
-            
-            res.locals.user = req.session.user
-
-            res.redirect('/')
-        }else{
-            res.render('login', {
-            	productCart,
+        } else {
+            res.render("login", {
                 errors: errors.mapped(),
-                session: req.session
-            })
+                session: req.session,
+            });
         }
     },
 	register: (req, res) => {
@@ -59,46 +68,32 @@ module.exports = {
 		});
 	},
     processRegister: (req, res) => {
-        let errors = validationResult(req)
-
+        let errors = validationResult(req);
+        if (req.fileValidatorError) {
+            let image = {
+                param: "image",
+                msg: req.fileValidatorError,
+            };
+            errors.push(image);
+        }
         if (errors.isEmpty()) {
-
-            let lastId = 0;
-
-            users.forEach(user => {
-                if(user.id > lastId){
-                    lastId = user.id
-                }
-            }) 
-
-            let {
-                name, 
-                email, 
-                pass1
-            } = req.body
-
-            let newUser = {
-                id : lastId + 1,
+            let { name, last_name, email, pass1 } = req.body;
+            db.User.create({
                 name,
                 email,
-                pass : bcrypt.hashSync(pass1, 12),
-                fecha_registro:"10/03/2020",
-                rol: "ROL_USER"
-            }
-
-            users.push(newUser)
-
-            writeUsersJSON(users)
-
-            res.redirect('/users/login')
-
-        } else {
-            res.render('register', {
-                productCart,
-                errors: errors.mapped(),
-                old : req.body,
-                session: req.session
+                pass: bcrypt.hashSync(pass1, 12),
+                rol: 0,
             })
+            .then(() => {
+                res.redirect("/users/login");
+            })
+            .catch((err) => console.log(err));
+        } else {
+            res.render("register", {
+                errors: errors.mapped(),
+                old: req.body,
+                session: req.session,
+            });
         }
     },
     userEdit: (req, res) => {

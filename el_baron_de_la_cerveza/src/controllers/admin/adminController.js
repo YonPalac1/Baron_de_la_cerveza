@@ -16,9 +16,13 @@ module.exports = {
         res.render("admin/admin")
     },
     users:(req, res) => {
-        res.render("admin/users", {
-            users
-        });
+        db.User.findAll()
+        .then(user => {
+            res.render("admin/users", {
+                user,
+                session: req.session
+            });
+        })
     },
     usersDestroy: (req, res) => {
         users.forEach( usuarios => {
@@ -30,11 +34,31 @@ module.exports = {
         writeUsersJSON(users)
         res.redirect('/admin/users')
     },
-
     products: (req, res) => {
-        res.render('admin/adminProducts', {
-            products
-        });
+        db.Product.findAll({
+            include: [
+                {association: "trademark",
+                include: [{
+                    association: "category"
+                }]}
+            ]
+        })
+        .then(product => {
+            db.Product.findAll({
+                where: {
+                    outstanding: 1 
+                }
+            })
+            .then(products => {
+                res.render("products", {
+                    titleBanner: "Pedi tu birra y te la llevamos a tu casa",
+                    titleSlider: "Destacados",
+                    product,
+                    destacadosSlider: products,
+                    session: req.session
+                })
+            })
+        })
     },
     addProducts: (req, res) => {
         res.render('admin/addProduct', {
