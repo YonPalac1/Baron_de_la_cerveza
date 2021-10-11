@@ -20,9 +20,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(200),
             allowNull: false
         },
-        phone:{
-            type: dataTypes.STRING(30)
-        },
         rol: {
             type: dataTypes.INTEGER(2).UNSIGNED,
             allowNull: false

@@ -5,7 +5,7 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.INTEGER(11).UNSIGNED,
             primaryKey: true,
             autoIncrement: true,
-            allowNull: false
+            allowNull: true
         },
         name: {
             type: dataTypes.STRING(45),
@@ -24,11 +24,18 @@ module.exports = function(sequelize, dataTypes){
         trademarkId: {
             type: dataTypes.INTEGER(11),
             allowNull: false
-        }
+        },
+        alcoholContent: {
+            type: dataTypes.STRING(11),
+            allowNull: false
+        },
+        images:{
+            type: dataTypes.STRING(100)
+        },
     }
     let config = {
         tableName: "products",
-        timestamps: false
+        timestamps: true
     }
 
     const Product = sequelize.define(alias, cols, config)
@@ -37,10 +44,6 @@ module.exports = function(sequelize, dataTypes){
         Product.belongsTo(models.Trademark, {
             as: "trademark",
             foreignKey: "trademarkId"
-        })
-        Product.hasMany(models.ProductImage, {
-            as: "images", 
-            foreignKey: "productId"
         })
     }
 

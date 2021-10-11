@@ -37,58 +37,63 @@ module.exports = {
         });
     },
     addProducts: (req, res) => {
-        res.render('admin/addProduct', {
-            category
-        });
+        let categoriesPromise = db.Category.findAll();
+    let subcategoriesPromise = db.Trademark.findAll();
+
+    Promise.all([categoriesPromise, subcategoriesPromise])
+      .then(([categories, trademarks]) => {
+        res.render("admin/addProduct", {
+            categories,
+            trademarks,
+            session: req.session,
+          });
+      })
+      .catch((err) => console.log(err));
     },
     createProduct: (req, res)=>{
-        let errors = validationResult(req)
+        let errors = validationResult(req);
+        if (req.fileValidatorError) {
+        let image = {
+            param: "image",
+            msg: req.fileValidatorError,
+        };
+        errors.push(image);
+        }
 
-        if(errors.isEmpty()){
-            let lastId = 1;
+        if (errors.isEmpty()) {
+        let { 
+            name, 
+            price, 
+            discount, 
+            category, 
+            trademark, 
+            description, 
+            alcoholContent 
+        } = req.body;
 
-            products.forEach(product => {
-                if(product.id > lastId){
-                    lastId = product.id
-                }
-            })
+        db.Product.create({
+            name,
+            price,
+            discount,
+            trademarkId: trademark,
+            description,
+            alcoholContent,           
+            images: req.file ? req.file.filename : "img2.png",
+        })
+        .then(() => {
+            res.redirect("/admin/products");
+        })
+        .catch((err) => console.log(err));
+            
 
-            let {
-                name, 
-                precio, 
-                discount, 
-                category,  
-                description,
-                destacado,
-                marca,
-                graduacion,
-                } = req.body;
-
-            let newProduct = {
-                id: lastId + 1,
-                name,
-                precio,
-                description,
-                discount,
-                category,
-                destacado,
-                marca,
-                graduacion,
-            imagen: req.file ? req.file.filename : "default-image.png"
-            };
-
-            products.push(newProduct);
-
-            writeProductsJSON(products);
-
-            res.redirect('/admin/products')
-        }else{
+        } else {
             res.render("admin/addProduct", {
-                category, 
+                subcategories,
+                categories,
                 errors: errors.mapped(),
                 old: req.body,
-                session: req.session
-            })
+                session: req.session,
+            });
         }
     },
     editProducts: (req, res) => {

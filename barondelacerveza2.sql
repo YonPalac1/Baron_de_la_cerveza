@@ -55,8 +55,8 @@ CREATE TABLE `contacts` (
   `city` varchar(350) CHARACTER SET utf8mb4 DEFAULT NULL,
   `phone` varchar(350) CHARACTER SET utf8mb4 DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `addresses_FK` (`userId`),
-  CONSTRAINT `addresses_FK` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
+  KEY `contacts_FK` (`userId`),
+  CONSTRAINT `contacts_FK` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -90,8 +90,8 @@ CREATE TABLE `products` (
   `outstanding` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
-  KEY `subcategory_idx` (`trademarkId`),
-  CONSTRAINT `subcategory` FOREIGN KEY (`trademarkId`) REFERENCES `trademarks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `trademark_idx` (`trademarkId`),
+  CONSTRAINT `trademark` FOREIGN KEY (`trademarkId`) REFERENCES `trademarks` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -148,7 +148,7 @@ CREATE TABLE `trademarks` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `categoria_idx` (`categoryId`),
-  CONSTRAINT `categoria` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `categoria` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

@@ -33,13 +33,17 @@
                 <label for="inputDiscount" class="form-label">Descuento</label>
                 <input type="number" class="form-control" id="inputDiscount" name="discount" >
             </div>
-            <!-- <div class="col-sm-12 col-md-6">
-                <label for="marca" class="form-label">Marca</label>
-                <input type="text" class="form-control" name="trademark" aria-label="file example" multiple>
+            <div class="col-sm-12 col-md-6">
+                <select class="form-select" id="specificSizeSelect" name="trademark">
+                    <option selected hidden value="">Marca</option>
+                   <% trademarks.forEach(trademark => { %>
+                      <option value="<%- trademark.id %>"><%- trademark.name %></option>
+                   <% }) %>
+                  </select>
                 <% if (locals.errors && errors.marca) { %>
-					<small class="text-danger"><%= errors.marca.msg %> </small>
+					<small class="text-danger"><%= errors.trademark.msg %> </small>
 				<% } %>
-            </div> -->
+            </div>
             <div class="col-sm-12 col-md-6">
                 <label for="graduacion" class="form-label">Graduación alcohólica</label>
                 <input type="text" class="form-control" name="alcoholContent" aria-label="file example">
@@ -48,7 +52,7 @@
                 <label for="inputImage" class="form-label">Agregar categoria</label>
                 <input type="text" class="form-control" name="newCategory" aria-label="file example">
             </div>
-            <!-- <div class="col-12">
+            <div class="col-12">
                 <select class="form-select" id="specificSizeSelect" name="category">
                   <option selected hidden value="">Categorias</option>
                  <% categories.forEach(category => { %>
@@ -58,7 +62,7 @@
                 <% if (locals.errors && errors.category) { %>
 					<small class="text-danger"><%= errors.category.msg %> </small>
 				<% } %>
-            </div> -->
+            </div>
             <div class="col-12">
                 <label for="validationTextarea" class="form-label">Descripción</label>
                 <textarea class="form-control" id="validationTextarea" name="description" placeholder="Descripción"> </textarea>
