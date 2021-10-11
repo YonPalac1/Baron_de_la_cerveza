@@ -34,7 +34,9 @@ module.exports = {
               id: req.params.id,
             },
             include: [
-                {association: "trademark"}
+                {association: "trademark",
+                    include: [{association: "category"}]
+                }
             ]
           })
           .then((product) => {
