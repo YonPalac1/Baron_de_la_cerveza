@@ -43,18 +43,24 @@
 
 				<div class="column">
 					<h3>Contacto</h3>
+					<% user.contacts.forEach(contact => { %>
 					<p>
 						<strong>Telefono:</strong>
-						<span><%- user.tel %></span>
+						<span><%= contact.phone ? contact.phone : "------" %></span>
 					</p>
 					<p>
 						<strong>Ciudad:</strong>
-						<span><%- user.city %></span>
+						<span><%= contact.city ? contact.city : "------" %></span>
 					</p>
 					<p>
 						<strong>Direccion:</strong>
-						<span><%- user.address %></span>
+						<span><%= contact.street ? contact.street : "------" %></span>
 					</p>
+					<p>
+						<strong>Provincia:</strong>
+						<span><%= contact.province ? contact.province : "------" %></span>
+					</p>
+					<% }) %>
 				</div>
 			</div>	
 		</section>

@@ -8,14 +8,15 @@ const productCart = products.filter(element => element.cart === true)
 
 module.exports = {
 	user: (req, res) => {
-        let user = users.find(user => user.id === req.session.user.id)
-        
-		res.render('user', {
-			titleBanner: "Perfil de frescura",
-			productCart,
-			session: req.session,
-            user
-		})
+        db.User.findByPk(req.session.user.id, {
+            include: [{ association: "contacts" }],
+          }).then((user) => {
+            res.render("user", {
+              titleBanner: "Detalles",
+              user,
+              session: req.session,
+            });
+          });
 	},
 	login: (req, res) => {
 		res.render('login', {
@@ -97,57 +98,57 @@ module.exports = {
         }
     },
     userEdit: (req, res) => {
-        let user = users.find(user => user.id === +req.params.id)
-
-        res.render('userProfileEdit', {
-            titleBanner: "Editar perfil",
-            productCart,
-            user,
-            session: req.session
-        })
-
+        db.User.findByPk(req.session.user.id, {
+            include: [{ association: "contacts" }],
+          }).then((user) => {
+            res.render("userProfileEdit", {
+              titleBanner: "Editar perfil", 
+              user,
+              session: req.session,
+            });
+        });
     },
     updateUser: (req, res) => {
-        let errors = validationResult(req)
+        let errors = validationResult(req);
 
         if (errors.isEmpty()) {
-            let user = users.find(user => user.id === +req.params.id)
 
-            let {
-                name,
-                last_name,
-                tel,
-                address,
-                pc,
+        let {
+            name, 
+            email,
+            phone, 
+            street, 
+            province,
+            city,
+        } = req.body;
+
+        db.User.update({
+            name,
+            email,
+            avatar: req.file ? req.file.filename : req.session.user.avatar
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(() => {
+            db.Contact.create({
+                street,
+                city,
                 province,
-                city
-            } = req.body
-
-            user.name = name
-            user.last_name = last_name
-            user.tel = tel
-            user.address = address
-            user.pc = pc
-            user.province = province
-            user.city = city
-            user.avatar = req.file ? req.file.filename : user.avatar
-
-            writeUsersJSON(users)
-
-            delete user.pass
-
-            req.session.user = user
-
-            res.redirect('/users')
-
-        }else{
-            res.render('userProfileEdit', {
-                titleBanner: "Editar perfil",
-                productCart,
-                errors: errors.mapped(),
-                old:req.body,
-                session: req.session
+                phone,
+                userId: req.params.id
             })
+            .then(() => {
+                res.redirect('/users')
+            })
+        })
+        } else {
+        res.render("userProfileEdit", {
+            errors: errors.mapped(),
+            old: req.body,
+            session: req.session,
+        });
         }
     },
     logout: (req, res) => {

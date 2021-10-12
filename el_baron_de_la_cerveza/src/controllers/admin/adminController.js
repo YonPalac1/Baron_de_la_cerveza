@@ -30,9 +30,12 @@ module.exports = {
     },
     products: (req, res) => {
         db.Product.findAll()
-        .then(products =>{
+        .then(product => {
             res.render("admin/adminProducts", {
-                products
+                titleSlider: "Destacados",
+                product,
+                destacadosSlider: products,
+                session: req.session
             })
         })
     },

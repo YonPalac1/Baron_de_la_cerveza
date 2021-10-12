@@ -25,7 +25,8 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         avatar:{
-            type: dataTypes.STRING(100)
+            type: dataTypes.STRING(100),
+            allowNull: true
         },
     }
     let config = {
@@ -36,7 +37,7 @@ module.exports = (sequelize, dataTypes) => {
     const User = sequelize.define(alias, cols, config)
 
     User.associate = models => {
-        User.hasOne(models.Contact, {
+        User.hasMany(models.Contact, {
             as: "contacts",
             foreignKey:"userId" 
         })
