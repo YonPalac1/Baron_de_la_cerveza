@@ -35,10 +35,6 @@
 						<strong>Email:</strong>
 						<span><%- user.email %></span>
 					</p>
-					<p>
-						<strong>Contraseña:</strong>
-						<span>**********</span>
-					</p>
 				</div>
 
 				<div class="column">
@@ -46,15 +42,19 @@
 					<% user.contacts.forEach(contact => { %>
 					<p>
 						<strong>Telefono:</strong>
-						<span><%= contact.phone ? contact.phone : "------" %></span>
+						<span><%= contact !== null ? contact.phone : "----" %></span>
+					</p>
+					<p>
+						<strong>Provincia:</strong>
+						<span><%= contact !== null ? contact.province : "----" %></span>
 					</p>
 					<p>
 						<strong>Ciudad:</strong>
-						<span><%= contact.city ? contact.city : "------" %></span>
+						<span><%= contact !== null ? contact.city : "----" %></span>
 					</p>
 					<p>
 						<strong>Direccion:</strong>
-						<span><%= contact.street ? contact.street : "------" %></span>
+						<span><%= contact !== null ? contact.street : "----" %></span>
 					</p>
 					<p>
 						<strong>Provincia:</strong>
@@ -65,7 +65,7 @@
 			</div>	
 		</section>
 		 
-		<div class="title-config">
+		<!-- <div class="title-config">
 			<h2>Historial de compras</h2>
 		</div>
 		 <section class="tabla-config">
@@ -96,7 +96,7 @@
 		 			<span>nombre de la calle, 123. Localidad</span>
 		 		</div>
 		 	</div>	
-		 </section>
+		 </section> -->
 	</main>
 	<!-- FOOTER -->
 	<%- include("partials/footer")  %> 

@@ -13,7 +13,7 @@ module.exports = {
         .then(product => {
             db.Product.findAll({
                 where: {
-                    outstanding: 1 
+                    outstanding: 0
                 }
             })
             .then(products => {

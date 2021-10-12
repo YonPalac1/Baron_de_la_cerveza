@@ -71,7 +71,8 @@ module.exports = {
             category, 
             trademark, 
             description, 
-            alcoholContent 
+            alcoholContent,
+            outstanding
         } = req.body;
 
         db.Product.create({
@@ -80,7 +81,8 @@ module.exports = {
             discount,
             trademarkId: trademark,
             description,
-            alcoholContent,           
+            alcoholContent,  
+            outstanding,         
             images: req.file ? req.file.filename : "img2.png",
         })
         .then(() => {

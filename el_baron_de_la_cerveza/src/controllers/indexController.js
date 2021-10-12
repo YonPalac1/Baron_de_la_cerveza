@@ -7,14 +7,30 @@ let productCart = products.filter(element => element.cart === true)
 
 module.exports = {
 	index: (req, res) => {
-		let destacadosSlider = products.filter(product => product.destacado === "on")
-		
-		res.render('index', {
-			titleSlider: "Destacados",
-			destacadosSlider,
-			productCart,
-			session: req.session
-		})
+		db.Product.findAll({
+            include: [
+                {association: "trademark",
+                include: [{
+                    association: "category"
+                }]}
+            ]
+        })
+        .then(product => {
+            db.Product.findAll({
+                where: {
+                    outstanding: 1 
+                }
+            })
+            .then(products => {
+                res.render("index", {
+                    titleBanner: "Pedi tu birra y te la llevamos a tu casa",
+                    titleSlider: "Destacados",
+                    product,
+                    destacadosSlider: products,
+                    session: req.session
+                })
+            })
+        })
 	},
 	about: (req, res) => {
         res.render("about", {

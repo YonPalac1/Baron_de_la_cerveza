@@ -29,6 +29,10 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.STRING(11),
             allowNull: false
         },
+        outstanding: {
+            type: dataTypes.TINYINT(1),
+            allowNull: true
+        },
         images:{
             type: dataTypes.STRING(100)
         },
