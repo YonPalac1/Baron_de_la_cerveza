@@ -166,16 +166,12 @@ module.exports = {
 
     },
     productDestroy: (req, res) => {
-        products.forEach( product => {
-            if(product.id === +req.params.id){
-               let productToDestroy = products.indexOf(product);
-               products.splice(productToDestroy, 1)
-            }
+        db.Product.destroy({
+            where: {id: req.params.id}
         })
-        
-        writeProductsJSON(products)
-
-        res.redirect('/admin/products')
+        .then(()=>{
+            res.redirect("/admin/products")
+        })
     },
     signin: (req, res)=> {
         res.render('admin/adminLogin')
