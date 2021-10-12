@@ -102,48 +102,59 @@ module.exports = {
         }
     },
     editProducts: (req, res) => {
-        let product = products.find(product => product.id === +req.params.id);
-        res.render("admin/editProduct",{
-            product,
-            category,
+        let editProduct = db.Product.findByPk(req.params.id, {
+            include: [{
+                association: "trademark",
+                include: [{
+                    association: "category"
+                }]
+            }]
+        });
+        let editTrademark = db.Trademark.findAll();
+        let editCategory = db.Category.findAll();
+
+        Promise.all([editProduct, editTrademark, editCategory])
+        .then(([product, trademarks, categories]) => {
+            res.render("admin/editProduct", {
+                product,
+                trademarks,
+                categories
+            })
         })
     },
     updateProducts: (req, res) => {
         let errors = validationResult(req)
         
         if(errors.isEmpty()){
-            let {
+            let { 
                 name, 
-                precio, 
-                discount,
-                marca, 
-                category,  
-                description,
-                destacado,
-                graduacion,
+                price, 
+                discount, 
+                category, 
+                trademark, 
+                description, 
+                alcoholContent 
             } = req.body;
             
-            products.forEach(product => {
-                if(product.id === +req.params.id) {
-                    product.id = product.id,
-                    product.name = name,
-                    product.precio = precio,
-                    product.discount = discount,
-                    product.marca = marca,
-                    product.category = category,
-                    product.description = description,
-                    product.destacado = destacado,
-                    product.graduacion = graduacion,
-                    product.imagen = req.file ? req.file.filename : product.imagen;
+            db.Product.update({
+                name,
+                price,
+                discount,
+                category,
+                trademarkId: trademark,
+                description,
+                alcoholContent,           
+                images: req.file ? req.file.filename : "img2.png",
+            }, {
+                where: {
+                    id: req.params.id
                 }
             })
-
-            writeProductsJSON(products)
-
-            res.redirect("/admin/products")
+            .then(() => {
+                res.redirect("/admin/products");
+            })
+            .catch((err) => console.log(err));
         } else {
-            let product = products.find(product => product.id === +req.params.id)
-
             res.render("admin/editProduct", {
                 category,
                 product,
@@ -166,10 +177,7 @@ module.exports = {
 
         res.redirect('/admin/products')
     },
-
     signin: (req, res)=> {
         res.render('admin/adminLogin')
     }
-
-
 }

@@ -6,52 +6,68 @@
 	<%- include("../partials/headerAdmin")%>
 
 	<%- include("../partials/sidebarAdmin") %>
-	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-		<h2>Subir productos</h2>
-        <form class="row g-3" action="/admin/products/edit/<%- product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+		<h2>Editar Producto</h2>
+		<form class="row g-3" action="/admin/products/edit/<%- product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="col-12">
                 <label for="inputImage" class="form-label">Imagen</label>
-                <input type="file" class="form-control" name="imagen" aria-label="file example" id="inputImage" multiple value="">
+                <input type="file" class="form-control" name="images" aria-label="file example" id="inputImage">
             </div>
             <div class="col-12">
                 <label for="inputName" class="form-label">Nombre</label>
                 <input type="text" class="form-control" id="inputName" name="name" value="<%= product.name %>">
+                <% if (locals.errors && errors.name) { %>
+					<small class="text-danger"><%= errors.name.msg %> </small>
+				<% } %>
             </div>
             <div class="col-sm-12 col-md-6">
                 <label for="inputPrice" class="form-label">Precio</label>
-                <input type="number" class="form-control" id="inputPrice" name="precio" value="<%= product.precio %>">
+                <input type="number" class="form-control" id="inputPrice" name="price" value="<%= product.price %>">
+                <% if (locals.errors && errors.precio) { %>
+					<small class="text-danger"><%= errors.precio.msg %> </small>
+				<% } %>
             </div>
             <div class="col-sm-12 col-md-6">
                 <label for="inputDiscount" class="form-label">Descuento</label>
                 <input type="number" class="form-control" id="inputDiscount" name="discount" value="<%= product.discount %>">
             </div>
             <div class="col-sm-12 col-md-6">
-                <label for="marca" class="form-label">Marca</label>
-                <input type="text" class="form-control" name="marca" aria-label="file example" value="<%= product.marca %>">
+                <select class="form-select" id="specificSizeSelect" name="trademark">
+                    <option selected hidden value="">Marca</option>
+                   <% trademarks.forEach(trademark => { %>
+                      <option value="<%- trademark.id %>" selected><%- trademark.name %></option>
+                   <% }) %>
+                  </select>
+                <% if (locals.errors && errors.marca) { %>
+					<small class="text-danger"><%= errors.trademark.msg %> </small>
+				<% } %>
             </div>
             <div class="col-sm-12 col-md-6">
                 <label for="graduacion" class="form-label">Graduación alcohólica</label>
-                <input type="text" class="form-control" name="graduacion" aria-label="file example" value="<%= product.graduacion %>">
+                <input type="text" class="form-control" name="alcoholContent" aria-label="file example" value="<%= product.alcoholContent %>">
             </div>
             <div class="col-12 d-none">
                 <label for="inputImage" class="form-label">Agregar categoria</label>
-                <input type="text" class="form-control" name="newCategory" aria-label="file example" multiple>
+                <input type="text" class="form-control" name="newCategory" aria-label="file example">
             </div>
             <div class="col-12">
                 <select class="form-select" id="specificSizeSelect" name="category">
-                  <option selected hidden value="<%  %> ">Categorias</option>
-                 <% category.forEach(category => { %>
-                    <option value= "<%- category %>" <%= product.category === category ? "selected" : null %> ><%- category %></option>
+                  <option selected hidden value="">Categorias</option>
+                 <% categories.forEach(category => { %>
+                    <option value="<%- category.id %>" selected><%- category.name %></option>
                  <% }) %>
                 </select>
+                <% if (locals.errors && errors.category) { %>
+					<small class="text-danger"><%= errors.category.msg %> </small>
+				<% } %>
             </div>
             <div class="col-12">
                 <label for="validationTextarea" class="form-label">Descripción</label>
-                <textarea class="form-control" id="validationTextarea" name="description" placeholder="Descripción"><%= product.description %>  </textarea>
+                <textarea class="form-control" id="validationTextarea" name="description" placeholder="Descripción"><%= product.description %></textarea>
             </div>
             <div class="col-sm-12 col-md-6">
                 <label for="check" class="form-label">Destacar</label>
-                <input type="checkbox" id="check" class="form-control form-check-input" name="destacado" aria-label="file example" <%= product.destacado == "on" ? "checked" : null %>>
+                <input type="checkbox" id="check" class="form-control form-check-input" name="outstanding" aria-label="file example" multiple <%= product.outstanding == 1 ? "checked" : null %> >
             </div>
             <button type="submit" class="btn btn-primary">
                 EDITAR
