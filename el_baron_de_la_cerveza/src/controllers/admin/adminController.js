@@ -1,15 +1,9 @@
-let { products, writeProductsJSON, users, writeUsersJSON } = require('../../data/dataBase')
+let { products, writeProductsJSON, writeUsersJSON } = require('../../data/dataBase')
 const { validationResult } = require('express-validator')
 
 const db = require("../../database/models");
 
 
-let category = [];
-products.forEach(product => {
-    if(!category.includes(product.category)){
-        category.push(product.category)
-    }  
-});
 
 module.exports = {
     admin: (req, res) => {
@@ -35,28 +29,10 @@ module.exports = {
         res.redirect('/admin/users')
     },
     products: (req, res) => {
-        db.Product.findAll({
-            include: [
-                {association: "trademark",
-                include: [{
-                    association: "category"
-                }]}
-            ]
-        })
-        .then(product => {
-            db.Product.findAll({
-                where: {
-                    outstanding: 1 
-                }
-            })
-            .then(products => {
-                res.render("products", {
-                    titleBanner: "Pedi tu birra y te la llevamos a tu casa",
-                    titleSlider: "Destacados",
-                    product,
-                    destacadosSlider: products,
-                    session: req.session
-                })
+        db.Product.findAll()
+        .then(products =>{
+            res.render("admin/adminProducts", {
+                products
             })
         })
     },
