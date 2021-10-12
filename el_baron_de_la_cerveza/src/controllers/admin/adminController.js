@@ -35,28 +35,13 @@ module.exports = {
         res.redirect('/admin/users')
     },
     products: (req, res) => {
-        db.Product.findAll({
-            include: [
-                {association: "trademark",
-                include: [{
-                    association: "category"
-                }]}
-            ]
-        })
+        db.Product.findAll()
         .then(product => {
-            db.Product.findAll({
-                where: {
-                    outstanding: 1 
-                }
-            })
-            .then(products => {
-                res.render("products", {
-                    titleBanner: "Pedi tu birra y te la llevamos a tu casa",
-                    titleSlider: "Destacados",
-                    product,
-                    destacadosSlider: products,
-                    session: req.session
-                })
+            res.render("admin/adminProducts", {
+                titleSlider: "Destacados",
+                product,
+                destacadosSlider: products,
+                session: req.session
             })
         })
     },

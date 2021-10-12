@@ -21,11 +21,11 @@
 			</tr>
 		  </thead>
 		  <tbody>
-                  <% products.forEach(adminproducts => { %>
+                  <% product.forEach(adminproducts => { %>
                     <tr>
-                        <td><img src="/img/productos/<%= adminproducts.imagen %>" style="width: 90px;"></td>
+                        <td><img src="/img/productos/<%= adminproducts.images %>" style="width: 50px;"></td>
                         <td><%- adminproducts.name%></td>
-                        <td><%= adminproducts.precio %></td>
+                        <td><%= adminproducts.price %></td>
                         <td>
                             <a class="btn btn-warning" href="/admin/products/edit/<%- adminproducts.id %>">
 								<i class="fas fa-pen"></i>
