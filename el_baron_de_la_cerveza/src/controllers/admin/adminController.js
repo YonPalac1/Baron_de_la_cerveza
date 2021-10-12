@@ -1,9 +1,5 @@
-let { products, writeProductsJSON, writeUsersJSON } = require('../../data/dataBase')
 const { validationResult } = require('express-validator')
-
 const db = require("../../database/models");
-
-
 
 module.exports = {
     admin: (req, res) => {
@@ -19,14 +15,12 @@ module.exports = {
         })
     },
     usersDestroy: (req, res) => {
-        users.forEach( usuarios => {
-            if(usuarios.id === +req.params.id){
-               let usersToDestroy = users.indexOf(usuarios);
-               users.splice(usersToDestroy, 1)
-            }
+        db.User.destroy({
+            where: {id: req.params.id}
         })
-        writeUsersJSON(users)
-        res.redirect('/admin/users')
+        .then(() => {
+            res.redirect("/admin/products")
+        })
     },
     products: (req, res) => {
         db.Product.findAll()
