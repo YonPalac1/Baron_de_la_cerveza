@@ -169,7 +169,7 @@ module.exports = {
         db.Product.destroy({
             where: {id: req.params.id}
         })
-        .then(()=>{
+        .then(() => {
             res.redirect("/admin/products")
         })
     },
