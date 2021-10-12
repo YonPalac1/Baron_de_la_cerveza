@@ -8,14 +8,19 @@ const productCart = products.filter(element => element.cart === true)
 
 module.exports = {
 	user: (req, res) => {
-        let user = users.find(user => user.id === req.session.user.id)
-        
-		res.render('user', {
-			titleBanner: "Perfil de frescura",
-			productCart,
-			session: req.session,
-            user
-		})
+        db.User.findByPk(req.session.user.id, {
+            include: [{
+                association: "contacts"
+            }]
+        })
+        .then(user => {
+            res.render('user', {
+                titleBanner: "Perfil de frescura",
+                productCart,
+                session: req.session,
+                user
+            })
+        })
 	},
 	login: (req, res) => {
 		res.render('login', {
@@ -77,11 +82,12 @@ module.exports = {
             errors.push(image);
         }
         if (errors.isEmpty()) {
-            let { name, last_name, email, pass1 } = req.body;
+            let { name, email, pass1 } = req.body;
             db.User.create({
                 name,
                 email,
                 pass: bcrypt.hashSync(pass1, 12),
+                avatar: req.file ? req.file.filename : "avatar-default.png",
                 rol: 0,
             })
             .then(() => {

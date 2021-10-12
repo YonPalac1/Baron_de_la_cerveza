@@ -35,31 +35,31 @@
 						<strong>Email:</strong>
 						<span><%- user.email %></span>
 					</p>
-					<p>
-						<strong>Contraseña:</strong>
-						<span>**********</span>
-					</p>
 				</div>
 
 				<div class="column">
 					<h3>Contacto</h3>
 					<p>
 						<strong>Telefono:</strong>
-						<span><%- user.tel %></span>
+						<span><%= user.contacts !== null ? user.contacts.phone : "----" %></span>
+					</p>
+					<p>
+						<strong>Provincia:</strong>
+						<span><%= user.contacts !== null ? user.contacts.province : "----" %></span>
 					</p>
 					<p>
 						<strong>Ciudad:</strong>
-						<span><%- user.city %></span>
+						<span><%= user.contacts !== null ? user.contacts.city : "----" %></span>
 					</p>
 					<p>
 						<strong>Direccion:</strong>
-						<span><%- user.address %></span>
+						<span><%= user.contacts !== null ? user.contacts.street : "----" %></span>
 					</p>
 				</div>
 			</div>	
 		</section>
 		 
-		<div class="title-config">
+		<!-- <div class="title-config">
 			<h2>Historial de compras</h2>
 		</div>
 		 <section class="tabla-config">
@@ -90,7 +90,7 @@
 		 			<span>nombre de la calle, 123. Localidad</span>
 		 		</div>
 		 	</div>	
-		 </section>
+		 </section> -->
 	</main>
 	<!-- FOOTER -->
 	<%- include("partials/footer")  %> 
