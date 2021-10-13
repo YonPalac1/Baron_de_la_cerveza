@@ -3,7 +3,16 @@ const db = require("../../database/models");
 
 module.exports = {
     admin: (req, res) => {
-        res.render("admin/admin")
+        db.Product.findAll({
+            include:[{
+                association: "category"
+            }]
+        })
+        .then((product)=>{
+            res.send(product)
+        })
+        
+        /* res.render("admin/admin") */
     },
     users:(req, res) => {
         db.User.findAll()
@@ -28,7 +37,6 @@ module.exports = {
             res.render("admin/adminProducts", {
                 titleSlider: "Destacados",
                 product,
-                destacadosSlider: products,
                 session: req.session
             })
         })
@@ -96,19 +104,19 @@ module.exports = {
         }
     },
     editProducts: (req, res) => {
-        let editProduct = db.Product.findByPk(req.params.id, {
+        /* let editProduct = db.Product.findByPk(req.params.id, {
             include: [{
                 association: "trademark",
                 include: [{
                     association: "category"
                 }]
             }]
-        });
-        let editTrademark = db.Trademark.findAll();
+        }); */
         let editCategory = db.Category.findAll();
 
         Promise.all([editProduct, editTrademark, editCategory])
         .then(([product, trademarks, categories]) => {
+            //res.send(product, trademarks, categories)
             res.render("admin/editProduct", {
                 product,
                 trademarks,
@@ -137,15 +145,26 @@ module.exports = {
                 category,
                 trademarkId: trademark,
                 description,
-                alcoholContent,           
+                alcoholContent,     
                 images: req.file ? req.file.filename : "img2.png",
             }, {
                 where: {
                     id: req.params.id
                 }
             })
-            .then(() => {
-                res.redirect("/admin/products");
+            /* .then(()=> {
+                db.Trademark.update({
+                    include: [{
+                        
+                    }]
+                }, {
+                    where: {
+                        id: 
+                    }
+                })
+            }) */
+            .then(()=> {
+                res.redirect("/admin/products")
             })
             .catch((err) => console.log(err));
         } else {

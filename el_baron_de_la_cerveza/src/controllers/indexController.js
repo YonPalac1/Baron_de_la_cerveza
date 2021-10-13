@@ -8,29 +8,28 @@ let productCart = products.filter(element => element.cart === true)
 module.exports = {
 	index: (req, res) => {
 		db.Product.findAll({
-            include: [
+            /* include: [
                 {association: "trademark",
                 include: [{
                     association: "category"
                 }]}
-            ]
+            ] */
         })
-        .then(product => {
+        /* .then(product => {
             db.Product.findAll({
                 where: {
                     outstanding: 1 
                 }
-            })
+            }) */
             .then(products => {
                 res.render("index", {
                     titleBanner: "Pedi tu birra y te la llevamos a tu casa",
                     titleSlider: "Destacados",
-                    product,
+                    /* product, */
                     destacadosSlider: products,
                     session: req.session
                 })
             })
-        })
 	},
 	about: (req, res) => {
         res.render("about", {

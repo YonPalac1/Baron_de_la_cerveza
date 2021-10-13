@@ -21,10 +21,10 @@ module.exports = function(sequelize, dataTypes){
         description: {
             type: dataTypes.STRING(800),
         },
-        trademarkId: {
+        /* trademark: {
             type: dataTypes.INTEGER(11),
             allowNull: false
-        },
+        }, */
         alcoholContent: {
             type: dataTypes.STRING(11),
             allowNull: false
@@ -36,6 +36,10 @@ module.exports = function(sequelize, dataTypes){
         images:{
             type: dataTypes.STRING(100)
         },
+        categoryId: {
+            type: dataTypes.INTEGER(11),
+            allowNull: false
+        }
     }
     let config = {
         tableName: "products",
@@ -45,9 +49,9 @@ module.exports = function(sequelize, dataTypes){
     const Product = sequelize.define(alias, cols, config)
 
     Product.associate = models => {
-        Product.belongsTo(models.Trademark, {
-            as: "trademark",
-            foreignKey: "trademarkId"
+        Product.belongsTo(models.Category, {
+            as: "category",
+            foreignKey: "categoryId"
         })
     }
 

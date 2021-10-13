@@ -46,15 +46,11 @@
                 <label for="graduacion" class="form-label">Graduación alcohólica</label>
                 <input type="text" class="form-control" name="alcoholContent" aria-label="file example" value="<%= product.alcoholContent %>">
             </div>
-            <div class="col-12 d-none">
-                <label for="inputImage" class="form-label">Agregar categoria</label>
-                <input type="text" class="form-control" name="newCategory" aria-label="file example">
-            </div>
             <div class="col-12">
                 <select class="form-select" id="specificSizeSelect" name="category">
                   <option selected hidden value="">Categorias</option>
                  <% categories.forEach(category => { %>
-                    <option value="<%- category.id %>" selected><%- category.name %></option>
+                    <option value="<%- category.name%>"><%- category.name %></option>
                  <% }) %>
                 </select>
                 <% if (locals.errors && errors.category) { %>
