@@ -21,7 +21,7 @@ module.exports = function(sequelize, dataTypes){
         description: {
             type: dataTypes.STRING(800),
         },
-        trademarkId: {
+        categoryId: {
             type: dataTypes.INTEGER(11),
             allowNull: false
         },
@@ -45,9 +45,9 @@ module.exports = function(sequelize, dataTypes){
     const Product = sequelize.define(alias, cols, config)
 
     Product.associate = models => {
-        Product.belongsTo(models.Trademark, {
-            as: "trademark",
-            foreignKey: "trademarkId"
+        Product.belongsTo(models.Category, {
+            as: "category",
+            foreignKey: "categoryId"
         })
     }
 

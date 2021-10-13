@@ -26,22 +26,19 @@ module.exports = {
         db.Product.findAll()
         .then(product => {
             res.render("admin/adminProducts", {
-                titleSlider: "Destacados",
                 product,
-                destacadosSlider: products,
                 session: req.session
             })
         })
     },
     addProducts: (req, res) => {
         let categoriesPromise = db.Category.findAll();
-    let subcategoriesPromise = db.Trademark.findAll();
 
-    Promise.all([categoriesPromise, subcategoriesPromise])
-      .then(([categories, trademarks]) => {
+    Promise.all([categoriesPromise])
+      .then(([categories, ]) => {
         res.render("admin/addProduct", {
             categories,
-            trademarks,
+            
             session: req.session,
           });
       })
@@ -63,7 +60,6 @@ module.exports = {
             price, 
             discount, 
             category, 
-            trademark, 
             description, 
             alcoholContent,
             outstanding
@@ -73,13 +69,16 @@ module.exports = {
             name,
             price,
             discount,
-            trademarkId: trademark,
+            categoryId: category,
             description,
             alcoholContent,  
             outstanding,         
             images: req.file ? req.file.filename : "img2.png",
         })
         .then(() => {
+            db.Category.create({
+                category
+            })
             res.redirect("/admin/products");
         })
         .catch((err) => console.log(err));
@@ -99,19 +98,14 @@ module.exports = {
         let editProduct = db.Product.findByPk(req.params.id, {
             include: [{
                 association: "trademark",
-                include: [{
-                    association: "category"
-                }]
             }]
         });
-        let editTrademark = db.Trademark.findAll();
         let editCategory = db.Category.findAll();
 
-        Promise.all([editProduct, editTrademark, editCategory])
-        .then(([product, trademarks, categories]) => {
+        Promise.all([editProduct, editCategory])
+        .then(([product, categories]) => {
             res.render("admin/editProduct", {
                 product,
-                trademarks,
                 categories
             })
         })
@@ -125,7 +119,6 @@ module.exports = {
                 price, 
                 discount, 
                 category, 
-                trademark, 
                 description, 
                 alcoholContent 
             } = req.body;
@@ -135,7 +128,7 @@ module.exports = {
                 price,
                 discount,
                 category,
-                trademarkId: trademark,
+                categoryId: category,
                 description,
                 alcoholContent,           
                 images: req.file ? req.file.filename : "img2.png",
