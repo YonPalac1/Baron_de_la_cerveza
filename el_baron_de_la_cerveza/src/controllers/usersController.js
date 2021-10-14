@@ -61,6 +61,7 @@ module.exports = {
         } else {
             res.render("login", {
                 errors: errors.mapped(),
+                old: req.body,
                 session: req.session,
             });
         }
