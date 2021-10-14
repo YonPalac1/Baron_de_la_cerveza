@@ -144,7 +144,7 @@ module.exports = {
             alcoholContent,  
             trademark,
             outstanding,         
-            images: req.file != "img2.png" ? req.file : "img2.png",
+            images: req.file != "default-img.gif" ? req.file : "default-img.gif",
         },{
             where: {
                 id: req.params.id
