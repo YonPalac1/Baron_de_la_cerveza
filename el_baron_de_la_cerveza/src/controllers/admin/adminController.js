@@ -3,7 +3,15 @@ const db = require("../../database/models");
 
 module.exports = {
     admin: (req, res) => {
-        res.render("admin/admin")
+        db.User.findOne()
+        .then((user)=>{
+            res.render("admin/admin", {
+                user,
+                session: req.session
+            })
+            
+        })
+        
     },
     users:(req, res) => {
         db.User.findAll()
@@ -26,25 +34,23 @@ module.exports = {
         db.Product.findAll()
         .then(product => {
             res.render("admin/adminProducts", {
-                titleSlider: "Destacados",
                 product,
-                destacadosSlider: products,
                 session: req.session
             })
         })
     },
     addProducts: (req, res) => {
         let categoriesPromise = db.Category.findAll();
-    let subcategoriesPromise = db.Trademark.findAll();
+        let productsPromise = db.Product.findAll();
 
-    Promise.all([categoriesPromise, subcategoriesPromise])
-      .then(([categories, trademarks]) => {
-        res.render("admin/addProduct", {
-            categories,
-            trademarks,
-            session: req.session,
-          });
-      })
+        Promise.all([categoriesPromise, productsPromise])
+        .then(([categories, products]) => {
+            res.render("admin/addProduct", {
+                categories,
+                products,
+                session: req.session,
+            });
+        })
       .catch((err) => console.log(err));
     },
     createProduct: (req, res)=>{
@@ -63,8 +69,8 @@ module.exports = {
             price, 
             discount, 
             category, 
-            trademark, 
             description, 
+            trademark,
             alcoholContent,
             outstanding
         } = req.body;
@@ -73,13 +79,17 @@ module.exports = {
             name,
             price,
             discount,
-            trademarkId: trademark,
+            categoryId: category,
             description,
             alcoholContent,  
+            trademark,
             outstanding,         
             images: req.file ? req.file.filename : "img2.png",
         })
         .then(() => {
+            db.Category.update({
+                category
+            })
             res.redirect("/admin/products");
         })
         .catch((err) => console.log(err));
@@ -87,7 +97,6 @@ module.exports = {
 
         } else {
             res.render("admin/addProduct", {
-                subcategories,
                 categories,
                 errors: errors.mapped(),
                 old: req.body,
@@ -96,22 +105,18 @@ module.exports = {
         }
     },
     editProducts: (req, res) => {
-        let editProduct = db.Product.findByPk(req.params.id, {
+        /* let editProduct = db.Product.findByPk(req.params.id, {
             include: [{
                 association: "trademark",
-                include: [{
-                    association: "category"
-                }]
             }]
-        });
-        let editTrademark = db.Trademark.findAll();
+        }); */
         let editCategory = db.Category.findAll();
 
         Promise.all([editProduct, editTrademark, editCategory])
         .then(([product, trademarks, categories]) => {
+            //res.send(product, trademarks, categories)
             res.render("admin/editProduct", {
                 product,
-                trademarks,
                 categories
             })
         })
@@ -125,7 +130,6 @@ module.exports = {
                 price, 
                 discount, 
                 category, 
-                trademark, 
                 description, 
                 alcoholContent 
             } = req.body;
@@ -135,17 +139,28 @@ module.exports = {
                 price,
                 discount,
                 category,
-                trademarkId: trademark,
+                categoryId: category,
                 description,
-                alcoholContent,           
+                alcoholContent,     
                 images: req.file ? req.file.filename : "img2.png",
             }, {
                 where: {
                     id: req.params.id
                 }
             })
-            .then(() => {
-                res.redirect("/admin/products");
+            /* .then(()=> {
+                db.Trademark.update({
+                    include: [{
+                        
+                    }]
+                }, {
+                    where: {
+                        id: 
+                    }
+                })
+            }) */
+            .then(()=> {
+                res.redirect("/admin/products")
             })
             .catch((err) => console.log(err));
         } else {

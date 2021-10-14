@@ -1,26 +1,21 @@
-let { products } = require('../data/dataBase.js');
 const db = require('../database/models');
 const { Op } = require('sequelize');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-let productCart = products.filter(element => element.cart === true)
 
 module.exports = {
 	index: (req, res) => {
 		db.Product.findAll({
-            include: [
-                {association: "trademark",
-                include: [{
-                    association: "category"
-                }]}
-            ]
+            include: [{
+                association: "category"
+            }]
         })
         .then(product => {
             db.Product.findAll({
                 where: {
                     outstanding: 1 
                 }
-            })
+            }) 
             .then(products => {
                 res.render("index", {
                     titleBanner: "Pedi tu birra y te la llevamos a tu casa",
@@ -30,12 +25,11 @@ module.exports = {
                     session: req.session
                 })
             })
-        })
-	},
+	    })
+    },
 	about: (req, res) => {
         res.render("about", {
             titleBanner: "Acerca de Nosotros",
-        	productCart,
 			session: req.session
         })
     },
@@ -43,14 +37,12 @@ module.exports = {
         
         res.render("contact", {
             titleBanner: "Contáctenos",
-            productCart,
 			session: req.session
         })
     },
     finalizePurchase: (req, res) => {
 		res.render('finalizePurchase', {
 			titleBanner: "Último paso",
-			productCart,
 			session: req.session
 		});
     },
@@ -67,7 +59,6 @@ module.exports = {
 				titleBanner: "Resultados de la busqueda",
 				result: result,
 				toThousand,
-				productCart,
 				search: req.query.keywords,
 				session: req.session
 			})

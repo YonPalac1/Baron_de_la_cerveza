@@ -4,16 +4,13 @@ module.exports = {
     products: (req, res) => {
         db.Product.findAll({
             include: [
-                {association: "trademark",
-                include: [{
-                    association: "category"
-                }]}
+                {association: "category"}
             ]
         })
         .then(product => {
             db.Product.findAll({
                 where: {
-                    outstanding: 0
+                    outstanding: 1
                 }
             })
             .then(products => {
@@ -34,9 +31,7 @@ module.exports = {
               id: req.params.id,
             },
             include: [
-                {association: "trademark",
-                    include: [{association: "category"}]
-                }
+                {association: "category"}
             ]
           })
           .then((product) => {
@@ -49,11 +44,8 @@ module.exports = {
             .catch((err) => console.log(err));
     },
     productCart: (req, res) => {
-        let productCart = products.filter(element => element.cart === true)
-
         res.render("productCart", {
             titleBanner: "Comprala antes de que se caliente",
-            productCart,
 			session: req.session
         })
     }
