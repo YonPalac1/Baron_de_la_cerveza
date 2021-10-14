@@ -20,6 +20,7 @@ router.get("/products", userAdminCheck,cookieCheck, controller.products);
 router.get("/products/create", userAdminCheck, controller.addProducts);
 router.post('/products/create', uploadProductFile.single("images"), productValidator, controller.createProduct);
 
+
 /* Editar un producto */
 router.get("/products/edit/:id", userAdminCheck, controller.editProducts);
 router.put("/products/edit/:id",uploadProductFile.single("images"), productValidator, controller.updateProducts);

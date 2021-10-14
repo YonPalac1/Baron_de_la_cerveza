@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.5.62, for Win64 (AMD64)
 --
--- Host: localhost    Database: bdlac
+-- Host: localhost    Database: barondelacerveza
 -- ------------------------------------------------------
 -- Server version	5.5.5-10.4.21-MariaDB
 
@@ -36,7 +36,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'Lager'),(2,'IPA'),(3,'Cerveza Negra'),(4,'Dorada'),(6,'Clasica');
+INSERT INTO `categories` VALUES (1,'Lager'),(2,'Patagonia');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -57,7 +57,7 @@ CREATE TABLE `contacts` (
   PRIMARY KEY (`id`),
   KEY `contacts_FK` (`userId`),
   CONSTRAINT `contacts_FK` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +66,6 @@ CREATE TABLE `contacts` (
 
 LOCK TABLES `contacts` WRITE;
 /*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
-INSERT INTO `contacts` VALUES (1,'dto Alvarez','BsAs',17,'Argentina','125656146');
 /*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,11 +88,12 @@ CREATE TABLE `products` (
   `alcoholContent` decimal(10,0) DEFAULT NULL,
   `outstanding` tinyint(1) DEFAULT NULL,
   `images` varchar(100) DEFAULT NULL,
+  `trademark` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `category_idx` (`categoryId`),
   CONSTRAINT `category` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=123 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,7 +102,6 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Hoppy Lager',200,10,'Cerveza lager , de amargor moderado pero fácil de percibir. Notablemente balanceado con una base bien maltosa, como a bizcocho, pan tostado, proveniente de la malta vienna. De final seco y cuerpo ligero.',1,NULL,NULL,NULL,1,'img1.jpg'),(2,'Dark Vader',1350,NULL,'Prima hermana de nuestra Superstar, La Dark Vader es una cerveza negra con intensa presencia de lúpulos tanto en aroma como en sabor.',2,NULL,NULL,NULL,0,'img2.png'),(3,'Noire',250,10,'Cerveza Stella Artois Noire Schwarzbier negra lata 473 mL 6 u',3,NULL,NULL,NULL,NULL,'img3.png'),(4,'Dorada Original',200,5,'La Cerveza Brahma Dorada es fácil de tomar, suave y ligera, con baja carbonatación. ',4,NULL,NULL,4,1,'img4.png'),(5,'Fernandez',201,NULL,'La cerveza Fernández IPA es ideal para maridar con platos aromáticos e intensos, vegetales grillados, carnes rojas con especias y salsas herbales o brochettes.',1,NULL,NULL,5,1,'img5.png'),(6,'Chop',180,NULL,'Cerveza suave y refrescante',4,NULL,NULL,4,NULL,'img6.png'),(7,'Andes Origen',200,12,'CERVEZA ANDES ORIGEN Negra LATA 473ML',6,NULL,NULL,NULL,NULL,'img7.png'),(8,'Black Mamba',230,12,'Es una cerveza balanceado de color dorado profundo, con dulce aroma a malta y leve aroma a lúpulo. en boca se percibe la maltosidad con un carácter leve a tostado y con un bajo frutado. Finaliza con un amargo medio, creando una cerveza de gran tomabilidad.',7,NULL,NULL,7,NULL,'img2.png'),(9,'Cerveza Clasica',200,NULL,'Quilmes Red Lager es una cerveza roja que se destaca por su equilibrio, cremosidad y su delicado sabor amargo. Resulta fácil de tomar e ideal para resaltar momentos especiales. Su color rojo cobrizo es producto de la perfecta combinación de maltas finamente seleccionadas y el tostado natural de los taninos de la cebada durante el proceso de malteo. ',8,NULL,NULL,NULL,NULL,'img9.jpg');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,7 +115,6 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
-  `last_name` varchar(45) NOT NULL,
   `email` varchar(60) NOT NULL,
   `pass` varchar(70) NOT NULL,
   `rol` int(2) NOT NULL DEFAULT 0,
@@ -125,7 +123,7 @@ CREATE TABLE `users` (
   `avatar` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -134,12 +132,12 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (17,'Jona','Jona','mail3@mail.com','$2a$10$g9YXAsgvDDsFzEkSsqi3Fes8e/9mvviTSUYTs13llZf/5/YwpVncO',0,'2021-09-24 02:05:57','2021-09-24 02:48:31','1632450586832_img_.jpg'),(18,'Jona','Jona','jona@mail.com','$2a$12$FbpqloXrm/TLwKhJpeQ.7OSMQLHH1CEu6XkSLRC2jMxPD50QKjAo.',0,'2021-10-04 23:32:54','2021-10-05 23:07:06','default-image.png'),(19,'Jonat','Jona','jonata@mail.com','$2a$12$.7zr7rcxZSGgFC/2559hsuizGjYb1DeF8/34gnN3rRXDLse1fqDwm',0,'2021-10-04 23:33:19','2021-10-04 23:33:19','default-image.png'),(20,'Jonat','Jona','jonatan@mail.com','$2a$12$a4kyHYjnjVY/ULoAkXkX0ObalxNqlO9lEfHK8.Ilzc8HtoDLX5qPm',0,'2021-10-04 23:33:58','2021-10-04 23:33:58','default-image.png'),(21,'Jonat','Jona','jonat@mail.com','$2a$12$RQh6Affg9WfTb.J0qM0P9OZDciXDitVxRFJrq/avUfAlbhkj653i6',0,'2021-10-04 23:36:20','2021-10-04 23:36:20','default-image.png'),(22,'Jonatan','Jona','jonatan1@mail.com','$2a$12$G/5ui2am.2NlEgJ6EVwjju9NrJ0nDhoe8YEizCW8HY0pDNu5nZdjO',0,'2021-10-04 23:39:11','2021-10-04 23:39:11','default-image.png');
+INSERT INTO `users` VALUES (23,'Jonatan','admin@admin.com','$2a$12$FjDPu61/JRRADiF0qb8Aq..zoEMGWY4yFT34CQPq3HJwFAY9TfFYq',1,'2021-10-13 21:53:46','2021-10-13 21:53:46','avatar-default.png');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Dumping routines for database 'bdlac'
+-- Dumping routines for database 'barondelacerveza'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -151,4 +149,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-13 22:43:14
+-- Dump completed on 2021-10-14 22:15:49
