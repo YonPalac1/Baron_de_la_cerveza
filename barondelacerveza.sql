@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.5.62, for Win64 (AMD64)
 --
--- Host: localhost    Database: barondelacerveza2
+-- Host: localhost    Database: bdlac
 -- ------------------------------------------------------
 -- Server version	5.5.5-10.4.21-MariaDB
 
@@ -83,7 +83,7 @@ CREATE TABLE `products` (
   `price` int(11) NOT NULL,
   `discount` int(11) DEFAULT NULL,
   `description` varchar(800) DEFAULT NULL,
-  `trademarkId` int(11) NOT NULL,
+  `categoryId` int(11) NOT NULL,
   `createdAt` timestamp NULL DEFAULT NULL,
   `updatedAt` timestamp NULL DEFAULT NULL,
   `alcoholContent` decimal(10,0) DEFAULT NULL,
@@ -91,8 +91,8 @@ CREATE TABLE `products` (
   `images` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
-  KEY `trademark_idx` (`trademarkId`),
-  CONSTRAINT `trademark` FOREIGN KEY (`trademarkId`) REFERENCES `trademarks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `category_idx` (`categoryId`),
+  CONSTRAINT `category` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -104,36 +104,6 @@ LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 INSERT INTO `products` VALUES (1,'Hoppy Lager',200,10,'Cerveza lager , de amargor moderado pero fácil de percibir. Notablemente balanceado con una base bien maltosa, como a bizcocho, pan tostado, proveniente de la malta vienna. De final seco y cuerpo ligero.',1,NULL,NULL,NULL,1,'img1.jpg'),(2,'Dark Vader',1350,NULL,'Prima hermana de nuestra Superstar, La Dark Vader es una cerveza negra con intensa presencia de lúpulos tanto en aroma como en sabor.',2,NULL,NULL,NULL,0,'img2.png'),(3,'Noire',250,10,'Cerveza Stella Artois Noire Schwarzbier negra lata 473 mL 6 u',3,NULL,NULL,NULL,NULL,'img3.png'),(4,'Dorada Original',200,5,'La Cerveza Brahma Dorada es fácil de tomar, suave y ligera, con baja carbonatación. ',4,NULL,NULL,4,1,'img4.png'),(5,'Fernandez',201,NULL,'La cerveza Fernández IPA es ideal para maridar con platos aromáticos e intensos, vegetales grillados, carnes rojas con especias y salsas herbales o brochettes.',1,NULL,NULL,5,1,'img5.png'),(6,'Chop',180,NULL,'Cerveza suave y refrescante',4,NULL,NULL,4,NULL,'img6.png'),(7,'Andes Origen',200,12,'CERVEZA ANDES ORIGEN Negra LATA 473ML',6,NULL,NULL,NULL,NULL,'img7.png'),(8,'Black Mamba',230,12,'Es una cerveza balanceado de color dorado profundo, con dulce aroma a malta y leve aroma a lúpulo. en boca se percibe la maltosidad con un carácter leve a tostado y con un bajo frutado. Finaliza con un amargo medio, creando una cerveza de gran tomabilidad.',7,NULL,NULL,7,NULL,'img2.png'),(9,'Cerveza Clasica',200,NULL,'Quilmes Red Lager es una cerveza roja que se destaca por su equilibrio, cremosidad y su delicado sabor amargo. Resulta fácil de tomar e ideal para resaltar momentos especiales. Su color rojo cobrizo es producto de la perfecta combinación de maltas finamente seleccionadas y el tostado natural de los taninos de la cebada durante el proceso de malteo. ',8,NULL,NULL,NULL,NULL,'img9.jpg');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `trademarks`
---
-
-DROP TABLE IF EXISTS `trademarks`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `trademarks` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
-  `categoryId` int(11) NOT NULL,
-  `createdAt` date DEFAULT NULL,
-  `updatedAt` date DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  KEY `categoria_idx` (`categoryId`),
-  CONSTRAINT `categoria` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `trademarks`
---
-
-LOCK TABLES `trademarks` WRITE;
-/*!40000 ALTER TABLE `trademarks` DISABLE KEYS */;
-INSERT INTO `trademarks` VALUES (1,'Patagonia',1,NULL,NULL),(2,'Bier House',2,NULL,NULL),(3,'Estella Artois',3,NULL,NULL),(4,'Brahma',4,NULL,NULL),(5,'Patagonia',2,NULL,NULL),(6,'Andes',3,NULL,NULL),(7,'Grunge',3,NULL,NULL),(8,'Quilmes',6,NULL,NULL);
-/*!40000 ALTER TABLE `trademarks` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -169,7 +139,7 @@ INSERT INTO `users` VALUES (17,'Jona','Jona','mail3@mail.com','$2a$10$g9YXAsgvDD
 UNLOCK TABLES;
 
 --
--- Dumping routines for database 'barondelacerveza2'
+-- Dumping routines for database 'bdlac'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -181,4 +151,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-12  1:19:13
+-- Dump completed on 2021-10-13 22:43:14

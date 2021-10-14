@@ -34,15 +34,8 @@
                 <input type="number" class="form-control" id="inputDiscount" name="discount" >
             </div>
             <div class="col-sm-12 col-md-6">
-                <select class="form-select" id="specificSizeSelect" name="trademark">
-                    <option selected hidden value="">Marca</option>
-                   <% trademarks.forEach(trademark => { %>
-                      <option value="<%- trademark.id %>"><%- trademark.name %></option>
-                   <% }) %>
-                  </select>
-                <% if (locals.errors && errors.marca) { %>
-					<small class="text-danger"><%= errors.trademark.msg %> </small>
-				<% } %>
+                <label for="graduacion" class="form-label">Marca</label>
+                <input type="text" class="form-control" name="trademark" aria-label="file example">
             </div>
             <div class="col-sm-12 col-md-6">
                 <label for="graduacion" class="form-label">Graduación alcohólica</label>
@@ -76,6 +69,5 @@
             </button>
         </form>
 	</main>
-</div>
 </body>
 </html>

@@ -21,10 +21,10 @@ module.exports = function(sequelize, dataTypes){
         description: {
             type: dataTypes.STRING(800),
         },
-        categoryId: {
-            type: dataTypes.INTEGER(11),
-            allowNull: false
-        },
+        trademark: {
+            type: dataTypes.STRING(11),
+            allowNull: true
+        }, 
         alcoholContent: {
             type: dataTypes.STRING(11),
             allowNull: false
@@ -36,6 +36,10 @@ module.exports = function(sequelize, dataTypes){
         images:{
             type: dataTypes.STRING(100)
         },
+        categoryId: {
+            type: dataTypes.INTEGER(11),
+            allowNull: false
+        }
     }
     let config = {
         tableName: "products",

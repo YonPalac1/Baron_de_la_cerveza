@@ -23,11 +23,16 @@
 			<div class="collapse" id="categoriesCollapse">
 				<hr>
 				<ul>
-				<b>Color</b>
+					<b>Categoria</b>
+					<% product.forEach(element => { %>
+						<li><a href="#"><%= element.category.name %></a></li>
+					<% }) %>
 				</ul>
 				<ul>
 					<b>Cervecerias</b>
-
+					<% product.forEach(element => { %>
+						<li><a href="#"><%= element.trademark %></a></li>
+					<% }) %>
 				</ul>
 				<button  onclick="showCategories()">
 					<i class="fas fa-chevron-up"></i>
@@ -60,7 +65,11 @@
 						<div class="detalles-articulos">
 							<span>$<%= element.price %> </span>
 							<p><%= element.name %> </p>
-							<b><%= element.trademark.name %>  / <%= element.trademark.name %>  / <%= element.alcoholContent %>% ALC</b>
+							<b><%= element.trademark %> / <%= element.category.name %>  
+								<% if(element.alcoholContent){ %>
+									/ <%= element.alcoholContent %> % ALC
+								<% } %>
+							</b>
 							<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
 						</div>
 						<div class="boton-comprar">

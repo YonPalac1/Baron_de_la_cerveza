@@ -16,7 +16,11 @@
 					<div class="detalles-articulos">
 						<span>$<%= product.price %></span>
 						<p><%= product.name %></p>
-						<b> / <%= product.category %> / <%= product.alcoholContent %> % ALC</b>
+						<b>  <%= product.trademark %>  
+							<% if(product.alcoholContent){ %>
+								/ <%= product.alcoholContent %> % ALC /
+							<% } %>
+						</b>
 						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
 					</div>
 					<div class="boton-comprar">

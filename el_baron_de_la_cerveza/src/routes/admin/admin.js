@@ -22,7 +22,7 @@ router.post('/products/create', uploadProductFile.single("images"), productValid
 
 /* Editar un producto */
 router.get("/products/edit/:id", userAdminCheck, controller.editProducts);
-router.put("/products/edit/:id",uploadProductFile.single("image"), productValidator, controller.updateProducts);
+router.put("/products/edit/:id",uploadProductFile.single("images"), productValidator, controller.updateProducts);
 
 /* Eliminar un producto */
 router.delete('/products/delete/:id', controller.productDestroy);
