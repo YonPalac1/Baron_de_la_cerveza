@@ -137,16 +137,41 @@ module.exports = {
             }
         })
         .then(() => {
-            db.Contact.create({
-                street,
-                city,
-                province,
-                phone,
-                userId: req.params.id
-            })
-            .then(() => {
-                res.redirect('/users')
-            })
+
+            let findId = db.Contact.findOne({where: {userId: req.params.id}})
+            console.log(findId)
+            if(findId !== null){
+                db.Contact.update({
+                    street,
+                    city,
+                    province,
+                    phone,
+                    userId: req.params.id
+                }, {
+                    where: {
+                        userId: req.params.id
+                    }
+                })
+                .then(() => {
+                    res.redirect('/users')
+                })
+            }else {
+                db.Contact.create({
+                    street,
+                    city,
+                    province,
+                    phone,
+                    userId: req.params.id
+                }, {
+                    where: {
+                        userId: req.params.id
+                    }
+                })
+                .then(() => {
+                    res.redirect('/users')
+                })
+            }
+
         })
         } else {
         res.render("userProfileEdit", {
