@@ -138,7 +138,7 @@ module.exports = {
             }
         })
         .then(() => {
-            db.Contact.update({
+            db.Contact.create({
                 street,
                 city,
                 province,

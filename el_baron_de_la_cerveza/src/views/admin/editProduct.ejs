@@ -31,16 +31,13 @@
                 <label for="inputDiscount" class="form-label">Descuento</label>
                 <input type="number" class="form-control" id="inputDiscount" name="discount" value="<%= product.discount %>">
             </div>
+            <div class="col-12 d-none">
+                <label for="inputImage" class="form-label">Agregar categoria</label>
+                <input type="text" class="form-control" name="newCategory" aria-label="file example">
+            </div>
             <div class="col-sm-12 col-md-6">
-                <select class="form-select" id="specificSizeSelect" name="trademark">
-                    <option selected hidden value="">Marca</option>
-                   <% trademarks.forEach(trademark => { %>
-                      <option value="<%- trademark.id %>" selected><%- trademark.name %></option>
-                   <% }) %>
-                  </select>
-                <% if (locals.errors && errors.marca) { %>
-					<small class="text-danger"><%= errors.trademark.msg %> </small>
-				<% } %>
+                <label for="graduacion" class="form-label">Marca</label>
+                <input type="text" class="form-control" name="trademark" aria-label="file example" value="<%= product.trademark %>">
             </div>
             <div class="col-sm-12 col-md-6">
                 <label for="graduacion" class="form-label">Graduación alcohólica</label>
@@ -48,9 +45,8 @@
             </div>
             <div class="col-12">
                 <select class="form-select" id="specificSizeSelect" name="category">
-                  <option selected hidden value="">Categorias</option>
                  <% categories.forEach(category => { %>
-                    <option value="<%- category.name%>"><%- category.name %></option>
+                    <option value="<%- category.id %>"" <%- product.categoryId == category.id ? "selected" : category.id == product.category ? `selected` : ""  %>><%- category.name %></option>
                  <% }) %>
                 </select>
                 <% if (locals.errors && errors.category) { %>
@@ -62,8 +58,16 @@
                 <textarea class="form-control" id="validationTextarea" name="description" placeholder="Descripción"><%= product.description %></textarea>
             </div>
             <div class="col-sm-12 col-md-6">
-                <label for="check" class="form-label">Destacar</label>
-                <input type="checkbox" id="check" class="form-control form-check-input" name="outstanding" aria-label="file example" multiple <%= product.outstanding == 1 ? "checked" : null %> >
+                <label for="outstanding" class="form-label">Destacar</label>
+                <select class="form-select" id="specificSizeSelect" name="outstanding">
+                    <% if(product.outstanding == 1){ %>
+                        <option value="1" selected>Si</option>
+                        <option value="0">No</option>
+                    <% } else { %>
+                        <option value="1">Si</option>
+                        <option value="0" selected>No</option>
+                    <% } %>
+                </select>    
             </div>
             <button type="submit" class="btn btn-primary">
                 EDITAR

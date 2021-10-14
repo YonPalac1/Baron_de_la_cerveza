@@ -61,8 +61,11 @@
                 <textarea class="form-control" id="validationTextarea" name="description" placeholder="Descripción"> </textarea>
             </div>
             <div class="col-sm-12 col-md-6">
-                <label for="check" class="form-label">Destacar</label>
-                <input type="checkbox" id="check" class="form-control form-check-input" name="outstanding" aria-label="file example" multiple>
+                <select class="form-select" id="specificSizeSelect" name="outstanding">
+                    <option selected hidden value="">Descatar</option>
+                    <option value="1">Si</option>
+                    <option value="0">No</option>
+                </select>   
             </div>
             <button type="submit" class="btn btn-primary">
                 CREAR
