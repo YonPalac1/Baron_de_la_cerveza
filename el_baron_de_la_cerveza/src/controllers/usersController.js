@@ -2,6 +2,8 @@ let { products, writeUsersJSON } = require('../data/dataBase.js');
 let { validationResult } = require('express-validator')
 let bcrypt = require('bcryptjs')
 const db = require('../database/models')
+const Op = require('sequelize');
+
 
 const productCart = products.filter(element => element.cart === true)
 		
@@ -90,8 +92,17 @@ module.exports = {
                 avatar: req.file ? req.file.filename : "avatar-default.png",
                 rol: 0,
             })
-            .then(() => {
-                res.redirect("/users/login");
+            .then(user => {
+                db.Contact.create({
+                    street: null,
+                    city: null,
+                    province: null,
+                    phone: null,
+                    userId: user.id
+                })
+                .then(() => {
+                    res.redirect('/users')
+                })
             })
             .catch((err) => console.log(err));
         } else {
@@ -130,26 +141,25 @@ module.exports = {
         db.User.update({
             name,
             email,
-            avatar: req.file ? req.file.filename : req.session.user.avatar
+            avatar: req.file == req.file.filename  ? "avatar-default.png" : req.file.filename
         }, {
             where: {
                 id: req.params.id
             }
         })
         .then(() => {
-            db.Contact.create({
+            db.Contact.update({
                 street,
                 city,
                 province,
                 phone,
-                userId: req.params.id
             }, {
                 where: {
                     userId: req.params.id
                 }
             })
-            .then(() => {
-                res.redirect('/users')
+            .then(()=>{
+                res.redirect("/users")
             })
         })
         } else {
