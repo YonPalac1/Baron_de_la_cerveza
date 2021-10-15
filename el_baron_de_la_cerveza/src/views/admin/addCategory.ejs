@@ -10,9 +10,12 @@
 	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 		<h2>Agregar Categoria</h2>
         <form class="row g-3" action="/admin/category/create" method="POST" enctype="multipart/form-data">
-            <div class="col-sm-12 col-md-12">
-                <label for="graduacion" class="form-label">Nueva categoria</label>
-                <input type="text" class="form-control" name="name" aria-label="file example">
+            <div class="col-12">
+                <label for="inputName" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="inputName" name="name">
+                <% if (locals.errors && errors.name) { %>
+					<small class="text-danger"><%= errors.name.msg %> </small>
+				<% } %>
             </div>
             <button type="submit" class="btn btn-primary">
                 CREAR

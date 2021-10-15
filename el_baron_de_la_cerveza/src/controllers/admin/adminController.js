@@ -11,7 +11,6 @@ module.exports = {
             })
             
         })
-        
     },
     users:(req, res) => {
         db.User.findAll()
@@ -185,5 +184,31 @@ module.exports = {
     },
     signin: (req, res)=> {
         res.render('admin/adminLogin')
-    }
+    },
+    addCategory: (req, res)=>{
+        
+        db.Category.findAll()
+        .then((category) => {
+            res.render("admin/addCategory", {
+                category,
+                session: req.session,
+            });
+        })
+      .catch((err) => console.log(err));
+
+    },
+    createCategory: (req, res)=>{
+        let { 
+            name
+        } = req.body;
+    
+        db.Category.create({
+            name,
+        })
+        .then(() => {
+            res.redirect("/admin/addProduct");
+        })
+        .catch((err) => console.log(err));
+                
+    } 
 }
