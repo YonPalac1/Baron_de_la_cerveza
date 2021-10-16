@@ -13,14 +13,14 @@
 	
 	<!-- Productos -->
 	<main class="seccion-productos">
-		<h2>PRODUCTOS</h2>
+		<h2 class="wow animate__animated animate__fadeInUp animate__delay-0.5s">PRODUCTOS</h2>
 		<div class="productos-menus">
-			<h3 class="cat-text">Categorias</h3>
+			<h3 class="cat-text wow animate__animated animate__fadeInUp animate__delay-1s">Categorias</h3>
 
 			<!-- Boton desplegable -->
-			<button class="btn__cat" onclick="showCategories()"><h3>Categorias</h3></button>
+			<button class="btn__cat wow animate__animated animate__bounceInUp animate__delay-0.5s" onclick="showCategories()"><h3>Categorias</h3></button>
 			<!-- Menu categorias desplegable -->
-			<div class="collapse" id="categoriesCollapse">
+			<div class="collapse wow animate__animated animate__bounceInUp animate__delay-1s" id="categoriesCollapse">
 				<hr>
 				<ul>
 					<b>Categoria</b>
@@ -53,7 +53,7 @@
 			<div class="productos-main">
 
 				<% product.forEach(element => { %>
-					<article class="br">
+					<article class="br wow animate__animated animate__fadeInUp animate__delay-0.5s">
 						<a href="/products/productDetail/<%= element.id %> ">
 						<% if(element.discount){ %>
 							<span class="off">
@@ -84,23 +84,8 @@
 	<!-- /Productos -->
 
 	<!-- CARDS -->
-	<section class="cards">
-		<div class="card br flex">
-			<p><i class="fas fa-truck"></i></p>	
-			<strong>Enviamos tu compra</strong>
-			<p>Envios a todo el pais</p>
-		</div>
-		<div class="card br flex">
-			<p><i class="fas fa-credit-card"></i></p>
-			<strong>Pagá como quieras</strong>
-			<p>Tarjetas de crédito o efectivo</p>
-		</div>
-		<div class="card br flex">
-			<p><i class="fas fa-shopping-bag"></i></p>
-			<strong>Comprá con seguridad</strong>
-			<p>Tus datos siempre estarán protegidos</p>
-		</div>
-	</section>
+	<%- include("partials/cards")  %>
+	
 	<!-- /CARDS -->
 
 	<section class="carrusel-banners">
