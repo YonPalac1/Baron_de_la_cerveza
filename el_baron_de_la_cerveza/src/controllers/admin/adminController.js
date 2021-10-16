@@ -198,12 +198,10 @@ module.exports = {
 
     },
     createCategory: (req, res)=>{
-        let { 
-            name
-        } = req.body;
+        
     
         db.Category.create({
-            name,
+            name: req.body.name
         })
         .then(() => {
             res.redirect("/admin/addProduct");

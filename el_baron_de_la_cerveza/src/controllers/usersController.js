@@ -141,7 +141,7 @@ module.exports = {
         db.User.update({
             name,
             email,
-            avatar: req.file == req.file.filename  ? "avatar-default.png" : req.file.filename
+            avatar:  req.file ? req.file.filename : req.session.user.avatar
         }, {
             where: {
                 id: req.params.id
