@@ -48,6 +48,9 @@ module.exports = {
     },
 	search: (req, res) => {
 		db.Product.findAll({
+            include: [{
+                association: "category"
+            }],
 			where: {
 				name: {
 					[Op.like] : `%${req.query.keywords}%`

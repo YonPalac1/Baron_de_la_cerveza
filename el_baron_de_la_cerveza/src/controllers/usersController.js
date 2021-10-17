@@ -3,6 +3,7 @@ let { validationResult } = require('express-validator')
 let bcrypt = require('bcryptjs')
 const db = require('../database/models')
 const Op = require('sequelize');
+const dataBase = require('../data/dataBase.js');
 
 
 const productCart = products.filter(element => element.cart === true)
@@ -12,7 +13,9 @@ module.exports = {
 	user: (req, res) => {
         db.User.findByPk(req.session.user.id, {
             include: [{
-                association: "contacts"
+                association: "avatars"
+            }, {
+                association: "contacts"  
             }]
         })
         .then(user => {
@@ -48,7 +51,6 @@ module.exports = {
                 rol: user.rol,
                 createdAt: user.createdAt,
                 updatedAt: user.updatedAt,
-                avatar: user.avatar
             };
                 if (req.body.remember) {
                     res.cookie("elBaronDeLaCerveza", req.session.user, {
@@ -89,7 +91,6 @@ module.exports = {
                 name,
                 email,
                 pass: bcrypt.hashSync(pass1, 12),
-                avatar: req.file ? req.file.filename : "avatar-default.png",
                 rol: 0,
             })
             .then(user => {
@@ -100,8 +101,14 @@ module.exports = {
                     phone: null,
                     userId: user.id
                 })
-                .then(() => {
-                    res.redirect('/users')
+                .then(()=>{
+                    db.Avatar.create({
+                        avatar: "avatar-default.png",
+                        userId: user.id
+                    })
+                    .then(() => {
+                        res.redirect('/users')
+                    })
                 })
             })
             .catch((err) => console.log(err));
@@ -115,7 +122,11 @@ module.exports = {
     },
     userEdit: (req, res) => {
         db.User.findByPk(req.session.user.id, {
-            include: [{ association: "contacts" }],
+            include: [{
+                association: "avatars"
+            }, {
+                association: "contacts"  
+            }]
           }).then((user) => {
             res.render("userProfileEdit", {
               titleBanner: "Editar perfil", 
@@ -141,7 +152,6 @@ module.exports = {
         db.User.update({
             name,
             email,
-            avatar:  req.file ? req.file.filename : req.session.user.avatar
         }, {
             where: {
                 id: req.params.id
@@ -159,7 +169,16 @@ module.exports = {
                 }
             })
             .then(()=>{
-                res.redirect("/users")
+                db.Avatar.update({
+                    avatar:  req.file ? req.file.filename : req.session.user.avatar
+                }, {
+                    where: {
+                        userId: req.params.id
+                    }
+                })
+                .then(()=>{
+                    res.redirect("/users")
+                })
             })
         })
         } else {

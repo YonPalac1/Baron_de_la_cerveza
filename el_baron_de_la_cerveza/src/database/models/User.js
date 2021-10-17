@@ -24,10 +24,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER(2).UNSIGNED,
             allowNull: false
         },
-        avatar:{
-            type: dataTypes.STRING(100),
-            allowNull: true
-        },
     }
     let config = {
         tableName: "users",
@@ -39,6 +35,10 @@ module.exports = (sequelize, dataTypes) => {
     User.associate = models => {
         User.hasMany(models.Contact, {
             as: "contacts",
+            foreignKey:"userId" 
+        }),
+        User.hasMany(models.Avatar, {
+            as: "avatars",
             foreignKey:"userId" 
         })
     }

@@ -21,15 +21,20 @@
 			<% result.forEach(element => { %>
 					<article class="br">
 						<a href="/products/productDetail/<%= element.id %> ">
-							<span class="off">
-								<%= element.discount %>%Off 
-							</span>
-							<img src="/img/productos/<%= element.image %> " class="imagen-producto">
+							<% if(element.discount){ %>
+								<span class="off">
+									<%= element.discount %>%Off 
+								</span>
+							<% } %>
+							<img src="/img/productos/<%= element.images %> " class="imagen-producto">
 						</a>
 						<div class="detalles-articulos">
 							<span>$<%= element.price %> </span>
 							<p><%= element.name %> </p>
-							<b><%= element.marca %>  / <%= element.category %>  / <%= element.alcoholContent %>% ALC</b>
+							<b><%= element.trademark %>  / <%= element.category.name %>  
+							 <% if(element.alcoholContent){ %>
+								/ <%= element.alcoholContent %> % ALC 
+							<% } %></b>
 							<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
 						</div>
 						<div class="boton-comprar">

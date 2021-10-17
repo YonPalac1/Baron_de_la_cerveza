@@ -52,31 +52,8 @@
 		<section>
 			<div class="productos-main">
 
-				<% product.forEach(element => { %>
-					<article class="br wow animate__animated animate__fadeInUp animate__delay-0.5s">
-						<a href="/products/productDetail/<%= element.id %> ">
-						<% if(element.discount){ %>
-							<span class="off">
-								<%= element.discount %>%Off 
-							</span>
-						<% } %>
-							<img src="/img/productos/<%= element.images %> " class="imagen-producto">
-						</a>
-						<div class="detalles-articulos">
-							<span>$<%= element.price %> </span>
-							<p><%= element.name %> </p>
-							<b><%= element.trademark %> / <%= element.category.name %>  
-								<% if(element.alcoholContent){ %>
-									/ <%= element.alcoholContent %> % ALC
-								<% } %>
-							</b>
-							<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-						</div>
-						<div class="boton-comprar">
-							<button class="btn-buy br">Comprar</a>
-						</div>
-					</article>
-				<% }) %>	
+					
+	<%- include("partials/product")  %>
 	
 			</div>
 		</section>
