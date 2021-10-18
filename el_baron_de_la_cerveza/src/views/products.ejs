@@ -40,13 +40,15 @@
 			</div>
 		</div>
 		<div class="filter">
-			<select value="">
-		   		<option value="" hidden selected>Filtrar por</option>
-		   		<option value="precio">Mayor precio</option>
-		   		<option value="br">Menor precio</option>
-		   		<option value="br">Destacado</option>
-		   		<option value="br">Agregados recientemente</option>
-		   	</select>
+			<div>
+				<button onclick="orderBy()">Ordenar</button>
+				<div class="submenu" id="orderBy">
+					<a href="/products/order/desc">Mayor a menor precio</a>
+					<a href="/products/order/asc">Menor a mayor precio</a>
+					<a href="/products/order/discount">Ofertas</a>
+				</div>
+			</div>
+			
 		</div>
 
 		<section>
