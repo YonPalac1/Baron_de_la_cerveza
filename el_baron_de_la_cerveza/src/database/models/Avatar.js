@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Contact";
+    let alias = "Avatar";
     let cols = {
         id: {
             type: dataTypes.INTEGER(11).UNSIGNED,
@@ -7,16 +7,7 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true,
             allowNull: false 
         },
-        street: {
-            type: dataTypes.STRING(100)
-        },
-        city: {
-            type: dataTypes.STRING(100)
-        },
-        province: {
-            type: dataTypes.STRING(100)
-        },
-        phone: {
+        avatar: {
             type: dataTypes.STRING(100)
         },
         userId: {
@@ -26,18 +17,18 @@ module.exports = (sequelize, dataTypes) => {
     }
     
     let config = {
-        tableName: "contacts",
+        tableName: "avatars",
         timestamps: false
     }
 
-    const Contact = sequelize.define(alias, cols, config)
+    const Avatar = sequelize.define(alias, cols, config)
 
-    Contact.associate = models => {
-        Contact.belongsTo(models.User, {
+    Avatar.associate = models => {
+        Avatar.belongsTo(models.User, {
             as: "user",
             foreignKey: "userId"
         })
     }
 
-    return Contact;
+    return Avatar;
 }

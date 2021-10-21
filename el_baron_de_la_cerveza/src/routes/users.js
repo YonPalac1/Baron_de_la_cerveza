@@ -29,4 +29,5 @@ router.post('/register', uploadUserAvatar.single('avatar'), registerValidator, p
 router.get('/edit/:id', userSessionCheck, userEdit)
 router.put('/edit/:id', uploadUserAvatar.single('avatar'), updateUser)
 
+
 module.exports = router;

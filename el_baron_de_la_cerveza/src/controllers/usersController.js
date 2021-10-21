@@ -2,6 +2,9 @@ let { products, writeUsersJSON } = require('../data/dataBase.js');
 let { validationResult } = require('express-validator')
 let bcrypt = require('bcryptjs')
 const db = require('../database/models')
+const Op = require('sequelize');
+const dataBase = require('../data/dataBase.js');
+
 
 const productCart = products.filter(element => element.cart === true)
 		
@@ -10,7 +13,9 @@ module.exports = {
 	user: (req, res) => {
         db.User.findByPk(req.session.user.id, {
             include: [{
-                association: "contacts"
+                association: "avatars"
+            }, {
+                association: "contacts"  
             }]
         })
         .then(user => {
@@ -46,7 +51,6 @@ module.exports = {
                 rol: user.rol,
                 createdAt: user.createdAt,
                 updatedAt: user.updatedAt,
-                avatar: user.avatar
             };
                 if (req.body.remember) {
                     res.cookie("elBaronDeLaCerveza", req.session.user, {
@@ -88,11 +92,25 @@ module.exports = {
                 name,
                 email,
                 pass: bcrypt.hashSync(pass1, 12),
-                avatar: req.file ? req.file.filename : "avatar-default.png",
                 rol: 0,
             })
-            .then(() => {
-                res.redirect("/users/login");
+            .then(user => {
+                db.Contact.create({
+                    street: null,
+                    city: null,
+                    province: null,
+                    phone: null,
+                    userId: user.id
+                })
+                .then(()=>{
+                    db.Avatar.create({
+                        avatar: "avatar-default.png",
+                        userId: user.id
+                    })
+                    .then(() => {
+                        res.redirect('/users')
+                    })
+                })
             })
             .catch((err) => console.log(err));
         } else {
@@ -105,7 +123,11 @@ module.exports = {
     },
     userEdit: (req, res) => {
         db.User.findByPk(req.session.user.id, {
-            include: [{ association: "contacts" }],
+            include: [{
+                association: "avatars"
+            }, {
+                association: "contacts"  
+            }]
           }).then((user) => {
             res.render("userProfileEdit", {
               titleBanner: "Editar perfil", 
@@ -131,48 +153,34 @@ module.exports = {
         db.User.update({
             name,
             email,
-            avatar: req.file ? req.file.filename : req.session.user.avatar
         }, {
             where: {
                 id: req.params.id
             }
         })
         .then(() => {
-
-            let findId = db.Contact.findOne({where: {userId: req.params.id}})
-            console.log(findId)
-            if(findId !== null){
-                db.Contact.update({
-                    street,
-                    city,
-                    province,
-                    phone,
+            db.Contact.update({
+                street,
+                city,
+                province,
+                phone,
+            }, {
+                where: {
                     userId: req.params.id
+                }
+            })
+            .then(()=>{
+                db.Avatar.update({
+                    avatar:  req.file ? req.file.filename : req.session.user.avatar
                 }, {
                     where: {
                         userId: req.params.id
                     }
                 })
-                .then(() => {
-                    res.redirect('/users')
+                .then(()=>{
+                    res.redirect("/users")
                 })
-            }else {
-                db.Contact.create({
-                    street,
-                    city,
-                    province,
-                    phone,
-                    userId: req.params.id
-                }, {
-                    where: {
-                        userId: req.params.id
-                    }
-                })
-                .then(() => {
-                    res.redirect('/users')
-                })
-            }
-
+            })
         })
         } else {
         res.render("userProfileEdit", {

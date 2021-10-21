@@ -24,7 +24,7 @@
                   <% product.forEach(adminproducts => { %>
                     <tr>
                         <td><img src="/img/productos/<%= adminproducts.images %>" style="width: 50px;"></td>
-                        <td><%- adminproducts.name%></td>
+                        <td><%- adminproducts.name%> <%- adminproducts.trademark%></td>
                         <td><%= adminproducts.price %></td>
                         <td>
                             <a class="btn btn-warning" href="/admin/products/edit/<%- adminproducts.id %>">

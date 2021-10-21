@@ -144,7 +144,7 @@ module.exports = {
             alcoholContent,  
             trademark,
             outstanding,         
-            images: req.file != "img2.png" ? req.file : "img2.png",
+            images: req.file != "default-img.gif" ? req.file : "default-img.gif",
         },{
             where: {
                 id: req.params.id
@@ -198,12 +198,10 @@ module.exports = {
 
     },
     createCategory: (req, res)=>{
-        let { 
-            name
-        } = req.body;
+        
     
         db.Category.create({
-            name,
+            name: req.body.name
         })
         .then(() => {
             res.redirect("/admin/addProduct");

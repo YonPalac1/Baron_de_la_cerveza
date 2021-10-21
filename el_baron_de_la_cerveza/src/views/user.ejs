@@ -14,12 +14,12 @@
 	<!-- Barra de Direccion -->
 		<div class="title-config">
 			<div class="avatar">
-				<img src="/img/avatars/<%- user.avatar %>">
+				<img src="/img/avatars/<%- user.avatars[0].avatar %>">
 			</div>
-
+						
 			<h2><%- user.name %></h2>
 		</div>
-	<!-- Detalles de usuario -->
+		<!-- Detalles de usuario -->
 		<section class="tabla-config">
 			<div class="config">		
 				<a href="/users/edit/<%- user.id %>" class="editar">Editar<i class="fas fa-pen"></i></a>

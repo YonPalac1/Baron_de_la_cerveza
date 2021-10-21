@@ -1,5 +1,5 @@
 <section class="slider-products">
-		<h2><%= titleSlider %></h2>
+		<h2 class=" wow animate__animated animate__fadeInUp animate__delay-.5s"><%= titleSlider %></h2>
 		
 		<div class="carousel main-carousel" data-flickity='{ "groupCells": true }'>
 			<% destacadosSlider.forEach(product => { %>
@@ -11,7 +11,7 @@
 								<%= product.discount %>%Off 
 							</span>
 						<% } %>
-						<img src="/img/productos/<%= product.images %>" class="imagen-producto">
+						<img src="/img/productos/<%= product.images %>" class="imagen-producto wow animate__animated animate__zoomIn animate__delay-.5s">
 					</a>
 					<div class="detalles-articulos">
 						<span>$<%= product.price %></span>
