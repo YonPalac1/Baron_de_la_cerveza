@@ -122,6 +122,13 @@ module.exports = {
     },
     updateProducts: (req, res) => {
         let errors = validationResult(req);
+        if (req.fileValidatorError) {
+            let image = {
+                param: "image",
+                msg: req.fileValidatorError,
+            };
+            errors.push(image);
+        }
 
         if (errors.isEmpty()) {
         let { 
@@ -132,8 +139,15 @@ module.exports = {
             description, 
             trademark,
             alcoholContent,
-            outstanding
+            outstanding,
         } = req.body;
+
+        let arrayImages;
+        if (req.files) {
+          req.files.forEach((image) => {
+            arrayImages = image.filename
+          });
+        }
 
         db.Product.update({
             name,
@@ -144,7 +158,7 @@ module.exports = {
             alcoholContent,  
             trademark,
             outstanding,         
-            images: req.file != "default-img.gif" ? req.file : "default-img.gif",
+            images: arrayImages
         },{
             where: {
                 id: req.params.id
@@ -158,7 +172,7 @@ module.exports = {
                     id: req.params.id
                 }
             })
-            .then(()=>{
+            .then((products)=>{
                 res.redirect("/admin/products");
             })
         })

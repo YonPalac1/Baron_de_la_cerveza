@@ -15,12 +15,16 @@ module.exports = {
                 }
             })
             .then(products => {
-                res.render("products", {
-                    titleBanner: "Pedi tu birra y te la llevamos a tu casa",
-                    titleSlider: "Destacados",
-                    product,
-                    destacadosSlider: products,
-                    session: req.session
+                db.Category.findAll()
+                .then((categories) => {
+                    res.render("productsFilter", {
+                        titleBanner: "Pedi tu birra y te la llevamos a tu casa",
+                        titleSlider: "Destacados",
+                        product,
+                        categories,
+                        destacadosSlider: products,
+                        session: req.session
+                    })
                 })
             })
         })
@@ -39,7 +43,7 @@ module.exports = {
             db.Product.findAll({
                 where: {
                     outstanding: 1
-                },
+                }
             })
             .then(products => {
                 db.Category.findAll()
@@ -92,15 +96,19 @@ module.exports = {
                 db.Product.findAll({
                     where: {
                         outstanding: 1
-                    },
+                    }
                 })
                 .then(products => {
-                    res.render("products", {
-                        titleBanner: "Pedi tu birra y te la llevamos a tu casa",
-                        titleSlider: "Destacados",
-                        product,
-                        destacadosSlider: products,
-                        session: req.session
+                    db.Category.findAll()
+                    .then((categories) => {
+                        res.render("productsFilter", {
+                            titleBanner: "Pedi tu birra y te la llevamos a tu casa",
+                            titleSlider: "Destacados",
+                            product,
+                            categories,
+                            destacadosSlider: products,
+                            session: req.session
+                        })
                     })
                 })
             })
@@ -115,15 +123,19 @@ module.exports = {
                 db.Product.findAll({
                     where: {
                         outstanding: 1
-                    },
+                    }
                 })
                 .then(products => {
-                    res.render("products", {
-                        titleBanner: "Pedi tu birra y te la llevamos a tu casa",
-                        titleSlider: "Destacados",
-                        product,
-                        destacadosSlider: products,
-                        session: req.session
+                    db.Category.findAll()
+                    .then((categories) => {
+                        res.render("productsFilter", {
+                            titleBanner: "Pedi tu birra y te la llevamos a tu casa",
+                            titleSlider: "Destacados",
+                            product,
+                            categories,
+                            destacadosSlider: products,
+                            session: req.session
+                        })
                     })
                 })
             })
@@ -138,15 +150,21 @@ module.exports = {
                 db.Product.findAll({
                     where: {
                         outstanding: 1
-                    }
+                    },
+                    include:[
+                    {association: "productImages"}]
                 })
                 .then(products => {
-                    res.render("products", {
-                        titleBanner: "Pedi tu birra y te la llevamos a tu casa",
-                        titleSlider: "Destacados",
-                        product,
-                        destacadosSlider: products,
-                        session: req.session
+                    db.Category.findAll()
+                    .then((categories) => {
+                        res.render("productsFilter", {
+                            titleBanner: "Pedi tu birra y te la llevamos a tu casa",
+                            titleSlider: "Destacados",
+                            product,
+                            categories,
+                            destacadosSlider: products,
+                            session: req.session
+                        })
                     })
                 })
             })
