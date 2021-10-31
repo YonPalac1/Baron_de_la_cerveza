@@ -1,0 +1,96 @@
+<!-- Navbar Fixed -->
+<nav class="navbar">
+    <div class="flex">
+    <!-- Buscador oculto -->
+        <div class="search" id="showSearch">
+            <form action="/search" method="GET" class="search-form">
+                <div class="btn-search" onclick="showSearch()"><i class="fas fa-times"></i></div>
+                <input type="text" name="keywords" placeholder="Buscar" id="showSearch">
+                <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    <!-- /buscador oculto -->
+        <div class="logo wow animate__animated animate__fadeInDown animate__delay-0.5s">
+                <a href="/">
+                <img src="/img/icons/icon-title2.png" class="logotipo" alt="El baron de la cerveza, logo">
+                </a>
+        </div>
+    
+        <div class="nav-items wow animate__animated animate__fadeInDown animate__delay-0.5s">
+                <i class="fas fa-bars burguer" onclick="showMenu()"></i>
+                <ul id="menu">
+                    <button class="close" onclick="showMenu()"><i class="fas fa-times"></i></button>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/products">Productos</a></li>
+                    <li><a href="/about">Acerca de</a></li>
+                    <li><a href="/contact">Contacto</a></li>
+    
+                    <!-- Switch de modo oscuro -->
+                    <button class="switch" id="switch" onclick="modoNocturno()"style="display:none;">
+                        <span><i class="fas fa-sun"></i></span>
+                        <span><i class="fas fa-moon"></i></span>
+                    </button>
+    
+                </ul>
+        </div>
+        <div class="icons">
+    
+                <button  class="user-config" onclick="showSearch()"><i class="fas fa-search"></i></button>
+    
+                <button class="user-config" onclick="showSubmenu()">
+                    <% if (typeof session.user != "undefined") { %>
+                    <span></span>
+                    <% } %>
+                    <i class="fas fa-user"></i>
+                </button>
+    
+                <div class="shopping-cart" onclick="showCart()"><i class="fas fa-shopping-cart"></i>
+                    <span>0</span>
+                </div>
+                
+                <!-- Mini menu desplegable  -->
+                <div class="carrito-menu" id="carrito-menu">
+                    <div class="cerrar-menu">
+                        <i class="fas fa-times" onclick="showCart()"></i>
+                    </div>
+                    <div class="en-carrito">
+                        <div>
+                            <div class="detalles-producto-carrito">
+                                <span>No hay productos en el carrito</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="boton-carrito">
+                        <a href="/products/productCart">Ir a carrito</a>
+                    </div>
+                </div>
+                <!-- /Mini menu desplegable -->
+        </div>
+    </div>
+</nav>
+<!-- /Navbar Fixed-->
+
+
+<!-- Submenu -->
+<nav class="sub-nav" id="subNave">
+    <ul>
+        <% if (typeof session.user != "undefined") { %>
+                <% if (session.user.rol === 1) { %>
+                    <li><a href="/admin/index">Administrador</a></li>
+                    <li><a href="/users/logout">Cerrar sesión</a></li>
+                <% } %>
+                <% if(session.user.rol === 0){ %>
+                    <li><a href="/users">Configuracion</a></li>
+                    <li><a href="/users/logout">Cerrar sesión</a></li>
+                <% } %>
+        <% } else { %>
+            <li><a href="/users/login">Ingresar</a></li>
+            <li><a href="/users/register">Registrarse</a></li>
+        <% } %>    
+    </ul>
+</nav>
+<!-- /Submenu -->
+    
+       
+<button>Administrador</button>
