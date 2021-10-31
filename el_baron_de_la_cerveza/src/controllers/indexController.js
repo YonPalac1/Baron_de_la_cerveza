@@ -8,13 +8,18 @@ module.exports = {
 		db.Product.findAll({
             include: [{
                 association: "category"
+            },{
+                association: "brand"
             }]
         })
         .then(product => {
             db.Product.findAll({
+                include: [{
+                    association: "brand"
+                }],
                 where: {
                     outstanding: 1 
-                }
+                },
             }) 
             .then(products => {
                 res.render("index", {
@@ -50,6 +55,8 @@ module.exports = {
 		db.Product.findAll({
             include: [{
                 association: "category"
+            },{
+                association: "brand"
             }],
 			where: {
 				name: {

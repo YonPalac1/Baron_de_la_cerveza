@@ -21,7 +21,10 @@ router.get("/products/create", userAdminCheck, controller.addProducts);
 router.post('/products/create', uploadProductFile.array("images"), productValidator, controller.createProduct);
 
 router.get("/category/create", userAdminCheck, controller.addCategory);
-router.post('/category/create', productValidator, controller.createCategory);
+router.post('/category/create', controller.createCategory);
+
+router.get("/brand/create", userAdminCheck, controller.addBrand);
+router.post('/brand/create', controller.createBrand);
 
 
 

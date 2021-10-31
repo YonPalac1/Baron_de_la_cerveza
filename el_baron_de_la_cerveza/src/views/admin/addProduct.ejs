@@ -7,7 +7,7 @@
 	<%- include("../partials/headerAdmin")%>
 
 	<%- include("../partials/sidebarAdmin") %>
-	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 admin">
 		<h2>Subir productos</h2>
 		<form class="row g-3" action="/admin/products/create" method="POST" enctype="multipart/form-data">
             <div class="col-12">
@@ -49,7 +49,7 @@
                 <select class="form-select" id="specificSizeSelect" name="category">
                   <option selected hidden value="">Categorias</option>
                  <% categories.forEach(category => { %>
-                    <option value="<%- category.id %>"><%- category.name %></option>
+                    <option value="<%- category.id %>"><%- category.category %></option>
                  <% }) %>
                 </select>
                 <% if (locals.errors && errors.category) { %>

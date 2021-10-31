@@ -213,14 +213,53 @@ module.exports = {
     },
     createCategory: (req, res)=>{
         
-    
-        db.Category.create({
-            name: req.body.name
+        let errors = validationResult(req);
+
+        if (errors.isEmpty()) {
+            let { 
+                category,
+            } = req.body;
+
+            db.Category.create({
+                category
+            })
+            .then(() => {
+                res.redirect("/admin/category/create");
+            })
+            .catch((err) => console.log(err));
+                    
+       } 
+    },
+    addBrand: (req, res)=>{
+        
+        db.Brand.findAll()
+        .then((brand) => {
+            res.render("admin/addBrand", {
+                brand,
+                session: req.session,
+            });
         })
-        .then(() => {
-            res.redirect("/admin/addProduct");
-        })
-        .catch((err) => console.log(err));
-                
-    } 
+      .catch((err) => console.log(err));
+
+    },
+    createBrand: (req, res)=>{
+        
+        let errors = validationResult(req);
+
+        if (errors.isEmpty()) {
+            let { 
+                brand,
+            } = req.body;
+
+            db.Brand.create({
+                brand
+            })
+            .then(() => {
+                res.redirect("/admin/create/brand");
+            })
+            .catch((err) => console.log(err));
+                    
+       } 
+    }
+
 }
