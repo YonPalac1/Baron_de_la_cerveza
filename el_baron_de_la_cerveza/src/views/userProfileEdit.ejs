@@ -10,7 +10,7 @@
 	<%- include("partials/banner")  %>
 
 	<div class="title-config">
-		<div class="avatar">
+		<div class="avatar" id="img-preview">
 			<img src="/img/avatars/<%- user.avatars[0].avatar %>">
 		</div>
 	</div>
@@ -24,8 +24,9 @@
 					<% } %>
 				</p>
 			<p>
-				<label for="avatar">Cambiar foto</label>
-				<input type="file" name="avatar" aria-label="file example" id="avatar">
+				<label for="formFile">Cambiar foto</label>
+				<input type="file" name="avatar" aria-label="file example" id="formFile">
+				<span id="fileErrors"></span>
 			</p>
 			<p>
 				<label for="email">Email</label>
@@ -59,5 +60,7 @@
 <!-- FOOTER -->
 <%- include("partials/footer")  %> 
 <!-- /FOOTER -->
+
+<script src="/js/previewImage.js"></script>
 </body>
 </html>
