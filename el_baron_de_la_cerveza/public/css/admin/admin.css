@@ -7,6 +7,11 @@
 .sidebar a:hover {
 	background: #400ced;
 }
+#sidebarMenu .position-sticky .flex-column {
+	display: flex;
+	flex-wrap: nowrap;
+	
+}
 main.admin h2,
 main.admin h1 {
 	color:#28006e; 

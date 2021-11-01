@@ -62,6 +62,18 @@
     align-items: center;
     row-gap: 0.25rem;
     font-weight: 600;
+    padding: 8px 10px;
+    transition: .3s;
+}
+
+.nav__link:hover {
+    background: var(--orange);
+}
+.nav__link span {
+    transition: .3s;
+}
+.nav__link:hover span {
+    color: #fff;
 }
 
 .nav__icon {
@@ -178,6 +190,112 @@
 	margin-right: 5px;
 }
 
+.shopping-cart {
+	position: fixed;
+	right: 20px;
+	bottom: 80px;
+	padding: 10px 12px;
+	border-radius: 50%;
+	background-color: var(--darkorange);
+	color: #fff;
+	z-index: 5000;
+}
+ .shopping-cart span {
+	position: absolute;
+	font-size: 13px;
+	background-color: green;
+	bottom: 0;
+	height: 18px;
+	width: 18px;
+	text-align: center;
+	border-radius: 50%;
+}
+
+/* Mini menu desplegable de carrito */
+.carrito-menu {
+	position: absolute;
+	top: 100px;
+	right: -100%;
+	background: #000;
+	width: 160px;
+	padding: 15px 12px 15px 10px;
+	color: #fff;
+	border-radius: 5px;
+	transition: all .5s ease;
+}
+.carrito-menu.active {
+	right: 0;
+}
+.en-carrito {
+	max-height: 50vh;
+	overflow-y: auto;
+}
+.carrito-menu .cerrar-menu i {
+	cursor: pointer;
+}
+.en-carrito::-webkit-scrollbar-track
+{
+	background-color: #F5F5F5;
+}
+.en-carrito::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #F5F5F5;
+}
+.en-carrito::-webkit-scrollbar-thumb
+{
+	background-color: var(--orange);
+	border-radius: 10px;
+}
+.carrito-menu .imagen-carrito {
+	width: 100px;
+	height: 140px;
+	background: grey;
+}
+.carrito-menu .imagen-carrito img {
+	width: 100px;
+	height: 140px;
+	background: grey;
+}
+.carrito-menu  .detalles-producto-carrito b {
+	display: block;
+	color: var(--orange);
+}
+.carrito-menu  .detalles-producto-carrito span {
+	font-family: var(--font-open);
+	font-size: 13px;
+}
+.carrito-menu .boton-carrito {
+	text-align: center;
+	padding: 10px 0px;
+	cursor: pointer;
+}
+.carrito-menu .boton-carrito a {
+	background-color: var(--darkorange);
+	color: #fff;
+    padding: 8px 10px;
+	border-radius: 5px;
+}
+/* /Mini menu desplegable de carrito */
+.header {
+    background: url('/img/icons/header-3.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.header h1{
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+}
+.header h2 {
+    color: var(--orange);
+}
 @media screen and (min-width: 768px){
     .nav {
         height: 3.5rem;
@@ -230,8 +348,13 @@
         left: -230px;
         top: -100px;
     }
+    .header h1 {
+        font-size: 40px;
+    }
 }
 
 @media screen and (min-width: 1024px) {
-
+    .header h1 {
+        font-size: 50px;
+    }
 }

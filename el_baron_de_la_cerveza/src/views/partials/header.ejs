@@ -59,5 +59,29 @@
                 <% } %>    
             </ul>
         </nav>
+        
     </div>
+    <div class="shopping-cart" onclick="showCart()"><i class="fas fa-shopping-cart"></i>
+        <span>0</span>
+    </div>
+    
+    <!-- Mini menu desplegable  -->
+    <div class="carrito-menu" id="carrito-menu">
+        <div class="cerrar-menu">
+            <i class="fas fa-times" onclick="showCart()"></i>
+        </div>
+        <div class="en-carrito">
+            <div>
+                <div class="detalles-producto-carrito">
+                    <span>No hay productos en el carrito</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="boton-carrito">
+            <a href="/products/productCart">Ir a carrito</a>
+        </div>
+    </div>
+    <!-- /Mini menu desplegable -->
+    
 </nav>
