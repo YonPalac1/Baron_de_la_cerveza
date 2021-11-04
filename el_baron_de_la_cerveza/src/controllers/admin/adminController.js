@@ -63,37 +63,35 @@ module.exports = {
         }
 
         if (errors.isEmpty()) {
-        let { 
-            name, 
-            price, 
-            discount, 
-            category, 
-            description, 
-            trademark,
-            alcoholContent,
-            outstanding
-        } = req.body;
+            let { 
+                name, 
+                price, 
+                discount, 
+                category, 
+                description, 
+                trademark,
+                alcoholContent,
+                outstanding
+            } = req.body;
 
-        db.Product.create({
-            name,
-            price,
-            discount,
-            categoryId: category,
-            description,
-            alcoholContent,  
-            trademark,
-            outstanding,         
-            images: req.file ? req.file.filename : "default-img.gif",
-        })
-        .then(() => {
-            db.Category.update({
-                category
+            db.Product.create({
+                name,
+                price,
+                discount,
+                categoryId: category,
+                description,
+                alcoholContent,  
+                trademark,
+                outstanding,         
+                images: req.file ? req.file.filename : "default-img.gif",
             })
-            res.redirect("/admin/products");
-        })
-        .catch((err) => console.log(err));
-            
-
+            .then(() => {
+                db.Category.update({
+                    category
+                })
+                res.redirect("/admin/products");
+            })
+            .catch((err) => console.log(err));
         } else {
             res.render("admin/addProduct", {
                 categories,
@@ -199,7 +197,6 @@ module.exports = {
     },
     createCategory: (req, res)=>{
         
-    
         db.Category.create({
             name: req.body.name
         })

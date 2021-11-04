@@ -12,7 +12,7 @@ module.exports = function(sequelize, dataTypes){
             allowNull: false
         },
         price:{
-            type: dataTypes.INTEGER(11),
+            type: dataTypes.DECIMAL(65),
             allowNull: false
         },
         discount: {
@@ -26,7 +26,7 @@ module.exports = function(sequelize, dataTypes){
             allowNull: true
         }, 
         alcoholContent: {
-            type: dataTypes.STRING(11),
+            type: dataTypes.DECIMAL(65),
             allowNull: false
         },
         outstanding: {

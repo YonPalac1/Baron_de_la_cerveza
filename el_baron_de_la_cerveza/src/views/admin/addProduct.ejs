@@ -24,7 +24,7 @@
             </div>
             <div class="col-sm-12 col-md-6">
                 <label for="inputPrice" class="form-label">Precio</label>
-                <input type="number" class="form-control" id="inputPrice" name="price">
+                <input type="text" class="form-control" id="inputPrice" name="price">
                 <% if (locals.errors && errors.precio) { %>
 					<small class="text-danger"><%= errors.precio.msg %> </small>
 				<% } %>
