@@ -5,22 +5,34 @@ module.exports = {
     products: (req, res) => {
         db.Product.findAll({
             include: [
-                {association: "category"}
+                {association: "category"},
+                {association: "brand"}
             ]
         })
         .then(product => {
             db.Product.findAll({
+                include: [{
+                    association: "brand"
+                }],
                 where: {
-                    outstanding: 1
-                }
+                    outstanding: 1 
+                },
             })
             .then(products => {
-                res.render("products", {
-                    titleBanner: "Pedi tu birra y te la llevamos a tu casa",
-                    titleSlider: "Destacados",
-                    product,
-                    destacadosSlider: products,
-                    session: req.session
+                let categoryPromise = db.Category.findAll()
+                let brandPromise = db.Brand.findAll()
+
+                Promise.all([categoryPromise, brandPromise])
+                .then(([categories, brands]) => {
+                    res.render("products", {
+                        titleBanner: "Pedi tu birra y te la llevamos a tu casa",
+                        titleSlider: "Destacados",
+                        product,
+                        categories,
+                        brands,
+                        destacadosSlider: products,
+                        session: req.session
+                    })
                 })
             })
         })
@@ -32,23 +44,69 @@ module.exports = {
                 categoryId: req.params.id,
             },
             include: [
-                {association: "category"}
+                {association: "category"},
+                {association: "brand"}
             ]
         })
         .then((product) => {
             db.Product.findAll({
+                include: [{
+                    association: "brand"
+                }],
                 where: {
                     outstanding: 1
-                },
+                }
             })
             .then(products => {
-                db.Category.findAll()
-                .then((categories) => {
+                let categoryPromise = db.Category.findAll()
+                let brandPromise = db.Brand.findAll()
+
+                Promise.all([categoryPromise, brandPromise])
+                .then(([categories, brands]) => {
                     res.render("productsFilter", {
                         titleBanner: "Pedi tu birra y te la llevamos a tu casa",
                         titleSlider: "Destacados",
                         product,
                         categories,
+                        brands,
+                        destacadosSlider: products,
+                        session: req.session
+                    })
+                })
+            })
+        })
+    },
+    brandFilter: (req, res) => {
+        db.Product.findAll({
+            where: {
+                brandId: req.params.id,
+            },
+            include: [
+                {association: "category"},
+                {association: "brand"}
+            ]
+        })
+        .then((product) => {
+            db.Product.findAll({
+                include: [{
+                    association: "brand"
+                }],
+                where: {
+                    outstanding: 1
+                }
+            })
+            .then(products => {
+                let categoryPromise = db.Category.findAll()
+                let brandPromise = db.Brand.findAll()
+
+                Promise.all([categoryPromise, brandPromise])
+                .then(([categories, brands]) => {
+                    res.render("productsFilter", {
+                        titleBanner: "Pedi tu birra y te la llevamos a tu casa",
+                        titleSlider: "Destacados",
+                        product,
+                        categories,
+                        brands,
                         destacadosSlider: products,
                         session: req.session
                     })
@@ -62,7 +120,8 @@ module.exports = {
               id: req.params.id,
             },
             include: [
-                {association: "category"}
+                {association: "category"},
+                {association: "brand"}
             ]
           })
           .then((product) => {
@@ -84,69 +143,105 @@ module.exports = {
         if(req.params.id == "desc"){
             db.Product.findAll({
                 include: [
-                    {association: "category"}
+                    {association: "category"},
+                    {association: "brand"}
                 ],
                 order: [['price', 'DESC']]
             })
             .then(product => {
                 db.Product.findAll({
+                    include: [{
+                        association: "brand"
+                    }],
                     where: {
                         outstanding: 1
-                    },
+                    }
                 })
                 .then(products => {
-                    res.render("products", {
-                        titleBanner: "Pedi tu birra y te la llevamos a tu casa",
-                        titleSlider: "Destacados",
-                        product,
-                        destacadosSlider: products,
-                        session: req.session
-                    })
+                    let categoryPromise = db.Category.findAll()
+                    let brandPromise = db.Brand.findAll()
+    
+                    Promise.all([categoryPromise, brandPromise])
+                    .then(([categories, brands]) => {
+                        res.render("productsFilter", {
+                            titleBanner: "Pedi tu birra y te la llevamos a tu casa",
+                            titleSlider: "Destacados",
+                            product,
+                            categories,
+                            brands,
+                            destacadosSlider: products,
+                            session: req.session
+                        })
+                    })  
                 })
             })
         }else if(req.params.id == "asc"){
             db.Product.findAll({
                 include: [
-                    {association: "category"}
+                    {association: "category"},
+                    {association: "brand"}
                 ],
                 order: [['price', 'ASC']]
             })
             .then(product => {
                 db.Product.findAll({
+                    include: [{
+                        association: "brand"
+                    }],
                     where: {
                         outstanding: 1
-                    },
+                    }
                 })
                 .then(products => {
-                    res.render("products", {
-                        titleBanner: "Pedi tu birra y te la llevamos a tu casa",
-                        titleSlider: "Destacados",
-                        product,
-                        destacadosSlider: products,
-                        session: req.session
+                    let categoryPromise = db.Category.findAll()
+                    let brandPromise = db.Brand.findAll()
+
+                    Promise.all([categoryPromise, brandPromise])
+                    .then(([categories, brands]) => {
+                        res.render("productsFilter", {
+                            titleBanner: "Pedi tu birra y te la llevamos a tu casa",
+                            titleSlider: "Destacados",
+                            product,
+                            categories,
+                            brands,
+                            destacadosSlider: products,
+                            session: req.session
+                        })
                     })
                 })
             })
         }else  if(req.params.id == "discount"){
             db.Product.findAll({
                 include: [
-                    {association: "category"}
+                    {association: "category"},
+                    {association: "brand"}
                 ],
                 order: [['discount', 'DESC']],
             })
             .then(product => {
                 db.Product.findAll({
+                    include: [{
+                        association: "brand"
+                    }],
                     where: {
                         outstanding: 1
                     }
                 })
                 .then(products => {
-                    res.render("products", {
-                        titleBanner: "Pedi tu birra y te la llevamos a tu casa",
-                        titleSlider: "Destacados",
-                        product,
-                        destacadosSlider: products,
-                        session: req.session
+                    let categoryPromise = db.Category.findAll()
+                    let brandPromise = db.Brand.findAll()
+
+                    Promise.all([categoryPromise, brandPromise])
+                    .then(([categories, brands]) => {
+                        res.render("productsFilter", {
+                            titleBanner: "Pedi tu birra y te la llevamos a tu casa",
+                            titleSlider: "Destacados",
+                            product,
+                            categories,
+                            brands,
+                            destacadosSlider: products,
+                            session: req.session
+                        })
                     })
                 })
             })

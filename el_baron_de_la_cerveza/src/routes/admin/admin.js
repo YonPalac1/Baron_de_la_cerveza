@@ -18,16 +18,19 @@ router.get("/products", userAdminCheck,cookieCheck, controller.products);
 
 /* Crear un producto */
 router.get("/products/create", userAdminCheck, controller.addProducts);
-router.post('/products/create', uploadProductFile.single("images"), productValidator, controller.createProduct);
+router.post('/products/create', uploadProductFile.array("images"), productValidator, controller.createProduct);
 
 router.get("/category/create", userAdminCheck, controller.addCategory);
-router.post('/category/create', productValidator, controller.createCategory);
+router.post('/category/create', controller.createCategory);
+
+router.get("/brand/create", userAdminCheck, controller.addBrand);
+router.post('/brand/create', controller.createBrand);
 
 
 
 /* Editar un producto */
 router.get("/products/edit/:id", userAdminCheck, controller.editProducts);
-router.put("/products/edit/:id",uploadProductFile.single("images"), productValidator, controller.updateProducts);
+router.put("/products/edit/:id",uploadProductFile.array("images"), productValidator, controller.updateProducts);
 
 /* Eliminar un producto */
 router.delete('/products/delete/:id', controller.productDestroy);

@@ -21,10 +21,6 @@ module.exports = function(sequelize, dataTypes){
         description: {
             type: dataTypes.STRING(800),
         },
-        trademark: {
-            type: dataTypes.STRING(100),
-            allowNull: true
-        }, 
         alcoholContent: {
             type: dataTypes.DECIMAL(65),
             allowNull: false
@@ -37,6 +33,10 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.STRING(100)
         },
         categoryId: {
+            type: dataTypes.INTEGER(11),
+            allowNull: true
+        },
+        brandId: {
             type: dataTypes.INTEGER(11),
             allowNull: true
         }
@@ -52,6 +52,10 @@ module.exports = function(sequelize, dataTypes){
         Product.belongsTo(models.Category, {
             as: "category",
             foreignKey: "categoryId"
+        }),
+        Product.belongsTo(models.Brand, {
+            as: "brand",
+            foreignKey: "brandId"
         })
     }
 

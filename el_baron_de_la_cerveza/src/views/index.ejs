@@ -6,31 +6,11 @@
 <%- include('partials/header.ejs') %>
 
 	<!-- Header -->
-	<header>
-		<!-- Slider main container -->
-		<div class="swiper-container">
-		  <!-- Additional required wrapper -->
-		  <div class="swiper-wrapper">
-		    <!-- Slides -->
-		    <div class="swiper-slide">
-		    	<img src="/img/icons/header-1.jpg" alt="">
-		    </div>
-		    <div class="swiper-slide">
-		    	<img src="/img/icons/header-2.jpg" alt="">
-		    </div>
-		    <div class="swiper-slide">
-		    	<img src="/img/icons/header-3.jpg" alt="">
-		    </div>
-		  </div>
-		  
-<!-- If we need scrollbar -->
-		  <div class="swiper-scrollbar"></div>
-		</div>
-		    <div class="title">
-		    	<h1 class=" wow animate__animated animate__zoomIn animate__delay-.5s">Pedi tu birra y te la llevamos a tu casa</h1>
+	<header class="header">
+		<h1 class=" wow animate__animated animate__zoomIn animate__delay-.5s">Pedi tu birra y te la llevamos a tu casa</h1>
 		    	<h2 class=" wow animate__animated animate__bounceInUp animate__delay-1s">El barón de la cerveza</h2>
-		    </div>
-		</header>
+	</header>
+	
 	<!-- /header -->
 
 	<section class="intro">
@@ -46,6 +26,9 @@
 		</div>
 	</section>
 
+	<!-- CARDS -->
+	<%- include("partials/cards")  %>
+	<!-- /CARDS -->
 
 	<!-- Slider  -->
 	<%- include('partials/slider.ejs') %>
@@ -65,9 +48,6 @@
 	</section>
 
 
-	<!-- CARDS -->
-	<%- include("partials/cards")  %>
-	<!-- /CARDS -->
 
 
 

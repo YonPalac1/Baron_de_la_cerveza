@@ -3,15 +3,17 @@
 	<%- include("../partials/headAdmin") %>
 <body>
 	
-	<%- include("../partials/headerAdmin")%>
 
 	<%- include("../partials/sidebarAdmin") %>
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 admin">
 		<h2>Editar Producto</h2>
 		<form class="row g-3" action="/admin/products/edit/<%- product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="col-12">
-                <label for="inputImage" class="form-label">Imagen</label>
-                <input type="file" class="form-control" name="images" aria-label="file example" id="inputImage">
+                <div class="img-container" id="img-preview">
+                        
+                </div>
+                <label for="formFile" class="form-label">Imagen</label>
+                <input type="file" class="form-control" name="images" aria-label="file example" id="formFile">
             </div>
             <div class="col-12">
                 <label for="inputName" class="form-label">Nombre</label>
@@ -31,22 +33,24 @@
                 <label for="inputDiscount" class="form-label">Descuento</label>
                 <input type="number" class="form-control" id="inputDiscount" name="discount" value="<%= product.discount %>">
             </div>
-            <div class="col-12 d-none">
-                <label for="inputImage" class="form-label">Agregar categoria</label>
-                <input type="text" class="form-control" name="newCategory" aria-label="file example">
-            </div>
-            <div class="col-sm-12 col-md-6">
-                <label for="graduacion" class="form-label">Marca</label>
-                <input type="text" class="form-control" name="trademark" aria-label="file example" value="<%= product.trademark %>">
-            </div>
             <div class="col-sm-12 col-md-6">
                 <label for="graduacion" class="form-label">Graduación alcohólica</label>
                 <input type="text" class="form-control" name="alcoholContent" aria-label="file example" value="<%= product.alcoholContent %>">
             </div>
             <div class="col-12">
+                <select class="form-select" id="specificSizeSelect" name="brand">
+                 <% brands.forEach(brand => { %>
+                    <option value="<%- brand.id %>"" <%- product.brandId == brand.id ? "selected" : brand.id == product.brandId ? `selected` : ""  %>><%- brand.brand %></option>
+                 <% }) %>
+                </select>
+                <% if (locals.errors && errors.category) { %>
+					<small class="text-danger"><%= errors.category.msg %> </small>
+				<% } %>
+            </div>
+            <div class="col-12">
                 <select class="form-select" id="specificSizeSelect" name="category">
                  <% categories.forEach(category => { %>
-                    <option value="<%- category.id %>"" <%- product.categoryId == category.id ? "selected" : category.id == product.category ? `selected` : ""  %>><%- category.name %></option>
+                    <option value="<%- category.id %>"" <%- product.categoryId == category.id ? "selected" : category.id == product.categoryId ? `selected` : ""  %>><%- category.category %></option>
                  <% }) %>
                 </select>
                 <% if (locals.errors && errors.category) { %>

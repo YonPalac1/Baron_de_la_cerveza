@@ -25,13 +25,13 @@
 				<ul>
 					<b>Categoria</b>
 					<% categories.forEach(element => { %>
-						<li><a href="/products/productsFilter/<%= element.id %>"><%= element.name %></a></li>
+						<li><a href="/products/productsFilter/<%= element.id %>"><%= element.category %></a></li>
 					<% }) %>
 				</ul>
 				<ul>
 					<b>Cervecerias</b>
-					<% product.forEach(element => { %>
-						<li><a href=""><%= element.trademark %></a></li>
+					<% brands.forEach(element => { %>
+						<li><a href="/products/brandFilter/<%= element.id %>"><%= element.brand %></a></li>
 					<% }) %>
 				</ul>
 				<button  onclick="showCategories()">

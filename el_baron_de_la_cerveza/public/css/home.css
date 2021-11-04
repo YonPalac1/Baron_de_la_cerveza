@@ -35,7 +35,7 @@ article a {
 .imagen-producto {
 	height: 200px;
 	margin: 0 auto;
-	transition: .5s;
+	transition: 1s;
 	z-index: 1;
 }
 .imagen-producto:hover {
