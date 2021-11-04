@@ -11,11 +11,14 @@ function qs(element) {
       $brand = document.querySelector("#brandSelect"),
       $brandErrors = document.querySelector("#brandErrors"),
       $category = document.querySelector("#categorySelect"),
-      $categoryErrors = document.querySelector("#categoryErrors");
+      $categoryErrors = document.querySelector("#categoryErrors"),
+      $inputDescription = document.querySelector('#inputDescription');
+      $descriptionErrors = document.querySelector("#descriptionErrors"),
       
 
-      regExPrice = /^[0-9]{7,8}$/,
-      regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/;
+      regExPrice = /^[0-9].{1,8}$/,
+      regExAlpha = /^[a-zA-Z\sñáéíóúü\0-9 ].{5,90}$/;
+      regExDescription = /^[a-zA-Z\sñáéíóúü\0-9 ].{20,190}$/;
   
     $inputName.addEventListener("blur", function () {
       switch (true) {
@@ -24,7 +27,7 @@ function qs(element) {
           $inputName.classList.add("is-invalid");
           break;
         case !regExAlpha.test($inputName.value):
-          $nameErrors.innerHTML = "Debes ingresar un nombre válido";
+          $nameErrors.innerHTML = "Debes ingresar un nombre de mas de 5 carácteres";
           $inputName.classList.add("is-invalid");
           break;
         default:
@@ -88,6 +91,23 @@ function qs(element) {
               break;
       }
   })
+  $inputDescription.addEventListener('blur', function() {
+    switch (true) {
+        case !$inputDescription.value.trim():
+            $descriptionErrors.innerHTML = 'El campo descripcion es obligatorio';
+            $inputDescription.classList.add('is-invalid')
+            break;
+        case !regExDescription.test($inputDescription.value):
+            $descriptionErrors.innerHTML = 'Debe ingresar una descripcion de al menos 20 caracteres';
+            $inputDescription.classList.add('is-invalid')
+            break
+        default:
+            $inputDescription.classList.remove('is-invalid');
+            $inputDescription.classList.add('is-valid');
+            $descriptionErrors.innerHTML = ''
+            break;
+        }
+    })
   
   $form.addEventListener('submit',function(event){
       let error = false;

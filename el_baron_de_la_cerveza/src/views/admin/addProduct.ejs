@@ -27,7 +27,7 @@
             </div>
             <div class="col-sm-12 col-md-6">
                 <label for="inputPrice" class="form-label">Precio</label>
-                <input type="text" class="form-control" id="inputPrice" name="price">
+                <input type="number" class="form-control" id="inputPrice" name="price">
                 <% if (locals.errors && errors.precio) { %>
 					<small class="text-danger"><%= errors.precio.msg %> </small>
 				<% } %>
@@ -67,7 +67,8 @@
             </div>
             <div class="col-12">
                 <label for="validationTextarea" class="form-label">Descripción</label>
-                <textarea class="form-control" id="validationTextarea" name="description" placeholder="Descripción"> </textarea>
+                <textarea class="form-control" id="inputDescription" name="description" placeholder="Descripción"> </textarea>
+                <span id="descriptionErrors" class="fileErrors"></span>
             </div>
             <div class="col-sm-12 col-md-6">
                 <select class="form-select" id="specificSizeSelect" name="outstanding">
