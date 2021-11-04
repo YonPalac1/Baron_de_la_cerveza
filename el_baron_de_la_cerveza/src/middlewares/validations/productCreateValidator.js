@@ -11,7 +11,7 @@ module.exports = [
     .notEmpty()
     .withMessage("Debes elegir una categoría"),
 
-    check("trademark")
+    check("brand")
     .notEmpty()
     .withMessage("Debes agregar una marca"),
 
