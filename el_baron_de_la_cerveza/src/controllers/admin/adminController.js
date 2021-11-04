@@ -39,14 +39,16 @@ module.exports = {
         })
     },
     addProducts: (req, res) => {
-        let categoriesPromise = db.Category.findAll();
-        let productsPromise = db.Product.findAll();
+        let productsPromise = db.Product.findAll()
+        let categoryPromise = db.Category.findAll()
+        let brandPromise = db.Brand.findAll()
 
-        Promise.all([categoriesPromise, productsPromise])
-        .then(([categories, products]) => {
+        Promise.all([productsPromise, categoryPromise, brandPromise])
+        .then(([products, categories, brands]) => {
             res.render("admin/addProduct", {
-                categories,
                 products,
+                categories,
+                brands,
                 session: req.session,
             });
         })
@@ -56,22 +58,23 @@ module.exports = {
         let errors = validationResult(req);
         if (req.fileValidatorError) {
         let image = {
-            param: "image",
+            param: "images",
             msg: req.fileValidatorError,
         };
         errors.push(image);
         }
 
-        if (errors.isEmpty()) {
+        if (!errors.isEmpty()) {
+
         let { 
             name, 
             price, 
             discount, 
             category, 
             description, 
-            trademark,
+            brand,
             alcoholContent,
-            outstanding
+            outstanding,
         } = req.body;
 
         db.Product.create({
@@ -81,42 +84,51 @@ module.exports = {
             categoryId: category,
             description,
             alcoholContent,  
-            trademark,
+            brandId: brand,
             outstanding,         
-            images: req.file ? req.file.filename : "default-img.gif",
+            images:  req.file ? req.file.filename : "default-img.gif",
         })
         .then(() => {
-            db.Category.update({
-                category
-            })
-            res.redirect("/admin/products");
+            res.redirect("/admin/products")            
         })
         .catch((err) => console.log(err));
             
 
         } else {
-            res.render("admin/addProduct", {
-                categories,
-                errors: errors.mapped(),
-                old: req.body,
-                session: req.session,
-            });
-        }
+            db.Product.findAll({
+                include: [{
+                    association: "category",
+                },{
+                    association: "brand",
+                }]
+            })
+            .then((products) => {
+                res.render("admin/addProduct", {
+                    products,
+                    session: req.session,
+                })
+            .catch((err) => console.log(err));
+            })
+          .catch((err) => console.log(err));        }
     },
     editProducts: (req, res) => {
         let editProduct = db.Product.findByPk(req.params.id, {
             include: [{
                 association: "category",
+            },{
+                association: "brand",
             }]
         }); 
         let editCategory = db.Category.findAll();
+        let editBrand = db.Brand.findAll();
 
-        Promise.all([editProduct, editCategory])
-        .then(([product, categories]) => {
+        Promise.all([editProduct, editCategory, editBrand])
+        .then(([product, categories, brands]) => {
             //res.send(product, trademarks, categories)
             res.render("admin/editProduct", {
                 product,
-                categories
+                categories,
+                brands
             })
         })
     },
@@ -124,30 +136,32 @@ module.exports = {
         let errors = validationResult(req);
         if (req.fileValidatorError) {
             let image = {
-                param: "image",
+                param: "images",
                 msg: req.fileValidatorError,
             };
             errors.push(image);
         }
 
-        if (errors.isEmpty()) {
+        if (!errors.isEmpty()) {
+
+            let arrayImages;
+            if (req.files) {
+              req.files.forEach((image) => {
+                arrayImages = image.filename
+              });
+            }
+            
         let { 
             name, 
             price, 
             discount, 
             category, 
             description, 
-            trademark,
+            brand,
             alcoholContent,
             outstanding,
         } = req.body;
 
-        let arrayImages;
-        if (req.files) {
-          req.files.forEach((image) => {
-            arrayImages = image.filename
-          });
-        }
 
         db.Product.update({
             name,
@@ -156,7 +170,7 @@ module.exports = {
             categoryId: category,
             description,
             alcoholContent,  
-            trademark,
+            brandId: brand,
             outstanding,         
             images: arrayImages
         },{
@@ -172,7 +186,14 @@ module.exports = {
                     id: req.params.id
                 }
             })
-            .then((products)=>{
+            .then(()=>{
+                db.Brand.update({
+                    brand
+                },{
+                    where: {
+                        id: req.params.id
+                    }
+                })
                 res.redirect("/admin/products");
             })
         })

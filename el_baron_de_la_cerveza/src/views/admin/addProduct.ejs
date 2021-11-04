@@ -36,16 +36,19 @@
                 <input type="number" class="form-control" id="inputDiscount" name="discount" >
             </div>
             <div class="col-sm-12 col-md-6">
-                <label for="graduacion" class="form-label">Marca</label>
-                <input type="text" class="form-control" name="trademark" aria-label="file example">
-            </div>
-            <div class="col-sm-12 col-md-6">
                 <label for="graduacion" class="form-label">Graduación alcohólica</label>
                 <input type="text" class="form-control" name="alcoholContent" aria-label="file example">
             </div>
-            <div class="col-12 d-none">
-                <label for="inputImage" class="form-label">Agregar categoria</label>
-                <input type="text" class="form-control" name="newCategory" aria-label="file example">
+            <div class="col-12">
+                <select class="form-select" id="specificSizeSelect" name="brand">
+                  <option selected hidden value="">Marcas</option>
+                 <% brands.forEach(brand => { %>
+                    <option value="<%- brand.id %>"><%- brand.brand %></option>
+                 <% }) %>
+                </select>
+                <% if (locals.errors && errors.category) { %>
+					<small class="text-danger"><%= errors.category.msg %> </small>
+				<% } %>
             </div>
             <div class="col-12">
                 <select class="form-select" id="specificSizeSelect" name="category">
@@ -64,7 +67,7 @@
             </div>
             <div class="col-sm-12 col-md-6">
                 <select class="form-select" id="specificSizeSelect" name="outstanding">
-                    <option selected hidden value="">Descatar</option>
+                    <option selected hidden value="0">Descatar</option>
                     <option value="1">Si</option>
                     <option value="0">No</option>
                 </select>   
