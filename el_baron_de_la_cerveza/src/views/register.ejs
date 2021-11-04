@@ -18,25 +18,29 @@
 			<h2 style="color: #fff;">Registrarse</h2>
 			<form action="/users/register" method="POST" enctype="multipart/form-data">
 				<p>
-					<input type="text" name="name" placeholder="Nombre" value="<%= locals.old && old.name %>">
+					<input type="text" id="name" name="name" placeholder="Nombre" value="<%= locals.old && old.name %>">
+					<span id="nameErrors" style="color: red"></span>
 					<% if (locals.errors && errors.name) { %>
 						<small class="errorred"><%= errors.name.msg %></small>
 					<% } %>
 				</p>
 				<p>
-					<input type="email" name="email" placeholder="Ingresá tu email" value="<%= locals.old && old.email %>">
+					<input type="email" id="email" name="email" placeholder="Ingresá tu email" value="<%= locals.old && old.email %>">
+					<span id="emailErrors" style="color: red"></span>
 					<% if (locals.errors && errors.email) { %>
 						<small class="errorred"><%= errors.email.msg %></small>
 					<% } %>
 				</p>
 				<p>
-					<input type="password" name="pass1" placeholder="Contraseña">
+					<input type="password" id="pass" name="pass1" placeholder="Contraseña">
+					<span id="passErrors" style="color: red"></span>
 					<% if (locals.errors && errors.pass1) { %>
 						<small class="errorred"><%= errors.pass1.msg %> </small>
 					<% } %>
 				</p>
 				<p>
-					<input type="password" name="pass2" placeholder="Repetir contraseña">
+					<input type="password" id="pass2" name="pass2" placeholder="Repetir contraseña">
+					<span id="pass2Errors" style="color: red"></span>
 					<% if (locals.errors && errors.pass2) { %>
 						<small class="errorred"><%= errors.pass2.msg %></small>
 					<% } %>
@@ -54,9 +58,7 @@
 	</main>		
 
 <%- include('partials/footer') %>
-
-	
-
+<script src="/js/validaciones/frontRegister.js"></script>
 
 </body>
 </html>
