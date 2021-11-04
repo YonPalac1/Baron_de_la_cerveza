@@ -18,10 +18,10 @@ function qs(element) {
               $file.value = '';
               $imgPreview.innerHTML = '';
               return false;
-          }else{
-              // Image preview
-              console.log($file.files);
-              if($file.files && $file.files[0]){
+            }else{
+                // Image preview
+                console.log($file.files);
+                if($file.files && $file.files[0]){
                   let reader = new FileReader();
                   reader.onload = function(e){
                       $imgPreview.innerHTML = '<img src="' + e.target.result +'"/>';

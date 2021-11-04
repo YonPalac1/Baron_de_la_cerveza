@@ -11,7 +11,7 @@ function qs(element) {
       $brand = document.querySelector("#brandSelect"),
       $brandErrors = document.querySelector("#brandErrors"),
       $category = document.querySelector("#categorySelect"),
-      $categoryErrors = document.querySelector("#categoryErrors"),
+      $categoryErrors = document.querySelector("#categoryErrors");
       
 
       regExPrice = /^[0-9]{7,8}$/,
@@ -41,7 +41,7 @@ function qs(element) {
                 $priceErrors.innerHTML = 'El campo price es obligatorio';
                 $price.classList.add('is-invalid')
                 break;
-            case regExPrice.test($price.value):
+            case !regExPrice.test($price.value):
                 $priceErrors.innerHTML = 'Debe ingresar un price válido';
                 $price.classList.add('is-invalid')
                 break
@@ -59,7 +59,7 @@ function qs(element) {
               $brandErrors.innerHTML = 'El campo marca es obligatorio';
               $brand.classList.add('is-invalid')
               break;
-          case regExAlpha.test($brand.value):
+          case !regExAlpha.test($brand.value):
               $brandErrors.innerHTML = 'Debe ingresar una marca válida';
               $brand.classList.add('is-invalid')
               break
@@ -77,7 +77,7 @@ function qs(element) {
               $categoryErrors.innerHTML = 'El campo categoria es obligatorio';
               $category.classList.add('is-invalid')
               break;
-          case regExAlpha.test($category.value):
+          case !regExAlpha.test($category.value):
               $categoryErrors.innerHTML = 'Debe ingresar una categoria válida';
               $category.classList.add('is-invalid')
               break
@@ -105,9 +105,10 @@ function qs(element) {
                 
               submitErrors.innerHTML = "Los campos señalados son obligatorios";
               error = true;
+              
           }
       }
-  
+
       if(!error){
           console.log('Todo bien');
           $form.submit()

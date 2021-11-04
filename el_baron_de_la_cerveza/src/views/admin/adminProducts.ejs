@@ -22,7 +22,11 @@
 		  <tbody>
                   <% product.forEach(adminproducts => { %>
                     <tr>
-                        <td><img src="/img/productos/<%= adminproducts.images %>" style="width: 50px;"></td>
+						<% if(!adminproducts.images){ %>
+							<td><img src="/img/productos/default-img.gif" style="width: 50px;"></td>
+						<% }else{ %>
+							<td><img src="/img/productos/<%= adminproducts.images %>" style="width: 50px;"></td>
+						<% } %>
                         <td><%- adminproducts.name%> <%- adminproducts.trademark%></td>
                         <td><%= adminproducts.price %></td>
                         <td>

@@ -8,14 +8,14 @@
 	<%- include("../partials/sidebarAdmin") %>
 	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 admin">
 		<h2>Subir productos</h2>
-		<form class="row g-3" action="/admin/products/create" method="POST" enctype="multipart/form-data">
+		<form  id="form" class="row g-3" action="/admin/products/create" method="POST" enctype="multipart/form-data">
             <div class="col-12">
                 <div class="img-container" id="img-preview">
                         
                 </div>
                 <label for="formFile" class="form-label">Imagen</label>
                 <input type="file" class="form-control" name="images" aria-label="file example" id="formFile">
-                <span id="fileErrors"></span>
+                <span id="fileErrors" class="fileErrors"></span>
             </div>
             <div class="col-12">
                 <label for="inputName" class="form-label">Nombre</label>
@@ -23,6 +23,7 @@
                 <% if (locals.errors && errors.name) { %>
 					<small class="text-danger"><%= errors.name.msg %> </small>
 				<% } %>
+                <span id="nameErrors" class="fileErrors"></span>
             </div>
             <div class="col-sm-12 col-md-6">
                 <label for="inputPrice" class="form-label">Precio</label>
@@ -30,6 +31,7 @@
                 <% if (locals.errors && errors.precio) { %>
 					<small class="text-danger"><%= errors.precio.msg %> </small>
 				<% } %>
+                <span id="priceErrors" class="fileErrors"></span>
             </div>
             <div class="col-sm-12 col-md-6">
                 <label for="inputDiscount" class="form-label">Descuento</label>
@@ -40,7 +42,7 @@
                 <input type="text" class="form-control" name="alcoholContent" aria-label="file example">
             </div>
             <div class="col-12">
-                <select class="form-select" id="specificSizeSelect" name="brand">
+                <select class="form-select" id="brandSelect" name="brand">
                   <option selected hidden value="">Marcas</option>
                  <% brands.forEach(brand => { %>
                     <option value="<%- brand.id %>"><%- brand.brand %></option>
@@ -49,9 +51,10 @@
                 <% if (locals.errors && errors.category) { %>
 					<small class="text-danger"><%= errors.category.msg %> </small>
 				<% } %>
+                <span id="brandErrors" class="fileErrors"></span>
             </div>
             <div class="col-12">
-                <select class="form-select" id="specificSizeSelect" name="category">
+                <select class="form-select" id="categorySelect" name="category">
                   <option selected hidden value="">Categorias</option>
                  <% categories.forEach(category => { %>
                     <option value="<%- category.id %>"><%- category.category %></option>
@@ -60,6 +63,7 @@
                 <% if (locals.errors && errors.category) { %>
 					<small class="text-danger"><%= errors.category.msg %> </small>
 				<% } %>
+                <span id="categoryErrors" class="fileErrors"></span>
             </div>
             <div class="col-12">
                 <label for="validationTextarea" class="form-label">Descripción</label>
@@ -81,5 +85,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     
     <script src="/js/previewImage.js"></script>
+    <script src="/js/validations.js"></script>
 </body>
 </html>

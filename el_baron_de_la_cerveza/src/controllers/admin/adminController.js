@@ -69,7 +69,7 @@ module.exports = {
             let arrayImages;
             if (req.files) {
               req.files.forEach((image) => {
-                arrayImages = image.filename;
+                arrayImages = image.filename
               });
             }else{
                 arrayImages = "default-img.gif"
@@ -95,7 +95,7 @@ module.exports = {
             alcoholContent,  
             brandId: brand,
             outstanding,   
-            images: req.file ? arrayImages : "default-img.gif",  
+            images: arrayImages,  
         })
         .then(() => {
             res.redirect("/admin/products")            

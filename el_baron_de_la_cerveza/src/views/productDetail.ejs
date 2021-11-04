@@ -18,7 +18,11 @@
 							<%= product.discount %>%Off 
 						</span>
 					<% } %>
-					<img src="/img/productos/<%= product.images %>" class="imagen-detalleproducto wow animate__animated animate__zoomIn animate__delay-0.5s">
+					<% if(product.images){ %>
+						<img src="/img/productos/<%= product.images %>" class="imagen-producto wow animate__animated animate__zoomIn animate__delay-.5s">
+					<% } else { %>	
+						<img src="/img/productos/default-img.gif" class="imagen-producto wow animate__animated animate__zoomIn animate__delay-.5s">
+					<% } %>	
 				</div>
                 <div class="detalle-detalleproducto">
                     <div class="detalle-nombreproducto">

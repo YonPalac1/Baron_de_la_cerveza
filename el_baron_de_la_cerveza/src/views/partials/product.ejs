@@ -6,7 +6,12 @@
                     <%= element.discount %>%Off 
                 </span>
             <% } %>
-            <img src="/img/productos/<%= element.images %>" class="imagen-producto wow animate__animated animate__zoomIn animate__delay-.5s">
+            
+			<% if(element.images){ %>
+			    <img src="/img/productos/<%= element.images %>" class="imagen-producto wow animate__animated animate__zoomIn animate__delay-.5s">
+			<% } else { %>	
+			    <img src="/img/productos/default-img.gif" class="imagen-producto wow animate__animated animate__zoomIn animate__delay-.5s">
+			<% } %>
         </a>
         <div class="detalles-articulos">
             <span>$<%= element.price %></span>
