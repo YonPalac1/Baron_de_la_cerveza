@@ -13,13 +13,15 @@
 			<form action="/users/login" method="POST">
 				<h2>Ingresar</h2>
 				<p>
-					<input type="text" name="email" placeholder="Ingresa tu email" value="<%= locals.old && old.email %>">
+					<input type="text" id="email" name="email" placeholder="Ingresa tu email" value="<%= locals.old && old.email %>">
+					<span id="emailErrors" style="color: red"></span>
 					<% if (locals.errors && errors.email) { %>
 	                    <small style="color: red"><%= errors.email.msg %> </small>
 	                <% } %>
 				</p>
 				<p>
-					<input type="password" name="pass" placeholder="Contraseña">
+					<input type="password" id="pass" name="pass" placeholder="Contraseña">
+					<span id="passErrors" style="color: red"></span>
 					<% if (locals.errors && errors.pass) { %>
 	                    <small style="color: red"><%= errors.pass.msg %> </small>
 	                <% } %>
@@ -44,9 +46,6 @@
 	<!-- FOOTER -->
 		<%- include('partials/footer') %>
 	<!-- /FOOTER -->
-
-	
-
-
+	<script src="/js/validaciones/frontLogin.js"></script>
 </body>
 </html>
