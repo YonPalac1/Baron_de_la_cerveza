@@ -1,5 +1,3 @@
-/*************** Switch de Modo nocturno ********/
-	
 function modoNocturno(){
 	const btnSwitch = document.getElementById('switch');
     document.body.classList.toggle('dark');
@@ -36,4 +34,7 @@ function orderBy(){
 
 /*************** /Menus Desplegables ***********************/
 
-
+function brands(){
+    let navsOptions = document.querySelector('.navs-options')
+    navsOptions.classList.toggle('active')
+}

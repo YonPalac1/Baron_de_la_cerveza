@@ -42,6 +42,30 @@ LOCK TABLES `avatars` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `banners`
+--
+
+DROP TABLE IF EXISTS `banners`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `banners` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `banner` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `banners`
+--
+
+LOCK TABLES `banners` WRITE;
+/*!40000 ALTER TABLE `banners` DISABLE KEYS */;
+INSERT INTO `banners` VALUES (1,'banner1.png'),(2,'banner2.png'),(3,'banner3.png');
+/*!40000 ALTER TABLE `banners` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `brands`
 --
 
@@ -87,7 +111,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'Lager'),(2,'Black IPA'),(3,'Cerveza Negra'),(4,'Dorada Original'),(5,'IPA'),(6,'Clasica');
+INSERT INTO `categories` VALUES (1,'Lager'),(2,'Black IPA'),(3,'Stella Artois'),(4,'Brahma'),(5,'IPA'),(6,'Clasica');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,7 +169,7 @@ CREATE TABLE `products` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `category_idx` (`categoryId`),
   CONSTRAINT `category` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=141 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=211 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -173,6 +197,7 @@ CREATE TABLE `users` (
   `rol` int(2) NOT NULL DEFAULT 0,
   `createdAt` timestamp NULL DEFAULT NULL,
   `updatedAt` timestamp NULL DEFAULT NULL,
+  `bannerOk` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
@@ -184,7 +209,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (23,'Jonatan','admin@admin.com','$2a$12$FjDPu61/JRRADiF0qb8Aq..zoEMGWY4yFT34CQPq3HJwFAY9TfFYq',1,'2021-10-13 21:53:46','2021-10-13 21:53:46'),(36,'Jonatan','email@email.com','$2a$12$iej551/v56aGFjUttySLBubQMMhuwzcsJ6mVbsTynSdjXdwIkk0Ea',0,'2021-10-17 03:02:25','2021-10-31 20:53:17');
+INSERT INTO `users` VALUES (23,'Jonatan','admin@admin.com','$2a$12$FjDPu61/JRRADiF0qb8Aq..zoEMGWY4yFT34CQPq3HJwFAY9TfFYq',1,'2021-10-13 21:53:46','2021-10-13 21:53:46','1'),(36,'Jonatan','email@email.com','$2a$12$iej551/v56aGFjUttySLBubQMMhuwzcsJ6mVbsTynSdjXdwIkk0Ea',0,'2021-10-17 03:02:25','2021-10-31 20:53:17',NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -201,4 +226,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-01 11:56:21
+-- Dump completed on 2021-11-05 19:49:03

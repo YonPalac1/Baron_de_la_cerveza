@@ -21,14 +21,16 @@ module.exports = {
             .then(products => {
                 let categoryPromise = db.Category.findAll()
                 let brandPromise = db.Brand.findAll()
+                let bannerPromise = db.Banner.findAll()
 
-                Promise.all([categoryPromise, brandPromise])
-                .then(([categories, brands]) => {
+                Promise.all([categoryPromise, brandPromise, bannerPromise])
+                .then(([categories, brands, banners]) => {
                     res.render("products", {
                         titleBanner: "Pedi tu birra y te la llevamos a tu casa",
                         titleSlider: "Destacados",
                         product,
                         categories,
+                        banners,
                         brands,
                         destacadosSlider: products,
                         session: req.session

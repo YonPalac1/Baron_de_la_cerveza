@@ -24,6 +24,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER(2).UNSIGNED,
             allowNull: false
         },
+        bannerOk: {
+            type: dataTypes.INTEGER(2).UNSIGNED,
+            allowNull: false
+        },
     }
     let config = {
         tableName: "users",

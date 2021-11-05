@@ -73,15 +73,11 @@
 		  <!-- Additional required wrapper -->
 		  <div class="swiper-wrapper">
 		    <!-- Slides -->
-		    <div class="swiper-slide">
-		    	<img src="/img/banners/banner1.png" alt="">
-		    </div>
-		    <div class="swiper-slide">
-		    	<img src="/img/banners/banner2.png" alt="">
-		    </div>
-		    <div class="swiper-slide">
-		    	<img src="/img/banners/banner3.png" alt="">
-		    </div>
+			<% banners.forEach(banner => { %>
+		    	<div class="swiper-slide">
+					<img src="/img/banners/<%- banner.banner %>" class="slide-img">
+				</div>
+			<% }) %>
 		  </div>
 		  <!-- If we need pagination -->
 		  <div class="swiper-pagination"></div>

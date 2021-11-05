@@ -1,0 +1,12 @@
+.banners-container {
+    max-height: 120px;
+    overflow: hidden;
+    position: relative; 
+}
+.banners-container form {
+    position: absolute;
+    right: 0;
+}
+img.banners {
+    margin-bottom: 20px;
+}
