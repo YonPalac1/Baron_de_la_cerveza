@@ -15,13 +15,17 @@ window.addEventListener("load", () => {
         regExStreet = /[A-Za-z0-9'\.\-\s\,]/,
         regExCity = /^[a-zA-ZÀ-ÿ\s]{1,40}$/
     
+    let errors = []
+
     $inputName.addEventListener("blur", () => {
       switch (true) {
         case !$inputName.value.trim():
           $nameError.innerHTML = "El campo nombre es obligatorio";
+          errors.push(1)
           break;
         case !regExAlpha.test($inputName.value):
-          $nameError.innerHTML = "Debes ingresar un nombre válido"
+          $nameError.innerHTML = "Debes ingresar un nombre válido";
+          errors.push(2)
           break;
         default:
           $nameError.innerHTML = ""
@@ -39,7 +43,7 @@ window.addEventListener("load", () => {
               $phoneError.innerHTML = "Debes ingresar un telefono valido"
               $phoneError.classList.remove("opcional")
               $phoneError.classList.add("error")
-              break;
+              break;  
            default:
               $phoneError.innerHTML = ""
               break;
@@ -97,16 +101,30 @@ window.addEventListener("load", () => {
         }
     })
   
-    /* $form.addEventListener("submit", (e) => {
-      let error = false
-      e.preventDefault();
-      let elementForm = this.elements
-  
-      for (let index = 0; index < elementForm.length-1; index++) {
-        if(!regExAlpha.test($inputName.value) && !$inputName.value.trim()){
-  
-        }
+    $form.addEventListener('submit',function(event){
+        let error = false;
+        event.preventDefault()
+        let elementosForm = this.elements
         
-      }
-    }) */
+        for (let index = 0; index < elementosForm.length-1; index++) {
+            if($inputName.value == "" && $inputPhone.value == "" 
+               && $inputStreet.value == "" && $inputCity.value == "" && $inputProvince == ""){
+                  $nameError.classList.add('error');
+                  $phoneError.classList.add('error');
+                  $streetError.classList.add('error');
+                  $cityError.classList.add('error');
+                  $provinceError.classList.add('error');
+                  
+                /* submitErrors.innerHTML = "Los campos señalados son obligatorios"; */
+                error = true;
+                
+            }
+        }
+  
+        if(!error){
+            console.log('Todo bien');
+            $form.submit()
+        }
+    
+    })
   })
