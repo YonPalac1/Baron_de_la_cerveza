@@ -1,0 +1,20 @@
+.opcional {
+    color: var(--darkorange);
+    font-family: var(--font-rowdies);
+    font-size: 14px;
+    display: block;
+}
+
+.ok {
+    display: none;
+}
+
+.error {
+    color: red;
+    font-family: var(--font-rowdies);
+    font-size: 14px;
+}
+
+.fileErrors {
+    color: red;
+}

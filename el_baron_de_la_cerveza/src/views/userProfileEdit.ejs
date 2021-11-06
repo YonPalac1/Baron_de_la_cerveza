@@ -19,10 +19,7 @@
 			<p>
 				<label for="name">Nombre</label>
 				<input id="name" type="text" name="name" placeholder="Nombre" value="<%= locals.old ? old.name : user.name %>">
-				<% if (locals.errors && errors.name) { %>
-					<small class="text-danger"><%= errors.name.msg %> </small>
-					<% } %>
-				</p>
+				<span id="nameErrors" class="error"></span>
 			<p>
 				<label for="formFile">Cambiar foto</label>
 				<input type="file" name="avatar" aria-label="file example" id="formFile">
@@ -35,18 +32,22 @@
 			<p>
 				<label for="tel">Teléfono</label>
 				<input id="tel" type="text" name="phone" placeholder="Ingresá tu teléfono" value="<%= user.contacts[0]?.phone ? user.contacts[0].phone : "" %>">
+				<span id="phoneErrors" class="opcional"><%= user.contacts[0]?.phone ? "" : "Ingresá tu telefono para completar tu perfil"%></span>
 			</p>
 			<p>
 				<label for="adress">Direccion</label>
 				<input id="adress" type="text" name="street" placeholder="Domicilio" value="<%= user.contacts[0]?.street ? user.contacts[0].street : "" %>">
+				<span id="streetErrors" class="opcional"><%= user.contacts[0]?.street ? "" : "Ingresá tu dirección para completar tu perfil"%></span>
 			</p>
 			<p>
 				<label for="city">Ciudad</label>
 				<input id="city" type="text" name="city" placeholder="Ciudad" value="<%= user.contacts[0]?.city ? user.contacts[0].city : "" %>">
+				<span id="cityErrors" class="opcional"><%= user.contacts[0]?.city ? "" : "Ingresá tu ciudad para completar tu perfil"%></span>
 			</p>
 			<p>
 				<label for="city">Provincia</label>
-				<input id="city" type="text" name="province" placeholder="Provincia" value="<%= user.contacts[0]?.province ? user.contacts[0].province : "" %>">
+				<input id="province" type="text" name="province" placeholder="Provincia" value="<%= user.contacts[0]?.province ? user.contacts[0].province : "" %>">
+				<span id="provinceErrors" class="opcional"><%= user.contacts[0]?.province ? "" : "Ingresá tu provincia para completar tu perfil"%></span>
 			</p>
 			<p>
 				<button type="submit" class="btn-submit">
@@ -60,7 +61,7 @@
 <!-- FOOTER -->
 <%- include("partials/footer")  %> 
 <!-- /FOOTER -->
-
+<script src="/js/validaciones/validationProfile.js"></script>
 <script src="/js/previewImage.js"></script>
 </body>
 </html>
