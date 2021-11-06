@@ -15,7 +15,7 @@
 		</div>
 	</div>
 	<main class="config" id="config">
-		<form action="/users/edit/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="form-ad" >
+		<form id="form" action="/users/edit/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="form-ad" >
 			<p>
 				<label for="name">Nombre</label>
 				<input id="name" type="text" name="name" placeholder="Nombre" value="<%= locals.old ? old.name : user.name %>">
@@ -49,6 +49,7 @@
 				<input id="province" type="text" name="province" placeholder="Provincia" value="<%= user.contacts[0]?.province ? user.contacts[0].province : "" %>">
 				<span id="provinceErrors" class="opcional"><%= user.contacts[0]?.province ? "" : "Ingresá tu provincia para completar tu perfil"%></span>
 			</p>
+			<span id="submitErrors"></span>
 			<p>
 				<button type="submit" class="btn-submit">
 					GUARDAR

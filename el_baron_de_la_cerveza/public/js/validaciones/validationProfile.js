@@ -11,7 +11,7 @@ window.addEventListener("load", () => {
         $inputProvince = document.getElementById("province"),
         $provinceError = document.getElementById("provinceErrors"),
         regExAlpha = /^[a-zA-Z\sñáéíóúü ]*$/,
-        regExPhone = /^\d{7,14}$/,
+        regExPhone = /[0-9\ \.\-\s\,]/
         regExStreet = /[A-Za-z0-9'\.\-\s\,]/,
         regExCity = /^[a-zA-ZÀ-ÿ\s]{1,40}$/
     
@@ -115,7 +115,7 @@ window.addEventListener("load", () => {
                   $cityError.classList.add('error');
                   $provinceError.classList.add('error');
                   
-                /* submitErrors.innerHTML = "Los campos señalados son obligatorios"; */
+                submitErrors.innerHTML = "Los campos señalados son obligatorios";
                 error = true;
                 
             }
