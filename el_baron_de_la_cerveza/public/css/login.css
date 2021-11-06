@@ -74,7 +74,9 @@ main.login .login-form .register a {
 	cursor: pointer;
 }
 
-
+.isInvalid {
+    border: 2px red solid;
+}
 /* REgister */
 main.login .register-form {
 	width: 90%;
@@ -127,9 +129,6 @@ main.login .register-form .register a {
 	margin-bottom: 10px;
 }
 
-main.login .register-form.active ~ .login-form {
-	display: ;
-}
 .footer-login {
 	margin-bottom: 0px;
 	width: 100%;
