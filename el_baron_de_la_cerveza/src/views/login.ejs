@@ -10,7 +10,7 @@
 			<img src="/img/icons/icon-title.png" alt="">
 		</div>
 		<div class="login-form">
-			<form action="/users/login" method="POST">
+			<form id="form" action="/users/login" method="POST">
 				<h2>Ingresar</h2>
 				<p>
 					<input type="text" id="email" name="email" placeholder="Ingresa tu email" value="<%= locals.old && old.email %>">
@@ -26,6 +26,7 @@
 	                    <small style="color: red"><%= errors.pass.msg %> </small>
 	                <% } %>
 				</p>
+				<span id="submitErrors" style="color: red;"></span>
 				<div>
 					<input type="checkbox" name="remember" id="check">
 					<label for="check">Recordarme</label>

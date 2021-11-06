@@ -14,6 +14,7 @@ function qs(element) {
       $categoryErrors = document.querySelector("#categoryErrors"),
       $inputDescription = document.querySelector('#inputDescription');
       $descriptionErrors = document.querySelector("#descriptionErrors"),
+      submitErrors = document.querySelector("#submitErrors")
       
 
       regExPrice = /^[0-9].{1,8}$/,

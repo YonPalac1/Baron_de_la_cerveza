@@ -93,6 +93,7 @@ module.exports = {
                 email,
                 pass: bcrypt.hashSync(pass1, 12),
                 rol: 0,
+                bannerOk: 0,
             })
             .then(user => {
                 db.Contact.create({

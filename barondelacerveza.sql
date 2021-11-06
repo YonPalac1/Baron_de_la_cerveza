@@ -29,7 +29,7 @@ CREATE TABLE `avatars` (
   PRIMARY KEY (`id`),
   KEY `contacts_FK` (`userId`) USING BTREE,
   CONSTRAINT `contacts_FK_copy` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +38,7 @@ CREATE TABLE `avatars` (
 
 LOCK TABLES `avatars` WRITE;
 /*!40000 ALTER TABLE `avatars` DISABLE KEYS */;
+INSERT INTO `avatars` VALUES (1,'avatar-default.png',36),(4,'avatar-default.png',37),(5,'avatar-default.png',38);
 /*!40000 ALTER TABLE `avatars` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -132,7 +133,7 @@ CREATE TABLE `contacts` (
   PRIMARY KEY (`id`),
   KEY `contacts_FK` (`userId`),
   CONSTRAINT `contacts_FK` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -141,7 +142,7 @@ CREATE TABLE `contacts` (
 
 LOCK TABLES `contacts` WRITE;
 /*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
-INSERT INTO `contacts` VALUES (34,'calle falsa 123','buenos aires',36,'buenos aires','011 39366942');
+INSERT INTO `contacts` VALUES (34,'calle falsa 123','buenos aires',36,'buenos aires','011 39366942'),(35,NULL,NULL,37,NULL,NULL),(36,NULL,NULL,38,NULL,NULL);
 /*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -200,7 +201,7 @@ CREATE TABLE `users` (
   `bannerOk` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -209,7 +210,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (23,'Jonatan','admin@admin.com','$2a$12$FjDPu61/JRRADiF0qb8Aq..zoEMGWY4yFT34CQPq3HJwFAY9TfFYq',1,'2021-10-13 21:53:46','2021-10-13 21:53:46','1'),(36,'Jonatan','email@email.com','$2a$12$iej551/v56aGFjUttySLBubQMMhuwzcsJ6mVbsTynSdjXdwIkk0Ea',0,'2021-10-17 03:02:25','2021-10-31 20:53:17',NULL);
+INSERT INTO `users` VALUES (23,'Jonatan','admin@admin.com','$2a$12$FjDPu61/JRRADiF0qb8Aq..zoEMGWY4yFT34CQPq3HJwFAY9TfFYq',1,'2021-10-13 21:53:46','2021-10-13 21:53:46','1'),(36,'Jonatan','email@email.com','$2a$12$iej551/v56aGFjUttySLBubQMMhuwzcsJ6mVbsTynSdjXdwIkk0Ea',0,'2021-10-17 03:02:25','2021-10-31 20:53:17','0'),(37,'Jonatan32','jona@mail.com','$2a$12$jSmTonvxN7A6HtgyCr6uvOiZbAXc9GMcBsa0ff8rKyspfjLUsEn.C',0,'2021-11-06 14:20:17','2021-11-06 14:20:17','0'),(38,'Jonatan','jonatan@email.com','$2a$12$8vn9PpkZB91sXobqTBIeIe5QzA43rhPkF5MH.tKk2caJSxEVLlLpG',0,'2021-11-06 15:31:02','2021-11-06 15:31:02','0');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,4 +227,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-05 19:49:03
+-- Dump completed on 2021-11-06 16:32:32
