@@ -1,52 +1,72 @@
 <!DOCTYPE html>
-<html>
-	<%- include("../partials/headAdmin") %>
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include("../partials/headAdmin.ejs")  %>
+<head>
+    <link rel="stylesheet" href="/css/admin/admin.css">
+</head>
+
 <body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <%- include("../partials/sidebarAdmin.ejs")  %> 
+        <!-- /#sidebar-wrapper -->
 
-	<%- include("../partials/sidebarAdmin") %>
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light py-4 px-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0">Productos</h2>
+                </div>
+            </nav>
 
-	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 admin">
-		<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-		  <h1 class="h2">Administrador</h1>
-		</div>
-		<div class="table-responsive">
-			<b>Cantidad de productos: <%- product.length %></b>
-			
-		<table class="table table-striped table-sm">
-		  <thead>
-			<tr>
-			  <th scope="col">Imagen</th>
-			  <th scope="col">Nombre</th>
-			  <th scope="col">Precio</th>
-			  <th scope="col">Acciones</th>
-			</tr>
-		  </thead>
-		  <tbody>
-                  <% product.forEach(adminproducts => { %>
-                    <tr>
-						<% if(!adminproducts.images){ %>
-							<td><img src="/img/productos/default-img.gif" style="width: 50px;"></td>
-						<% }else{ %>
-							<td><img src="/img/productos/<%= adminproducts.images %>" style="width: 50px;"></td>
-						<% } %>
-                        <td><%- adminproducts.name%> <%- adminproducts.trademark%></td>
-                        <td><%= adminproducts.price %></td>
-                        <td>
-                            <a class="btn btn-warning" href="/admin/products/edit/<%- adminproducts.id %>">
-								<i class="fas fa-pen"></i>
-							</a>
-                            <form action="/admin/products/delete/<%- adminproducts.id %>?_method=DELETE" method="POST" onsubmit="return confirm('¿Esta seguro de querer eliminar la Cerveza <%= adminproducts.name %>?')">
-								<button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-							</form>
-                        </td>
-                      </tr>
-                  <% }) %>
-              </tbody>
-		</table>
-	  </div>
-	  </main>
-	</div>
-  </div>
+            <div style="padding-bottom: 24px;" class="container-fluid px-4">
 
+                <div class="table-responsive">
+					<b>Cantidad de productos: <%- product.length %></b>
+					
+					<table class="table table-striped table-sm">
+				  		<thead>
+							<tr>
+					  			<th scope="col">Imagen</th>
+					  			<th scope="col">Nombre</th>
+					  			<th scope="col">Precio</th>
+					  			<th scope="col">Acciones</th>
+							</tr>
+				  		</thead>
+				  		<tbody>
+							<% product.forEach(adminproducts => { %>
+								<tr>
+									<% if(!adminproducts.images){ %>
+										<td><img src="/img/productos/default-img.gif" style="width: 50px;"></td>
+									<% }else{ %>
+										<td><img src="/img/productos/<%= adminproducts.images %>" style="width: 50px;"></td>
+									<% } %>
+									<td><%- adminproducts.name%> <%- adminproducts.trademark%></td>
+									<td><%= adminproducts.price %></td>
+									<td>
+										<a class="btn btn-warning" href="/admin/products/edit/<%- adminproducts.id %>">
+											<i class="fas fa-pen"></i>
+										</a>
+										<form action="/admin/products/delete/<%- adminproducts.id %>?_method=DELETE" method="POST" onsubmit="return confirm('¿Esta seguro de querer eliminar la Cerveza <%= adminproducts.name %>?')">
+											<button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+										</form>
+									</td>
+								</tr>
+							<% }) %>
+						</tbody>
+					</table>
+
+			  	</div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+    <%- include("../partials/scriptAdmin.ejs")  %>
 </body>
+
 </html>
