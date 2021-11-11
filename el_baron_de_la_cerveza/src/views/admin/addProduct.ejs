@@ -20,17 +20,11 @@
             <div class="col-12">
                 <label for="inputName" class="form-label">Nombre</label>
                 <input type="text" class="form-control" id="inputName" name="name">
-                <% if (locals.errors && errors.name) { %>
-					<small class="text-danger"><%= errors.name.msg %> </small>
-				<% } %>
                 <span id="nameErrors" class="fileErrors"></span>
             </div>
             <div class="col-sm-12 col-md-6">
                 <label for="inputPrice" class="form-label">Precio</label>
                 <input type="number" class="form-control" id="inputPrice" name="price">
-                <% if (locals.errors && errors.precio) { %>
-					<small class="text-danger"><%= errors.precio.msg %> </small>
-				<% } %>
                 <span id="priceErrors" class="fileErrors"></span>
             </div>
             <div class="col-sm-12 col-md-6">
@@ -48,9 +42,6 @@
                     <option value="<%- brand.id %>"><%- brand.brand %></option>
                  <% }) %>
                 </select>
-                <% if (locals.errors && errors.category) { %>
-					<small class="text-danger"><%= errors.category.msg %> </small>
-				<% } %>
                 <span id="brandErrors" class="fileErrors"></span>
             </div>
             <div class="col-12">
@@ -60,9 +51,6 @@
                     <option value="<%- category.id %>"><%- category.category %></option>
                  <% }) %>
                 </select>
-                <% if (locals.errors && errors.category) { %>
-					<small class="text-danger"><%= errors.category.msg %> </small>
-				<% } %>
                 <span id="categoryErrors" class="fileErrors"></span>
             </div>
             <div class="col-12">
@@ -86,7 +74,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     
-    <script src="/js/validaciones/previewImage.js"></script>
     <script src="/js/validaciones/validations.js"></script>
+    <script src="/js/validaciones/previewImage.js"></script>
 </body>
 </html>

@@ -3,13 +3,16 @@ const db = require("../../database/models");
 
 module.exports = {
     admin: (req, res) => {
-        db.User.findOne()
+        db.User.findOne({
+            where: {
+                rol: 1
+            }
+        })
         .then((user)=>{
             res.render("admin/admin", {
                 user,
                 session: req.session
             })
-            
         })
     },
     users:(req, res) => {
@@ -214,11 +217,25 @@ module.exports = {
             
 
         } else {
-            res.render("admin/editProduct", {
-                errors: errors.mapped(),
-                old: req.body,
-                session: req.session,
-            });
+            let editProduct = db.Product.findByPk(req.params.id, {
+                include: [{
+                    association: "category",
+                },{
+                    association: "brand",
+                }]
+            }); 
+            let editCategory = db.Category.findAll();
+            let editBrand = db.Brand.findAll();
+    
+            Promise.all([editProduct, editCategory, editBrand])
+            .then(([product, categories, brands]) => {
+                //res.send(product, trademarks, categories)
+                res.render("admin/editProduct", {
+                    product,
+                    categories,
+                    brands
+                })
+            })
         }
 
     },

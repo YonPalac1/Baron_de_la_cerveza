@@ -12,11 +12,14 @@ function qs(element) {
       $brandErrors = qs("#brandErrors"),
       $category = qs("#categorySelect"),
       $categoryErrors = qs("#categoryErrors"),
+      $inputDescription = qs('#inputDescription'),
+      $descriptionErrors = qs("#descriptionErrors"),
       submitErrors = qs("#submitErrors"),
       
 
       regExPrice = /^[0-9].{0,8}$/,
       regExAlpha = /^[a-zA-Z\sñáéíóúü\0-9 ].{5,90}$/,
+      regExDescription = /^[a-zA-Z\sñáéíóúü\0-9 ].{20,190}$/;
   
     $inputName.addEventListener("blur", function () {
       switch (true) {
@@ -89,6 +92,23 @@ function qs(element) {
               break;
       }
   })
+  $inputDescription.addEventListener('blur', function() {
+    switch (true) {
+        case !$inputDescription.value.trim():
+            $descriptionErrors.innerHTML = 'El campo descripcion es obligatorio';
+            $inputDescription.classList.add('is-invalid')
+            break;
+        case !regExDescription.test($inputDescription.value):
+            $descriptionErrors.innerHTML = 'Debe ingresar una descripcion de al menos 20 caracteres';
+            $inputDescription.classList.add('is-invalid')
+            break
+        default:
+            $inputDescription.classList.remove('is-invalid');
+            $inputDescription.classList.add('is-valid');
+            $descriptionErrors.innerHTML = ''
+            break;
+        }
+    })
   
   $form.addEventListener('submit',function(event){
       let error = false;
