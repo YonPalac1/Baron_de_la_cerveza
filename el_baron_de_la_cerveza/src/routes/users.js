@@ -8,7 +8,8 @@ const {
     processRegister,
     updateUser,
     userEdit,
-    logout
+    logout,
+    productCart,
      } = require('../controllers/usersController');
 let userLog = require('../middlewares/userLog');
 let userSessionCheck = require('../middlewares/userSessionCheck');
@@ -17,6 +18,8 @@ const registerValidator = require('../middlewares/validations/registerValidator'
 const uploadUserAvatar = require('../middlewares/uploadUserAvatar')
 
 router.get('/', userSessionCheck, user);
+
+router.get("/productCart", userSessionCheck, productCart);
 
 router.get('/login', userLog, login);
 router.post('/login', loginValidator, processLogin);

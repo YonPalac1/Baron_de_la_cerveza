@@ -135,12 +135,7 @@ module.exports = {
         })
             .catch((err) => console.log(err));
     },
-    productCart: (req, res) => {
-        res.render("productCart", {
-            titleBanner: "Comprala antes de que se caliente",
-			session: req.session
-        })
-    },
+    
     orderBy: (req, res)=> {
         if(req.params.id == "desc"){
             db.Product.findAll({

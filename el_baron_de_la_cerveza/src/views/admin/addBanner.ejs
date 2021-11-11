@@ -8,34 +8,20 @@
 	<%- include("../partials/sidebarAdmin") %>
 	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mb-5 admin">
         <h2>Agregar Banners</h2>
-        <div class="alert alert-success" role="alert">
-            tamaño sugerido 768px de ancho y 320px de largo
-          </div>
         <form id="form" class="row g-3" action="/admin/banners/create" method="POST" enctype="multipart/form-data"> 
             <div class="col-12">
                 <div class="img-container" id="img-preview">
-                        
+                    
                 </div>
-                <label for="formFile" class="form-label">Imagen</label>
-                <input type="file" class="form-control" name="banner" aria-label="file example" id="formFile">
+                <input type="file" class="form-control mt-3" name="banner" aria-label="file example" id="formFile">
                 <span id="fileErrors" class="fileErrors"></span>
             </div>
-
+            
+            <div class="alert alert-success" role="alert">
+                tamaño sugerido 768px de ancho y 320px de largo
+              </div>
             <button type="submit" class="btn btn-primary">
                 CREAR
-            </button>
-        </form>
-
-        <form action="">
-            <div class="col-sm-12 col-md-6">
-                <select class="form-select" id="specificSizeSelect" name="bannerOk">
-                    <option selected hidden value="0">Activado</option>
-                    <option value="1">Si</option>
-                    <option value="0">No</option>
-                </select>   
-            </div>
-            <button type=""  class="btn btn-primary">
-                Ok
             </button>
         </form>
         <div class="row mt-5">

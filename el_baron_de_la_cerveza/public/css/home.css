@@ -175,12 +175,9 @@ main.seccion-productos .filter {
 .productos-menus .collapse ul li {
 	padding: 4px 10px;
 }
-.productos-menus .collapse ul li input[type="checkbox"] {
-	display: none;
+.productos-menus .collapse ul li a {
+	color: #fff;
 }
-.productos-menus .collapse ul li input:checked ~ label {
-	background: var(--orange);
-} 
 .productos-menus .collapse ul li label {
 	padding: 3px;
 }
@@ -444,6 +441,9 @@ section .card i {
 	}
 	.productos-menus .collapse button {
 		display: none;
+	}
+	.productos-menus .collapse ul li a {
+		color: #000;
 	}
 }
 @media screen and (min-width: 1000px){

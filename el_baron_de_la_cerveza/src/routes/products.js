@@ -4,7 +4,6 @@ const controller = require("../controllers/productsController.js");
 let userSessionCheck = require('../middlewares/userSessionCheck');
 
 router.get("/",  controller.products);
-router.get("/productCart", userSessionCheck, controller.productCart);
 router.get("/productDetail/:id", controller.detail);
 router.get("/productsFilter/:id", controller.filter);
 

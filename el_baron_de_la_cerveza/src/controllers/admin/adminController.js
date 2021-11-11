@@ -13,7 +13,9 @@ module.exports = {
         })
     },
     users:(req, res) => {
-        db.User.findAll()
+        db.User.findAll({
+            offset: 1            
+        })
         .then(user => {
             res.render("admin/users", {
                 user,
@@ -30,7 +32,9 @@ module.exports = {
         })
     },
     products: (req, res) => {
-        db.Product.findAll()
+        db.Product.findAll({
+            order: [['createdAt', 'DESC']]
+        })
         .then(product => {
             res.render("admin/adminProducts", {
                 product,

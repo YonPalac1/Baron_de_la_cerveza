@@ -198,5 +198,11 @@ module.exports = {
         }
 
         res.redirect('/')
+    },
+    productCart: (req, res) => {
+            res.render('productCart',{
+            titleBanner: "Carrito",
+            session: req.session,
+            })
     }
 }

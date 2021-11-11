@@ -17,7 +17,7 @@ function qs(element) {
       submitErrors = document.querySelector("#submitErrors")
       
 
-      regExPrice = /^[0-9].{1,8}$/,
+      regExPrice = /^[0-9].{0,8}$/,
       regExAlpha = /^[a-zA-Z\sñáéíóúü\0-9 ].{5,90}$/;
       regExDescription = /^[a-zA-Z\sñáéíóúü\0-9 ].{20,190}$/;
   
@@ -63,7 +63,7 @@ function qs(element) {
               $brandErrors.innerHTML = 'El campo marca es obligatorio';
               $brand.classList.add('is-invalid')
               break;
-          case !regExAlpha.test($brand.value):
+          case !regExPrice.test($brand.value):
               $brandErrors.innerHTML = 'Debe ingresar una marca válida';
               $brand.classList.add('is-invalid')
               break
@@ -81,7 +81,7 @@ function qs(element) {
               $categoryErrors.innerHTML = 'El campo categoria es obligatorio';
               $category.classList.add('is-invalid')
               break;
-          case !regExAlpha.test($category.value):
+          case !regExPrice.test($category.value):
               $categoryErrors.innerHTML = 'Debe ingresar una categoria válida';
               $category.classList.add('is-invalid')
               break
