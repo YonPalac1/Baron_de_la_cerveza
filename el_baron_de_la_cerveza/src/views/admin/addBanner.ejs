@@ -1,43 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
-	<%- include("../partials/headAdmin") %>
+<%- include("../partials/headAdmin.ejs")  %>
+<head>
+    <link rel="stylesheet" href="/css/admin/admin.css">
+</head>
+
 <body>
-	
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <%- include("../partials/sidebarAdmin.ejs")  %> 
+        <!-- /#sidebar-wrapper -->
 
-	<%- include("../partials/sidebarAdmin") %>
-	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mb-5 admin">
-        <h2>Agregar Banners</h2>
-        <form id="form" class="row g-3" action="/admin/banners/create" method="POST" enctype="multipart/form-data"> 
-            <div class="col-12">
-                <div class="img-container" id="img-preview">
-                    
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light py-4 px-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0">Agregar banner</h2>
                 </div>
-                <input type="file" class="form-control mt-3" name="banner" aria-label="file example" id="formFile">
-                <span id="fileErrors" class="fileErrors"></span>
-            </div>
-            
-            <div class="alert alert-success" role="alert">
-                tamaño sugerido 768px de ancho y 320px de largo
-              </div>
-            <button type="submit" class="btn btn-primary">
-                CREAR
-            </button>
-        </form>
-        <div class="row mt-5">
-            <% banners.forEach(banner => { %>
-            <div class="col-sm-12 col-lg-4 banners-container">
-                <form action="/admin/banners/delete/<%- banner.id %>?_method=DELETE" method="POST" onsubmit="return confirm('¿Esta seguro de querer eliminar la Cerveza <%= banner.banner %>?')">
-                    <button type="submit" class="btn btn-danger rounded-circle"><i class="fas fa-trash"></i></button>
-                </form>
-                <img src="/img/banners/<%- banner.banner %>" class="banners">
-            </div>
-            <% }) %>
-        </div>
-	</main>
+            </nav>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-    
+            <div style="padding-bottom: 24px;" class="container-fluid px-4">
+
+                <form id="form" class="row g-3" action="/admin/banners/create" method="POST" enctype="multipart/form-data"> 
+                    <div class="col-12">
+                        <div class="img-container" id="img-preview">
+                            
+                        </div>
+                        <input type="file" class="form-control mt-3" name="banner" aria-label="file example" id="formFile">
+                        <span id="fileErrors" class="fileErrors"></span>
+                    </div>
+                    
+                    <div class="alert alert-success" role="alert">
+                        tamaño sugerido 768px de ancho y 320px de largo
+                      </div>
+                    <button type="submit" class="btn btn-primary">
+                        CREAR
+                    </button>
+                </form>
+                <div class="row mt-5">
+                    <% banners.forEach(banner => { %>
+                    <div class="col-sm-12 col-lg-4 banners-container">
+                        <form action="/admin/banners/delete/<%- banner.id %>?_method=DELETE" method="POST" onsubmit="return confirm('¿Esta seguro de querer eliminar la Cerveza <%= banner.banner %>?')">
+                            <button type="submit" class="btn btn-danger rounded-circle"><i class="fas fa-trash"></i></button>
+                        </form>
+                        <img src="/img/banners/<%- banner.banner %>" class="banners">
+                    </div>
+                    <% }) %>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+    <%- include("../partials/scriptAdmin.ejs")  %>
     <script src="/js/validaciones/previewImage.js"></script>
 </body>
+
 </html>

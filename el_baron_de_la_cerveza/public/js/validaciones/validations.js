@@ -3,6 +3,7 @@ function qs(element) {
 }
   
   window.addEventListener("load", function () {
+    
     let $inputName = qs("#inputName"),
       $nameErrors = qs("#nameErrors"),
       $form = qs("#form"),
@@ -16,7 +17,7 @@ function qs(element) {
       
 
       regExPrice = /^[0-9].{0,8}$/,
-      regExAlpha = /^[a-zA-Z\sñáéíóúü\0-9 ].{5,90}$/,
+      regExAlpha = /^[a-zA-Z\sñáéíóúü\0-9 ].{5,90}$/;
   
     $inputName.addEventListener("blur", function () {
       switch (true) {

@@ -1,23 +1,81 @@
 const { validationResult } = require('express-validator')
 const db = require("../../database/models");
 
+let bcrypt = require('bcryptjs')
+
 module.exports = {
     admin: (req, res) => {
+        let productsPromise = db.Product.findAll()
+        let categoryPromise = db.Category.findAll()
+        let brandPromise = db.Brand.findAll()
+        let userPromise = db.User.findAll()
+        let adminPromise = db.User.findOne({
+            where: {
+                rol: 1
+            }
+        })
+
+        Promise.all([productsPromise,categoryPromise,brandPromise,userPromise,adminPromise])
+        .then(([products,categories,brands,users,admin])=>{
+            res.render("admin/admin", {
+                products,
+                categories,
+                brands,
+                users,
+                admin,
+                session: req.session
+            })
+        })
+    },
+    userAdmin: (req, res)=>{
         db.User.findOne({
             where: {
                 rol: 1
             }
         })
-        .then((user)=>{
-            res.render("admin/admin", {
+        .then(user =>{
+            res.render("admin/editAdmin", {
                 user,
-                session: req.session
+                session: req.session   
             })
         })
     },
+    updateAdmin: (req, res)=>{
+        let errors = validationResult(req);
+
+        if (errors.isEmpty()) {
+
+        let {
+            name, 
+            email,
+            pass1,
+        } = req.body;
+
+        db.User.update({
+            name,
+            email,
+            pass: bcrypt.hashSync(pass1, 12),
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(()=>{
+            res.redirect("/admin/index")
+        })
+        
+        } else {
+        console.log(errors),
+        res.render("admin/editAdmin", {
+            errors: errors.mapped(),
+            old: req.body,
+            session: req.session,
+        });
+        }
+    },
     users:(req, res) => {
         db.User.findAll({
-            offset: 1            
+            order: [['createdAt', 'DESC']]
         })
         .then(user => {
             res.render("admin/users", {
@@ -49,6 +107,7 @@ module.exports = {
         let productsPromise = db.Product.findAll()
         let categoryPromise = db.Category.findAll()
         let brandPromise = db.Brand.findAll()
+        
 
         Promise.all([productsPromise, categoryPromise, brandPromise])
         .then(([products, categories, brands]) => {
@@ -252,7 +311,9 @@ module.exports = {
     },
     addCategory: (req, res)=>{
         
-        db.Category.findAll()
+        db.Category.findAll({
+            order: [['id', 'DESC']]
+        })
         .then((category) => {
             res.render("admin/addCategory", {
                 category,
@@ -283,7 +344,9 @@ module.exports = {
     },
     addBrand: (req, res)=>{
         
-        db.Brand.findAll()
+        db.Brand.findAll({
+            order: [['id', 'DESC']]
+        })
         .then((brand) => {
             res.render("admin/addBrand", {
                 brand,
@@ -306,7 +369,7 @@ module.exports = {
                 brand
             })
             .then(() => {
-                res.redirect("/admin/create/brand");
+                res.redirect("/admin/brand/create");
             })
             .catch((err) => console.log(err));
                     

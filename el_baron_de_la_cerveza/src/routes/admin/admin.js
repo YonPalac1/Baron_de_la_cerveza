@@ -6,11 +6,15 @@ let uploadBannersFiles = require('../../middlewares/uploadBannersFiles')
 let productValidator = require('../../middlewares/validations/productCreateValidator')
 let userAdminCheck = require('../../middlewares/userAdminCheck')
 let cookieCheck = require('../../middlewares/cookieCheck');
+const updateAdmin = require('../../middlewares/validations/updateAdmin')
 
 router.get("/", controller.signin);
 router.get("/index", cookieCheck, userAdminCheck, controller.admin);
 
 router.get("/users", userAdminCheck, controller.users);
+router.get("/users/editAdmin/:id", userAdminCheck, controller.userAdmin);
+router.put("/users/editAdmin/:id", updateAdmin, controller.updateAdmin);
+
 
 /* Eliminar un usuario */
 router.delete('/users/delete/:id', controller.usersDestroy);

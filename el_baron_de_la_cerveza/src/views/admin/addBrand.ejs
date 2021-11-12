@@ -1,33 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
-	<%- include("../partials/headAdmin") %>
+<%- include("../partials/headAdmin.ejs")  %>
+<head>
+    <link rel="stylesheet" href="/css/admin/admin.css">
+</head>
+
 <body>
-	
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <%- include("../partials/sidebarAdmin.ejs")  %> 
+        <!-- /#sidebar-wrapper -->
 
-	<%- include("../partials/sidebarAdmin") %>
-	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 admin">
-		<h2>Agregar Marca</h2>
-        <form class="row g-3" action="/admin/brand/create" method="POST">
-            <div class="col-12">
-                <label for="inputName" class="form-label">Nueva categoria</label>
-                <input type="text" class="form-control" id="inputName" name="brand">
-                
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light py-4 px-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0">Agregar marca</h2>
+                </div>
+            </nav>
+
+            <div style="padding-bottom: 24px;" class="container-fluid px-4">
+
+                <form id="form" class="row g-3" action="/admin/brand/create" method="POST">
+                    <div class="col-12">
+                        <label for="inputName" class="form-label">Nueva marca</label>
+                        <input type="text" class="form-control" id="inputName" name="brand">
+                        <span id="nameErrors" class="fileErrors"></span>                        
+                    </div>
+                    <span id="submitErrors" style="color: red;"></span>
+                    <button type="submit" class="btn btn-primary">
+                        CREAR
+                    </button>
+                </form>
+                <h2 class="mt-5">Marcas</h2>
+                <table class="table table-striped table-sm ">
+                    <tbody>
+                        <% brand.forEach(brands => { %>
+                            <tr>
+                                <td><i class="fas fa-circle"></i><span class="m-3"><%= brands.brand %></span></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+
             </div>
-            <button type="submit" class="btn btn-primary">
-                CREAR
-            </button>
-        </form>
-        <h2 class="mt-5">Marcas</h2>
-        <table class="table table-striped table-sm ">
-            <tbody>
-                <% brand.forEach(brands => { %>
-                    <tr>
-                        <td><i class="fas fa-circle"></i><span class="m-3"><%= brands.brand %></span></td>
-                    </tr>
-                <% }) %>
-            </tbody>
-          </table>
-	</main>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+    <%- include("../partials/scriptAdmin.ejs")  %>
+    <script src="/js/validaciones/previewImage.js"></script>
+    
+    <script src="/js/validaciones/validationsCatBrand.js"></script>
 </body>
+
 </html>

@@ -1,85 +1,104 @@
 <!DOCTYPE html>
-<html>
-	<%- include("../partials/headAdmin") %>
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include("../partials/headAdmin.ejs")  %>
+<head>
+    <link rel="stylesheet" href="/css/admin/admin.css">
+</head>
+
 <body>
-	
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <%- include("../partials/sidebarAdmin.ejs")  %> 
+        <!-- /#sidebar-wrapper -->
 
-	<%- include("../partials/sidebarAdmin") %>
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 admin">
-		<h2>Editar Producto</h2>
-		<form id="form" class="row g-3" action="/admin/products/edit/<%- product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-            <div class="col-12">
-                <div class="img-container" id="img-preview">
-                        
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light py-4 px-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0">Subir productos</h2>
                 </div>
-                <label for="formFile" class="form-label">Imagen</label>
-                <input type="file" class="form-control" name="images" aria-label="file example" id="formFile">
-                <span id="fileErrors" class="fileErrors"></span>
-            </div>
-            <div class="col-12">
-                <label for="inputName" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="inputName" name="name" value="<%= product.name %>">                
-                <span id="nameErrors" class="fileErrors"></span>
-            </div>
-            <div class="col-sm-12 col-md-6">
-                <label for="inputPrice" class="form-label">Precio</label>
-                <input type="number" class="form-control" id="inputPrice" name="price" value="<%= product.price %>">
-                <span id="priceErrors" class="fileErrors"></span>
-            </div>
-            <div class="col-sm-12 col-md-6">
-                <label for="inputDiscount" class="form-label">Descuento</label>
-                <input type="number" class="form-control" id="inputDiscount" name="discount" value="<%= product.discount %>">
-            </div>
-            <div class="col-sm-12 col-md-6">
-                <label for="graduacion" class="form-label">Graduación alcohólica</label>
-                <input type="text" class="form-control" name="alcoholContent" aria-label="file example" value="<%= product.alcoholContent %>">
-            </div>
-            <div class="col-12">
-                <select class="form-select" id="brandSelect" name="brand">
-                 <% brands.forEach(brand => { %>
-                    <option value="<%- brand.id %>"" <%- product.brandId == brand.id ? "selected" : brand.id == product.brandId ? `selected` : ""  %>><%- brand.brand %></option>
-                 <% }) %>
-                </select>
-                
-                <span id="brandErrors" class="fileErrors"></span>
-            </div>
-            <div class="col-12">
-                <select class="form-select" id="categorySelect" name="category">
-                 <% categories.forEach(category => { %>
-                    <option value="<%- category.id %>"" <%- product.categoryId == category.id ? "selected" : category.id == product.categoryId ? `selected` : ""  %>><%- category.category %></option>
-                 <% }) %>
-                </select>
-                
-                <span id="categoryErrors" class="fileErrors"></span>
-            </div>
-            <div class="col-12">
-                <label for="validationTextarea" class="form-label">Descripción</label>
-                <textarea class="form-control" id="validationTextarea" name="description" placeholder="Descripción"><%= product.description %></textarea>
-            </div>
-            <div class="col-sm-12 col-md-6">
-                <label for="outstanding" class="form-label">Destacar</label>
-                <select class="form-select" id="specificSizeSelect" name="outstanding">
-                    <% if(product.outstanding == 1){ %>
-                        <option value="1" selected>Si</option>
-                        <option value="0">No</option>
-                    <% } else { %>
-                        <option value="1">Si</option>
-                        <option value="0" selected>No</option>
-                    <% } %>
-                </select>    
-            </div>
-            <span id="submitErrors" style="color: red;"></span>
-            <button type="submit" class="btn btn-primary">
-                EDITAR
-            </button>
-        </form>
-	</main>
-</div>
-</div>
+            </nav>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-    
-<script src="/js/validaciones/validations.js"></script>
+            <div style="padding-bottom: 24px;" class="container-fluid px-4">
+
+                <form id="form" class="row g-3" action="/admin/products/edit/<%- product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <div class="col-12">
+                        <div class="img-container" id="img-preview">
+                                
+                        </div>
+                        <label for="formFile" class="form-label">Imagen</label>
+                        <input type="file" class="form-control" name="images" aria-label="file example" id="formFile">
+                        <span id="fileErrors" class="fileErrors"></span>
+                    </div>
+                    <div class="col-12">
+                        <label for="inputName" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="inputName" name="name" value="<%= product.name %>">                
+                        <span id="nameErrors" class="fileErrors"></span>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <label for="inputPrice" class="form-label">Precio</label>
+                        <input type="number" class="form-control" id="inputPrice" name="price" value="<%= product.price %>">
+                        <span id="priceErrors" class="fileErrors"></span>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <label for="inputDiscount" class="form-label">Descuento</label>
+                        <input type="number" class="form-control" id="inputDiscount" name="discount" value="<%= product.discount %>">
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <label for="graduacion" class="form-label">Graduación alcohólica</label>
+                        <input type="text" class="form-control" name="alcoholContent" aria-label="file example" value="<%= product.alcoholContent %>">
+                    </div>
+                    <div class="col-12">
+                        <select class="form-select" id="brandSelect" name="brand">
+                         <% brands.forEach(brand => { %>
+                            <option value="<%- brand.id %>"" <%- product.brandId == brand.id ? "selected" : brand.id == product.brandId ? `selected` : ""  %>><%- brand.brand %></option>
+                         <% }) %>
+                        </select>
+                        
+                        <span id="brandErrors" class="fileErrors"></span>
+                    </div>
+                    <div class="col-12">
+                        <select class="form-select" id="categorySelect" name="category">
+                         <% categories.forEach(category => { %>
+                            <option value="<%- category.id %>"" <%- product.categoryId == category.id ? "selected" : category.id == product.categoryId ? `selected` : ""  %>><%- category.category %></option>
+                         <% }) %>
+                        </select>
+                        
+                        <span id="categoryErrors" class="fileErrors"></span>
+                    </div>
+                    <div class="col-12">
+                        <label for="validationTextarea" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="validationTextarea" name="description" placeholder="Descripción"><%= product.description %></textarea>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <label for="outstanding" class="form-label">Destacar</label>
+                        <select class="form-select" id="specificSizeSelect" name="outstanding">
+                            <% if(product.outstanding == 1){ %>
+                                <option value="1" selected>Si</option>
+                                <option value="0">No</option>
+                            <% } else { %>
+                                <option value="1">Si</option>
+                                <option value="0" selected>No</option>
+                            <% } %>
+                        </select>    
+                    </div>
+                    <span id="submitErrors" style="color: red;"></span>
+                    <button type="submit" class="btn btn-primary">
+                        EDITAR
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+    <%- include("../partials/scriptAdmin.ejs")  %>
     <script src="/js/validaciones/previewImage.js"></script>
+    <script src="/js/validaciones/validations.js"></script>
 </body>
+
 </html>
