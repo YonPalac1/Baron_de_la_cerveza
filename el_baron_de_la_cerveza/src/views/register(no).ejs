@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head.ejs') %>
+<style>
+	small.errorred {
+		color: red;
+	}
+</style>
+<body class="login">
+
+<%- include('partials/header') %>
+	
+	<main class="login">
+		<div class="banner-img">
+			<img src="/img/icons/icon-title.png" alt="">
+		</div>
+		<div class="register-form" id="registerForm">
+			<h2 style="color: #fff;">Registrarse</h2>
+			<form  id="form" action="/users/register" method="POST" enctype="multipart/form-data">
+				<p>
+					<input type="text" id="name" name="name" placeholder="Nombre" value="<%= locals.old && old.name %>">
+					<span id="nameErrors" style="color: red"></span>
+					<% if (locals.errors && errors.name) { %>
+						<small class="errorred"><%= errors.name.msg %></small>
+					<% } %>
+				</p>
+				<p>
+					<input type="email" id="email" name="email" placeholder="Ingresá tu email" value="<%= locals.old && old.email %>">
+					<span id="emailErrors" style="color: red"></span>
+					<% if (locals.errors && errors.email) { %>
+						<small class="errorred"><%= errors.email.msg %></small>
+					<% } %>
+				</p>
+				<p>
+					<input type="password" id="pass" name="pass1" placeholder="Contraseña">
+					<span id="passErrors" style="color: red"></span>
+					<% if (locals.errors && errors.pass1) { %>
+						<small class="errorred"><%= errors.pass1.msg %> </small>
+					<% } %>
+				</p>
+				<p>
+					<input type="password" id="pass2" name="pass2" placeholder="Repetir contraseña">
+					<span id="pass2Errors" style="color: red"></span>
+					<% if (locals.errors && errors.pass2) { %>
+						<small class="errorred"><%= errors.pass2.msg %></small>
+					<% } %>
+				</p>
+				<span id="submitErrors" style="color: red;"></span>
+				<div>
+					<input type="checkbox" id="check">
+					<label for="check">Mantener la sesion abierta</label>
+				</div>
+				<button>Registrarse</button>
+			</form>
+			<div class="register">
+				<a href="/users/login">Ya tengo una cuenta</a>
+			</div>
+		</div>
+	</main>		
+
+<%- include('partials/footer') %>
+<script src="/js/validaciones/frontRegister.js"></script>
+
+</body>
+</html>

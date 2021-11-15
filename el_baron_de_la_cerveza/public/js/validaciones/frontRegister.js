@@ -48,11 +48,8 @@ window.addEventListener("load", function() {
             case !$pass.value.trim():
                 $passErrors.innerHTML = "Ingrese una Contraseña";
                 break;
-            case !regExPass.test($pass.value):
-                $passErrors.innerHTML = "La contraseña debe tener como minimo 8 caracteres, letras mayúsculas, minúsculas, un número y un carácter especial";
-                break 
             default:
-                $passErrors.innerHTML = "";
+                $passErrors.innerHTML = ""
                 break;
         }
     });

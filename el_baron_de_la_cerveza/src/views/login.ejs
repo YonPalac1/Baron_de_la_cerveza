@@ -1,52 +1,91 @@
 <!DOCTYPE html>
-<html lang="es">
-<%- include('partials/head.ejs') %>
-<body class="login">
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
-<%- include('partials/header') %>
-	
-	<main class="login">
-		<div class="banner-img">
-			<img src="/img/icons/icon-title.png" alt="">
-		</div>
-		<div class="login-form">
-			<form id="form" action="/users/login" method="POST">
-				<h2>Ingresar</h2>
-				<p>
-					<input type="text" id="email" name="email" placeholder="Ingresa tu email" value="<%= locals.old && old.email %>">
-					<span id="emailErrors" style="color: red"></span>
-					<% if (locals.errors && errors.email) { %>
-	                    <small style="color: red"><%= errors.email.msg %> </small>
-	                <% } %>
-				</p>
-				<p>
-					<input type="password" id="pass" name="pass" placeholder="Contraseña">
-					<span id="passErrors" style="color: red"></span>
-					<% if (locals.errors && errors.pass) { %>
-	                    <small style="color: red"><%= errors.pass.msg %> </small>
-	                <% } %>
-				</p>
-				<span id="submitErrors" style="color: red;"></span>
-				<div>
-					<input type="checkbox" name="remember" id="check">
-					<label for="check">Recordarme</label>
+	<title>El barón de la cerveza</title>
+	<!-- Estilos -->
+	<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="body_login">
+	<main class="main_login">
+		<div class="contenedor_login">
+			<section class="seccion_login">
+				<div class="div_nombre">
+					<div class="nombre_pagina">
+						<img src="/img/icons/icon-title2.png">
+					</div>
 				</div>
-				<% if (locals.errorMsg ) { %>
-	                    <small style="color: red"><%= errorMsg %> </small>
-	            <% } %>
-				<button type="submit">Ingresar</button>
-			</form>
 
-			<div class="register">
-				<a href="/users/register">Todavia no tengo una cuenta</a >
-			</div>
+				<div class="div_frase">
+					Comprá tu cerveza ya
+				</div>
+
+				<!-- Barra separadora -->
+				<div class="div_barra">
+					<hr>
+					o
+					<hr>
+				</div>
+
+				<div class="div_continput">
+					<div class="div_input">
+						<form id="form" action="/users/login" method="POST">
+							<h2>Iniciar Sección</h2>
+							<p>
+								<input type="text" id="email" name="email" placeholder="Ingresa tu email" value="<%= locals.old && old.email %>">
+								<span id="emailErrors" style="color: red"></span>
+								<% if (locals.errors && errors.email) { %>
+									<small style="color: red"><%= errors.email.msg %> </small>
+								<% } %>
+							</p>
+							<p>
+								<input type="password" id="pass" name="pass" placeholder="Contraseña">
+								<span id="passErrors" style="color: red"></span>
+								<% if (locals.errors && errors.pass) { %>
+									<small style="color: red"><%= errors.pass.msg %> </small>
+								<% } %>
+							</p>
+							<span id="submitErrors" style="color: red;"></span>
+							<% if (locals.errorMsg ) { %>
+									<small style="color: red"><%= errorMsg %> </small>
+							<% } %>
+							<div class="div_botoning">
+								<button type="submit">Ingresar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<!-- Barra separadora -->
+				<div class="div_barra">
+					<hr>
+					o
+					<hr>
+				</div>
+
+				<div class="div_ingfacebook">
+					<a href="">
+						<i class="fab fa-facebook"></i>
+						Ingresa con Facebook
+					</a>
+				</div>
+
+				<!-- <div class="div_olvcontraseña">¿Olvidaste tu Contraseña?</div> -->
+
+				<div class="div_crearcuenta">
+					¿No tenes cuenta? <a href="/users/register">Create una</a>
+				</div>
+			</section>
+
+			<section class="seccion_imagen">
+			</section>
 		</div>
 	</main>
-	<!-- /Cuerpo de Login -->
-
-	<!-- FOOTER -->
-		<%- include('partials/footer') %>
-	<!-- /FOOTER -->
 	<script src="/js/validaciones/frontLogin.js"></script>
 </body>
 </html>

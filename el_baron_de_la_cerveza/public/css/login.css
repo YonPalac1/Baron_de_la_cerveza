@@ -1,167 +1,141 @@
-body.login {
-	background-image: url('../img/icons/header-3.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
+/* celu: 320 - tablet: 760 - escritorio: 1024 */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
-main.login {
+
+/* Main_login */
+.main_login {
 	max-width: 1024px;
-	margin: 80px auto;
+	display: flex;
+}
+
+/* Contenedor_login */
+.contenedor_login {
+	width: 100%;
+	display: flex;
+}
+
+/* Seccion_login */
+.seccion_login {
+	width: 100%;
+	display: flex;
+	padding: 20px 40px;
+	flex-wrap: wrap;
+}
+/* Nombre Pagina, Logo y Frase */
+.seccion_login .div_nombre {
+	width: 100%;
+	display: flex;
+	margin-bottom: 20px;
+}
+.seccion_login .div_nombre .nombre_pagina {
+	width: 100%;
+	height: auto;
+}
+.seccion_login .div_nombre .nombre_pagina img {
+	width: 200px;
+}
+.seccion_login .div_frase {
+	width: 100%;
+	margin-bottom: 30px;
+}
+/* barra separadora */
+.seccion_login .div_barra {
+	width: 100%;
+	display: flex;
+	margin-bottom: 30px;
+	justify-content: space-between;
+	align-items: center;
+	color: rgb(240, 157, 69, 0.5);
+}
+.seccion_login .div_barra hr {
+	width: 45%;
+	border: 1px solid rgb(240, 157, 69, 0.5);
+}
+/* Inputs Email y Contraseña */
+.seccion_login .div_continput {
+	width: 100%;
+	padding: 0 8px 0;
+}
+.seccion_login .div_continput .div_input {
+	width: 100%;
+	margin-bottom: 20px;
+}
+.seccion_login .div_continput .div_input input {
+	width: 100%;
+	margin: 10px 0 20px;
+	padding: 10px 16px;
+	height: 40px;
+	border: 1px solid #F09D45;
+	border-radius: 5px;
+}
+.seccion_login .div_continput .div_input input:nth-child(2n) {
+	margin-bottom: 5px;
+}
+/* Boton Ingresar */
+.seccion_login .div_botoning {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.seccion_login .div_botoning button {
+	width: 200px;
+	height: 40px;
+	border-radius: 25px;
+	border: none;
+	margin-bottom: 30px;
+	background-color: #5343DC;
+	color: white;
+}
+/* Ingresar con Facebook */
+.seccion_login .div_ingfacebook {
+	width: 100%;
+	height: 30px;
+	border-radius: 25px;
+	border: 1px solid #5343DC;
+	margin-bottom: 30px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-direction: column;
 }
-main.login .banner-img {
-	width: 90%;
-	height: 100px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: #fff;
-	border-radius: 5px 5px 0 0;
+.seccion_login .div_ingfacebook a {
+	text-decoration: none;
+	color: #5343DC;
 }
-main.login .banner-img img {
-	width: 100px;
-}
-main.login .login-form {
-	width: 90%;
-	padding: 10px;
-	background: rgba(0,0,0,.5);
-	border-radius: 0 0px 5px 5px;
-}
-main.login .login-form input {
+/* Olvidaste tu Contraseña */
+.seccion_login .div_olvcontraseña {
 	width: 100%;
-	padding: 8px 10px;
-	margin: 20px 0;
-	border-radius: 5px;
-	border: 2px solid var(--orange);
+	margin-bottom: 20px;
 }
-main.login .login-form input::placeholder {
-	color: var(--orange);
-}
-main.login .login-form form {
-	text-align: center;
-}
-main.login .login-form form h2 {
-	color: #fff;
-}
-main.login .login-form form div {
-	display: flex;
-	align-items: center;
-	font-family: var(--font-open);
-	color: white;
-}
-main.login .login-form form div input {
-	width: 10%;
-}
-main.login .login-form form button {
-	padding: 10px 12px;
-	border: none;
-	background: var(--violet);
-	color: #fff;
-	cursor: pointer;
-}
-
-main.login .login-form .register {
-	padding: 10px 0;
-}
-main.login .login-form .register a {
-	background: none;
-	border: none;
-	color: white;
-	font-family: var(--font-open);	
-	font-size: 18px;
-	cursor: pointer;
-}
-
-.isInvalid {
-    border: 2px red solid;
-}
-/* REgister */
-main.login .register-form {
-	width: 90%;
-	padding: 10px;
-	background: rgba(0, 0, 0, .5);
-	height: fit-content;
-	height: -moz-fit-content;
-}
-main.login .register-form input {
-	width: 100%;
-	padding: 8px 10px;
-	margin: 20px 0;
-	border-radius: 5px;
-	border: 2px solid var(--orange);
-}
-main.login .register-form input::placeholder {
-	color: var(--orange);
-}
-main.login .register-form form {
-	text-align: center;
-}
-
-main.login .register-form form h2 {
-	color: #fff;
-}
-main.login .register-form form div {
-	display: flex;
-	align-items: center;
-	font-family: var(--font-open);
-	color: white;
-}
-main.login .register-form form div input {
-	width: 10%;
-}
-main.login .register-form form button {
-	padding: 10px 12px;
-	border: none;
-	background: var(--violet);
-	color: #fff;
-	cursor: pointer;
-}
-
-main.login .register-form .register a {
-	cursor: pointer;
-	background: none;
-	border: none;
-	color: white;
-	font-family: var(--font-open);	
-	font-size: 18px;
-	margin-bottom: 10px;
-}
-
-.footer-login {
-	margin-bottom: 0px;
+/* Crear Cuenta */
+.seccion_login .div_crearcuenta {
 	width: 100%;
 }
-@media screen and (min-width:768px){
-	body.login {
-		background-position: center;
-		height: 80vh;
-	}
-	main.login {
-		height: 450px;
+
+/* Seccion_imagen*/
+.seccion_imagen {
+	display: none;
+}
+
+/* Medias Queries */
+/* Mas de Tablet */
+@media screen and (min-width: 761px) {
+	/* Contenedor_login  */
+	.contenedor_login {
+		width: 320px;
 		display: flex;
-		flex-direction: row;
 	}
-	main.login .banner-img {
-		width: 20%;
-		height: 300px;
-		border-radius: 5px 0px 0 5px;
+	.seccion_login {
+		width: 320px;
+		box-shadow: 10px 0 15px rgb(0, 0, 0, 0.5);
+		background-color: white;
 	}
-	main.login .login-form {
-		width: 80%;
-		padding: 10px;
-		background: rgba(0,0,0,.5);
-		border-radius: 0 5px 5px 0px;
-	}
-	main.login .register-form {
-		width: 90%;
-		height: 450px;
-		padding: 10px;
-		height: 100%;
-		border-radius:  0 5px 5px 0px;
-	}
-	main.login .register-form.active ~ .banner-img {
-		height: 450px;
+
+	.body_login {
+		background: url(/img/icons/fondo_regylog.jpg);
+		background-size: contain;
 	}
 }
