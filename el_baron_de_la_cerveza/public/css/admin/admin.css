@@ -105,8 +105,6 @@ main.admin h1 {
   border: none;
 }
 .view-links {
-  position: absolute;
-  bottom: 30px;
   text-align: center;
   padding: 20px;
   display: flex;
