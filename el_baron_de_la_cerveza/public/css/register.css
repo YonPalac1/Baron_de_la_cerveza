@@ -1,0 +1,139 @@
+/* celu: 320 - tablet: 760 - escritorio: 1024 */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Main_login */
+.main_login {
+	max-width: 1024px;
+	display: flex;
+}
+
+/* Contenedor_login */
+.contenedor_login {
+	width: 100%;
+	display: flex;
+}
+
+/* Seccion_login */
+.seccion_login {
+	width: 100%;
+	display: flex;
+	padding: 20px 40px;
+	flex-wrap: wrap;
+}
+/* Nombre Pagina, Logo y Frase */
+.seccion_login .div_nombre {
+	width: 100%;
+	display: flex;
+	margin-bottom: 20px;
+}
+.seccion_login .div_nombre .nombre_pagina {
+	width: 100%;
+	height: auto;
+}
+.seccion_login .div_nombre .nombre_pagina img {
+	width: 200px;
+}
+.seccion_login .div_frase {
+	width: 100%;
+	margin-bottom: 30px;
+}
+/* barra separadora */
+.seccion_login .div_barra {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: rgb(240, 157, 69, 0.5);
+}
+.seccion_login .div_barra hr {
+	width: 45%;
+	border: 1px solid rgb(240, 157, 69, 0.5);
+}
+/* Inputs Email y Contraseña */
+.seccion_login .div_continput {
+	width: 100%;
+	padding: 0 8px 0;
+}
+.seccion_login .div_continput .div_input {
+	width: 100%;
+}
+.seccion_login .div_continput .div_input input {
+	width: 100%;
+	margin: 10px 0 20px;
+	padding: 10px 16px;
+	height: 40px;
+	border: 1px solid #F09D45;
+	border-radius: 5px;
+}
+.seccion_login .div_continput .div_input input:nth-child(2n) {
+	margin-bottom: 5px;
+}
+/* Boton Ingresar */
+.seccion_login .div_botoning {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.seccion_login .div_botoning button {
+	width: 200px;
+	height: 40px;
+	border-radius: 25px;
+	border: none;
+	margin-bottom: 30px;
+	background-color: #5343DC;
+	color: white;
+}
+/* Ingresar con Facebook */
+.seccion_login .div_ingfacebook {
+	width: 100%;
+	height: 30px;
+	border-radius: 25px;
+	border: 1px solid #5343DC;
+	margin-bottom: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.seccion_login .div_ingfacebook a {
+	text-decoration: none;
+	color: #5343DC;
+}
+/* Olvidaste tu Contraseña */
+.seccion_login .div_olvcontraseña {
+	width: 100%;
+	margin-bottom: 20px;
+}
+/* Crear Cuenta */
+.seccion_login .div_crearcuenta {
+	width: 100%;
+}
+
+/* Seccion_imagen*/
+.seccion_imagen {
+	display: none;
+}
+
+/* Medias Queries */
+/* Mas de Tablet */
+@media screen and (min-width: 761px) {
+	/* Contenedor_login  */
+	.contenedor_login {
+		width: 320px;
+		display: flex;
+	}
+	.seccion_login {
+		width: 320px;
+		box-shadow: 10px 0 15px rgb(0, 0, 0, 0.5);
+		background-color: white;
+	}
+
+	.body_login {
+		background: url(/img/icons/fondo_regylog.jpg);
+		background-size: contain;
+	}
+}
