@@ -93,15 +93,27 @@ module.exports = {
         })
     },
     products: (req, res) => {
-        db.Product.findAll({
-            order: [['createdAt', 'DESC']]
+        let productPromise = db.Product.findAll({
+            order: [['createdAt', 'DESC']],
+            include: [
+                {association: "category"},
+                {association: "brand"}
+            ]
         })
-        .then(product => {
+        let brandsPromise = db.Brand.findAll()
+        let categoriesPromise = db.Category.findAll()
+        
+        Promise.all([productPromise,brandsPromise,categoriesPromise])
+        .then(([product, brands, categories]) => {
             res.render("admin/adminProducts", {
                 product,
+                brands,
+                categories,
                 session: req.session
             })
         })
+        
+      .catch((err) => console.log(err));
     },
     addProducts: (req, res) => {
         let productsPromise = db.Product.findAll()
@@ -170,21 +182,21 @@ module.exports = {
             
 
         } else {
-            db.Product.findAll({
-                include: [{
-                    association: "category",
-                },{
-                    association: "brand",
-                }]
-            })
-            .then((products) => {
-                res.render("admin/addProduct", {
-                    products,
-                    session: req.session,
-                })
-            .catch((err) => console.log(err));
-            })
-          .catch((err) => console.log(err));        }
+            let productsPromise = db.Product.findAll()
+        let categoryPromise = db.Category.findAll()
+        let brandPromise = db.Brand.findAll()
+        
+
+        Promise.all([productsPromise, categoryPromise, brandPromise])
+        .then(([products, categories, brands]) => {
+            res.render("admin/addProduct", {
+                products,
+                categories,
+                brands,
+                session: req.session,
+            });
+        })
+      .catch((err) => console.log(err));       }
     },
     editProducts: (req, res) => {
         let editProduct = db.Product.findByPk(req.params.id, {

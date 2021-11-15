@@ -36,64 +36,6 @@ function qs(element) {
       }
     });
 
-    $inputEmail.addEventListener("blur", function () {
-      switch (true) {
-        case !inputEmail.value.trim():
-          $emailErrors.innerHTML = "Debes ingresarle un email";
-          inputEmail.classList.add("is-invalid");
-          break;
-        case !regExAlpha.test(inputEmail.value):
-          $emailErrors.innerHTML = "Debes ingresar un email valido";
-          inputEmail.classList.add("is-invalid");
-          break;
-        default:
-          inputEmail.classList.remove("is-invalid");
-          inputEmail.classList.add("is-valid");
-          $emailErrors.innerHTML = "";
-          break;
-      }
-    });
-    $inputPass.addEventListener('blur', function() {
-      switch (true) {
-          case !$inputPass.value.trim():
-              $passError.innerHTML = "Ingrese una Contraseña";
-              break;
-          case !regExAlpha.test($inputPass.value):
-              $passError.innerHTML = "Debe ingresar su contraseña actual";
-              break 
-          default:
-              $passError.innerHTML = "";
-              break;
-      }
-    });
-
-    $pass1.addEventListener('blur', function() {
-      switch (true) {
-          case !$pass1.value.trim():
-              $passErrors.innerHTML = "Ingrese una Contraseña";
-              break;
-          case !regExPass.test($pass1.value):
-              $passErrors.innerHTML = "La contraseña debe tener como minimo 8 caracteres, letras mayúsculas, minúsculas, un número y un carácter especial";
-              break 
-          default:
-              $passErrors.innerHTML = "";
-              break;
-      }
-    });
-    
-    $pass2.addEventListener('blur', function(){
-        switch (true) {
-            case !$pass2.value.trim():
-                $pass2Errors.innerHTML = "Debes reingresar la contraseña";
-                break;
-            case $pass2.value != $pass1.value:
-                $pass2Errors.innerHTML = "Las contraseñas no coinciden";
-                break;
-            default:
-                $pass2Errors.innerHTML = "";
-                break;
-        }
-    })
   
   $form.addEventListener('submit',function(event){
       let error = false;

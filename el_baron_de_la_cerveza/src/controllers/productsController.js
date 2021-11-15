@@ -16,7 +16,7 @@ module.exports = {
                 }],
                 where: {
                     outstanding: 1 
-                },
+                }                
             })
             .then(products => {
                 let categoryPromise = db.Category.findAll()
@@ -119,21 +119,44 @@ module.exports = {
     detail: (req, res) => {
         db.Product.findOne({
             where: {
-              id: req.params.id,
+                id: req.params.id
             },
             include: [
                 {association: "category"},
                 {association: "brand"}
             ]
-          })
-          .then((product) => {
-                res.render("productDetail", {
-                titleBanner: "Detalles del producto",
-                product,
-                session: req.session,
-            });
         })
-            .catch((err) => console.log(err));
+        .then(productDetail => {
+            db.Product.findAll({
+                limit: 5,
+                include: [{
+                    association: "brand"
+                }],
+                where: {
+                    outstanding: 1 
+                }                
+            })
+            .then(product => {
+                let categoryPromise = db.Category.findAll()
+                let brandPromise = db.Brand.findAll()
+                let bannerPromise = db.Banner.findAll()
+
+                Promise.all([categoryPromise, brandPromise, bannerPromise])
+                .then(([categories, brands, banners]) => {
+                    res.render("productDetail", {
+                        titleBanner: "Pedi tu birra y te la llevamos a tu casa",
+                        titleSlider: "Recomendados",
+                        productDetail,
+                        categories,
+                        banners,
+                        brands,
+                        product,
+                        session: req.session
+                    })
+                })
+            })
+        })
+
     },
     
     orderBy: (req, res)=> {

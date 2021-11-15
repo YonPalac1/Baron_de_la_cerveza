@@ -17,6 +17,7 @@ module.exports = function(sequelize, dataTypes){
         },
         discount: {
             type: dataTypes.INTEGER(11),
+            allowNull: true
         },
         description: {
             type: dataTypes.STRING(800),

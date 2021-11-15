@@ -28,7 +28,7 @@
                     <div class="col-12">
                         <label for="inputName" class="form-label">Nombre</label>
                         <input type="text" class="form-control" id="inputName" name="name" value="<%= user.name %>">                
-                        <span id="nameErrors" class="fileErrors"></span>
+                        <span id="nameErrors" class="fileErrors" style="color: red;"></span>
                     </div>
                     <div class="col-sm-12 col-md-6">
                         <label for="inputEmail" class="form-label">Email</label>
@@ -71,7 +71,7 @@
     <!-- /#page-content-wrapper -->
 
     <%- include("../partials/scriptAdmin.ejs")  %>
-    <script src="/js/validaciones/validationsCatBrand.js"></script>
+    <script src="/js/validaciones/validationsAdmin.js"></script>
 </body>
 
 </html>

@@ -13,21 +13,21 @@
         <section class="contenedor-detalleproducto">
             <section class="detalle-producto">
                 <div class="imagen-detalleproducto">
-					<% if(product.discount){ %>
+					<% if(productDetail.discount){ %>
 						<span class="off">
-							<%= product.discount %>%Off 
+							<%= productDetail.discount %>%Off 
 						</span>
 					<% } %>
-					<% if(product.images){ %>
-						<img src="/img/productos/<%= product.images %>" class="imagen-producto wow animate__animated animate__zoomIn animate__delay-.5s">
+					<% if(productDetail.images){ %>
+						<img src="/img/productos/<%= productDetail.images %>" class="imagen-producto wow animate__animated animate__zoomIn animate__delay-.5s">
 					<% } else { %>	
 						<img src="/img/productos/default-img.gif" class="imagen-producto wow animate__animated animate__zoomIn animate__delay-.5s">
 					<% } %>	
 				</div>
                 <div class="detalle-detalleproducto">
                     <div class="detalle-nombreproducto">
-						<h4><%= product.name %></h4>
-                    	<h3>$<%= product.price %></h3>
+						<h4><%= productDetail.name %></h4>
+                    	<h3>$<%= productDetail.price %></h3>
 					</div>
                     <div class="cantidad-detalleproducto">
                         CANTIDAD
@@ -67,7 +67,7 @@
 							<p> Dirección: Calle Falsa 123 </p>
 							<p> Email: mail@mail.com </p>
 							<p> Tel/Cel: 123-345 345 </p>
-							<p> Advertencia de consumo y blablabla </p>
+							<p> Beber con moderación, prohibida su venta a menores de 18 años </p>
 						</div>
 					</section>
                 </div>
@@ -78,13 +78,23 @@
         <section class="especificaciones-producto">
 			<div class="especificaciones">
 				<h3>Especificaciones</h3>
-				<p> - Marca: <%= product.brand.brand %> </p>
-				<p> - Categoria: <%= product.category.category %> </p>
-				<p> - Graduación Alcohólica: <%= product.alcoholContent %>% </p>
-				<p> - Descripción: <%= product.description %> </p>
+				<p> - Marca: <%= productDetail.brand.brand %> </p>
+				<p> - Categoria: <%= productDetail.category.category %> </p>
+				<p> - Graduación Alcohólica: <%= productDetail.alcoholContent %>% </p>
+				<p> - Descripción: <%= productDetail.description %> </p>
 			</div>
 		</section>
+
     </main>
+	<main class="main-destacados">
+		<section class="destacados">
+
+			<h2 class="titleSlider-detail"><%- titleSlider %></h2>
+			<div class="productos-main">
+				<%- include("partials/product")  %>
+			</div>
+		</section>
+	</main>
 
 	<%- include ("partials/footer") %>
 

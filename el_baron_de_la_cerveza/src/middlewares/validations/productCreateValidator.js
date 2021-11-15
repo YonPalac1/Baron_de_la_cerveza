@@ -19,14 +19,14 @@ module.exports = [
     .notEmpty()
     .withMessage('Coloca un precio')
     .isNumeric()
-    .withMessage("Solo puedes ingresar números"),
+        .withMessage("Solo puedes ingresar números"),
 
     check('discount')
     .notEmpty()
     .withMessage('Coloca un descuento')
     .isNumeric()
     .withMessage("Solo puedes ingresar números"),
-
+    
     check('alcoholContent')
     .notEmpty()
     .withMessage('Coloca un Contenido Alcoholico')
@@ -36,6 +36,6 @@ module.exports = [
     check('description')
     .notEmpty()
     .withMessage("Agrega una Descripción")
-    .isLength({ min: 10 }, { max: 500 })
+    .isLength({ min: 1 }, { max: 1000 })
     .withMessage("Ingrese más de 10 caracteres")
 ]

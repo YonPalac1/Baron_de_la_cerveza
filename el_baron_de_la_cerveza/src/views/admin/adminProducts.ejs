@@ -25,7 +25,33 @@
             <div style="padding-bottom: 24px;" class="container-fluid px-4">
 
                 <div class="table-responsive">
-					<b>Cantidad de productos: <%- product.length %></b>
+					<div class="d-flex justify-content-between">
+						<b>Cantidad de productos: <%- product.length %></b><br>
+						<a href="/admin/products/create" class="btn btn-outline-primary">Agregar Productos</a>
+					</div>
+					<div class="d-flex mt-3">
+						<div class="filter filter-admin">
+							<div>
+								<button onclick="orderByBrands()">Filtrar por Marcas</button>
+								<div class="submenu" id="orderByBrands">
+									<% brands.forEach(brand => { %>
+										<a href=""><%= brand.brand %></a>
+									<% }) %>
+								</div>
+							</div>
+						</div>
+						<div class="filter filter-admin">
+							<div>
+								<button onclick="orderByCategories()">Filtrar por Categorias</button>
+								<div class="submenu" id="orderByCategories">
+									<% categories.forEach(category => { %>
+										<a href=""><%= category.category %></a>
+									<% }) %>
+								</div>
+							</div>
+							
+						</div>
+					</div>
 					
 					<table class="table table-striped table-sm">
 				  		<thead>
@@ -44,7 +70,7 @@
 									<% }else{ %>
 										<td><img src="/img/productos/<%= adminproducts.images %>" style="width: 50px;"></td>
 									<% } %>
-									<td><%- adminproducts.name%> <%- adminproducts.trademark%></td>
+									<td><%- adminproducts.name%> - <%- adminproducts.brand.brand %></td>
 									<td><%= adminproducts.price %></td>
 									<td>
 										<a class="btn btn-warning" href="/admin/products/edit/<%- adminproducts.id %>">

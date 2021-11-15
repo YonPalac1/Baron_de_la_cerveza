@@ -194,6 +194,22 @@ main.main-detalleproducto {
     margin-top: 2px;
 }
 
+.titleSlider-detail {
+    padding: 10px 15px 10px;
+}
+.main-destacados {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1020px;
+    margin: 30px auto; 
+}
+.main-destacados .destacados {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto 35px;
+}
 /* Medias Queries */
 /* Tablet */
 @media screen and (min-width: 760px) {

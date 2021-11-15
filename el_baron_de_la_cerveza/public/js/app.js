@@ -31,6 +31,16 @@ function orderBy(){
     let showOrder = document.getElementById('orderBy');
     showOrder.classList.toggle('active'); 	
 }
+function orderByBrands(){
+    let showOrder = document.getElementById('orderByBrands');
+    showOrder.classList.toggle('active'); 	
+}
+function orderByCategories(){
+    let showOrder = document.getElementById('orderByCategories');
+    showOrder.classList.toggle('active'); 
+    
+    
+}
 
 /*************** /Menus Desplegables ***********************/
 
