@@ -53,8 +53,8 @@
                         <label for="discount" class="form-label">Descuento</label>
                         <input type="number" class="form-control" id="discount" name="discount" >
                     </div>
-                    <div class="col-sm-12 col-md-6">
-                        <label for="graduacion" class="form-label">Graduación alcohólica</label>
+                    <div class="col-sm-12 col-md-6 d-none">
+                        <label for="alcoholContent" class="form-label">Graduación alcohólica</label>
                         <input type="text" class="form-control" name="alcoholContent" aria-label="file example">
                     </div>
                     <div class="col-12">
@@ -70,11 +70,15 @@
                         <span id="brandErrors" class="fileErrors"></span>
                     </div>
                     <div class="col-12">
+                        <label for="categorySelect" class="form-label">Categoria</label>
                         <select class="form-select" id="categorySelect" name="category">
                           <option selected hidden value="">Categorias</option>
                          <% categories.forEach(category => { %>
+                            <% if (category.category != "Sin categoria"){ %>
                             <option value="<%- category.id %>"><%- category.category %></option>
+                            <% } %>
                          <% }) %>
+                         <option value="15">Sin categoria</option>
                         </select>
                         <% if (locals.errors && errors.category) { %>
                             <small class="text-danger"><%= errors.category.msg %> </small>

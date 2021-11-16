@@ -319,7 +319,7 @@ module.exports = {
         })
     },
     signin: (req, res)=> {
-        res.render('admin/adminLogin')
+        res.render('login')
     },
     addCategory: (req, res)=>{
         
@@ -358,12 +358,16 @@ module.exports = {
         let errors = validationResult(req);
 
         if (errors.isEmpty()) {
-            let { 
-                category,
-            } = req.body;
+            db.Product.update({
+                categoryId: 15
+            },{
+                where:{
+                    categoryId: req.params.id
+                }
+            })
 
             db.Category.update({
-                category: category
+                category : "Sin categoria"
             }, {
                 where: {
                     id: req.params.id
@@ -544,8 +548,5 @@ module.exports = {
                 })
             })
         })
-    },
-    signin: (req, res)=> {
-        res.render('admin/adminLogin')
     }
 }

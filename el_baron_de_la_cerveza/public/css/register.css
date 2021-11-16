@@ -117,7 +117,9 @@
 .seccion_imagen {
 	display: none;
 }
-
+.isInvalid {
+	border: 2px solid red;
+}
 /* Medias Queries */
 /* Mas de Tablet */
 @media screen and (min-width: 761px) {
@@ -135,5 +137,8 @@
 	.body_login {
 		background: url(/img/icons/fondo_regylog.jpg);
 		background-size: contain;
+	}
+	.isInvalid {
+		border: 2px solid red;
 	}
 }

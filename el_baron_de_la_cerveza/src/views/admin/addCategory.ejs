@@ -38,6 +38,7 @@
                 <table class="table table-striped table-sm ">
                     <tbody>
                         <% category.forEach(categories => { %>
+                            <% if(categories.category != "Sin categoria") { %>
                             <tr>
                                 <td><i class="fas fa-circle"></i><span class="m-3"><%= categories.category %></span></td>
                                 <td>
@@ -47,6 +48,7 @@
                                     </form>
                                 </td>
                             </tr>
+                            <% } %>
                         <% }) %>
                     </tbody>
                 </table>
