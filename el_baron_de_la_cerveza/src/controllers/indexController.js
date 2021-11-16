@@ -3,6 +3,7 @@ const { Op } = require('sequelize');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+
 module.exports = {
 	index: (req, res) => {
 		db.Product.findAll({
@@ -22,12 +23,16 @@ module.exports = {
                 },
             }) 
             .then(products => {
-                res.render("index", {
-                    titleBanner: "Pedi tu birra y te la llevamos a tu casa",
-                    titleSlider: "Destacados",
-                    product,
-                    destacadosSlider: products,
-                    session: req.session
+                db.Brand.findAll()
+                .then(brands =>{
+                    res.render("index", {
+                        titleBanner: "Pedi tu birra y te la llevamos a tu casa",
+                        titleSlider: "Destacados",
+                        product,
+                        brands,
+                        destacadosSlider: products,
+                        session: req.session
+                    })
                 })
             })
 	    })

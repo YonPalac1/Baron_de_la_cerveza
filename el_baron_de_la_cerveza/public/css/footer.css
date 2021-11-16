@@ -10,6 +10,10 @@ footer {
 	padding: 10px 0;
 	padding-bottom: 50px;
 	margin-bottom: 30px;
+	box-shadow: -1px -7px 32px -11px rgba(0,0,0,0.75);
+-webkit-box-shadow: -1px -7px 32px -11px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px -7px 32px -11px rgba(0,0,0,0.75);
+z-index: 8000;
 }
 .footer {
 	max-width: 1024px;

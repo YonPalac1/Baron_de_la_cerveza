@@ -26,10 +26,6 @@
 		</div>
 	</section>
 
-	<!-- CARDS -->
-	<%- include("partials/cards")  %>
-	<!-- /CARDS -->
-
 	<!-- Slider  -->
 	<%- include('partials/slider.ejs') %>
 	<!-- /SLider Destacados -->
@@ -37,16 +33,29 @@
 	<section class="description">
 		<div class="description-size">
 			<div>
-				<img class="thumbnail  wow animate__animated animate__bounceInUp animate__delay-.5s" src="img/banners/img3.png" alt="">
+				<img class="thumbnail" src="img/banners/img3.png" alt="">
 			</div>
-			<div  class=" wow animate__animated animate__bounceInUp animate__delay-.8s">
+			<div  class="go wow animate__animated animate__bounceInUp animate__delay-.8s">
 				<h4>¡Brindamos por más de 10.000 pedidos entregados y seguimos sumando!</h4>
 				<p>El equipo de Marketing quiso que usemos este número para mostrar que entregamos bebidas a muchas personas.</p>	
 				<a href="/products">Vamos a escabiar!</a>			
 			</div>
+			<div class="brands wow animate__animated animate__bounceInUp animate__delay-.5s">
+				<h2>LAS MARCAS CON LAS QUE TRABAJAMOS</h2>
+				<section>
+					<% brands.forEach(brand => { %>
+					<ul>
+						<li><a href="/products/productsFilter/<%= brand.id %>"><%- brand.brand %></a></li>
+					</ul>
+					<% }) %>
+				</section>
+			</div>
 		</div>
 	</section>
 
+		<!-- CARDS -->
+	<%- include("partials/cards")  %>
+		<!-- /CARDS -->
 
 
 

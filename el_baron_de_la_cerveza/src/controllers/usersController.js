@@ -200,9 +200,14 @@ module.exports = {
         res.redirect('/')
     },
     productCart: (req, res) => {
+        db.Product.findByPk(req.params.id)
+        .then((product)=>{
             res.render('productCart',{
-            titleBanner: "Carrito",
-            session: req.session,
+                titleBanner: "Carrito",
+                product,
+                session: req.session,
             })
+
+        })
     }
 }

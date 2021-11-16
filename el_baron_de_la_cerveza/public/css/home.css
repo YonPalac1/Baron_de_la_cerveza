@@ -85,7 +85,7 @@ article a {
 	justify-content: center;
 	position: relative;
 }
-.boton-comprar button.btn-buy {
+.boton-comprar .btn-buy {
 	background-color: #fff;
 	border: none;
 	padding: 12px 15px;
@@ -237,14 +237,16 @@ main.seccion-productos .filter {
 /*                description             */
 /******************************************/
 .description {
-	background: var(--orange);
 	margin: 270px 0 30px;
+	background: rgb(212,58,15);
+  background: linear-gradient(0deg, rgba(212,58,15,1) 0%, rgba(251,144,114,1) 0%, rgba(255,215,102,1) 100%);	
 }
 .description-size {
 	max-width: 1024px;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
+	flex-wrap: wrap;
 }
 .description-size div:nth-child(1){
 	width: 100%;
@@ -255,9 +257,9 @@ main.seccion-productos .filter {
 	display: flex;
 	left: 0;
 	right: 0;
-	width: 300px;
+	width: 500px;
 }
-.description-size div:nth-child(2){
+.description-size div.go{
 	width: 100%;
 	padding: 40px 20px;
 	display: flex;
@@ -273,13 +275,61 @@ main.seccion-productos .filter {
 	font-size: 20px;
 	margin-top: 20px;
 }
-.description-size a {
+.description-size .go a {
 	background: var(--violet);
 	padding: 10px 12px;
 	border-radius: 5px;
 	color: #fff;
 	width: 180px;
 	margin-top: 30px;
+}
+.brands {
+	width: 100%;
+	text-align: center;
+}
+.brands h2 {
+	margin-top: 30px;
+	font-family: var(--font-rowdies);
+}
+.brands section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 30px 30px 40px;
+	overflow: hidden;
+}
+.brands section ul {
+	width: 50%;
+	
+}
+.brands section ul li {
+	padding: 10px;
+	position: relative;
+}
+.brands section ul li a {
+	font-size: 30px;
+	font-family: var(--font-open);
+	transition: .5s;
+}
+.brands section ul li:hover {
+	background: orange;
+}
+.brands section ul li:hover a {
+	color: #fff;
+}
+.brands section ul li:hover:after {
+	content: url('/img/icons/duff.png');
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	width: 30px; 
+	transform: scale(.2);
+	-ms-transform: rotate(10deg); /* IE 9 */
+    -webkit-transform: rotate(10deg); /* Chrome, Safari, Opera */
+    transform: rotate(10deg); /* Standard syntax */
+    transform-origin: bottom left; /* Prevent the bottom from shifting */
+	
 }
 /******************************************/
 /*                CARDS                   */
@@ -414,7 +464,6 @@ section .card i {
 	/*                description             */
 	/******************************************/
 	.description {
-		background: var(--orange);
 		margin: 100px 0 30px;
 	}
 	.description-size {

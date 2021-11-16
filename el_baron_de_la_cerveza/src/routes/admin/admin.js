@@ -16,10 +16,15 @@ router.get("/users/editAdmin/:id", userAdminCheck, controller.userAdmin);
 router.put("/users/editAdmin/:id", updateAdmin, controller.updateAdmin);
 
 
+
 /* Eliminar un usuario */
 router.delete('/users/delete/:id', controller.usersDestroy);
 
 router.get("/products", userAdminCheck,cookieCheck, controller.products);
+
+router.get("/products/categories/:id", controller.filter);
+
+router.get("/products/brands/:id", controller.filterBrands);
 
 /* Crear un producto */
 router.get("/products/create", userAdminCheck, controller.addProducts);
@@ -27,6 +32,7 @@ router.post('/products/create', uploadProductFile.array("images"), productValida
 
 router.get("/category/create", userAdminCheck, controller.addCategory);
 router.post('/category/create', controller.createCategory);
+router.put('/category/create/:id', controller.categoryDestroy);
 
 router.get("/brand/create", userAdminCheck, controller.addBrand);
 router.post('/brand/create', controller.createBrand);

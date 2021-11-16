@@ -2,15 +2,57 @@
 <html>
 
 	<%- include ("partials/head") %>
-<body>
+<body class="about-body">
 	<%- include ("partials/header") %>
-	<%- include("partials/banner") %>
+	<header class="header">
+		<h1 class=" wow animate__animated animate__zoomIn animate__delay-.5s">ACERCA DE NOSOTROS</h1>
+		<h2 class=" wow animate__animated animate__bounceInUp animate__delay-1s">El barón de la cerveza</h2>
+	</header>
+	<img src="/img/icons/duff.png" class="duff" alt="">
 
 	<!--  Acerca de nosotros -->
 	<main class="about">
 		<div class="about-us">
-			<img src="/img/icons/icon-title.png" alt="El baron de la cerveza">
+			<img src="/img/icons/icon-title.png" alt="">
 			<p>El Barón de la cerveza es un plataforma de venta de bebidas alcohólicas al por mayor, dirigida los potenciales clientes que tengan la necesidad de abastecerse de diferentes tipos de cervezas. El barón de la cerveza le garantiza la mejor y más rápida atención, ya que los desarrolladores de la tienda online le dedican todo el amor y el esfuerzo para que su navegación sea fluida, rápida y elegante para su comodidad.</p>
+		</div>
+		<div class="about-contact">
+			<section class="form">
+				<form class="form" action="js/enviar.php" method="post">
+					<div class="name-email">
+						<input type="text" name="name"  placeholder="Nombre" required>
+						<input type="email" name="mail"  placeholder="Email" required>
+					</div>
+					<div class="subject">
+						<input type="text" name="asunto"  placeholder="Asunto">
+					</div>
+					<div class="message">
+						<textarea name="msg" placeholder="Mensaje" required></textarea>
+					</div>
+					<button type="submit" class="enviar" name="send">Enviar</button>
+            	</form>
+				<div class="redes-info">
+					<span>Baron de La Cerveza</span>
+					<div class="redes">
+					<a href="https://api.whatsapp.com/send/?phone=5491139366942&app_absent=0" target='_blank'><i class="fab fa-whatsapp"></i></a>
+	  
+					<a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=palaciosjonatan.dev@gmail.com" target='_blank'><i class="fas fa-envelope"></i></a>
+					</div>
+	  
+					<a href="#">BaronDeLaCerveza@gmail.com</a>
+				  </div>
+			</section>
+			<section class="map">
+				<div class="col-lg-5 map-section">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26270.140389439515!2d-58.386436195406425!3d-34.610039036660915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11bead4e234e558b!2sObelisco!5e0!3m2!1ses!2sar!4v1626102731370!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+					<div class="box-info">
+					  <span><i class="fas fa-map-marker-alt"></i>Buenos Aires</span><br>
+					  <span><i class="fab fa-telegram-plane"></i>Argentina</span><br>
+		
+					  <span><i class="fas fa-phone-alt"></i>+54 11-3936-6942</span>
+					</div>
+				  </div>
+			</section>
 		</div>
 	</main>
 	<!-- /Acerca de nosotros  -->

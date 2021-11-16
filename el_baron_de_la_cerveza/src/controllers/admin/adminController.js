@@ -354,6 +354,28 @@ module.exports = {
                     
        } 
     },
+    categoryDestroy: (req, res)=>{
+        let errors = validationResult(req);
+
+        if (errors.isEmpty()) {
+            let { 
+                category,
+            } = req.body;
+
+            db.Category.update({
+                category: category
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(() => {
+                res.redirect("/admin/category/create");
+            })
+            .catch((err) => console.log(err));
+                    
+       } 
+    },
     addBrand: (req, res)=>{
         
         db.Brand.findAll({
@@ -449,6 +471,78 @@ module.exports = {
         })
         .then(() => {
             res.redirect("/admin/banners/create")
+        })
+    },
+    filter: (req, res) => {
+        db.Product.findAll({
+            where: {
+                categoryId: req.params.id,
+            },
+            include: [
+                {association: "category"},
+                {association: "brand"}
+            ]
+        })
+        .then((product) => {
+            db.Product.findAll({
+                include: [{
+                    association: "brand"
+                }],
+                where: {
+                    outstanding: 1
+                }
+            })
+            .then(products => {
+                let categoryPromise = db.Category.findAll()
+                let brandPromise = db.Brand.findAll()
+
+                Promise.all([categoryPromise, brandPromise])
+                .then(([categories, brands]) => {
+                    res.render("admin/products_categories", {
+                        product,
+                        categories,
+                        brands,
+                        destacadosSlider: products,
+                        session: req.session
+                    })
+                })
+            })
+        })
+    },
+    filterBrands: (req,res)=>{
+        db.Product.findAll({
+            where: {
+                categoryId: req.params.id,
+            },
+            include: [
+                {association: "category"},
+                {association: "brand"}
+            ]
+        })
+        .then((product) => {
+            db.Product.findAll({
+                include: [{
+                    association: "brand"
+                }],
+                where: {
+                    outstanding: 1
+                }
+            })
+            .then(products => {
+                let categoryPromise = db.Category.findAll()
+                let brandPromise = db.Brand.findAll()
+
+                Promise.all([categoryPromise, brandPromise])
+                .then(([categories, brands]) => {
+                    res.render("admin/products_categories", {
+                        product,
+                        categories,
+                        brands,
+                        destacadosSlider: products,
+                        session: req.session
+                    })
+                })
+            })
         })
     },
     signin: (req, res)=> {

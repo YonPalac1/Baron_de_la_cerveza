@@ -24,14 +24,13 @@
 					Precio
 				</p>
 			</div>
-			
 					<div class="card-product">
 						<div class="product-info">
 							<div class="product-img">
 								<a href="/products/productDetail/">
-									<img class="product-img__img" src="/img/productos/img3.png" alt="">
+									<img class="product-img__img" src="/img/productos/<%= product.images %>" alt="">
 								</a>
-								<span class="product-img__name">Nombre del elemento</span>
+								<span class="product-img__name"><%= product.name %></span>
 							</div>
 						</div>
 						<div class="product-cantidad">
@@ -40,18 +39,19 @@
 								<button>
 									-
 								</button>
-								<div>1</div> 
-								<button>
+								<div id="cantidad">1</div> 
+								<button onclick="plus()">
 									+
 								</button>
 							</div>
 						</div>
 						<div class="product-price">
 							<div class="product-price__price">
-								<p class="product-price__number">1199</p><i class="fas fa-trash"></i>
+								<p class="product-price__number"><%= product.price %></p><i class="fas fa-trash"></i>
 							</div>
 						</div>
 					</div>
+				
 				<!-- <div>
 					<div class="detalles-producto-carrito carrito--carrito">
 						<span class="carrito--carro">No hay productos en el carrito</span>
@@ -62,7 +62,7 @@
 		<div class="price-total">
 			<p class="price-total__title">Total del pedido</p>
 			<div class="price-total__total">
-				<p>Total:</p><span>$00.00</span>
+				<p>Total:</p><span id="total">$<%= product.price %></span>
 			</div>
 		</div>
 		<div class="product-button">

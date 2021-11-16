@@ -40,6 +40,12 @@
                         <% category.forEach(categories => { %>
                             <tr>
                                 <td><i class="fas fa-circle"></i><span class="m-3"><%= categories.category %></span></td>
+                                <td>
+                                    <form action="/admin/category/create/<%= categories.id %>?_method=PUT" method="POST" onsubmit="return confirm('¿Esta seguro de querer eliminar esta categoria?')">
+                                        <input type="text" name="category" class="d-none">
+                                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                    </form>
+                                </td>
                             </tr>
                         <% }) %>
                     </tbody>

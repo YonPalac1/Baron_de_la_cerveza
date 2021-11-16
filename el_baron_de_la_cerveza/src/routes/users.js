@@ -19,7 +19,7 @@ const uploadUserAvatar = require('../middlewares/uploadUserAvatar')
 
 router.get('/', userSessionCheck, user);
 
-router.get("/productCart", userSessionCheck, productCart);
+router.get("/productCart/:id", userSessionCheck, productCart);
 
 router.get('/login', userLog, login);
 router.post('/login', loginValidator, processLogin);
