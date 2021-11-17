@@ -36,6 +36,7 @@ router.put('/category/create/:id', controller.categoryDestroy);
 
 router.get("/brand/create", userAdminCheck, controller.addBrand);
 router.post('/brand/create', controller.createBrand);
+router.put('/brand/create/:id', controller.brandDestroy);
 
 /* Editar un producto */
 router.get("/products/edit/:id", userAdminCheck, controller.editProducts);

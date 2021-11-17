@@ -61,11 +61,14 @@
                         <select class="form-select" id="brandSelect" name="brand">
                           <option selected hidden value="">Marcas</option>
                          <% brands.forEach(brand => { %>
-                            <option value="<%- brand.id %>"><%- brand.brand %></option>
+                            <% if (brand.brand != "Sin marca"){ %>
+                                <option value="<%- brand.id %>"><%- brand.brand %></option>
+                            <% } %>
                          <% }) %>
+                         <option value="19">Sin marca</option>
                         </select>
                         <% if (locals.errors && errors.category) { %>
-                            <small class="text-danger"><%= errors.category.msg %> </small>
+                            <small class="text-danger"><%= errors.brand.msg %> </small>
                         <% } %>
                         <span id="brandErrors" class="fileErrors"></span>
                     </div>

@@ -35,8 +35,10 @@
 								<button onclick="orderByBrands()">Filtrar por Marcas</button>
 								<div class="submenu" id="orderByBrands">
 									<% brands.forEach(brand => { %>
-										<a href="/admin/products/brands/<%= brand.id %>"><%= brand.brand %></a>
-									<% }) %>
+										<% if (brand.brand != "Sin marca"){ %>
+										<a href="/admin/products/brands/<%= brand.id %>" style="color: #000; text-decoration:none;"><%= brand.brand %></a>
+									<% }}) %>
+									<a href="/admin/products/categories/19"style="color: #000; text-decoration:none;">Sin marca</a>
 								</div>
 							</div>
 						</div>
@@ -45,8 +47,10 @@
 								<button onclick="orderByCategories()">Filtrar por Categorias</button>
 								<div class="submenu" id="orderByCategories">
 									<% categories.forEach(category => { %>
-										<a href="/admin/products/categories/<%= category.id %>"><%= category.category %></a>
-									<% }) %>
+										<% if (category.category != "Sin categoria"){ %>
+										<a href="/admin/products/categories/<%= category.id %>" style="color: #000; text-decoration:none;"><%= category.category %></a>
+									<% }}) %>
+									<a href="/admin/products/categories/15"style="color: #000; text-decoration:none;">Sin categoria</a>
 								</div>
 							</div>
 							

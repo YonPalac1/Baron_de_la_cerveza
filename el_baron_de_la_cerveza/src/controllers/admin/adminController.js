@@ -413,6 +413,32 @@ module.exports = {
                     
        } 
     },
+    brandDestroy: (req, res)=>{
+        let errors = validationResult(req);
+
+        if (errors.isEmpty()) {
+            db.Product.update({
+                brandId: 19
+            },{
+                where:{
+                    brandId: req.params.id
+                }
+            })
+
+            db.Brand.update({
+                brand : "Sin marca"
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(() => {
+                res.redirect("/admin/brand/create");
+            })
+            .catch((err) => console.log(err));
+                    
+       } 
+    },
     addBanner: (req, res)=>{
         let bannerPromise = db.Banner.findAll()
         let userPromise = db.User.findOne(req.params.rol)

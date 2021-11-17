@@ -4,9 +4,10 @@
 }
 .about-body img.duff {
 	z-index: -1;
-	position: absolute;
+	position: fixed;
 	transform: rotate(-45deg);
 	opacity: .5;
+	height: 350px;
 }
 main.about {
 	max-width: 1024px;
@@ -55,6 +56,9 @@ main.about h2 {
 }
 .form {
 	text-align: center;
+}
+.form h2 {
+	color: white;
 }
 .form input, .form textarea {
 	padding: 10px 13px;
@@ -181,5 +185,9 @@ main.about h2 {
 	}
 	main.about .about-us p {
 		color: #000;
+	}
+	.about-body img.duff {
+		position: absolute;
+		height: 100%;
 	}
 }
