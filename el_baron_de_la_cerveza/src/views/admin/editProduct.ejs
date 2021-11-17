@@ -55,10 +55,10 @@
                         <label for="inputDiscount" class="form-label">Marca</label>
                         <select class="form-select" id="brandSelect" name="brand">
                          <% brands.forEach(brand => { %>
-                            <% if (product.brandId != "19"){ %>
+                            <% if (product.brandId != "100"){ %>
                             <option value="<%- brand.id %>"" <%- product.brandId == brand.id ? "selected" : brand.id == product.brandId ? `selected` : ""  %>><%- brand.brand %></option>
                          <% }}) %>
-                         <option value="19">Sin marca</option>
+                         <option value="100">Sin marca</option>
                         </select>
                         
                         <span id="brandErrors" class="fileErrors"></span>
@@ -67,11 +67,11 @@
                         <label for="inputDiscount" class="form-label">Categoria</label>
                         <select class="form-select" id="categorySelect" name="category">
                          <% categories.forEach(category => { %>
-                            <% if (product.categoryId != "15"){ %>
+                            <% if (product.categoryId != "100"){ %>
                             <option value="<%- category.id %>"" <%- product.categoryId == category.id ? "selected" : category.id == product.categoryId ? `selected` : ""  %>><%- category.category %></option>
                             
                         <% }}) %>
-                        <option value="15">Sin categoria</option>
+                        <option value="100">Sin categoria</option>
                             
                         </select>
                         

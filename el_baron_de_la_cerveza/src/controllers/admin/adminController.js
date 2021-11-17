@@ -359,7 +359,7 @@ module.exports = {
 
         if (errors.isEmpty()) {
             db.Product.update({
-                categoryId: 15
+                categoryId: 100
             },{
                 where:{
                     categoryId: req.params.id
@@ -418,7 +418,7 @@ module.exports = {
 
         if (errors.isEmpty()) {
             db.Product.update({
-                brandId: 19
+                brandId: 100
             },{
                 where:{
                     brandId: req.params.id
