@@ -1,6 +1,6 @@
 .about-body {
 	background: rgb(212,58,15);
-  	background: linear-gradient(0deg, rgba(212,58,15,1) 0%, rgba(251,144,114,1) 0%, rgba(255,215,102,1) 100%);	
+	background: linear-gradient(0deg, rgba(212,58,15,1) 0%, rgba(255,251,198,1) 0%, rgba(255,252,244,1) 100%);
 }
 .about-body img.duff {
 	z-index: -1;
@@ -56,6 +56,7 @@ main.about h2 {
 }
 .form {
 	text-align: center;
+	padding: 20px;
 }
 .form h2 {
 	color: white;

@@ -10,12 +10,24 @@ const {
     userEdit,
     logout,
     productCart,
+    loginGoogle,
      } = require('../controllers/usersController');
 let userLog = require('../middlewares/userLog');
 let userSessionCheck = require('../middlewares/userSessionCheck');
 let loginValidator = require('../middlewares/validations/loginValidator')
 const registerValidator = require('../middlewares/validations/registerValidator')
 const uploadUserAvatar = require('../middlewares/uploadUserAvatar')
+const passport = require('passport');
+const googleLogin = require('../functions/googleLogin');
+googleLogin()
+
+passport.serializeUser(function(user, done) {
+    done(null, user);
+  });
+  passport.deserializeUser(function(user, done) {
+    done(null, user);
+  });
+  
 
 router.get('/', userSessionCheck, user);
 
@@ -31,6 +43,10 @@ router.post('/register', uploadUserAvatar.single('avatar'), registerValidator, p
 
 router.get('/edit/:id', userSessionCheck, userEdit)
 router.put('/edit/:id', uploadUserAvatar.single('avatar'), updateUser)
+
+/* GOOGLE LOGIN */
+router.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
+router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/users/login' }), loginGoogle);
 
 
 module.exports = router;

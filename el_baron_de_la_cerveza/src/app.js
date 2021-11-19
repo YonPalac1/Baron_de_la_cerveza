@@ -5,6 +5,7 @@ let cookieParser = require('cookie-parser');
 let methodOverride = require('method-override');
 let session = require('express-session');
 let localsCheck = require('./middlewares/localsCheck');
+const passport = require('passport');
 
 /*  Enrutadores  */
 let indexRouter = require('./routes/index.js');
@@ -27,6 +28,9 @@ app.use(localsCheck)
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+//Passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 /*  Rutas  */
 app.use('/', indexRouter);

@@ -47,10 +47,7 @@ module.exports = {
                 name: user.name,
                 email: user.email,
                 pass: user.pass,
-                phone: user.phone,
                 rol: user.rol,
-                createdAt: user.createdAt,
-                updatedAt: user.updatedAt,
             };
                 if (req.body.remember) {
                     res.cookie("elBaronDeLaCerveza", req.session.user, {
@@ -209,5 +206,17 @@ module.exports = {
             })
 
         })
+    },
+    loginGoogle: (req, res) => {
+        req.session.user = {
+          id: req.session.passport.user.id,
+          name: req.session.passport.user.name,
+          rol: req.session.passport.user.rol,
+          email: req.session.passport.user.email,
+          googleId: req.session.passport.user.social_id,
+        }
+
+        res.redirect("/")
+        
     }
 }
