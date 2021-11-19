@@ -121,14 +121,14 @@ body.body_login {
 .seccion_login .div_ingGoogle:hover {
 	background: #5343DC;	
 }
-.seccion_login .div_ingGoogle:hover a {
+.seccion_login .div_ingGoogle:hover {
 	color: #fff;
 }
-.seccion_login .div_ingGoogle a {
+.seccion_login .div_ingGoogle{
 	text-decoration: none;
 	color: #5343DC;
 }
-.seccion_login .div_ingGoogle a img {
+.seccion_login .div_ingGoogle img {
 	width: 18px;
 }
 /* Olvidaste tu Contraseña */
