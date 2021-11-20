@@ -22,6 +22,7 @@ window.addEventListener("load", function() {
         switch (true) {
           case !$inputName.value.trim():
             $nameErrors.innerHTML = "Ingrese un Nombre";
+            $inputName.style.border = "2px solid red";
             break;
           default:
             $nameErrors.innerHTML = "";
@@ -33,9 +34,11 @@ window.addEventListener("load", function() {
         switch (true) {
             case !$inputEmail.value.trim():
                 $emailErrors.innerHTML = "Ingrese un Email";
+                $inputEmail.style.border = "2px solid red";
                 break;
             case !regExEmail.test($inputEmail.value):
                 $emailErrors.innerHTML = "El Email ingresado no es valido";
+                $inputEmail.style.border = "2px solid red";
                 break
             default:
                 $emailErrors.innerHTML = ""
@@ -47,6 +50,7 @@ window.addEventListener("load", function() {
         switch (true) {
             case !$pass.value.trim():
                 $passErrors.innerHTML = "Ingrese una Contraseña";
+                $pass.style.border = "2px solid red";
                 break;
             default:
                 $passErrors.innerHTML = ""
@@ -58,9 +62,11 @@ window.addEventListener("load", function() {
         switch (true) {
             case !$pass2.value.trim():
                 $pass2Errors.innerHTML = "Debes reingresar la contraseña";
+                $pass2.style.border = "2px solid red";
                 break;
             case $pass2.value != $pass.value:
                 $pass2Errors.innerHTML = "Las contraseñas no coinciden";
+                $pass2.style.border = "2px solid red";
                 break;
             default:
                 $pass2Errors.innerHTML = "";
@@ -76,10 +82,10 @@ window.addEventListener("load", function() {
         for (let index = 0; index < elementosForm.length-1; index++) {
             if($inputName.value == "" && $inputEmail.value == "" 
                && $pass.value == "" && $pass2.value == ""){
-                  $inputName.classList.add('is-invalid');
-                  $inputEmail.classList.add('is-invalid');
-                  $pass.classList.add('is-invalid');
-                  $pass2.classList.add('is-invalid');
+                  $inputName.style.border = "2px solid red";
+                  $inputEmail.style.border = "2px solid red";
+                  $pass.style.border = "2px solid red";
+                  $pass2.style.border = "2px solid red";
                   
                 submitErrors.innerHTML = "Los campos señalados son obligatorios";
                 error = true;

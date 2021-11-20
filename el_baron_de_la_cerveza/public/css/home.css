@@ -257,7 +257,7 @@ main.seccion-productos .filter {
 	display: flex;
 	left: 0;
 	right: 0;
-	width: 500px;
+	width: 300px;
 }
 .description-size div.go{
 	width: 100%;
@@ -514,5 +514,8 @@ section .card i {
 	.banner-ver-mas a {
 		height: 400px;
 		width: 50%;
+	}
+	.description-size div:nth-child(1) img {
+		width: 500px;
 	}
 }

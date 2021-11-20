@@ -38,9 +38,17 @@
                 <table class="table table-striped table-sm ">
                     <tbody>
                         <% brand.forEach(brands => { %>
+                            <% if(brands.brand != "Sin Marca") { %>
                             <tr>
                                 <td><i class="fas fa-circle"></i><span class="m-3"><%= brands.brand %></span></td>
+                                <td>
+                                    <form action="/admin/brand/create/<%= brands.id %>?_method=PUT" method="POST" onsubmit="return confirm('¿Esta seguro de querer eliminar esta marca?')">
+                                        <input type="text" name="brand" class="d-none">
+                                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                    </form>
+                                </td>
                             </tr>
+                            <% } %>
                         <% }) %>
                     </tbody>
                 </table>

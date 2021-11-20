@@ -1,17 +1,6 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
-	<title>El barón de la cerveza</title>
-
-	<!-- Estilos -->
-	<link rel="stylesheet" href="/css/styles.css">
-</head>
+<html lang="es">
+<%- include('partials/head.ejs') %>
 <body class="body_login">
 	<main class="main_login">
 		<div class="contenedor_login">
@@ -23,7 +12,7 @@
 				</div>
 
 				<div class="div_frase">
-					Comprá tu cerveza ya
+					"Por la cerveza: causa y solución de todos los problemas" 
 				</div>
 
 				<!-- Barra separadora -->
@@ -41,28 +30,28 @@
 								<input type="text" id="name" name="name" placeholder="Nombre" value="<%= locals.old && old.name %>">
 								<span id="nameErrors" style="color: red"></span>
 								<% if (locals.errors && errors.name) { %>
-									<small class="errorred"><%= errors.name.msg %></small>
+									<small class="errorred" style="color: red;"><%= errors.name.msg %></small>
 								<% } %>
 							</p>
 							<p>
 								<input type="email" id="email" name="email" placeholder="Ingresá tu email" value="<%= locals.old && old.email %>">
 								<span id="emailErrors" style="color: red"></span>
 								<% if (locals.errors && errors.email) { %>
-									<small class="errorred"><%= errors.email.msg %></small>
+									<small class="errorred" style="color: red;"><%= errors.email.msg %></small>
 								<% } %>
 							</p>
 							<p>
 								<input type="password" id="pass" name="pass1" placeholder="Contraseña">
 								<span id="passErrors" style="color: red"></span>
 								<% if (locals.errors && errors.pass1) { %>
-									<small class="errorred"><%= errors.pass1.msg %> </small>
+									<small class="errorred" style="color: red;"><%= errors.pass1.msg %> </small>
 								<% } %>
 							</p>
 							<p>
 								<input type="password" id="pass2" name="pass2" placeholder="Repetir contraseña">
-								<span id="pass2Errors" style="color: red"></span>
+								<span id="pass2Errors" style="color: red;"></span>
 								<% if (locals.errors && errors.pass2) { %>
-									<small class="errorred"><%= errors.pass2.msg %></small>
+									<small class="errorred" style="color: red;"><%= errors.pass2.msg %></small>
 								<% } %>
 							</p>
 							<span id="submitErrors" style="color: red;"></span>
@@ -73,23 +62,24 @@
 					</div>
 				</div>
 				
+				<div class="div_crearcuenta">
+					¿Ya tenés cuenta? <a href="/users/login">Inicia Sesión</a>
+				</div>
 				<!-- Barra separadora -->
 				<div class="div_barra">
 					<hr>
 					o
 					<hr>
 				</div>
-				
-				<div class="div_crearcuenta">
-					¿Ya tenes cuenta? <a href="/users/login">Inicia Sesión</a>
+				<div class="div_crearcuenta" style="margin-bottom: 20px; font-size: 20px;">
+					Registrate con
 				</div>
 
-				<!-- <div class="div_ingfacebook">
-					<a href="">
-						<i class="fab fa-facebook"></i>
-						Ingresa con Facebook
-					</a>
-				</div>  -->
+				<a href="/users/auth/google" class="div_ingGoogle"><img src="/images/registro/google.png" alt="">
+					<div class="google">
+						<img src="/img/icons/google.png"><span> GOOGLE</span>
+					</div>
+				</a>
 
 			</section>
 			<section class="seccion_imagen">

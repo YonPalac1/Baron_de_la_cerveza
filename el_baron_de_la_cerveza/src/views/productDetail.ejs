@@ -15,7 +15,7 @@
                 <div class="imagen-detalleproducto">
 					<% if(productDetail.discount){ %>
 						<span class="off">
-							<%= productDetail.discount %>%Off 
+							<%= productDetail.discount %>% Off 
 						</span>
 					<% } %>
 					<% if(productDetail.images){ %>
@@ -29,14 +29,6 @@
 						<h4><%= productDetail.name %></h4>
                     	<h3>$<%= productDetail.price %></h3>
 					</div>
-                    <div class="cantidad-detalleproducto">
-                        CANTIDAD
-						<div class="detalles-cantbotones">
-							<input  type="submit" value="-">
-                        	<input type="text">
-							<input  type="submit" value="+">
-						</div>
-                    </div>
 					<div class="detalle-datosenvio">
 						<div class="detalle-mediospagos">
 							<div class="mediospagos-inner">
@@ -58,30 +50,39 @@
 							<p>Calcula el precio de envio</p>
 						</div>
 					</div>
+                    <div class="cantidad-detalleproducto">
+                        CANTIDAD
+						<div class="detalles-cantbotones">
+							<button>-</button>
+                        	<input type="text">
+							<button>+</button>
+						</div>
+                    </div>
+					
                     <div class="boton-detalleproducto">
-                        <input  type="submit" value="Agregar al Carrito">
+                        <button type="submit">AGREGAR AL CARRITO</button>
                     </div>
 					<!-- Detalles del Lugar -->
 					<section class="lugar-producto">
 						<div class="detalle-lugarproducto">
-							<p> Dirección: Calle Falsa 123 </p>
-							<p> Email: mail@mail.com </p>
-							<p> Tel/Cel: 123-345 345 </p>
-							<p> Beber con moderación, prohibida su venta a menores de 18 años </p>
+							<h3>Especificaciones</h3>
+							<p> - Marca: <%= productDetail.brand.brand %> </p>
+							<p> - Categoria: <%= productDetail.category.category %> </p>
+							<p> - Graduación Alcohólica: <%= productDetail.alcoholContent %>% </p>
+							<p> - Descripción: <%= productDetail.description %> </p>
 						</div>
 					</section>
                 </div>
             </section>
         </section>
-
+		
         <!-- Especificaciones del Producto -->
         <section class="especificaciones-producto">
 			<div class="especificaciones">
-				<h3>Especificaciones</h3>
-				<p> - Marca: <%= productDetail.brand.brand %> </p>
-				<p> - Categoria: <%= productDetail.category.category %> </p>
-				<p> - Graduación Alcohólica: <%= productDetail.alcoholContent %>% </p>
-				<p> - Descripción: <%= productDetail.description %> </p>
+				<p> Dirección: Calle Falsa 123 </p>
+				<p> Email: mail@mail.com </p>
+				<p> Tel/Cel: 123-345 345 </p>
+				<p> Beber con moderación, prohibida su venta a menores de 18 años </p>
 			</div>
 		</section>
 

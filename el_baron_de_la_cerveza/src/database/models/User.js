@@ -18,7 +18,7 @@ module.exports = (sequelize, dataTypes) => {
         },
         pass: {
             type: dataTypes.STRING(200),
-            allowNull: false
+            defaultValue: null
         },
         rol: {
             type: dataTypes.INTEGER(2).UNSIGNED,
@@ -28,6 +28,14 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER(2).UNSIGNED,
             allowNull: false
         },
+        social_id: {
+            type:dataTypes.STRING(60),
+            defaultValue: null
+        },
+        social_provider: {
+            type:dataTypes.STRING(45),
+            defaultValue: null
+        }
     }
     let config = {
         tableName: "users",

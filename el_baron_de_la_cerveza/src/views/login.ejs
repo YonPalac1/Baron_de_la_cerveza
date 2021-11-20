@@ -1,16 +1,6 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
-	<title>El barón de la cerveza</title>
-	<!-- Estilos -->
-	<link rel="stylesheet" href="/css/styles.css">
-</head>
+<html lang="es">
+<%- include('partials/head.ejs') %>
 <body class="body_login">
 	<main class="main_login">
 		<div class="contenedor_login">
@@ -31,7 +21,7 @@
 					o
 					<hr>
 				</div>
-
+ 
 				<div class="div_continput">
 					<div class="div_input">
 						<form id="form" action="/users/login" method="POST">
@@ -54,11 +44,18 @@
 							<% if (locals.errorMsg ) { %>
 									<small style="color: red"><%= errorMsg %> </small>
 							<% } %>
+							<div class="checkLogin">
+								<input type="checkbox" id="check">
+								<label for="check">Mantener la sesión abierta</label>
+							</div>
 							<div class="div_botoning">
 								<button type="submit">Ingresar</button>
 							</div>
 						</form>
 					</div>
+				</div>
+				<div class="div_crearcuenta">
+					¿No tenés una cuenta? <a href="/users/register">Create una</a>
 				</div>
 				
 				<!-- Barra separadora -->
@@ -67,17 +64,15 @@
 					o
 					<hr>
 				</div>
-
-				<div class="div_crearcuenta">
-					¿No tenes cuenta? <a href="/users/register">Create una</a>
+				<div class="div_crearcuenta" style="margin-bottom: 20px; font-size: 20px;">
+					Ingresá con
 				</div>
 
-				<!-- <div class="div_ingfacebook">
-					<a href="">
-						<i class="fab fa-facebook"></i>
-						Ingresa con Facebook
-					</a>
-				</div> -->
+				<a href="/users/auth/google" class="div_ingGoogle"><img src="/images/registro/google.png" alt="">
+					<div class="google">
+						<img src="/img/icons/google.png"><span> GOOGLE</span>
+					</div>
+				</a>
 
 				<!-- <div class="div_olvcontraseña">¿Olvidaste tu Contraseña?</div> -->
 

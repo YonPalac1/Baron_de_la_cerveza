@@ -25,14 +25,21 @@
 				<ul>
 					<b>Categoria</b>
 					<% categories.forEach(element => { %>
+						<% if (element.category != "Sin categoria"){ %>
 						<li><a href="/products/productsFilter/<%= element.id %>"><%= element.category %></a></li>
+							
+						<% } %>
 					<% }) %>
+					<li><a href="/products/productsFilter/100">Sin Categoria</a></li>
+						
 				</ul>
 				<ul>
 					<b>Cervecerias</b>
 					<% brands.forEach(element => { %>
+						<% if (element.brand != "Sin marca"){ %>
 						<li><a href="/products/brandFilter/<%= element.id %>"><%= element.brand %></a></li>
-					<% }) %>
+					<% }}) %>
+					<li><a href="/products/brandFilter/100">Sin Marca</a></li>
 				</ul>
 				<button  onclick="showCategories()">
 					<i class="fas fa-chevron-up"></i>

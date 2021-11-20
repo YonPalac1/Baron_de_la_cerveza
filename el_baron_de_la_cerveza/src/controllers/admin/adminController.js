@@ -317,7 +317,7 @@ module.exports = {
         })
     },
     signin: (req, res)=> {
-        res.render('admin/adminLogin')
+        res.render('login')
     },
     addCategory: (req, res)=>{
         
@@ -356,12 +356,16 @@ module.exports = {
         let errors = validationResult(req);
 
         if (errors.isEmpty()) {
-            let { 
-                category,
-            } = req.body;
+            db.Product.update({
+                categoryId: 100
+            },{
+                where:{
+                    categoryId: req.params.id
+                }
+            })
 
             db.Category.update({
-                category: ""
+                category : "Sin categoria"
             }, {
                 where: {
                     id: req.params.id
@@ -399,6 +403,32 @@ module.exports = {
 
             db.Brand.create({
                 brand
+            })
+            .then(() => {
+                res.redirect("/admin/brand/create");
+            })
+            .catch((err) => console.log(err));
+                    
+       } 
+    },
+    brandDestroy: (req, res)=>{
+        let errors = validationResult(req);
+
+        if (errors.isEmpty()) {
+            db.Product.update({
+                brandId: 100
+            },{
+                where:{
+                    brandId: req.params.id
+                }
+            })
+
+            db.Brand.update({
+                brand : "Sin marca"
+            }, {
+                where: {
+                    id: req.params.id
+                }
             })
             .then(() => {
                 res.redirect("/admin/brand/create");
@@ -542,8 +572,5 @@ module.exports = {
                 })
             })
         })
-    },
-    signin: (req, res)=> {
-        res.render('admin/adminLogin')
     }
 }

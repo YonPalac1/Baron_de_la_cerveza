@@ -44,6 +44,10 @@ main.main-detalleproducto {
 	top: 0;
 	padding: 5px 8px;
 	z-index: 5;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 0px 5px;
+    font-family: var(--font-open);
 }
 .detalle-producto .detalle-detalleproducto {
     width: 100%;
@@ -59,17 +63,26 @@ main.main-detalleproducto {
 }
 .detalle-detalleproducto .cantidad-detalleproducto {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     margin-top: 5px;
     font-family: sans-serif;
     font-size: 14px;
 }
+.detalle-detalleproducto .cantidad-detalleproducto .detalles-cantbotones {
+    display: block
+}
 .detalle-detalleproducto .cantidad-detalleproducto .detalles-cantbotones input {
-    width: 20px;
-    background-color: var(--violet);
-    color: white;
-    border: none;
-    border-radius: 5px;
+    background-color: white;
+    color: var(--violet);
+    border: 1px solid #ccc;   
+    padding: 10px;
+    width: 200px;
+}
+.detalle-detalleproducto .cantidad-detalleproducto .detalles-cantbotones button {
+    padding: 10px;
+    background: none;
+    border: 1px solid #ccc;
+    cursor: pointer;
 }
 .detalle-detalleproducto .cantidad-detalleproducto input:nth-child(2n) {
     width: 50px;
@@ -77,24 +90,21 @@ main.main-detalleproducto {
     background-color: white;
 }
 .detalle-detalleproducto .boton-detalleproducto {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    width: 100%;;
     margin-top: 5px;
 }
-.detalle-detalleproducto .boton-detalleproducto input {
-    width: 65%;
-    background-color: var(--violet);
-    color: white;
+.detalle-detalleproducto .boton-detalleproducto button {
+    padding: 12px 15px;
+    background: var(--violet);
     border: none;
-    height: 30px;
-    font-size: 14px;
-    border-radius: 5px;
     cursor: pointer;
+    color: #fff;
+    width: 100%;
 }
 .detalle-detalleproducto .detalle-datosenvio{
     margin-top: 10px;
     font-family: sans-serif;
+    display: flex;
 }
 .detalle-detalleproducto .detalle-datosenvio .detalle-mediospagos {
     width: 100%;
@@ -223,19 +233,17 @@ main.main-detalleproducto {
 
     /* Detalle del Producto */
     .detalle-producto {
-        width: 85%;
+        width: 100%;
         align-items: left;
         justify-content: space-between;
     }
     .detalle-producto .imagen-detalleproducto {
-        width: 25%;
-        height: 230px;
+        width: 30%;
         border-bottom: none;
         border-right: 1px solid #ccc;
     }
     .detalle-producto .imagen-detalleproducto img {
-        height: 230px;
-        width: 150px;
+        height: 330px;
         border-right: none;
     }
     .detalle-producto .detalle-detalleproducto {
@@ -248,19 +256,11 @@ main.main-detalleproducto {
         width: 100%;
     }
     .detalle-producto .detalle-detalleproducto .detalle-nombreproducto h4 {
-        font-size: 20px;
+        font-size: 24px;
     }
     .detalle-producto .detalle-detalleproducto .detalle-nombreproducto h3 {
-        font-size: 18px;
-    }
-    .detalle-detalleproducto .cantidad-detalleproducto {
-        width: 50%;
-        font-size: 16px;
-        align-items: center;
-        margin-top: 10px;
-    }
-    .detalle-detalleproducto .cantidad-detalleproducto input:nth-child(2n) {
-        width: 60px;
+        font-size: 24px;
+        margin-top: 20px;
     }
     .detalle-detalleproducto .boton-detalleproducto {
         margin-top: 20px;
@@ -271,9 +271,6 @@ main.main-detalleproducto {
     .detalle-detalleproducto .detalle-datosenvio{
         margin-top: 20px;
         width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
     }
     .detalle-detalleproducto .detalle-datosenvio .detalle-mediospagos {
         width: 80%;
@@ -296,7 +293,7 @@ main.main-detalleproducto {
     }
     /* Detalles del  Lugar */
     .lugar-producto .detalle-lugarproducto {
-        width: 80%;
+        width: 100%;
         font-size: 14px;
     }
 
@@ -328,31 +325,13 @@ main.main-detalleproducto {
     }
     .detalle-producto .imagen-detalleproducto {
         width: 25%;
-        height: 260px;
+        height: 360px;
     }
     .detalle-producto .imagen-detalleproducto img {
-        height: 260px;
-        width: 170px;
+        height: 360px;
     }
     .detalle-producto .detalle-detalleproducto {
         padding: 15px 0 15px;
-    }
-    .detalle-producto .detalle-detalleproducto .detalle-nombreproducto h4 {
-        font-size: 20px;
-    }
-    .detalle-producto .detalle-detalleproducto .detalle-nombreproducto h3 {
-        font-size: 20px;
-    }
-    .detalle-detalleproducto .cantidad-detalleproducto {
-        font-size: 16px;
-    }
-    .detalle-detalleproducto .cantidad-detalleproducto .detalles-cantbotones input {
-        width: 30px;
-        height: 20px;
-    }
-    .detalle-detalleproducto .cantidad-detalleproducto input:nth-child(2n) {
-        width: 90px;
-        height: 20px;
     }
     .detalle-detalleproducto .boton-detalleproducto input {
         width: 40%;

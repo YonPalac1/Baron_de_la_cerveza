@@ -18,9 +18,11 @@ window.addEventListener("load", function() {
         switch (true) {
             case !$inputEmail.value.trim():
                 $emailErrors.innerHTML = "Ingrese un Email";
+                $inputEmail.style.border = "2px solid red";
                 break;
             case !regExEmail.test($inputEmail.value):
                 $emailErrors.innerHTML = "El Email ingresado no es valido";
+                $inputEmail.style.border = "2px solid red";
                 break
             default:
                 $emailErrors.innerHTML = ""
@@ -32,6 +34,7 @@ window.addEventListener("load", function() {
         switch (true) {
             case !$pass.value.trim():
                 $passErrors.innerHTML = "Ingrese una Contraseña";
+                $pass.style.border = "2px solid red";
                 break;
             default:
                 $passErrors.innerHTML = ""
@@ -46,8 +49,8 @@ window.addEventListener("load", function() {
         
         for (let index = 0; index < elementosForm.length-1; index++) {
             if($inputEmail.value == "" && $pass.value == ""){
-                  $pass.classList.add('isInvalid');
-                  $inputEmail.classList.add('isInvalid')
+                $inputEmail.style.border = "2px solid red";
+                $pass.style.border = "2px solid red";
                   
                 submitErrors.innerHTML = "Los campos señalados son obligatorios";
                 error = true;

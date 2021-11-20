@@ -1,400 +1,307 @@
-/* celu: 320 - tablet: 760 - escritorio: 1024 */
-/* Main Contacto */
-main.main-contacto {
-    max-width: 1024px;
-    margin: 65px auto auto;
+﻿/* celu: 320 - tablet: 760 - escritorio: 1024 */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-/* Datos Personales */
-.contenedor-datos {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
-.datos-personales {
-    width: 90%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px 15px 10px;
-    margin-bottom: 5px;
-}
-.datos-personales .nombre-cv {
-    width: 100%;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 5px;
-}
-.datos-personales .nombre-cv .datos-nombre {
-    width: 85%;
-    height: 20px;
-    color: var(--orange);
-}
-.datos-personales .nombre-cv .datos-nombre h3 {
-    font-size: 16px;
-}
-.datos-personales .nombre-cv .datos-cv {
-    width: 30px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.datos-personales .nombre-cv .datos-cv a {
-    font-weight: bold;
-    color: var(--violet);
-}
-.datos-personales p{
-    font-size: 12px;
-    font-family: sans-serif;
+.separador {
+	width: 100%;
+	height: 50px;
 }
 
-/* Datos para contactarnos */
-.contenedor-contactar {
-    width: 90%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px 15px 10px;
-    margin-bottom: 15px;
-    display: flex;
-    flex-wrap: wrap;
+body {
+	background: url('/img/icons/fondo_regylog.jpg');
+	background-size: contain;
 }
-.contenedor-contactar .datos-contactar {
-    width: 100%;
-    height: 20px;
-    padding-bottom: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #ccc;
+
+/* Contenedor_Contacto */
+main .contenedor_contacto {
+	width: 100%;
+	height: auto;
+	display: flex;
 }
-.contenedor-contactar .datos-contactar i {
-    color: var(--orange);
+
+/* Logo_Contacto */
+.contenedor_contacto .logo_contacto {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 30px;
+	display: flex;
+	justify-content: center;
 }
-.contenedor-contactar .datos-contactar .datos-redes {
-    width: 40%;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+.contenedor_contacto .logo_contacto .contenedordelcontenedor {
+	display: flex;
+	flex-direction: column;	
+	background-color: white;
+	border-radius: 50%;
+	padding: 40px;
+	box-shadow: 13px 13px 15px rgb(0, 0, 0, 0.5);
 }
-.datos-redesnombre {
-    display:none;
+.contenedor_contacto .logo_contacto .logo_contimage {
+	width: 100%;
+	height: 150px;
+	display: flex;
+	justify-content: center;
 }
-.contenedor-contactar .datos-contactar .datos-ubicacion {
-    width: 10%;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.contenedor_contacto .logo_contacto .logo_contimage img {
+	width: 150px;
+	height: 150px;
 }
-/* Formulario de Consultas */
-.contenedor-contactar form {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.contenedor_contacto .logo_contacto .logo_contitulo {
+	width: 100%;
+	font-size: 20px;
+	display: flex;
+	justify-content: center;
 }
-.contenedor-contactar .formulario-ingresodato {
-    width: 85%;
-    display: flex;
-    margin-bottom: 5px;
-    justify-content: space-between;
+.contenedor_contacto .logo_contacto .logo_contitulo h1 {
+	font-size: 25px;
 }
-.contenedor-contactar .formulario-ingresodato label {
-    font-size: 13px;
-    font-family: sans-serif;
-    font-weight: bold;
+
+/* Contenedor_Contcontacto */
+.contenedor_contcontacto {
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	padding: 20px 0 20px;
+	flex-wrap: wrap;
 }
-.contenedor-contactar .formulario-ingresodato input {
-    width: 70%;
-    padding-left: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+.contenedor_contcontacto .contenedor_infocontacto {
+	width: 90%;
+	height: auto;
+	border-radius: 20px;
+	padding: 30px 20px 30px;
+	display: none;
+	flex-wrap: wrap;
 }
-.contenedor-contactar .formulario-ingresoconsulta {
-    width: 85%;
-    margin-bottom: 5px;
+/* Contenedor_Infocontacto -- Info_Contacto 1 */
+.contenedor_contcontacto .contenedor_infocontacto .info_contacto {
+	width: 100%;
+	height: auto;
+	margin: 20px 0 30px;
+	background-color: #F09D45;
+	border-radius: 10px;
+	padding: 20px;
 }
-.contenedor-contactar .formulario-ingresoconsulta input {
-    width: 100%;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    height: 50px;
-    padding-left: 5px;
+.contenedor_contcontacto .contenedor_infocontacto .info_contacto .icono {
+	width: 100%;
+	height: 30px;
+	display: flex;
+	align-items: center;
 }
-.contenedor-contactar .formulario-boton {
-    width: 85%;
-    display: flex;
-    justify-content: center;
+.contenedor_contcontacto .contenedor_infocontacto .info_contacto .icono i {
+	font-size: 20px;
+	margin-right: 15px;
 }
-.contenedor-contactar .formulario-boton input {
-    background-color: var(--violet);
-    border: none;
-    color: white;
-    width: 60px;
-    height: 30px;
-    border-radius: 5px;
-    cursor: pointer;
+/* Contenedor_Infocontacto -- Form_Contacto */
+.contenedor_contcontacto .contenedor_infocontacto .form_contacto {
+	width: 100%;
+	height: auto;
+}
+.contenedor_contcontacto .contenedor_infocontacto .form_contacto input {
+	width: 100%;
+	height: 20px;
+	padding: 20px;
+	border: 1px solid #F09D45;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
+.contenedor_contcontacto .contenedor_infocontacto .form_contacto button {
+	width: 100%;
+	height: 40px;
+	border-radius: 8px;
+	border: none;
+	background-color: #5343DC;
+	color: white;
+}
+.contenedor_contcontacto .contenedor_infocontacto2 {
+	width: 90%;
+	height: auto;
+	border-radius: 20px;
+	padding: 30px 20px 30px;
+	display: none;
+	flex-wrap: wrap;
+}
+/* Contenedor_Infocontacto -- Info_Contacto 2 */
+.contenedor_contcontacto .contenedor_infocontacto2 .info_contacto2 {
+	width: 100%;
+	height: auto;
+	margin: 20px 0 30px;
+	background-color: #5343DC;
+	border-radius: 10px;
+	padding: 20px;
+	color: white;
+}
+.contenedor_contcontacto .contenedor_infocontacto2 .info_contact2o .icono2 {
+	width: 100%;
+	height: 30px;
+	display: flex;
+	align-items: center;
+}
+.contenedor_contcontacto .contenedor_infocontacto2 .info_contacto2 .icono2 i {
+	font-size: 20px;
+	margin-right: 15px;
+}
+/* Contenedor_Infocontacto -- Form_Contacto 2 */
+.contenedor_contcontacto .contenedor_infocontacto2 .form_contacto2 {
+	width: 100%;
+	height: auto;
+}
+.contenedor_contcontacto .contenedor_infocontacto2 .form_contacto2 input {
+	width: 100%;
+	height: 20px;
+	padding: 20px;
+	border: 1px solid #5343DC;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
+.contenedor_contcontacto .contenedor_infocontacto2 .form_contacto2 button {
+	width: 100%;
+	height: 40px;
+	border-radius: 8px;
+	border: none;
+	background-color: #F09D45;
+	color: white;
 }
 
 /* Medias Queries */
 /* Tablet */
 @media screen and (min-width: 760px) {
-    
-    /* Datos Personales */
-    .datos-personales .nombre-cv {
-        height: 25px;
-    }
-    .datos-personales .nombre-cv .datos-nombre {
-        height: 25px;
-    }
-    .datos-personales .nombre-cv .datos-nombre h3 {
-        font-size: 18px;
-    }
-    .datos-personales .nombre-cv .datos-cv {
-        width: 40px;
-        height: 25px;
-    }
-    .datos-personales .nombre-cv .datos-cv a {
-        font-size: 20px;
-    }
-    .datos-personales p{
-        font-size: 15px;
-    }
-    
-    /* Datos para contactarnos */
-    .contenedor-contactar {
-        justify-content: space-between;
-    }
-    .contenedor-contactar .datos-contactar {
-        width: 15%;
-        height: 200px;
-        padding-bottom: 0;
-        margin-bottom: 0;
-        border-bottom: none;
-        border-right: 1px solid #ccc;
-        flex-wrap: wrap;
-    }
-    .contenedor-contactar .datos-contactar .datos-redes {
-        width: 100%;
-        height: 150px;
-        align-items: flex-start;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    .contenedor-contactar .datos-contactar .datos-redes i {
-        width: 51%;
-        font-size: 30px;
-    }
-    .contenedor-contactar .datos-contactar .datos-ubicacion {
-        width: 100%;
-        height: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .contenedor-contactar .datos-contactar .datos-ubicacion i {
-        width: 51%;
-        font-size: 30px;
-    }
-    /* Formulario de Consultas */
-    .contenedor-contactar form {
-        width: 80%;
-        justify-content: center;
-        align-items: center;
-    }
-    .contenedor-contactar .formulario-ingresodato {
-        width: 100%;
-        margin-bottom: 0;
-        align-items: center;
-    }
-    .contenedor-contactar .formulario-ingresodato label {
-        font-size: 16px;
-    }
-    .contenedor-contactar .formulario-ingresodato input {
-        width: 80%;
-        height: 25px;
-        font-size: 14px;
-    }
-    .contenedor-contactar .formulario-ingresoconsulta {
-        width: 100%;
-        margin-bottom: 5px;
-    }
-    .contenedor-contactar .formulario-ingresoconsulta input {
-        width: 100%;
-        height: 70px;
-        font-size: 15px;
-    }
-    .contenedor-contactar .formulario-boton {
-        width: 85%;
-        display: flex;
-        justify-content: center;
-    }
+
+	/* Contenedor_Infocontacto -- Info_Contacto 1 */
+	.contenedor_contcontacto .contenedor_infocontacto .info_contacto .icono p {
+		font-size: 25px;
+	}
+	.contenedor_contcontacto .contenedor_infocontacto .info_contacto .icono i {
+		font-size: 20px;
+		margin-right: 15px;
+	}
+	/* Contenedor_Infocontacto -- Info_Contacto 2 */
+	.contenedor_contcontacto .contenedor_infocontacto2 .info_contacto2 .icono2 p {
+		font-size: 25px;
+	}
+	.contenedor_contcontacto .contenedor_infocontacto2 .info_contacto2 .icono2 i {
+		font-size: 20px;
+		margin-right: 15px;
+	}
+
+	/* Cambio de Contacto */
+	.contenedor_contcontacto .rotador_contacto1 a {
+		font-size: 13px;
+	}
+	.contenedor_contcontacto .rotador_contacto2 a {
+		font-size: 13px;
+	}
 }
 
 /* Escritorio */
 @media screen and (min-width: 1024px) {
-    
-    /* Datos Personales */
-    .contenedor-datos {
-        justify-content: space-around;
-    }
-    .datos-personales {
-        width: 37%;
-        height: 222px;
-    }
-    .datos-personales .nombre-cv {
-        height: 30px;
-    }
-    .datos-personales .nombre-cv .datos-nombre {
-        height: 30px;
-    }
-    .datos-personales .nombre-cv .datos-nombre h3 {
-        font-size: 21px;
-    }
-    .datos-personales .nombre-cv .datos-cv {
-        width: 40px;
-        height: 30px;
-    }
-    .datos-personales .nombre-cv .datos-cv a {
-        font-size: 21px;
-    }
-    .datos-personales p{
-        margin-top: 5px;
-        font-size: 18px;
-    }
-    
-    /* Datos para contactarnos */
-    .contenedor-contactar {
-        width: 60%;
-        justify-content: space-between;
-    }
-    .contenedor-contactar .datos-contactar {
-        width: 35%;
-    }
-    .contenedor-contactar .datos-contactar .datos-redes i {
-        width: 20%;
-    }
-    .datos-redesnombre {
-        display:flex;
-        width: 65%;
-        font-family: sans-serif;
-    }
-    /* Tarjeta que se da vuelta (efecto flip) */
-    .redesnombre-inner {
-        position: relative;
-        transition: transform 0.8s;
-        transform-style: preserve-3d;
-    }
-    .redesnombre-back {
-        display: none;
-        height: 30px;
-    }
-    .redesnombre-front {
-        display: flex;
-        height: 30px;
-        align-items: center;
-    }
-    .datos-redesnombre:hover .redesnombre-inner {
-        transform: rotateY(180deg);
-    }
-    .datos-redesnombre:hover .redesnombre-front {
-        display: none;
-    }
-    .datos-redesnombre:hover .redesnombre-back {
-        display: flex;
-        align-items: center;
-        -webkit-transform: rotateY(180deg);
-    }
-    /* Fin-- Tarjeta que se da vuelta (efecto flip) */
-    .contenedor-contactar .datos-contactar .datos-ubicacion {
-        width: 100%;
-        height: 20px;
-        padding-left: 15px;
-        justify-content: left;
-    }
-    .contenedor-contactar .datos-contactar .datos-ubicacion .datos-redesnombre {
-        padding-left: 5px;
-        height: 30px;
-        align-items: center;
-    }
-    .contenedor-contactar .datos-contactar .datos-ubicacion i {
-        width: 20%;
-    }
-    /* Formulario de Consultas */
-    .contenedor-contactar form {
-        width: 63%;
-        justify-content: center;
-        align-items: center;
-    }
-    .contenedor-contactar .formulario-ingresodato {
-        width: 100%;
-        margin-bottom: 0;
-        align-items: center;
-    }
-    .contenedor-contactar .formulario-ingresodato label {
-        font-size: 16px;
-    }
-    .contenedor-contactar .formulario-ingresodato input {
-        width: 80%;
-        height: 25px;
-        font-size: 14px;
-    }
-    .contenedor-contactar .formulario-ingresoconsulta {
-        width: 100%;
-        margin-bottom: 5px;
-    }
-    .contenedor-contactar .formulario-ingresoconsulta input {
-        width: 100%;
-        height: 70px;
-        font-size: 15px;
-    }
-    .contenedor-contactar .formulario-boton {
-        width: 85%;
-        display: flex;
-        justify-content: center;
-    }
+	/* Contenedor_Infocontacto */
+	.contenedor_contcontacto .contenedor_infocontacto {
+		width: 70%;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		display: none;
+	}
+	.contenedor_contcontacto .contenedor_infocontacto .mensaje_contacto {
+		width: 100%;
+		margin-bottom: 30px;
+	}
+	/* Contenedor_Infocontacto -- Info_Contacto */
+	.contenedor_contcontacto .contenedor_infocontacto .info_contacto {
+		width: 45%;
+		height: auto;
+		margin: 0 0 30px;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.contenedor_contcontacto .contenedor_infocontacto .info_contacto .icono p {
+		font-size: 20px;
+	}
+	/* Contenedor_Infocontacto -- Form_Contacto */
+	.contenedor_contcontacto .contenedor_infocontacto .form_contacto {
+		width: 45%;
+		height: auto;
+	}
+	/* Contenedor_Infocontacto 2 */
+	.contenedor_contcontacto .contenedor_infocontacto2 {
+		width: 70%;
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		display: none;
+	}
+	/* Contenedor_Infocontacto -- Info_Contacto 2 */
+	.contenedor_contcontacto .contenedor_infocontacto2 .info_contacto2 {
+		width: 45%;
+		height: auto;
+		margin: 0 0 30px;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.contenedor_contcontacto .contenedor_infocontacto2 .info_contacto2 .icono2 p {
+		font-size: 20px;
+	}
+	/* Contenedor_Infocontacto -- Form_Contacto 2 */
+	.contenedor_contcontacto .contenedor_infocontacto2 .form_contacto2 {
+		width: 45%;
+		height: auto;
+	}
+
+	/* Cambio de Contacto */
+	.contenedor_contcontacto .rotador_contacto1 a {
+		font-size: 17px;
+	}
+	.contenedor_contcontacto .rotador_contacto2 a {
+		font-size: 17px;
+	}
 }
 
-.modal{
-    border-radius: 5px;
-    background: rgba(0,0,0,.4);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0 ;
-    left: 0;
+/* Cambio de Contacto   */
+.contenedor_contcontacto .rotador_contacto1 {
+	width: 30%;
+	height: auto;
+	padding: 0 10px 0;
+	background-color: #F09D45;
+	border-radius: 10px;
+	margin: 20px 10% 0 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
-.modal.active {
-    display: flex;
-} 
-.modal .fa-times {
-    position: absolute;
-    right: 60px;
-    top: 70px;
-    color: #fff;
-    font-size: 30px;
-    padding: 10px;
-    cursor: pointer;
+.contenedor_contcontacto .rotador_contacto1 a {
+	text-decoration: none;
+	color: black;
 }
-.modal div {
-    display: flex;
-    padding: 20px;
-    background: white;
-    max-width: 1024px;
-    width: 100%;
-    min-height: 300px;
+.contenedor_contcontacto .rotador_contacto2 {
+	width: 30%;
+	height: 60px;
+	padding: 0 10px 0;
+	background-color: #5343DC;
+	border-radius: 10px;
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
-.modal div iframe {
-    width:100%;
+.contenedor_contcontacto .rotador_contacto2 a {
+	text-decoration: none;
+	color: white;
+}
+
+/* Cambio de Contacto ":target" */
+.contenedor_infocontacto:target {
+	display: block;
+	display: flex;
+	background-color: white;
+	box-shadow: 13px 13px 15px rgb(0, 0, 0, 0.5);
+}
+.contenedor_infocontacto2:target {
+	display: block;
+	display: flex;
+	background-color: white;
+	box-shadow: 13px 13px 15px rgb(0, 0, 0, 0.5);
 }
