@@ -1,7 +1,7 @@
 /*Aca hay que importar el archivo css de cada pagina */
 @import url('header.css');
 @import url('home.css');
-@import url('register.css');
+/* @import url('register.css'); */
 @import url('productDetails.css');
 @import url('carousel.css');
 @import url('productCart.css');

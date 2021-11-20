@@ -7,15 +7,23 @@
 }
 
 /* Main_login */
+body.body_login {
+	background: url('/img/icons/fondo_regylog.jpg');
+
+}
 .main_login {
 	max-width: 1024px;
 	display: flex;
+	height: 100%;
 }
 
 /* Contenedor_login */
 .contenedor_login {
 	width: 100%;
 	display: flex;
+	background: #fff;
+	position: relative;
+	height: 100%;
 }
 
 /* Seccion_login */
@@ -24,6 +32,7 @@
 	display: flex;
 	padding: 20px 40px;
 	flex-wrap: wrap;
+	height: 100%;
 }
 /* Nombre Pagina, Logo y Frase */
 .seccion_login .div_nombre {
@@ -34,6 +43,8 @@
 .seccion_login .div_nombre .nombre_pagina {
 	width: 100%;
 	height: auto;
+	display: flex;
+	justify-content: center;
 }
 .seccion_login .div_nombre .nombre_pagina img {
 	width: 200px;
@@ -41,11 +52,14 @@
 .seccion_login .div_frase {
 	width: 100%;
 	margin-bottom: 30px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
 }
 /* barra separadora */
 .seccion_login .div_barra {
 	width: 100%;
 	display: flex;
+	margin-bottom: 30px;
 	justify-content: space-between;
 	align-items: center;
 	color: rgb(240, 157, 69, 0.5);
@@ -61,6 +75,8 @@
 }
 .seccion_login .div_continput .div_input {
 	width: 100%;
+	margin-bottom: 20px;
+	text-align: center;
 }
 .seccion_login .div_continput .div_input input {
 	width: 100%;
@@ -87,6 +103,11 @@
 	margin-bottom: 30px;
 	background-color: #5343DC;
 	color: white;
+	cursor: pointer;
+	transition: .5s;
+}
+.seccion_login .div_botoning button:hover {
+	background-color: #3022af;
 }
 /* Ingresar con Facebook */
 .seccion_login .div_ingfacebook {
@@ -111,29 +132,50 @@
 /* Crear Cuenta */
 .seccion_login .div_crearcuenta {
 	width: 100%;
+	text-align: center;
 }
-
+.seccion_login .div_crearcuenta a {
+	text-decoration: underline;
+	color: blue;
+}
+.seccion_login .div_crearcuenta a:hover {
+	color: lightskyblue;
+}
 /* Seccion_imagen*/
 .seccion_imagen {
 	display: none;
 }
 
 /* Medias Queries */
-/* Mas de Tablet */
+/* Tablet */
 @media screen and (min-width: 761px) {
 	/* Contenedor_login  */
 	.contenedor_login {
-		width: 320px;
+		width: 420px;
 		display: flex;
+		height: auto;
+		position: absolute;
 	}
 	.seccion_login {
-		width: 320px;
+		position: absolute;
 		box-shadow: 10px 0 15px rgb(0, 0, 0, 0.5);
-		background-color: white;
+		z-index: 100;
+		width: 100%;
+		bottom: 0;
+		top: 0;
 	}
 
-	.body_login {
-		background: url(/img/icons/fondo_regylog.jpg);
-		background-size: contain;
+	/* Seccion_imagen*/
+	.seccion_imagen {
+		display: block;
+		height: 614px;
+		width: 750px;
+	}
+	.seccion_imagen img {
+		width: 750px;
+		height: 100%;
+	}
+	.seccion_login .div_continput .div_input input {
+		width: 320px;
 	}
 }
