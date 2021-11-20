@@ -107,19 +107,29 @@ body.body_login {
 	background-color: #3022af;
 }
 /* Ingresar con Facebook */
-.seccion_login .div_ingfacebook {
+.seccion_login .div_ingGoogle {
 	width: 100%;
-	height: 30px;
+	padding: 12px;
 	border-radius: 25px;
 	border: 1px solid #5343DC;
 	margin-bottom: 30px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
 }
-.seccion_login .div_ingfacebook a {
+.seccion_login .div_ingGoogle:hover {
+	background: #5343DC;	
+}
+.seccion_login .div_ingGoogle:hover {
+	color: #fff;
+}
+.seccion_login .div_ingGoogle{
 	text-decoration: none;
 	color: #5343DC;
+}
+.seccion_login .div_ingGoogle img {
+	width: 18px;
 }
 /* Olvidaste tu Contraseña */
 .seccion_login .div_olvcontraseña {

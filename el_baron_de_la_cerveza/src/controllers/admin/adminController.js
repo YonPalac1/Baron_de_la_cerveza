@@ -230,63 +230,61 @@ module.exports = {
         }
 
         if (!errors.isEmpty()) {
-
             let arrayImages;
             if (req.files) {
               req.files.forEach((image) => {
                 arrayImages = image.filename
               });
             }
-            
-        let { 
-            name, 
-            price, 
-            discount, 
-            category, 
-            description, 
-            brand,
-            alcoholContent,
-            outstanding,
-        } = req.body;
+                
+            let { 
+                name, 
+                price, 
+                discount, 
+                category, 
+                description, 
+                brand,
+                alcoholContent,
+                outstanding,
+            } = req.body;
 
 
-        db.Product.update({
-            name,
-            price,
-            discount,
-            categoryId: category,
-            description,
-            alcoholContent,  
-            brandId: brand,
-            outstanding,         
-            images: arrayImages
-        },{
-            where: {
-                id: req.params.id
-           }
-        })
-        .then(() => {
-            db.Category.update({
-                category
+            db.Product.update({
+                name,
+                price,
+                discount,
+                categoryId: category,
+                description,
+                alcoholContent,  
+                brandId: brand,
+                outstanding,         
+                images: arrayImages
             },{
                 where: {
                     id: req.params.id
-                }
+            }
             })
-            .then(()=>{
-                db.Brand.update({
-                    brand
+            .then(() => {
+                db.Category.update({
+                    category
                 },{
                     where: {
                         id: req.params.id
                     }
                 })
-                res.redirect("/admin/products");
+                .then(()=>{
+                    db.Brand.update({
+                        brand
+                    },{
+                        where: {
+                            id: req.params.id
+                        }
+                    })
+                    res.redirect("/admin/products");
+                })
             })
-        })
-        .catch((err) => console.log(err));
+            .catch((err) => console.log(err));
             
-
         } else {
             let editProduct = db.Product.findByPk(req.params.id, {
                 include: [{
