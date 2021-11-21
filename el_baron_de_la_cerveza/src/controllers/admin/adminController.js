@@ -564,7 +564,7 @@ module.exports = {
 
                 Promise.all([categoryPromise, brandPromise])
                 .then(([categories, brands]) => {
-                    res.render("admin/products_categories", {
+                    res.render("admin/products_brands", {
                         product,
                         categories,
                         brands,

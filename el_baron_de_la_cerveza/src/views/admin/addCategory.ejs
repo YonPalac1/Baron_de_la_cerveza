@@ -42,9 +42,9 @@
                             <tr>
                                 <td><i class="fas fa-circle"></i><span class="m-3"><%= categories.category %></span></td>
                                 <td>
-                                    <form action="/admin/category/create/<%= categories.id %>?_method=PUT" method="POST" onsubmit="return confirm('¿Esta seguro de querer eliminar esta categoria?')">
+                                    <form id="formDelete" name="formDelete" action="/admin/category/create/<%= categories.id %>?_method=PUT" method="POST">
                                         <input type="text" name="category" class="d-none">
-                                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                        <button type="submit" id="btnSubmit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>
@@ -60,6 +60,7 @@
 
     <%- include("../partials/scriptAdmin.ejs")  %>
 
+	<script src="/js/alerts.js"></script>
     <script src="/js/validaciones/validationsCatBrand.js"></script>
 </body>
 

@@ -42,7 +42,7 @@
                 <div class="row mt-5">
                     <% banners.forEach(banner => { %>
                     <div class="col-sm-12 col-lg-4 banners-container">
-                        <form action="/admin/banners/delete/<%- banner.id %>?_method=DELETE" method="POST" onsubmit="return confirm('¿Esta seguro de querer eliminar la Cerveza <%= banner.banner %>?')">
+                        <form id="formDelete" action="/admin/banners/delete/<%- banner.id %>?_method=DELETE" method="POST">
                             <button type="submit" class="btn btn-danger rounded-circle"><i class="fas fa-trash"></i></button>
                         </form>
                         <img src="/img/banners/<%- banner.banner %>" class="banners">
@@ -57,6 +57,9 @@
 
     <%- include("../partials/scriptAdmin.ejs")  %>
     <script src="/js/validaciones/previewImage.js"></script>
+    
+    <script src="/js/validaciones/validations.js"></script>
+	<script src="/js/alerts.js"></script>
     
 </body>
 
