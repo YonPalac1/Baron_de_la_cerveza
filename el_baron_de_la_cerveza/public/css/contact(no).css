@@ -1,0 +1,400 @@
+/* celu: 320 - tablet: 760 - escritorio: 1024 */
+/* Main Contacto */
+main.main-contacto {
+    max-width: 1024px;
+    margin: 65px auto auto;
+}
+
+/* Datos Personales */
+.contenedor-datos {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.datos-personales {
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 15px 10px;
+    margin-bottom: 5px;
+}
+.datos-personales .nombre-cv {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+.datos-personales .nombre-cv .datos-nombre {
+    width: 85%;
+    height: 20px;
+    color: var(--orange);
+}
+.datos-personales .nombre-cv .datos-nombre h3 {
+    font-size: 16px;
+}
+.datos-personales .nombre-cv .datos-cv {
+    width: 30px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.datos-personales .nombre-cv .datos-cv a {
+    font-weight: bold;
+    color: var(--violet);
+}
+.datos-personales p{
+    font-size: 12px;
+    font-family: sans-serif;
+}
+
+/* Datos para contactarnos */
+.contenedor-contactar {
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 15px 10px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.contenedor-contactar .datos-contactar {
+    width: 100%;
+    height: 20px;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.contenedor-contactar .datos-contactar i {
+    color: var(--orange);
+}
+.contenedor-contactar .datos-contactar .datos-redes {
+    width: 40%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.datos-redesnombre {
+    display:none;
+}
+.contenedor-contactar .datos-contactar .datos-ubicacion {
+    width: 10%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Formulario de Consultas */
+.contenedor-contactar form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.contenedor-contactar .formulario-ingresodato {
+    width: 85%;
+    display: flex;
+    margin-bottom: 5px;
+    justify-content: space-between;
+}
+.contenedor-contactar .formulario-ingresodato label {
+    font-size: 13px;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+.contenedor-contactar .formulario-ingresodato input {
+    width: 70%;
+    padding-left: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.contenedor-contactar .formulario-ingresoconsulta {
+    width: 85%;
+    margin-bottom: 5px;
+}
+.contenedor-contactar .formulario-ingresoconsulta input {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    height: 50px;
+    padding-left: 5px;
+}
+.contenedor-contactar .formulario-boton {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+}
+.contenedor-contactar .formulario-boton input {
+    background-color: var(--violet);
+    border: none;
+    color: white;
+    width: 60px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Medias Queries */
+/* Tablet */
+@media screen and (min-width: 760px) {
+    
+    /* Datos Personales */
+    .datos-personales .nombre-cv {
+        height: 25px;
+    }
+    .datos-personales .nombre-cv .datos-nombre {
+        height: 25px;
+    }
+    .datos-personales .nombre-cv .datos-nombre h3 {
+        font-size: 18px;
+    }
+    .datos-personales .nombre-cv .datos-cv {
+        width: 40px;
+        height: 25px;
+    }
+    .datos-personales .nombre-cv .datos-cv a {
+        font-size: 20px;
+    }
+    .datos-personales p{
+        font-size: 15px;
+    }
+    
+    /* Datos para contactarnos */
+    .contenedor-contactar {
+        justify-content: space-between;
+    }
+    .contenedor-contactar .datos-contactar {
+        width: 15%;
+        height: 200px;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: none;
+        border-right: 1px solid #ccc;
+        flex-wrap: wrap;
+    }
+    .contenedor-contactar .datos-contactar .datos-redes {
+        width: 100%;
+        height: 150px;
+        align-items: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .contenedor-contactar .datos-contactar .datos-redes i {
+        width: 51%;
+        font-size: 30px;
+    }
+    .contenedor-contactar .datos-contactar .datos-ubicacion {
+        width: 100%;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .contenedor-contactar .datos-contactar .datos-ubicacion i {
+        width: 51%;
+        font-size: 30px;
+    }
+    /* Formulario de Consultas */
+    .contenedor-contactar form {
+        width: 80%;
+        justify-content: center;
+        align-items: center;
+    }
+    .contenedor-contactar .formulario-ingresodato {
+        width: 100%;
+        margin-bottom: 0;
+        align-items: center;
+    }
+    .contenedor-contactar .formulario-ingresodato label {
+        font-size: 16px;
+    }
+    .contenedor-contactar .formulario-ingresodato input {
+        width: 80%;
+        height: 25px;
+        font-size: 14px;
+    }
+    .contenedor-contactar .formulario-ingresoconsulta {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    .contenedor-contactar .formulario-ingresoconsulta input {
+        width: 100%;
+        height: 70px;
+        font-size: 15px;
+    }
+    .contenedor-contactar .formulario-boton {
+        width: 85%;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* Escritorio */
+@media screen and (min-width: 1024px) {
+    
+    /* Datos Personales */
+    .contenedor-datos {
+        justify-content: space-around;
+    }
+    .datos-personales {
+        width: 37%;
+        height: 222px;
+    }
+    .datos-personales .nombre-cv {
+        height: 30px;
+    }
+    .datos-personales .nombre-cv .datos-nombre {
+        height: 30px;
+    }
+    .datos-personales .nombre-cv .datos-nombre h3 {
+        font-size: 21px;
+    }
+    .datos-personales .nombre-cv .datos-cv {
+        width: 40px;
+        height: 30px;
+    }
+    .datos-personales .nombre-cv .datos-cv a {
+        font-size: 21px;
+    }
+    .datos-personales p{
+        margin-top: 5px;
+        font-size: 18px;
+    }
+    
+    /* Datos para contactarnos */
+    .contenedor-contactar {
+        width: 60%;
+        justify-content: space-between;
+    }
+    .contenedor-contactar .datos-contactar {
+        width: 35%;
+    }
+    .contenedor-contactar .datos-contactar .datos-redes i {
+        width: 20%;
+    }
+    .datos-redesnombre {
+        display:flex;
+        width: 65%;
+        font-family: sans-serif;
+    }
+    /* Tarjeta que se da vuelta (efecto flip) */
+    .redesnombre-inner {
+        position: relative;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+    }
+    .redesnombre-back {
+        display: none;
+        height: 30px;
+    }
+    .redesnombre-front {
+        display: flex;
+        height: 30px;
+        align-items: center;
+    }
+    .datos-redesnombre:hover .redesnombre-inner {
+        transform: rotateY(180deg);
+    }
+    .datos-redesnombre:hover .redesnombre-front {
+        display: none;
+    }
+    .datos-redesnombre:hover .redesnombre-back {
+        display: flex;
+        align-items: center;
+        -webkit-transform: rotateY(180deg);
+    }
+    /* Fin-- Tarjeta que se da vuelta (efecto flip) */
+    .contenedor-contactar .datos-contactar .datos-ubicacion {
+        width: 100%;
+        height: 20px;
+        padding-left: 15px;
+        justify-content: left;
+    }
+    .contenedor-contactar .datos-contactar .datos-ubicacion .datos-redesnombre {
+        padding-left: 5px;
+        height: 30px;
+        align-items: center;
+    }
+    .contenedor-contactar .datos-contactar .datos-ubicacion i {
+        width: 20%;
+    }
+    /* Formulario de Consultas */
+    .contenedor-contactar form {
+        width: 63%;
+        justify-content: center;
+        align-items: center;
+    }
+    .contenedor-contactar .formulario-ingresodato {
+        width: 100%;
+        margin-bottom: 0;
+        align-items: center;
+    }
+    .contenedor-contactar .formulario-ingresodato label {
+        font-size: 16px;
+    }
+    .contenedor-contactar .formulario-ingresodato input {
+        width: 80%;
+        height: 25px;
+        font-size: 14px;
+    }
+    .contenedor-contactar .formulario-ingresoconsulta {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    .contenedor-contactar .formulario-ingresoconsulta input {
+        width: 100%;
+        height: 70px;
+        font-size: 15px;
+    }
+    .contenedor-contactar .formulario-boton {
+        width: 85%;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.modal{
+    border-radius: 5px;
+    background: rgba(0,0,0,.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0 ;
+    left: 0;
+}
+.modal.active {
+    display: flex;
+} 
+.modal .fa-times {
+    position: absolute;
+    right: 60px;
+    top: 70px;
+    color: #fff;
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+}
+.modal div {
+    display: flex;
+    padding: 20px;
+    background: white;
+    max-width: 1024px;
+    width: 100%;
+    min-height: 300px;
+}
+.modal div iframe {
+    width:100%;
+}
