@@ -16,9 +16,15 @@ router.get("/index", cookieCheck, userAdminCheck, controller.admin);
 
 // Crud Usuarios
 router.get("/users", userAdminCheck, controller.users);
+router.delete('/users/delete/:id', controller.usersDestroy);
+
+// Editar administrador
 router.get("/users/editAdmin/:id", userAdminCheck, controller.userAdmin);
 router.put("/users/editAdmin/:id", updateAdmin, controller.updateAdmin);
-router.delete('/users/delete/:id', controller.usersDestroy);
+
+// Agregar nuevos administradores 
+router.get("/users/addAdmin/", userAdminCheck, controller.addAdmin);
+router.put("/users/addAdmin/", userAdminCheck, controller.addNewAdmin);
 
 
 /* Crear un producto */

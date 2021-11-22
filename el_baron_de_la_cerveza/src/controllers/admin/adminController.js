@@ -27,6 +27,7 @@ module.exports = {
             })
         })
     },
+    // Editar administrador
     userAdmin: (req, res)=>{
         db.User.findOne({
             where: {
@@ -73,7 +74,49 @@ module.exports = {
         });
         }
     },
+    // Agregar nuevo administrador
+    addAdmin: (req, res) => {
+        db.User.findOne({
+            where: {
+                rol: 1
+            }
+        })
+        .then(user =>{
+            res.render("admin/addAdmin", {
+                user,
+                session: req.session   
+            })
+        })
+    },
+    addNewAdmin: (req, res) => {
+        let errors = validationResult(req);
 
+        if (errors.isEmpty()) {
+
+        let {
+            email,
+            pass1,
+        } = req.body;
+
+        db.User.create({
+            email,
+            pass: bcrypt.hashSync(pass1, 12),
+            rol: 2,
+            bannerOk: 0,
+        })
+        .then(()=>{
+            res.redirect("/admin/index")
+        })
+        
+        } else {
+        console.log(errors),
+        res.render("admin/editAdmin", {
+            errors: errors.mapped(),
+            old: req.body,
+            session: req.session,
+        });
+        }
+    },
     // Controladores de usuarios
     users:(req, res) => {
         db.User.findAll({

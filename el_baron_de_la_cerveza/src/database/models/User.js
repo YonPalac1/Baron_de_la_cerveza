@@ -30,11 +30,9 @@ module.exports = (sequelize, dataTypes) => {
         },
         social_id: {
             type:dataTypes.STRING(60),
-            defaultValue: null
         },
         social_provider: {
             type:dataTypes.STRING(45),
-            defaultValue: null
         }
     }
     let config = {
