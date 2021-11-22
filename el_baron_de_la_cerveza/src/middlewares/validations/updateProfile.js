@@ -12,7 +12,7 @@ module.exports = [
     .custom((value, { req }) => {
         return db.User.findOne({
             where: {
-                rol: 1,
+                id: req.params.id
             },
         })
         .then((user) => {
@@ -21,6 +21,7 @@ module.exports = [
             }
         })
         .catch((error) => {
+            console.log(error)
             return Promise.reject("Debe ingresar su contraseña actual");
         });
     }),

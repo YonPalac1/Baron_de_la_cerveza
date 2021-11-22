@@ -24,7 +24,7 @@ router.put("/users/editAdmin/:id", updateAdmin, controller.updateAdmin);
 
 // Agregar nuevos administradores 
 router.get("/users/addAdmin/", userAdminCheck, controller.addAdmin);
-router.put("/users/addAdmin/", userAdminCheck, controller.addNewAdmin);
+router.put("/users/addAdmin/", controller.addNewAdmin);
 
 
 /* Crear un producto */

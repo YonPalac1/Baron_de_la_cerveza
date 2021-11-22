@@ -91,30 +91,30 @@ module.exports = {
     addNewAdmin: (req, res) => {
         let errors = validationResult(req);
 
-        if (errors.isEmpty()) {
+        if (!errors.isEmpty()) {
 
-        let {
-            email,
-            pass1,
-        } = req.body;
+            let {
+                email,
+                pass1,
+            } = req.body;
 
-        db.User.create({
-            email,
-            pass: bcrypt.hashSync(pass1, 12),
-            rol: 2,
-            bannerOk: 0,
-        })
-        .then(()=>{
-            res.redirect("/admin/index")
-        })
+            db.User.create({
+                email,
+                pass: bcrypt.hashSync(pass1, 12),
+                rol: 2,
+                bannerOk: 0,
+            })
+            .then(()=>{
+                res.redirect("/admin/index")
+            })
         
         } else {
         console.log(errors),
-        res.render("admin/editAdmin", {
-            errors: errors.mapped(),
-            old: req.body,
-            session: req.session,
-        });
+            res.render("admin/editAdmin", {
+                errors: errors.mapped(),
+                old: req.body,
+                session: req.session,
+            });
         }
     },
     // Controladores de usuarios
