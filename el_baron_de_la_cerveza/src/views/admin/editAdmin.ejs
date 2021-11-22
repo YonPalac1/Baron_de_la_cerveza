@@ -40,7 +40,7 @@
                         <input type="text" class="form-control" id="inputPass" name="pass">
                         <span id="passError" class="fileErrors"></span>
                         <% if (locals.errors && errors.pass) { %>
-                            <small class="errorred"><%= errors.pass.msg %> </small>
+                            <small class="errorred" style="color: red"><%= errors.pass.msg %> </small>
                         <% } %>
                     </div>
 
@@ -55,7 +55,7 @@
                         <span id="pass2Errors" class="fileErrors"></span>
                         
 					<% if (locals.errors && errors.pass2) { %>
-						<small class="errorred"><%= errors.pass2.msg %></small>
+						<small class="errorred"style="color: red"><%= errors.pass2.msg %></small>
 					<% } %>
                     </div>
 

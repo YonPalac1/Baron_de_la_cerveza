@@ -73,6 +73,8 @@ module.exports = {
         });
         }
     },
+
+    // Controladores de usuarios
     users:(req, res) => {
         db.User.findAll({
             order: [['createdAt', 'DESC']]
@@ -92,6 +94,9 @@ module.exports = {
             res.redirect("/admin/products")
         })
     },
+    // Fin controladores de usuarios
+
+    // Controladores de productos - Crud de productos
     products: (req, res) => {
         let productPromise = db.Product.findAll({
             order: [['createdAt', 'DESC']],
@@ -115,6 +120,8 @@ module.exports = {
         
       .catch((err) => console.log(err));
     },
+
+    // Crear productos
     addProducts: (req, res) => {
         let productsPromise = db.Product.findAll()
         let categoryPromise = db.Category.findAll()
@@ -198,6 +205,8 @@ module.exports = {
         })
       .catch((err) => console.log(err));       }
     },
+
+    // Editar productos
     editProducts: (req, res) => {
         let editProduct = db.Product.findByPk(req.params.id, {
             include: [{
@@ -211,7 +220,6 @@ module.exports = {
 
         Promise.all([editProduct, editCategory, editBrand])
         .then(([product, categories, brands]) => {
-            //res.send(product, trademarks, categories)
             res.render("admin/editProduct", {
                 product,
                 categories,
@@ -298,7 +306,6 @@ module.exports = {
     
             Promise.all([editProduct, editCategory, editBrand])
             .then(([product, categories, brands]) => {
-                //res.send(product, trademarks, categories)
                 res.render("admin/editProduct", {
                     product,
                     categories,
@@ -308,6 +315,7 @@ module.exports = {
         }
 
     },
+    // Eliminar productos
     productDestroy: (req, res) => {
         db.Product.destroy({
             where: {id: req.params.id}
@@ -316,261 +324,10 @@ module.exports = {
             res.redirect("/admin/products")
         })
     },
+    // Fin de Crud productos
+
     signin: (req, res)=> {
         res.render('login')
-    },
-    addCategory: (req, res)=>{
-        
-        db.Category.findAll({
-            order: [['id', 'DESC']]
-        })
-        .then((category) => {
-            res.render("admin/addCategory", {
-                category,
-                session: req.session,
-            });
-        })
-      .catch((err) => console.log(err));
-
-    },
-    createCategory: (req, res)=>{
-        
-        let errors = validationResult(req);
-
-        if (errors.isEmpty()) {
-            let { 
-                category,
-            } = req.body;
-
-            db.Category.create({
-                category
-            })
-            .then(() => {
-                res.redirect("/admin/category/create");
-            })
-            .catch((err) => console.log(err));
-                    
-       } 
-    },
-    categoryDestroy: (req, res)=>{
-        let errors = validationResult(req);
-
-        if (errors.isEmpty()) {
-            db.Product.update({
-                categoryId: 100
-            },{
-                where:{
-                    categoryId: req.params.id
-                }
-            })
-
-            db.Category.update({
-                category : "Sin categoria"
-            }, {
-                where: {
-                    id: req.params.id
-                }
-            })
-            .then(() => {
-                res.redirect("/admin/category/create");
-            })
-            .catch((err) => console.log(err));
-                    
-       } 
-    },
-    addBrand: (req, res)=>{
-        
-        db.Brand.findAll({
-            order: [['id', 'DESC']]
-        })
-        .then((brand) => {
-            res.render("admin/addBrand", {
-                brand,
-                session: req.session,
-            });
-        })
-      .catch((err) => console.log(err));
-
-    },
-    createBrand: (req, res)=>{
-        
-        let errors = validationResult(req);
-
-        if (errors.isEmpty()) {
-            let { 
-                brand,
-            } = req.body;
-
-            db.Brand.create({
-                brand
-            })
-            .then(() => {
-                res.redirect("/admin/brand/create");
-            })
-            .catch((err) => console.log(err));
-                    
-       } 
-    },
-    brandDestroy: (req, res)=>{
-        let errors = validationResult(req);
-
-        if (errors.isEmpty()) {
-            db.Product.update({
-                brandId: 100
-            },{
-                where:{
-                    brandId: req.params.id
-                }
-            })
-
-            db.Brand.update({
-                brand : "Sin marca"
-            }, {
-                where: {
-                    id: req.params.id
-                }
-            })
-            .then(() => {
-                res.redirect("/admin/brand/create");
-            })
-            .catch((err) => console.log(err));
-                    
-       } 
-    },
-    addBanner: (req, res)=>{
-        let bannerPromise = db.Banner.findAll()
-        let userPromise = db.User.findOne(req.params.rol)
-
-        Promise.all([bannerPromise, userPromise])
-        .then(([banners, users]) =>{
-            res.render("admin/addBanner", {
-                banners,
-                users,
-                session: req.session,
-            })
-        })
-    },
-    createBanner: (req, res)=>{
-        let errors = validationResult(req);
-        if (req.fileValidatorError) {
-        let image = {
-            param: "banner",
-            msg: req.fileValidatorError,
-        };
-        errors.push(image);
-        }
-
-        if (!errors.isEmpty()) {
-
-            let arrayImages;
-            if (req.file) {
-                arrayImages = req.file.filename
-            }else{
-                arrayImages = "default-img.gif"
-            }
-
-        let { 
-            banner
-        } = req.body;
-
-        db.Banner.create({
-            banner: arrayImages
-        })
-        .then(() => {
-            res.redirect("/admin/banners/create")            
-        })
-        .catch((err) => console.log(err));
-            
-        } else {
-            db.Banner.findAll()
-            .then((banners) => {
-                res.render("admin/addBanner", {
-                    banners,
-                    session: req.session,
-                })
-            .catch((err) => console.log(err));
-            })
-          .catch((err) => console.log(err));   
-        }
-    },
-    bannerDestroy: (req, res)=>{
-        db.Banner.destroy({
-            where: {id: req.params.id}
-        })
-        .then(() => {
-            res.redirect("/admin/banners/create")
-        })
-    },
-    filter: (req, res) => {
-        db.Product.findAll({
-            where: {
-                categoryId: req.params.id,
-            },
-            include: [
-                {association: "category"},
-                {association: "brand"}
-            ]
-        })
-        .then((product) => {
-            db.Product.findAll({
-                include: [{
-                    association: "brand"
-                }],
-                where: {
-                    outstanding: 1
-                }
-            })
-            .then(products => {
-                let categoryPromise = db.Category.findAll()
-                let brandPromise = db.Brand.findAll()
-
-                Promise.all([categoryPromise, brandPromise])
-                .then(([categories, brands]) => {
-                    res.render("admin/products_categories", {
-                        product,
-                        categories,
-                        brands,
-                        destacadosSlider: products,
-                        session: req.session
-                    })
-                })
-            })
-        })
-    },
-    filterBrands: (req,res)=>{
-        db.Product.findAll({
-            where: {
-                categoryId: req.params.id,
-            },
-            include: [
-                {association: "category"},
-                {association: "brand"}
-            ]
-        })
-        .then((product) => {
-            db.Product.findAll({
-                include: [{
-                    association: "brand"
-                }],
-                where: {
-                    outstanding: 1
-                }
-            })
-            .then(products => {
-                let categoryPromise = db.Category.findAll()
-                let brandPromise = db.Brand.findAll()
-
-                Promise.all([categoryPromise, brandPromise])
-                .then(([categories, brands]) => {
-                    res.render("admin/products_brands", {
-                        product,
-                        categories,
-                        brands,
-                        destacadosSlider: products,
-                        session: req.session
-                    })
-                })
-            })
-        })
     }
+    
 }

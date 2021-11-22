@@ -24,7 +24,11 @@
             <button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
         </div>
         <div class="boton-comprar">
-            <a href="/users/productCart/<%= element.id %>" class="btn-buy br">Comprar</a>
+            <a href="/users/productCart/<%= element.id %>" class="btn-buy br">Comprar</a><br>
+            <% if (typeof session.user != "undefined") { %>
+                <% if (session.user.rol === 1) { %>
+            <a href="/users/productCart/<%= element.id %>" class="btn-edit br">Editar</a>
+            <% }} %>
         </div>
     </article>
 <% }) %>	

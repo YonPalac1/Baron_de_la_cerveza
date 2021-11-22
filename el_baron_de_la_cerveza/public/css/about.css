@@ -1,6 +1,6 @@
 .about-body {
-	background: rgb(212,58,15);
-	background: linear-gradient(0deg, rgba(212,58,15,1) 0%, rgba(255,251,198,1) 0%, rgba(255,252,244,1) 100%);
+	background: rgb(255,219,209);
+	background: linear-gradient(0deg, rgba(255,219,209,1) 0%, rgba(255,249,236,1) 17%, rgba(255,255,255,1) 100%);
 }
 .about-body img.duff {
 	z-index: -1;

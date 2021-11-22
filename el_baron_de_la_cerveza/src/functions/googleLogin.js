@@ -12,12 +12,13 @@ module.exports = () => {
                 callbackURL: "http://localhost:3030/users/auth/google/callback"
             },
             async function(accessToken, refreshToken, profile, done) {
+                // Busco si hay un usuario logeado con google con el id enviado por parametro
                 const user = await db.User.findOne({
                     where: {
                         social_id: profile.id
                     }
                 })
-
+                // En caso de que no lo haya crea el usuario guardando los datos del profile en la bd
                 if(!user){
                     db.User.create({
                         name: profile.name.givenName,
@@ -45,6 +46,9 @@ module.exports = () => {
                     .catch(error=>{
                         console.log(error)
                     })
+                    // Si ya existe 
+
+                    
                 } else {
                     db.User.findOne({
                         where: {
