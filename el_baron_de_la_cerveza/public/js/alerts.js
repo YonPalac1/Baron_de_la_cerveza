@@ -1,6 +1,7 @@
 // document.getElementById("btnSubmit").onclick = submitAction;
 
 const $formDelete = document.querySelectorAll("#formDelete")
+const btnOpenSession = document.querySelectorAll("#btnOpenSession")
 
 for (var i = 0 ; i < $formDelete.length; i++) {
     $formDelete[i].addEventListener('submit',function(event){
@@ -29,3 +30,19 @@ for (var i = 0 ; i < $formDelete.length; i++) {
     })
   }
   
+  for (var i = 0 ; i < btnOpenSession.length; i++) {
+    btnOpenSession[i].addEventListener("click", function(){
+      Swal.fire({
+        icon: 'info',
+        html:
+          'Debe, ' +
+          '<a href="/users/login">Registrarse</a> ' +
+          'para agregar productos al carrito',
+        showCloseButton: true,
+        showCancelButton: true,
+        focusConfirm: false,
+        confirmButtonText: '<a href="/users/login">Registrarse</a> ',
+        cancelButtonText: 'Cancelar'
+      })
+    })
+  }

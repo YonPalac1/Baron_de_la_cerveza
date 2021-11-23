@@ -1,5 +1,6 @@
 const { validationResult } = require('express-validator')
 const db = require("../../database/models");
+const { Op } = require("sequelize");
 
 let bcrypt = require('bcryptjs')
 
@@ -9,10 +10,13 @@ module.exports = {
         let categoryPromise = db.Category.findAll()
         let brandPromise = db.Brand.findAll()
         let userPromise = db.User.findAll()
-        let adminPromise = db.User.findOne({
+        let adminPromise = db.User.findAll({
             where: {
-                rol: 1
-            }
+                [Op.or]: [
+                  { rol: 1 },
+                  { rol: 2 }
+                ]
+              }
         })
 
         Promise.all([productsPromise,categoryPromise,brandPromise,userPromise,adminPromise])
@@ -31,7 +35,7 @@ module.exports = {
     userAdmin: (req, res)=>{
         db.User.findOne({
             where: {
-                rol: 1
+                id: req.params.id
             }
         })
         .then(user =>{
@@ -91,14 +95,16 @@ module.exports = {
     addNewAdmin: (req, res) => {
         let errors = validationResult(req);
 
-        if (!errors.isEmpty()) {
+        if (errors.isEmpty()) {
 
             let {
+                name,
                 email,
                 pass1,
             } = req.body;
 
             db.User.create({
+                name,
                 email,
                 pass: bcrypt.hashSync(pass1, 12),
                 rol: 2,
@@ -110,11 +116,17 @@ module.exports = {
         
         } else {
         console.log(errors),
-            res.render("admin/editAdmin", {
-                errors: errors.mapped(),
-                old: req.body,
-                session: req.session,
-            });
+        db.User.findOne({
+            where: {
+                rol: 1
+            }
+        })
+        .then(user =>{
+            res.render("admin/addAdmin", {
+                user,
+                session: req.session   
+            })
+        })
         }
     },
     // Controladores de usuarios
