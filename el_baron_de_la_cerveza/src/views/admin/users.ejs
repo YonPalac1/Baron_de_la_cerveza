@@ -38,9 +38,11 @@
 									<td><%- usuarios.name%></td>
 									<td><%= usuarios.email %></td>
 									<td>
+										<% if (session.user.rol === 1) { %>
 										<form action="/admin/users/delete/<%- usuarios.id %>?_method=DELETE" method="POST" onsubmit="return confirm('¿Esta seguro de querer eliminar a <%= usuarios.name %>?')">
 											<button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
 										</form>
+										<% } %>
 									</td>
 								</tr>
 							<% }) %>

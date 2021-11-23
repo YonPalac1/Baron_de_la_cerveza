@@ -10,6 +10,7 @@ let productValidator = require('../../middlewares/validations/productCreateValid
 let userAdminCheck = require('../../middlewares/userAdminCheck')
 let cookieCheck = require('../../middlewares/cookieCheck');
 const updateAdmin = require('../../middlewares/validations/updateAdmin')
+const newAdminCheck = require('../../middlewares/validations/newAdminCheck')
 
 router.get("/", controller.signin);
 router.get("/index", cookieCheck, userAdminCheck, controller.admin);
@@ -24,7 +25,7 @@ router.put("/users/editAdmin/:id", updateAdmin, controller.updateAdmin);
 
 // Agregar nuevos administradores 
 router.get("/users/addAdmin/", userAdminCheck, controller.addAdmin);
-router.put("/users/addAdmin/", controller.addNewAdmin);
+router.post("/users/addAdmin/", newAdminCheck, controller.addNewAdmin);
 
 
 /* Crear un producto */
