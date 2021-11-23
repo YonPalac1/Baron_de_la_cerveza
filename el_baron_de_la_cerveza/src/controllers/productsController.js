@@ -2,12 +2,13 @@ const db = require('../database/models');
 const { Op } = require('sequelize');
 
 module.exports = {
+    // reenderizar vista de productos
     products: (req, res) => {
         db.Product.findAll({
             include: [
                 {association: "category"},
                 {association: "brand"}
-            ]
+            ],
         })
         .then(product => {
             db.Product.findAll({
@@ -38,84 +39,8 @@ module.exports = {
                 })
             })
         })
-
     },
-    filter: (req, res) => {
-        db.Product.findAll({
-            where: {
-                categoryId: req.params.id,
-            },
-            include: [
-                {association: "category"},
-                {association: "brand"}
-            ]
-        })
-        .then((product) => {
-            db.Product.findAll({
-                include: [{
-                    association: "brand"
-                }],
-                where: {
-                    outstanding: 1
-                }
-            })
-            .then(products => {
-                let categoryPromise = db.Category.findAll()
-                let brandPromise = db.Brand.findAll()
-
-                Promise.all([categoryPromise, brandPromise])
-                .then(([categories, brands]) => {
-                    res.render("productsFilter", {
-                        titleBanner: "Pedi tu birra y te la llevamos a tu casa",
-                        titleSlider: "Destacados",
-                        product,
-                        categories,
-                        brands,
-                        destacadosSlider: products,
-                        session: req.session
-                    })
-                })
-            })
-        })
-    },
-    brandFilter: (req, res) => {
-        db.Product.findAll({
-            where: {
-                brandId: req.params.id,
-            },
-            include: [
-                {association: "category"},
-                {association: "brand"}
-            ]
-        })
-        .then((product) => {
-            db.Product.findAll({
-                include: [{
-                    association: "brand"
-                }],
-                where: {
-                    outstanding: 1
-                }
-            })
-            .then(products => {
-                let categoryPromise = db.Category.findAll()
-                let brandPromise = db.Brand.findAll()
-
-                Promise.all([categoryPromise, brandPromise])
-                .then(([categories, brands]) => {
-                    res.render("productsFilter", {
-                        titleBanner: "Pedi tu birra y te la llevamos a tu casa",
-                        titleSlider: "Destacados",
-                        product,
-                        categories,
-                        brands,
-                        destacadosSlider: products,
-                        session: req.session
-                    })
-                })
-            })
-        })
-    },
+    // Detalles de producto
     detail: (req, res) => {
         db.Product.findOne({
             where: {
@@ -158,7 +83,86 @@ module.exports = {
         })
 
     },
-    
+    // Filtrar productos por categorias
+    filter: (req, res) => {
+        db.Product.findAll({
+            where: {
+                categoryId: req.params.id,
+            },
+            include: [
+                {association: "category"},
+                {association: "brand"}
+            ]
+        })
+        .then((product) => {
+            db.Product.findAll({
+                include: [{
+                    association: "brand"
+                }],
+                where: {
+                    outstanding: 1
+                }
+            })
+            .then(products => {
+                let categoryPromise = db.Category.findAll()
+                let brandPromise = db.Brand.findAll()
+
+                Promise.all([categoryPromise, brandPromise])
+                .then(([categories, brands]) => {
+                    res.render("productsFilter", {
+                        titleBanner: "Pedi tu birra y te la llevamos a tu casa",
+                        titleSlider: "Destacados",
+                        product,
+                        categories,
+                        brands,
+                        destacadosSlider: products,
+                        session: req.session
+                    })
+                })
+            })
+        })
+    },
+
+    // Filtrar categorias por marcas
+    brandFilter: (req, res) => {
+        db.Product.findAll({
+            where: {
+                brandId: req.params.id,
+            },
+            include: [
+                {association: "category"},
+                {association: "brand"}
+            ]
+        })
+        .then((product) => {
+            db.Product.findAll({
+                include: [{
+                    association: "brand"
+                }],
+                where: {
+                    outstanding: 1
+                }
+            })
+            .then(products => {
+                let categoryPromise = db.Category.findAll()
+                let brandPromise = db.Brand.findAll()
+
+                Promise.all([categoryPromise, brandPromise])
+                .then(([categories, brands]) => {
+                    res.render("productsFilter", {
+                        titleBanner: "Pedi tu birra y te la llevamos a tu casa",
+                        titleSlider: "Destacados",
+                        product,
+                        categories,
+                        brands,
+                        destacadosSlider: products,
+                        session: req.session
+                    })
+                })
+            })
+        })
+    },
+    // Reordenar productos por
     orderBy: (req, res)=> {
         if(req.params.id == "desc"){
             db.Product.findAll({

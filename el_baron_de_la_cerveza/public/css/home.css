@@ -88,10 +88,20 @@ article a {
 .boton-comprar .btn-buy {
 	background-color: #fff;
 	border: none;
+	border-radius: 5px;
 	padding: 12px 15px;
 	color: #fff;
 	background-color: var(--violet);
 	cursor: pointer;
+}
+.boton-comprar .btn-edit {
+	background-color: #fff;
+	border: none;
+	padding: 12px 15px;
+	color: #fff;
+	background-color: var(--orange);
+	cursor: pointer;
+	border-radius: 5px;
 }
 main .filter select {
 	padding: 0px 12px;
@@ -239,7 +249,7 @@ main.seccion-productos .filter {
 .description {
 	margin: 270px 0 30px;
 	background: rgb(212,58,15);
-  background: linear-gradient(0deg, rgba(212,58,15,1) 0%, rgba(251,144,114,1) 0%, rgba(255,215,102,1) 100%);	
+   	background: linear-gradient(0deg, rgba(212,58,15,1) 0%, rgba(251,144,114,1) 0%, rgba(255,215,102,1) 100%);	
 }
 .description-size {
 	max-width: 1024px;

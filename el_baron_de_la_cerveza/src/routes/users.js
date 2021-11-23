@@ -10,12 +10,15 @@ const {
     userEdit,
     logout,
     productCart,
+    passwordEdit,
+    passwordUpdate,
     loginGoogle,
      } = require('../controllers/usersController');
 let userLog = require('../middlewares/userLog');
 let userSessionCheck = require('../middlewares/userSessionCheck');
 let loginValidator = require('../middlewares/validations/loginValidator')
 const registerValidator = require('../middlewares/validations/registerValidator')
+const updateProfile = require('../middlewares/validations/updateProfile')
 const uploadUserAvatar = require('../middlewares/uploadUserAvatar')
 const passport = require('passport');
 const googleLogin = require('../functions/googleLogin');
@@ -41,8 +44,14 @@ router.get('/logout', userSessionCheck, logout);
 router.get('/register', userLog, register);
 router.post('/register', uploadUserAvatar.single('avatar'), registerValidator, processRegister);
 
+// Editar usuario
 router.get('/edit/:id', userSessionCheck, userEdit)
 router.put('/edit/:id', uploadUserAvatar.single('avatar'), updateUser)
+
+// Editar contraseña 
+router.get('/edit_password/:id', userSessionCheck, passwordEdit)
+router.put('/edit_password/:id', updateProfile, passwordUpdate)
+
 
 /* GOOGLE LOGIN */
 router.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));

@@ -1,15 +1,10 @@
-let { products, writeUsersJSON } = require('../data/dataBase.js');
 let { validationResult } = require('express-validator')
 let bcrypt = require('bcryptjs')
 const db = require('../database/models')
-const Op = require('sequelize');
-const dataBase = require('../data/dataBase.js');
-
-
-const productCart = products.filter(element => element.cart === true)
-		
+const Op = require('sequelize');		
 
 module.exports = {
+    // Reenderizo vista de usuario
 	user: (req, res) => {
         db.User.findByPk(req.session.user.id, {
             include: [{
@@ -21,21 +16,20 @@ module.exports = {
         .then(user => {
             res.render('user', {
                 titleBanner: "Perfil de frescura",
-                productCart,
                 session: req.session,
                 user
             })
         })
 	},
+    // Reenderizo vista de login
 	login: (req, res) => {
 		res.render('login', {
-			productCart,
 			session: req.session
 		});
 	},
 	processLogin: (req, res) => {
         let errors = validationResult(req)
-
+        
         if (errors.isEmpty()) {
             db.User.findOne({
                 where: {
@@ -58,7 +52,7 @@ module.exports = {
                 res.locals.user = req.session.user;
                 res.redirect("/");
             });
-
+            
         } else {
             res.render("login", {
                 errors: errors.mapped(),
@@ -67,13 +61,22 @@ module.exports = {
             });
         }
     },
+    // Cerrar sesion de usuario
+    logout: (req, res) => {
+        req.session.destroy()
+        if(req.cookies.elBaronDeLaCerveza){
+            res.cookie('elBaronDeLaCerveza', '', {maxAge: -1})
+        }
+
+        res.redirect('/')
+    },
+    // Registro de usuario
 	register: (req, res) => {
-		let productCart = products.filter(element => element.cart === true)
 		res.render('register', {
-			productCart,
             session: req.session
 		});
 	},
+    // Proceso de registro
     processRegister: (req, res) => {
         let errors = validationResult(req);
         if (req.fileValidatorError) {
@@ -119,6 +122,8 @@ module.exports = {
             });
         }
     },
+
+    // Editar datos de usuario
     userEdit: (req, res) => {
         db.User.findByPk(req.session.user.id, {
             include: [{
@@ -188,13 +193,56 @@ module.exports = {
         });
         }
     },
-    logout: (req, res) => {
-        req.session.destroy()
-        if(req.cookies.elBaronDeLaCerveza){
-            res.cookie('elBaronDeLaCerveza', '', {maxAge: -1})
-        }
+    // Vista editar contraseña
+    passwordEdit: (req, res) => {
+        db.User.findByPk(req.session.user.id, {
+            include: [{
+                association: "avatars"
+            }, {
+                association: "contacts"  
+            }]
+          }).then((user) => {
+            res.render("editPassword", {
+              titleBanner: "Editar contraseña", 
+              user,
+              session: req.session,
+            });
+        })
+    },
+    passwordUpdate: (req, res) => {
+        let errors = validationResult(req);
 
-        res.redirect('/')
+        if (errors.isEmpty()) {
+            let {
+                pass1,
+            } = req.body;
+
+            db.User.update({
+                pass: bcrypt.hashSync(pass1, 12),
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(()=>{
+                res.redirect("/users")
+            })
+        } else {
+            console.log(errors),
+            db.User.findByPk(req.session.user.id, {
+                include: [{
+                    association: "avatars"
+                }, {
+                    association: "contacts"  
+                }]
+              }).then((user) => {
+                res.render("editPassword", {
+                  titleBanner: "Editar contraseña", 
+                  user,
+                  session: req.session,
+                });
+            })
+        }
     },
     productCart: (req, res) => {
         db.Product.findByPk(req.params.id)
@@ -207,6 +255,8 @@ module.exports = {
 
         })
     },
+
+    // Login y registro con google
     loginGoogle: (req, res) => {
         req.session.user = {
           id: req.session.passport.user.id,

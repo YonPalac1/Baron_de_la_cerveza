@@ -75,7 +75,7 @@
                 </div>
 
                 <div class="row my-5">
-                    <h3 class="fs-4 mb-3">Cuenta de administrador</h3>
+                    <h3 class="fs-4 mb-3">Administradores</h3>
 					<div class="table-responsive">
 						<table class="table table-striped table-sm">
 						  <thead>
@@ -87,17 +87,42 @@
 						  </thead>
 						  <tbody>
 							  <tr>
-								  <td style="color: #000;"><%= admin.email %></td>
+								  <td style="color: #000;"><%= session.user.email %></td>
 								  <td>*******</td>
+                                  <% if (session.user.rol === 1) { %>
 								  <td>
-									  <a href="/admin/users/editAdmin/<%- admin.id %>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+									  <a href="/admin/users/editAdmin/<%- session.user.id %>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
 								  </td>
+                                  <% } %>
 							  </tr>
 						  </tbody>
 						</table>
+                        <h3 class="fs-4 mb-3">Administradores secundarios</h3>
+                        <table class="table table-striped table-sm">
+                            <tbody>
+                                <% admin.forEach(admins =>{ %>
+                                    <% if(admins.rol == 2){ %>
+                                <tr>
+                                    <td style="color: #000;"><%= session.user.email %></td>
+                                    <td>*******</td>
+                                    <% if (session.user.rol === 1) { %>
+                                    <td>
+                                        <a href="/admin/users/editAdmin/<%- admins.id %>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                    </td>
+                                    <% } %>
+                                </tr>
+                                <% }}) %>
+                            </tbody>
+                          </table>
 					</div>
                 </div>
-
+                <div class="row">
+                    <% if (session.user.rol === 1) { %>
+                    <div class="col btn btn-outline-primary">
+                        <a href="/admin/users/addAdmin/" class="text-decoration-none text">Agregar administradores <i class="fas fa-plus"></i></a>
+                    </div>
+                    <% } %>
+                </div>
             </div>
         </div>
     </div>

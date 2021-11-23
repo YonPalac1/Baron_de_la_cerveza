@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include("../partials/headAdmin.ejs")  %>
+<head>
+    <link rel="stylesheet" href="/css/admin/admin.css">
+</head>
+
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <%- include("../partials/sidebarAdmin.ejs")  %> 
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light py-4 px-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0">Agregar nuevo administrador</h2>
+                </div>
+            </nav>
+
+            <div style="padding-bottom: 24px;" class="container-fluid px-4">
+
+                <form id="form" class="row g-3" action="/admin/users/addAdmin/" method="POST">
+                    <div class="col-12">
+                        <label for="inputName" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="inputName" name="name">                
+                        <span id="nameErrors" class="fileErrors" style="color: red;"></span>
+                        <% if (locals.errors && errors.name) { %>
+                            <small class="errorred" style="color: red;"><%= errors.name.msg %></small>
+                        <% } %>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                        <label for="inputEmail" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="inputEmail" name="email">
+                        <span id="emailErrors" class="fileErrors"></span>
+                        <% if (locals.errors && errors.email) { %>
+                            <small class="errorred" style="color: red;"><%= errors.email.msg %></small>
+                        <% } %>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12">
+                        <label for="inputNewPass" class="form-label">Nueva contraseña</label>
+                        <input type="text" class="form-control" id="pass1" name="pass1">
+                        <span id="passErrors" class="fileErrors"></span>
+                        <% if (locals.errors && errors.pass1) { %>
+                            <small class="errorred" style="color: red;"><%= errors.pass1.msg %> </small>
+                        <% } %>
+                    </div>
+                    <div class="col-sm-12 col-md-12">
+                        <label for="inputPassAgain" class="form-label">Repetir contraseña</label>
+                        <input type="text" class="form-control" id="pass2" name="pass2">
+                        <span id="pass2Errors" class="fileErrors"></span>
+                        
+                        <% if (locals.errors && errors.pass2) { %>
+                            <small class="errorred" style="color: red;"><%= errors.pass2.msg %></small>
+                        <% } %>
+                    </div>
+
+                    <span id="submitErrors" style="color: red;"></span>
+                    <button type="submit" class="btn btn-primary">
+                        Agregar
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+    <%- include("../partials/scriptAdmin.ejs")  %>
+    <script src="/js/validaciones/validationsNewAdmin.js"></script>
+</body>
+
+</html>

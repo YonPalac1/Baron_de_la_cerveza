@@ -47,16 +47,14 @@
                         <label for="inputDiscount" class="form-label">Descuento</label>
                         <input type="number" class="form-control" id="inputDiscount" name="discount" value="<%= product.discount %>">
                     </div>
-                    <div class="col-sm-12 col-md-6 d-none">
-                        <label for="graduacion" class="form-label">Graduación alcohólica</label>
-                        <input type="text" class="form-control" name="alcoholContent" aria-label="file example" value="<%= product.alcoholContent %>">
-                    </div>
                     <div class="col-12">
                         <label for="inputDiscount" class="form-label">Marca</label>
                         <select class="form-select" id="brandSelect" name="brand">
                          <% brands.forEach(brand => { %>
-                            <% if (product.brandId != "100"){ %>
-                            <option value="<%- brand.id %>"" <%- product.brandId == brand.id ? "selected" : brand.id == product.brandId ? `selected` : ""  %>><%- brand.brand %></option>
+                            <% if (brand.brand != "Sin marca"){ %>
+                                <% if (product.brandId != "100"){ %>
+                                <option value="<%- brand.id %>"" <%- product.brandId == brand.id ? "selected" : brand.id == product.brandId ? `selected` : ""  %>><%- brand.brand %></option>
+                                <% } %>
                          <% }}) %>
                          <option value="100">Sin marca</option>
                         </select>
@@ -67,9 +65,10 @@
                         <label for="inputDiscount" class="form-label">Categoria</label>
                         <select class="form-select" id="categorySelect" name="category">
                          <% categories.forEach(category => { %>
-                            <% if (product.categoryId != "100"){ %>
-                            <option value="<%- category.id %>"" <%- product.categoryId == category.id ? "selected" : category.id == product.categoryId ? `selected` : ""  %>><%- category.category %></option>
-                            
+                            <% if (category.category != "Sin categoria"){ %>
+                                <% if (product.categoryId != "100"){ %>
+                                <option value="<%- category.id %>"" <%- product.categoryId == category.id ? "selected" : category.id == product.categoryId ? `selected` : ""  %>><%- category.category %></option>
+                                <% } %>
                         <% }}) %>
                         <option value="100">Sin categoria</option>
                             

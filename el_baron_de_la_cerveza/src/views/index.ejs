@@ -44,9 +44,11 @@
 				<h2>LAS MARCAS CON LAS QUE TRABAJAMOS</h2>
 				<section>
 					<% brands.forEach(brand => { %>
-					<ul>
-						<li><a href="/products/productsFilter/<%= brand.id %>"><%- brand.brand %></a></li>
-					</ul>
+						<% if(brand.brand !== "Sin marca") { %>
+						<ul>
+							<li><a href="/products/productsFilter/<%= brand.id %>"><%- brand.brand %></a></li>
+						</ul>
+						<% } %>
 					<% }) %>
 				</section>
 			</div>

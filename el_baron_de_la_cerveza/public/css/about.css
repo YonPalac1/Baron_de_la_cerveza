@@ -1,7 +1,4 @@
-.about-body {
-	background: rgb(212,58,15);
-	background: linear-gradient(0deg, rgba(212,58,15,1) 0%, rgba(255,251,198,1) 0%, rgba(255,252,244,1) 100%);
-}
+
 .about-body img.duff {
 	z-index: -1;
 	position: fixed;
@@ -17,6 +14,7 @@ main.about h2 {
 	font-size: 30px;
 	text-transform: uppercase;
 	padding-top: 10px;
+	color: var(--violet);
 }
 .about-us {
 	display: flex;

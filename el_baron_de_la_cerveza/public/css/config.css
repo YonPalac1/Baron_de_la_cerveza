@@ -19,6 +19,7 @@ main.config {
 .tabla-config .config {
 	display: flex;
 	justify-content: end;
+	justify-content: space-between;
 }
 .tabla-config .config h2 {
 	text-align: center;
@@ -68,8 +69,17 @@ main.config {
 	width: 100%;
 	height: 100%;
 }
-
-
+.config form button {
+	background: none;
+	padding: 10px;
+	font-size: 16px;
+	color: var(--violet);
+	border: none;
+	cursor: pointer;
+}
+.config form button:hover {
+	text-decoration: underline;
+}
 @media screen and (min-width: 720px){
 
 .tabla-datos {

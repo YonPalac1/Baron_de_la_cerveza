@@ -4,7 +4,8 @@ h5 {
 	font-weight: lighter;
 }
 footer {
-	background-color: var(--darkorange);
+	background: rgb(212,58,15);
+	background: linear-gradient(0deg, rgba(212,58,15,1) 42%, rgba(255,215,212,1) 100%);
 	text-align: center;
 	margin-top: 100px;
 	padding: 10px 0;

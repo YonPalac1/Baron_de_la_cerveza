@@ -28,7 +28,15 @@
 						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
 					</div>
 					<div class="boton-comprar">
-						<a href="/users/productCart/<%= product.id %>" class="btn-buy br">Comprar</a>
+						<% if(session.user !== undefined){%>
+							<a href="/users/productCart/<%= product.id %>" class="btn-buy br">Comprar</a><br>
+						<% } else {%>
+							<button id="btnOpenSession" class="btn-buy br">Comprar</button><br>
+						<% } %>
+						<% if (typeof session.user != "undefined") { %>
+							<% if (session.user.rol === 1 || session.user.rol === 2) { %>
+						<a href="/admin/products/edit/<%- product.id %>" class="btn-edit br">Editar</a>
+						<% }} %>
 					</div>
 				</article>
 			  </div>

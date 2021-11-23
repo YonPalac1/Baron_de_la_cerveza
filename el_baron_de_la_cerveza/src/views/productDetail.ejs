@@ -60,7 +60,13 @@
                     </div>
 					
                     <div class="boton-detalleproducto">
-                        <button type="submit">AGREGAR AL CARRITO</button>
+						<% if(session.user !== undefined){%>
+							<button id="btnOpenSession" class="btn-buy br">
+								<a href="#" class="btn-buy br"style="color: white;">AGREGAR AL CARRITO</a>
+							</button>
+						<% } else {%>
+							<button id="btnOpenSession" class="btn-buy br">AGREGAR AL CARRITO</button><br>
+						<% } %>
                     </div>
 					<!-- Detalles del Lugar -->
 					<section class="lugar-producto">
