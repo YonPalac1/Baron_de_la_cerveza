@@ -130,11 +130,17 @@ module.exports = {
         })
     },
     usersDestroy: (req, res) => {
+        db.Contact.destroy({
+            where: {userId: req.params.id}
+        })
+        db.Avatar.destroy({
+            where: {userId: req.params.id}
+        })
         db.User.destroy({
             where: {id: req.params.id}
         })
         .then(() => {
-            res.redirect("/admin/products")
+            res.redirect("/admin/users")
         })
     },
     // Fin controladores de usuarios
