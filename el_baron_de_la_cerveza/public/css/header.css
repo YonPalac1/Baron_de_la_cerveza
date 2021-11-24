@@ -105,7 +105,14 @@
     top: -100px;
     transition: .5s;
 }
-
+.search__formAdmin {
+    height: 3.5rem;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    
+    transition: .5s;
+}
 .search__form.active {
     top: -19px;
 }
@@ -116,12 +123,27 @@
 	border: 1px solid #ccc;
 	width: 250px;
 }
-
+.search__formAdmin input {
+	padding: 8px 12px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	width: 250px;
+}
 .search__form input::placeholder {
+	color: var(--orange);
+}
+.search__formAdmin input::placeholder {
 	color: var(--orange);
 }
 
 .search__form .btn-search {
+	background: none;
+	border: none;
+	font-size: 18px;
+	padding: 10px;
+	cursor: pointer
+}
+.search__formAdmin .btn-search {
 	background: none;
 	border: none;
 	font-size: 18px;
@@ -204,6 +226,7 @@
 	background-color: var(--darkorange);
 	color: #fff;
 	z-index: 5000;
+    cursor: pointer;
 }
  .shopping-cart span {
 	position: absolute;

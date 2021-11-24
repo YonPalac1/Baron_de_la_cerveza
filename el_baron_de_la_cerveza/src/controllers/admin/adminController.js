@@ -389,6 +389,24 @@ module.exports = {
 
     signin: (req, res)=> {
         res.render('login')
-    }
+    },
+
+    // Search de usuarios
+	search: (req, res) => {
+		db.User.findAll({
+			where: {
+				name: {
+					[Op.like] : `%${req.query.keywords}%`
+				}
+			}
+		})
+		.then(user => {
+			res.render('admin/results', {
+				user: user,
+				search: req.query.keywords,
+				session: req.session
+			})
+		})
+	} 
     
 }
