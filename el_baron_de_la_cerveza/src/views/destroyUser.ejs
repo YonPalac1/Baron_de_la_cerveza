@@ -17,10 +17,10 @@
 		<h2><%- user.name %></h2>
 	</div>
 	<main class="config" id="config">
-		<form class="form-ad" action="/users/destroyUser/<%- user.id %>?_method=DELETE" method="POST">
+		<form id="formDelete" class="form-ad" action="/users/destroyUser/<%- user.id %>?_method=DELETE" method="POST">
 			<p>
-				<label for="inputPass" class="form-label">Ingrese su contraseña</label>
-				<input type="password" class="form-control" id="inputPass" name="pass">
+				<!-- <label for="inputPass" class="form-label">Ingrese su contraseña</label> -->
+				<!-- <input type="password" class="form-control" id="inputPass" name="pass"> -->
 				
 			</p>
 				<button type="submit" class="btn-submit">
@@ -34,5 +34,7 @@
 <!-- FOOTER -->
 <!-- /FOOTER 
 <script src="/js/validaciones/validationsPassword.js"></script>-->
+
+<script src="/js/alerts.js"></script>	
 </body>
 </html>

@@ -51,10 +51,37 @@ module.exports = {
         })
     },
     finalizePurchase: (req, res) => {
-		res.render('finalizePurchase', {
-			titleBanner: "Último paso",
-			session: req.session
-		});
+        db.Product.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [
+                {association: "category"},
+                {association: "brand"}
+            ]
+        })
+        .then(productDetail => {
+            db.Product.findByPk(req.params.id)
+            .then(product => {
+                let categoryPromise = db.Category.findAll()
+                let brandPromise = db.Brand.findAll()
+                let bannerPromise = db.Banner.findAll()
+
+                Promise.all([categoryPromise, brandPromise, bannerPromise])
+                .then(([categories, brands, banners]) => {
+                    res.render("finalizePurchase", {
+                        titleBanner: "Pedi tu birra y te la llevamos a tu casa",
+                        productDetail,
+                        categories,
+                        banners,
+                        brands,
+                        product,
+                        session: req.session
+                    })
+                })
+            })
+        })
+
     },
 	search: (req, res) => {
 		db.Product.findAll({

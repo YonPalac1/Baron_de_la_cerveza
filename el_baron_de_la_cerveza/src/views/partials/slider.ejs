@@ -25,7 +25,7 @@
 								/ <%= product.alcoholContent %> % ALC /
 							<% } %>
 						</b>
-						<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+						<a href="/users/productCart/<%= product.id %>" class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></a>
 					</div>
 					<div class="boton-comprar">
 						<% if(session.user !== undefined){%>

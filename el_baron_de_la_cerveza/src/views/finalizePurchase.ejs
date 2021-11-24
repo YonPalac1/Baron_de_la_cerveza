@@ -94,27 +94,18 @@
 		<section class="a-comprar">
 			<div id="a-comprar">
 				<div class="producto-comprado">
-					<img src="/img/productos/img2.png" alt="">
+					<img src="/img/productos/<%= product.images %>" alt="">
 				</div>
 				<div class="detalles">
-					<p>Nombre de producto</p>
-					<span>$00.00</span>
+					<p><%= product.name %></p>
+					<span>$<%= product.price %></span>
 					<i class="fas fa-trash"></i>
 				</div>
 			</div>
-			<div id="a-comprar">
-				<div class="producto-comprado">
-					<img src="/img/productos/img2.png" alt="">
-				</div>
-				<div class="detalles">
-					<p>Nombre de producto</p>
-					<span>$00.00</span>
-					<i class="fas fa-trash"></i>
-				</div>
 			</div>
 			<div class="total">
 				<strong>Total</strong>
-				<span>$00000</span>
+				<span>$<%= product.price %></span>
 			</div>
 		</section>
 	</main>

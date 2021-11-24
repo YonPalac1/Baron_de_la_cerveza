@@ -64,7 +64,7 @@ article a {
 	color: var(--grey);
 	margin-bottom: 10px;
 }
-.detalles-articulos button.btn-add {
+.detalles-articulos a.btn-add {
 	position: absolute;
 	right: 0;
 	top: -20px;
@@ -77,7 +77,7 @@ article a {
 	z-index: 7;
 	font-size: 14px;
 }
-.detalles-articulos button.btn-add:hover i {
+.detalles-articulos a.btn-add:hover i {
 	color: var(--violet);
 	animation: effect linear 1s;
 }

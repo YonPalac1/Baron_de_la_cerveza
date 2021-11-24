@@ -21,11 +21,11 @@
                     / <%= element.alcoholContent %> % ALC /
                 <% } %>
             </b>
-            <button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
-        </div>
+            <a href="/users/productCart/<%= product.id %>" class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></a>
+		</div>
         <div class="boton-comprar">
             <% if(session.user !== undefined){%>
-                <a href="/users/productCart/<%= element.id %>" class="btn-buy br">Comprar</a><br>
+                <a href="/finalizePurchase/<%= element.id %>" class="btn-buy br">Comprar</a><br>
             <% } else {%>
                 <button id="btnOpenSession" class="btn-buy br">Comprar</button><br>
             <% } %>
