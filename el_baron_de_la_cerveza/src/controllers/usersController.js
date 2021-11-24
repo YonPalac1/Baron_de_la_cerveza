@@ -255,6 +255,36 @@ module.exports = {
 
         })
     },
+    // Eliminar Usuario
+    userDelete: (req, res) => {
+        db.User.findByPk(req.session.user.id, {
+            include: [{
+                association: "avatars"
+            }, {
+                association: "contacts"  
+            }]
+          }).then((user) => {
+            res.render("destroyUser", {
+              titleBanner: "Eliminar usuario", 
+              user,
+              session: req.session,
+            });
+        })
+    },
+    userDestroy: (req, res) => {
+        db.Contact.destroy({
+            where: {userId: req.params.id}
+        })
+        db.Avatar.destroy({
+            where: {userId: req.params.id}
+        })
+        db.User.destroy({
+            where: {id: req.params.id}
+        })
+        .then(() => {
+            res.redirect("/")
+        })
+    },
 
     // Login y registro con google
     loginGoogle: (req, res) => {
