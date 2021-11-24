@@ -35,7 +35,7 @@ for (var i = 0 ; i < $formDelete.length; i++) {
       Swal.fire({
         icon: 'info',
         html:
-          'Debe, ' +
+          'Debes estar ' +
           '<a href="/users/login">Registrarse</a> ' +
           'para agregar productos al carrito',
         showCloseButton: true,
