@@ -50,24 +50,7 @@
 							<p>Calcula el precio de envio</p>
 						</div>
 					</div>
-                    <div class="cantidad-detalleproducto">
-                        CANTIDAD
-						<div class="detalles-cantbotones">
-							<button>-</button>
-                        	<input type="text">
-							<button>+</button>
-						</div>
-                    </div>
 					
-                    <div class="boton-detalleproducto">
-						<% if(session.user !== undefined){%>
-							<button id="btnOpenSession" class="btn-buy br">
-								<a href="#" class="btn-buy br"style="color: white;">AGREGAR AL CARRITO</a>
-							</button>
-						<% } else {%>
-							<button id="btnOpenSession" class="btn-buy br">AGREGAR AL CARRITO</button><br>
-						<% } %>
-                    </div>
 					<!-- Detalles del Lugar -->
 					<section class="lugar-producto">
 						<div class="detalle-lugarproducto">
@@ -78,6 +61,15 @@
 							<p> - Descripción: <%= productDetail.description %> </p>
 						</div>
 					</section>
+					<div class="boton-detalleproducto">
+						<% if(session.user !== undefined){%>
+							<button id="btnOpenSession" class="btn-buy br">
+								<a href="#" class="btn-buy br"style="color: white;">AGREGAR AL CARRITO</a>
+							</button>
+						<% } else {%>
+							<button id="btnOpenSession" class="btn-buy br">AGREGAR AL CARRITO</button><br>
+						<% } %>
+					</div>
                 </div>
             </section>
         </section>
@@ -105,7 +97,6 @@
 
 	<%- include ("partials/footer") %>
 
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="/js/swiper.js"></script>
+<script src="/js/alerts.js"></script>
 </body>
 </html>
