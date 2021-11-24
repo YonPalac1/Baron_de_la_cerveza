@@ -77,8 +77,24 @@ article a {
 	z-index: 7;
 	font-size: 14px;
 }
-.detalles-articulos button.btn-add:hover {
+.detalles-articulos button.btn-add:hover i {
 	color: var(--violet);
+	animation: effect linear 1s;
+}
+@keyframes effect {
+	0% {
+		transform: scale(1, 1);
+	}
+	25% {
+		transform: scale(1.3, 0.6);
+	}
+
+	50% {
+		transform: scale(1.1, 0.9);
+	}
+	100% {
+		transform: scale(1, 1);
+	}
 }
 .boton-comprar {
 	display: flex;
@@ -93,6 +109,14 @@ article a {
 	color: #fff;
 	background-color: var(--violet);
 	cursor: pointer;
+	transition: .5s;
+}
+.boton-comprar .btn-buy:hover {
+	-webkit-box-shadow: 3px 7px 29px -12px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px 7px 29px -12px rgba(0,0,0,0.75);
+	box-shadow: 3px 7px 29px -12px rgba(0,0,0,0.75);
+	background: rgb(128,178,255);
+	background: linear-gradient(93deg, rgba(128,178,255,1) 0%, rgba(83,67,220,1) 64%);
 }
 .boton-comprar .btn-edit {
 	background-color: #fff;
@@ -184,6 +208,12 @@ main.seccion-productos .filter {
 }
 .productos-menus .collapse ul li {
 	padding: 4px 10px;
+}
+.productos-menus .collapse ul li:hover {
+	background: var(--orange);
+}
+.productos-menus .collapse ul li:hover a {
+	color: white;
 }
 .productos-menus .collapse ul li a {
 	color: #fff;

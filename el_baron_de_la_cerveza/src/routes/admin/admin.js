@@ -59,5 +59,7 @@ router.put('/brand/create/:id', controllerCB.brandDestroy);
 router.get("/products/categories/:id", controllerCB.filter);
 router.get("/products/brands/:id", controllerCB.filterBrands);
 
+// Search
+router.get('/users/search', controller.search);
 
 module.exports = router;
