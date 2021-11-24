@@ -32,9 +32,14 @@ z-index: 8000;
 	width: 80px;
 	margin: 0 auto;
 }
-.footer .redes i {
-	font-size: 20px;
+.footer .redes div a i {
+	font-size: 25px;
 	padding: 10px;
+}
+.footer .redes div a:hover i {
+	color: lightgreen;
+	transition: 0.9s;
+    transform: rotateY(180deg);
 }
 .footer .navegacion ul li a {
 	color: #fff;
