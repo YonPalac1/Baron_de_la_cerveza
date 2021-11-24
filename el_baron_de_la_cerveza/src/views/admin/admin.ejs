@@ -103,7 +103,7 @@
                                 <% admin.forEach(admins =>{ %>
                                     <% if(admins.rol == 2){ %>
                                 <tr>
-                                    <td style="color: #000;"><%= session.user.email %></td>
+                                    <td style="color: #000;"><%= admins.email %></td>
                                     <td>*******</td>
                                     <% if (session.user.rol === 1) { %>
                                     <td>

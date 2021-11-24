@@ -17,16 +17,11 @@
 		<h2><%- user.name %></h2>
 	</div>
 	<main class="config" id="config">
-		<form id="form" class="form-ad" action="/users/destroyUser/<%- user.id %>" method="DELETE">
+		<form class="form-ad" action="/users/destroyUser/<%- user.id %>?_method=DELETE" method="POST">
 			<p>
 				<label for="inputPass" class="form-label">Ingrese su contraseña</label>
 				<input type="password" class="form-control" id="inputPass" name="pass">
-				<!--
-				<span id="passError" class="fileErrors" style="color: red;"></span>
-				<% if (locals.errors && errors.pass) { %>
-					<small class="errorred"><%= errors.pass.msg %> </small>
-				<% } %>
-				-->
+				
 			</p>
 				<button type="submit" class="btn-submit">
 					ELIMINAR

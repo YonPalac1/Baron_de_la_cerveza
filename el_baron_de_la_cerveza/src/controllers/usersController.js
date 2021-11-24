@@ -275,14 +275,23 @@ module.exports = {
         db.Contact.destroy({
             where: {userId: req.params.id}
         })
-        db.Avatar.destroy({
-            where: {userId: req.params.id}
-        })
-        db.User.destroy({
-            where: {id: req.params.id}
-        })
-        .then(() => {
-            res.redirect("/")
+        .then(()=>{
+            db.Avatar.destroy({
+                where: {userId: req.params.id}
+            })
+            .then(()=>{
+                db.User.destroy({
+                    where: {id: req.params.id}
+                })
+                .then(() => {
+                    req.session.destroy()
+                    if(req.cookies.elBaronDeLaCerveza){
+                        res.cookie('elBaronDeLaCerveza', '', {maxAge: -1})
+                    }
+
+                    res.redirect('/')
+                })
+            })
         })
     },
 
