@@ -3,7 +3,7 @@ let router = express.Router();
 const { 
 	user,
     login, 
-	register, 
+    register, 
     processLogin,
     processRegister,
     updateUser,
@@ -12,6 +12,8 @@ const {
     productCart,
     passwordEdit,
     passwordUpdate,
+    userDelete,
+    userDestroy,
     loginGoogle,
      } = require('../controllers/usersController');
 let userLog = require('../middlewares/userLog');
@@ -51,6 +53,10 @@ router.put('/edit/:id', uploadUserAvatar.single('avatar'), updateUser)
 // Editar contraseña 
 router.get('/edit_password/:id', userSessionCheck, passwordEdit)
 router.put('/edit_password/:id', updateProfile, passwordUpdate)
+
+// Eliminar usuario 
+router.get('/destroyUser/:id', userSessionCheck, userDelete)
+router.delete('/destroyUser/:id', userDestroy)
 
 
 /* GOOGLE LOGIN */
