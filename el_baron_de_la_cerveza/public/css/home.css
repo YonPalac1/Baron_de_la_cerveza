@@ -491,7 +491,7 @@ section .card i {
 		background: #fff;
 		color: #000;
 		text-align: center;
-		z-index: 6000;
+		/* z-index: 6000; */
 		transition: .5s;
 	}
 	.productos-menus .collapse b {
