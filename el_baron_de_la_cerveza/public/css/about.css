@@ -1,10 +1,10 @@
-
 .about-body img.duff {
 	z-index: -1;
 	position: fixed;
 	transform: rotate(-45deg);
 	opacity: .5;
 	height: 350px;
+	
 }
 main.about {
 	max-width: 1024px;

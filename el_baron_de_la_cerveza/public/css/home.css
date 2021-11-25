@@ -30,9 +30,10 @@
 /**********PRODUCTOS***************/
 article a {
 	display: flex;
-	overflow: hidden;
 }
 .imagen-producto {
+	overflow: hidden;
+	text-align: center;
 	height: 200px;
 	margin: 0 auto;
 	transition: 1s;
@@ -383,6 +384,7 @@ section .card {
 	margin: 10px auto;
 	font-family: var(--font-open);
 	color: var(--violet);
+	background: white;
 }
 section .card i {
 	background-color: var(--violet);

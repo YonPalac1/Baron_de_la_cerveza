@@ -131,6 +131,13 @@ body.body_login {
 .seccion_login .div_ingGoogle img {
 	width: 18px;
 }
+.seccion_login .div_continput a {
+	color: blue;
+	cursor: pointer;
+}
+.seccion_login .div_continput .div_input a:hover {
+	color: blue;
+}
 /* Olvidaste tu Contraseña */
 .seccion_login .div_olvcontraseña {
 	width: 100%;

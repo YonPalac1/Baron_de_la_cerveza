@@ -89,6 +89,13 @@ body.body_login {
 .seccion_login .div_continput .div_input input:nth-child(2n) {
 	margin-bottom: 5px;
 }
+.seccion_login .div_continput a {
+	color: blue;
+	cursor: pointer;
+}
+.seccion_login .div_continput a:hover {
+	color: lightblue;
+}
 /* Boton Ingresar */
 .seccion_login .div_botoning {
 	width: 100%;
