@@ -52,8 +52,9 @@
 								<span id="pass2Errors" style="color: red;"></span>
 								<% if (locals.errors && errors.pass2) { %>
 									<small class="errorred" style="color: red;"><%= errors.pass2.msg %></small>
-								<% } %>
+									<% } %>
 							</p>
+							<a id="viewPassword">Mostrar contraseña</a>
 							<div class="checkLogin">
 								<input type="checkbox" name="check" id="check">
 								<label for="check">Soy mayor de 18 años</label>
@@ -92,5 +93,6 @@
 		</div>
 	</main>
 	<script src="/js/validaciones/frontRegister.js"></script>
+	<script src="/js/showPassword.js"></script>
 </body>
 </html>

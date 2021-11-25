@@ -40,6 +40,7 @@
 									<small style="color: red"><%= errors.pass.msg %> </small>
 								<% } %>
 							</p>
+							<a id="viewPassword">Mostrar contraseña</a>
 							<span id="submitErrors" style="color: red;"></span>
 							<% if (locals.errorMsg ) { %>
 									<small style="color: red"><%= errorMsg %> </small>
@@ -83,5 +84,6 @@
 		</div>
 	</main>
 	<script src="/js/validaciones/frontLogin.js"></script>
+	<script src="/js/showPasswordLogin.js"></script>
 </body>
 </html>
