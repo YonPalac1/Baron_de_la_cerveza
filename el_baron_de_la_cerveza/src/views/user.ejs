@@ -62,11 +62,15 @@
 				</div>
 			</div>	
 		</section>
-		<a href="/users/destroyUser/<%- user.id %>" class="">Eliminar perfil <i class="fas fa-trash"></i></a> 
-		 
+		<form id="formDelete" class="form-ad" action="/users/destroyUser/<%- user.id %>?_method=DELETE" method="POST">
+			<button type="submit" class="btn-submit">
+				ELIMINAR <i class="fas fa-trash"></i>
+			</button>
+		</form> 
 	</main>
 	<!-- FOOTER -->
 	<%- include("partials/footer")  %> 
 	<!-- /FOOTER -->
+	<script src="/js/alerts.js"></script>
 </body>
 </html>

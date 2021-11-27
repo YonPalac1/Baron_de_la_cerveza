@@ -15,7 +15,7 @@ function qs(element) {
       $pass2 = qs("#pass2"),
       $pass2Errors = qs("#pass2Errors"),
       regExAlpha = /^[a-zA-Z\sñáéíóúü\0-9 ].{2,90}$/,
-      regExPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})$/;
+      regExPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/i;
   
     $inputName.addEventListener("blur", function () {
       switch (true) {
@@ -27,6 +27,11 @@ function qs(element) {
           $nameErrors.innerHTML = "Debes ingresar un nombre de mas de 5 carácteres";
           $inputName.classList.add("is-invalid");
           break;
+        case regExAlpha.test($inputName.value):
+            $nameErrors.innerHTML = "";
+            $inputName.classList.remove("is-invalid");
+            $inputName.classList.add("is-valid");
+            break;
         default:
           $inputName.classList.remove("is-invalid");
           $inputName.classList.add("is-valid");
@@ -80,6 +85,11 @@ function qs(element) {
               $passErrors.innerHTML = "La contraseña debe tener como minimo 8 caracteres, letras mayúsculas, minúsculas, un número y un carácter especial";
               $pass1.classList.add("is-invalid");
               break 
+          case regExPass.test($pass1.value):
+              $passErrors.innerHTML = "";
+              $pass1.classList.remove("is-invalid");
+              $pass1.classList.add("is-valid");
+              break 
           default:
               $passErrors.innerHTML = "";
               $pass1.classList.remove("is-invalid");
@@ -98,6 +108,11 @@ function qs(element) {
                 $pass2Errors.innerHTML = "Las contraseñas no coinciden";
                 $pass2.classList.add("is-invalid");
                 break;
+            case $pass2.value == $pass1.value:
+                $pass2Errors.innerHTML = "";
+                $pass2.classList.remove("is-invalid");
+                $pass2.classList.add("is-valid");
+                break;
             default:
                 $pass2Errors.innerHTML = "";
                 $pass2.classList.remove("is-invalid");
@@ -113,9 +128,8 @@ function qs(element) {
       let elementosForm = this.elements
       
       for (let index = 0; index < elementosForm.length -1; index++) {
-          if(elementosForm[index].value == ""){
-            elementosForm[index].classList.add('is-invalid');
-
+          if(elementosForm[index].value == "" || elementosForm[index].classList.contains("is-invalid")){
+              elementosForm[index].classList.add('is-invalid');
               submitErrors.innerHTML = "Los campos señalados son obligatorios";
               error = true;
           }

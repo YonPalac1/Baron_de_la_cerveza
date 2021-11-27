@@ -5,6 +5,8 @@ function qs(element) {
     
     let 
       $form = qs("#form"),
+      $inputName = qs("#inputName"),
+      $nameErrors = qs("#nameErrors"),
       $inputEmail = qs("#inputEmail"),
       $emailErrors = qs("#emailErrors"),
       $pass1 = qs("#pass1"),
@@ -12,9 +14,31 @@ function qs(element) {
       $pass2 = qs("#pass2"),
       $pass2Errors = qs("#pass2Errors"),
       regExAlpha = /^[a-zA-Z\sñáéíóúü\0-9 ].{2,90}$/,
-      
-      regExPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      regExPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/i;
   
+      $inputName.addEventListener("blur", function () {
+        switch (true) {
+          case !$inputName.value.trim():
+            $nameErrors.innerHTML = "Debes ingresarle un email";
+            $inputName.classList.add("is-invalid");
+            break;
+          case !regExAlpha.test($inputName.value):
+            $nameErrors.innerHTML = "Debes ingresar un email valido";
+            $inputName.classList.add("is-invalid");
+            break;
+          case regExAlpha.test($inputName.value):
+            $nameErrors.innerHTML = "";
+            $inputName.classList.remove("is-invalid");
+            $inputName.classList.add("is-valid");
+            break;
+          default:
+            $inputName.classList.remove("is-invalid");
+            $inputName.classList.add("is-valid");
+            $nameErrors.innerHTML = "";
+            break;
+        }
+      });
+
     $inputEmail.addEventListener("blur", function () {
       switch (true) {
         case !inputEmail.value.trim():
@@ -24,6 +48,11 @@ function qs(element) {
         case !regExAlpha.test(inputEmail.value):
           $emailErrors.innerHTML = "Debes ingresar un email valido";
           inputEmail.classList.add("is-invalid");
+          break;
+        case regExAlpha.test(inputEmail.value):
+          $emailErrors.innerHTML = "";
+          inputEmail.classList.remove("is-invalid");
+          inputEmail.classList.add("is-valid");
           break;
         default:
           inputEmail.classList.remove("is-invalid");
@@ -39,9 +68,17 @@ function qs(element) {
               break;
           case !regExPass.test($pass1.value):
               $passErrors.innerHTML = "La contraseña debe tener como minimo 8 caracteres, letras mayúsculas, minúsculas, un número y un carácter especial";
+              $pass1.classList.add("is-invalid");
               break 
+          case regExPass.test($pass1.value):
+              $passErrors.innerHTML = "";
+              $pass1.classList.add("is-valid");
+              $pass1.classList.remove("is-invalid");
+            break 
           default:
               $passErrors.innerHTML = "";
+              $pass1.classList.add("is-valid");
+              $pass1.classList.remove("is-invalid");
               break;
       }
     });
@@ -53,9 +90,17 @@ function qs(element) {
                 break;
             case $pass2.value != $pass1.value:
                 $pass2Errors.innerHTML = "Las contraseñas no coinciden";
+                $pass2.classList.add("is-invalid")
+                break;
+            case $pass2.value == $pass1.value:
+                $pass2Errors.innerHTML = "";
+                $pass2.classList.add("is-valid")
+                $pass2.classList.remove("is-invalid")
                 break;
             default:
                 $pass2Errors.innerHTML = "";
+                $pass2.classList.add("is-valid")
+                $pass2.classList.remove("is-invalid")
                 break;
         }
     })
@@ -67,7 +112,7 @@ function qs(element) {
       let elementosForm = this.elements
       
       for (let index = 0; index < elementosForm.length-1; index++) {
-          if(elementosForm[index].value == ""){
+          if(elementosForm[index].value == "" || elementosForm[index].classList.contains("is-invalid")){
             elementosForm[index].classList.add('is-invalid');
 
               submitErrors.innerHTML = "Los campos señalados son obligatorios";

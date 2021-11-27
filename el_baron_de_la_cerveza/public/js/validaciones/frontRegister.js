@@ -25,6 +25,10 @@ window.addEventListener("load", function() {
             $nameErrors.innerHTML = "Ingrese un Nombre";
             $inputName.style.border = "2px solid red";
             break;
+        case $inputName.value != "":
+            $nameErrors.innerHTML = "";
+            $inputName.style.border = "2px solid green";
+            break;
           default:
             $nameErrors.innerHTML = "";
             break;
@@ -40,6 +44,10 @@ window.addEventListener("load", function() {
             case !regExEmail.test($inputEmail.value):
                 $emailErrors.innerHTML = "El Email ingresado no es valido";
                 $inputEmail.style.border = "2px solid red";
+                break
+            case regExEmail.test($inputEmail.value):
+                $emailErrors.innerHTML = "";
+                $inputEmail.style.border = "2px solid green";
                 break
             default:
                 $emailErrors.innerHTML = ""
@@ -80,6 +88,10 @@ window.addEventListener("load", function() {
                 $pass2Errors.innerHTML = "Las contraseñas no coinciden";
                 $pass2.style.border = "2px solid red";
                 break;
+            case $pass2.value == $pass.value:
+                $pass2Errors.innerHTML = "";
+                $pass2.style.border = "2px solid green";
+                break;
             default:
                 $pass2Errors.innerHTML = "";
                 break;
@@ -104,22 +116,23 @@ window.addEventListener("load", function() {
         console.log($form.elements)
         let elementosForm = this.elements
         
-        if($check.checked == true){
-            for (let index = 0; index < elementosForm.length-1; index++) {
-                if(elementosForm[index].value == "" && $pass.classList.contains("error")){
+        for (let index = 0; index < elementosForm.length-1; index++) {
+            
+            if($check.checked == true){
+                if(elementosForm[index].value == "" || elementosForm[index].style.border == "2px solid red"){
                     elementosForm[index].style.border = "2px solid red";
-
                     submitErrors.innerHTML = "Los campos señalados son obligatorios";
                     error = true;
                 }
+            } else {
+                submitErrors.innerHTML = "Debes ser mayor de 18 años";
+                error = true;
             }
+        }
 
-            if(!error){
-                console.log('Todo bien');
-                $form.submit()
-            }
-        } else { 
-            submitErrors.innerHTML = "Debes ser mayor de 18 años para registrarte";
+        if(!error){
+            console.log('Todo bien');
+            $form.submit()
         }
     })
 })

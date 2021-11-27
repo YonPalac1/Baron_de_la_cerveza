@@ -29,6 +29,11 @@ function qs(element) {
           $nameErrors.innerHTML = "Debes ingresar un nombre de mas de 5 carácteres";
           $inputName.classList.add("is-invalid");
           break;
+          case regExAlpha.test($inputName.value):
+            $nameErrors.innerHTML = "";
+            $inputName.classList.remove("is-invalid");
+            $inputName.classList.add("is-valid");
+            break;
         default:
           $inputName.classList.remove("is-invalid");
           $inputName.classList.add("is-valid");
@@ -47,6 +52,11 @@ function qs(element) {
                 $priceErrors.innerHTML = 'Debe ingresar un price válido';
                 $price.classList.add('is-invalid')
                 break
+                case regExPrice.test($price.value):
+                    $priceErrors.innerHTML = '';
+                    $price.classList.remove('is-invalid');
+                    $price.classList.add('is-valid')
+                    break
             default:
                 $price.classList.remove('is-invalid');
                 $price.classList.add('is-valid');
@@ -65,6 +75,11 @@ function qs(element) {
               $brandErrors.innerHTML = 'Debe ingresar una marca válida';
               $brand.classList.add('is-invalid')
               break
+              case regExPrice.test($brand.value):
+                $brandErrors.innerHTML = '';
+                $brand.classList.remove('is-invalid');
+                $brand.classList.add('is-valid')
+                break
           default:
               $brand.classList.remove('is-invalid');
               $brand.classList.add('is-valid');
@@ -83,6 +98,11 @@ function qs(element) {
               $categoryErrors.innerHTML = 'Debe ingresar una categoria válida';
               $category.classList.add('is-invalid')
               break
+              case regExPrice.test($category.value):
+                $categoryErrors.innerHTML = '';
+                $category.classList.remove('is-invalid');
+                $category.classList.add('is-valid')
+                break
           default:
               $category.classList.remove('is-invalid');
               $category.classList.add('is-valid');

@@ -12,7 +12,6 @@ const {
     productCart,
     passwordEdit,
     passwordUpdate,
-    userDelete,
     userDestroy,
     loginGoogle,
      } = require('../controllers/usersController');
@@ -21,8 +20,6 @@ let userSessionCheck = require('../middlewares/userSessionCheck');
 let loginValidator = require('../middlewares/validations/loginValidator')
 const registerValidator = require('../middlewares/validations/registerValidator')
 const updateProfile = require('../middlewares/validations/updateProfile')
-
-const deleteUserCheck = require('../middlewares/validations/deleteUserCheck')
 const uploadUserAvatar = require('../middlewares/uploadUserAvatar')
 const passport = require('passport');
 const googleLogin = require('../functions/googleLogin');
@@ -37,6 +34,7 @@ passport.deserializeUser(function(user, done) {
   
 
 router.get('/', userSessionCheck, user);
+router.delete('/destroyUser/:id', userDestroy)
 
 router.get("/productCart/:id", userSessionCheck, productCart);
 
@@ -56,9 +54,6 @@ router.put('/edit/:id', uploadUserAvatar.single('avatar'), updateUser)
 router.get('/edit_password/:id', userSessionCheck, passwordEdit)
 router.put('/edit_password/:id', updateProfile, passwordUpdate)
 
-// Eliminar usuario 
-router.get('/destroyUser/:id', userSessionCheck, userDelete)
-router.delete('/destroyUser/:id', deleteUserCheck, userDestroy)
 
 
 /* GOOGLE LOGIN */

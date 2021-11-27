@@ -141,6 +141,23 @@ module.exports = {
             });
         })
     },
+    infoUsers: (req, res) => {
+        db.User.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [
+                {association: "contacts"}
+            ]
+        })
+        .then(user => {
+            res.render("admin/info", {
+                user,
+                session: req.session
+            });
+            // res.send(user)
+        })
+    },
     usersDestroy: (req, res) => {
         db.Contact.destroy({
             where: {userId: req.params.id}

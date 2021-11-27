@@ -17,6 +17,7 @@ router.get("/index", cookieCheck, userAdminCheck, controller.admin);
 
 // Crud Usuarios
 router.get("/users", userAdminCheck, controller.users);
+router.get("/users/info/:id", userAdminCheck, controller.infoUsers);
 router.delete('/users/delete/:id', controller.usersDestroy);
 
 // Editar administrador

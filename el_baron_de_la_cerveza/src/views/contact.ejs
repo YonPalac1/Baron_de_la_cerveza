@@ -7,87 +7,71 @@
 	<!-- HEADER -->
 	<%- include('partials/header.ejs') %>
 
-	<div class="separador"></div>
+	<div class="separador">
+		<img src="/img/icons/icon-title.png" alt="">
+	</div>
 
 	<main class="contenedor_contacto">
-		<section class="logo_contacto">
-			<div class="contenedordelcontenedor">
-				<div class="logo_contimage">
-					<img src="/img/icons/icon.png">
-				</div>
-	
-				<div class="logo_contitulo">
-					<h1> Contáctenos </h1>
-				</div>
+		<div class="btn-divition">
+			<div class="btn-open-card" onclick="openCard1()">
+				<a>Enviar mensaje a Keila</a>
 			</div>
-		</section>
-
-		<div class="separador"></div>
-
-		<div class="contenedor_contcontacto">
-
-			<!-- Contacto Yonatan Palacios -->
-			<section id="rotador1" class="contenedor_infocontacto">
-				<section class="info_contacto">
-					<div class="icono">
-						<i class="fas fa-phone"></i>
-						<p>11 - 12329876</p>
-					</div>
-					<div class="icono">
-						<i class="fas fa-envelope"></i>
-						<p>contacto@gmail.com</p>
-					</div>
-					<div class="icono">
-						<i class="fas fa-map-marker-alt"></i>
-						<p>avenida pasos de las vacas 127 - San Miguel</p>
-					</div>
-				</section>
-
-				<section class="form_contacto">
-					<form>
-						<input type="text" name="" placeholder="Ingrese Nombre">
-						<input type="text" name="" placeholder="Ingrese Email">
-						<input type="text" name="" placeholder="Ingrese Telefono (Opcional)">
-						<input type="text" name="" placeholder="Ingrese Mensaje">
+			<div class="btn-open-card" onclick="openCard2()">
+				<a>Enviar mensaje a Yonatan</a>
+			</div>
+		</div>	
+			<section class="card card1 active" id="card1">
+				<div class="info-card info">
+					<h3>Keila</h3>
+					<p>
+						<i class="fas fa-phone"></i> <span>11 3936-6942</span>
+					</p>
+					<p>
+						<i class="fas fa-envelope"></i> <span>email@email.com</span>
+					</p>
+					<p>
+						<i class="fas fa-map-marker-alt"></i> <span>Av. Pasos de las vacas</span>
+					</p>
+				</div>
+				<div class="info-card inputs">
+					<form action="">
+						<h3>Podes hablarme</h3>
+						<input type="text" placeholder="Nombre">
+						<input type="text" placeholder="Mail">
+						<input type="text" placeholder="Asunto">
+						<textarea name="" placeholder="Mensaje"></textarea>
 						<button>Enviar</button>
 					</form>
-				</section>
+				</div>
 			</section>
-
-			<!-- Contacto Keila Mantiñan -->
-			<section id="rotador2" class="contenedor_infocontacto2">
-				<section class="info_contacto2">
-					<div class="icono2">
-						<i class="fas fa-phone"></i>
-						<p>11 - 12329876</p>
-					</div>
-					<div class="icono2">
-						<i class="fas fa-envelope"></i>
-						<p>contacto@gmail.com</p>
-					</div>
-					<div class="icono2">
-						<i class="fas fa-map-marker-alt"></i>
-						<p>avenida pasos de las vacas 127 - San Miguel</p>
-					</div>
-				</section>
-
-				<section class="form_contacto2">
-					<form>
-						<input type="text" name="" placeholder="Ingrese Nombre">
-						<input type="text" name="" placeholder="Ingrese Email">
-						<input type="text" name="" placeholder="Ingrese Telefono (Opcional)">
-						<input type="text" name="" placeholder="Ingrese Mensaje">
+			<section class="card card2" id="card2">
+				<div class="info-card info">
+					<h3>Yonatan</h3>
+					<p>
+						<i class="fas fa-phone"></i> <span>11 3936-6942</span>
+					</p>
+					<p>
+						<i class="fas fa-envelope"></i> <span>email@email.com</span>
+					</p>
+					<p>
+						<i class="fas fa-map-marker-alt"></i> <span>Av. Dto Alvarez</span>
+					</p>
+				</div>
+				<div class="info-card inputs">
+					<form action="">
+						<h3>Podes hablarme</h3>
+						<input type="text" placeholder="Nombre">
+						<input type="text" placeholder="Mail">
+						<input type="text" placeholder="Asunto">
+						<textarea name="" placeholder="Mensaje"></textarea>
 						<button>Enviar</button>
 					</form>
-				</section>
+				</div>
 			</section>
-
-			<div class="rotador_contacto1"><a href="#rotador1">Enviar Mensaje Yonatan Palacios</a></div>
-			<div class="rotador_contacto2"><a href="#rotador2">Enviar Mensaje Keila Mantiñan</a></div>
-		</div>
 	</main>
 
 	<!-- FOOTER -->
 	<%- include('partials/footer') %>
+	<script src="/js/cards-contact.js"></script>
 </body>
 </html>
