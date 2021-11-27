@@ -30,9 +30,9 @@ module.exports = [
     .notEmpty()
     .withMessage('Debes escribir tu contraseña')
     .isLength({
-        min: 6
+        min: 8
     })
-    .withMessage('La contraseña debe tener como mínimo 6 caracteres'),
+    .withMessage('La contraseña debe tener como mínimo 8 caracteres'),
 
     body('pass2')
     .custom((value, {req}) => value !== req.body.pass1 ? false : true)

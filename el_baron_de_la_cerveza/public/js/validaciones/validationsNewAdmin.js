@@ -13,7 +13,7 @@ function qs(element) {
       $pass2Errors = qs("#pass2Errors"),
       regExAlpha = /^[a-zA-Z\sñáéíóúü\0-9 ].{2,90}$/,
       
-      regExPass = /^^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      regExPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
   
     $inputEmail.addEventListener("blur", function () {
       switch (true) {

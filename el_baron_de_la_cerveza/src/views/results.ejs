@@ -35,10 +35,18 @@
 							 <% if(element.alcoholContent){ %>
 								/ <%= element.alcoholContent %> % ALC 
 							<% } %></b>
-							<button class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></button>
+							<a href="/users/productCart/<%= element.id %>" class="btn-add" alt="Agregar al carrito"><i class="fas fa-shopping-cart"></i></a>
 						</div>
 						<div class="boton-comprar">
-							<button class="btn-buy br">Comprar</button>
+							<% if(session.user !== undefined){%>
+								<a href="/finalizePurchase/<%= element.id %>" class="btn-buy br">Comprar</a><br>
+							<% } else {%>
+								<button id="btnOpenSession" class="btn-buy br">Comprar</button><br>
+							<% } %>
+							<% if (typeof session.user != "undefined") { %>
+								<% if (session.user.rol === 1 || session.user.rol === 2) { %>
+							<a href="/admin/products/edit/<%- element.id %>" class="btn-edit br">Editar</a>
+							<% }} %>
 						</div>
 					</article>
 			<% }) %>

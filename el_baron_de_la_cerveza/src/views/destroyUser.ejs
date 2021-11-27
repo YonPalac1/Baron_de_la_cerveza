@@ -17,11 +17,11 @@
 		<h2><%- user.name %></h2>
 	</div>
 	<main class="config" id="config">
-		<form id="formDelete" class="form-ad" action="/users/destroyUser/<%- user.id %>?_method=DELETE" method="POST">
+		<form id="form" class="form-ad" action="/users/destroyUser/<%- user.id %>?_method=DELETE" method="POST">
 			<p>
-				<!-- <label for="inputPass" class="form-label">Ingrese su contraseña</label> -->
-				<!-- <input type="password" class="form-control" id="inputPass" name="pass"> -->
-				
+				<label for="pass" class="form-label">Ingrese su contraseña</label> 
+				<input type="password" class="form-control" id="pass" name="pass">
+				<span id="passError" style="color: red;"></span>
 			</p>
 				<button type="submit" class="btn-submit">
 					ELIMINAR
@@ -32,8 +32,7 @@
 	</main>
     
 <!-- FOOTER -->
-<!-- /FOOTER 
-<script src="/js/validaciones/validationsPassword.js"></script>-->
+<script src="/js/validaciones/deleteUserCheck.js"></script>
 
 <script src="/js/alerts.js"></script>	
 </body>

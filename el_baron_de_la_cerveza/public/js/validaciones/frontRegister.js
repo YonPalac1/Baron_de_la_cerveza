@@ -1,5 +1,5 @@
-function qs(element) {
-    return document.querySelector(element)
+function qs(elements) {
+    return document.querySelector(elements)
 }
 
 window.addEventListener("load", function() {
@@ -17,7 +17,7 @@ window.addEventListener("load", function() {
     submitErrors = qs("#submitErrors"),
     regExAlpha = /^[a-zA-Z\sñáéíóúü\0-9 ].{20,190}$/,
     regExEmail = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i,
-    regExPass = /^^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    regExPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/i;
 
     $inputName.addEventListener("blur", function () {
         switch (true) {
@@ -55,9 +55,17 @@ window.addEventListener("load", function() {
                 break;
             case !regExPass.test($pass.value):
                 $passErrors.innerHTML = "La contraseña debe tener como minimo 8 caracteres, letras mayúsculas, minúsculas, un número y un carácter especial";
+                $pass.style.border = "2px solid red";
+                $pass.classList.add("error")
                 break 
+            case regExPass.test($pass.value):
+                $passErrors.innerHTML = "";
+                $pass.style.border = "2px solid green";
+                $pass.classList.remove("error")    
+                break
             default:
-                $passErrors.innerHTML = ""
+                $passErrors.innerHTML = "";
+                $pass.classList.remove("error")
                 break;
         }
     });
@@ -96,19 +104,22 @@ window.addEventListener("load", function() {
         console.log($form.elements)
         let elementosForm = this.elements
         
-        for (let index = 0; index < elementosForm.length-1; index++) {
-            if(elementosForm[index].value == ""){
-                elementosForm[index].style.border = "2px solid red";
+        if($check.checked == true){
+            for (let index = 0; index < elementosForm.length-1; index++) {
+                if(elementosForm[index].value == "" && $pass.classList.contains("error")){
+                    elementosForm[index].style.border = "2px solid red";
 
-                submitErrors.innerHTML = "Los campos señalados son obligatorios";
-                error = true;
-                
+                    submitErrors.innerHTML = "Los campos señalados son obligatorios";
+                    error = true;
+                }
             }
-        }
 
-        if(!error){
-            console.log('Todo bien');
-            $form.submit()
+            if(!error){
+                console.log('Todo bien');
+                $form.submit()
+            }
+        } else { 
+            submitErrors.innerHTML = "Debes ser mayor de 18 años para registrarte";
         }
     })
 })

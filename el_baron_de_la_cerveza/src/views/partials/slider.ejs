@@ -29,7 +29,7 @@
 					</div>
 					<div class="boton-comprar">
 						<% if(session.user !== undefined){%>
-							<a href="/users/productCart/<%= product.id %>" class="btn-buy br">Comprar</a><br>
+							<a href="/finalizePurchase/<%= product.id %>" class="btn-buy br">Comprar</a><br>
 						<% } else {%>
 							<button id="btnOpenSession" class="btn-buy br">Comprar</button><br>
 						<% } %>
