@@ -61,3 +61,6 @@ npm install
 
 <p>Y ejecutamos el proyecto desde </p>
 node app.js
+
+## Preview
+<img src="https://github.com/YonPalac1/YonPalac1/blob/main/img/preview.png">
